@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		556EB3791423678200EE1A4E /* PadPadPageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 556EB3781423678200EE1A4E /* PadPadPageView.m */; };
+		556EB37D142368D800EE1A4E /* PadPadPage.m in Sources */ = {isa = PBXBuildFile; fileRef = 556EB37C142368D800EE1A4E /* PadPadPage.m */; };
 		55CF2BC214234CA900E033AF /* PadPadMenuView.m in Sources */ = {isa = PBXBuildFile; fileRef = 55CF2BC114234CA900E033AF /* PadPadMenuView.m */; };
 		55CF2BD2142350A100E033AF /* books.png in Resources */ = {isa = PBXBuildFile; fileRef = 55CF2BC9142350A100E033AF /* books.png */; };
 		55CF2BD3142350A100E033AF /* camera.png in Resources */ = {isa = PBXBuildFile; fileRef = 55CF2BCA142350A100E033AF /* camera.png */; };
@@ -17,6 +19,9 @@
 		55CF2BD8142350A100E033AF /* photosicon.png in Resources */ = {isa = PBXBuildFile; fileRef = 55CF2BCF142350A100E033AF /* photosicon.png */; };
 		55CF2BD9142350A100E033AF /* redo.png in Resources */ = {isa = PBXBuildFile; fileRef = 55CF2BD0142350A100E033AF /* redo.png */; };
 		55CF2BDA142350A100E033AF /* undo.png in Resources */ = {isa = PBXBuildFile; fileRef = 55CF2BD1142350A100E033AF /* undo.png */; };
+		55CF2BDF142361A700E033AF /* photo-camera.png in Resources */ = {isa = PBXBuildFile; fileRef = 55CF2BDE142361A700E033AF /* photo-camera.png */; };
+		55CF2BE51423648000E033AF /* PadPadPaperView.m in Sources */ = {isa = PBXBuildFile; fileRef = 55CF2BE41423648000E033AF /* PadPadPaperView.m */; };
+		55CF2BE81423657F00E033AF /* PadPadBookView.m in Sources */ = {isa = PBXBuildFile; fileRef = 55CF2BE71423657F00E033AF /* PadPadBookView.m */; };
 		55E314D71420CE8600159C45 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 55E314D61420CE8600159C45 /* UIKit.framework */; };
 		55E314D91420CE8600159C45 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 55E314D81420CE8600159C45 /* Foundation.framework */; };
 		55E314DB1420CE8600159C45 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 55E314DA1420CE8600159C45 /* CoreGraphics.framework */; };
@@ -46,6 +51,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		556EB3771423678200EE1A4E /* PadPadPageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PadPadPageView.h; sourceTree = "<group>"; };
+		556EB3781423678200EE1A4E /* PadPadPageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PadPadPageView.m; sourceTree = "<group>"; };
+		556EB37B142368D800EE1A4E /* PadPadPage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PadPadPage.h; sourceTree = "<group>"; };
+		556EB37C142368D800EE1A4E /* PadPadPage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PadPadPage.m; sourceTree = "<group>"; };
+		556EB3821423792400EE1A4E /* PadPadCGUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PadPadCGUtil.h; sourceTree = "<group>"; };
 		55CF2BC014234CA900E033AF /* PadPadMenuView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PadPadMenuView.h; sourceTree = "<group>"; };
 		55CF2BC114234CA900E033AF /* PadPadMenuView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PadPadMenuView.m; sourceTree = "<group>"; };
 		55CF2BC9142350A100E033AF /* books.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = books.png; sourceTree = "<group>"; };
@@ -57,6 +67,11 @@
 		55CF2BCF142350A100E033AF /* photosicon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = photosicon.png; sourceTree = "<group>"; };
 		55CF2BD0142350A100E033AF /* redo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = redo.png; sourceTree = "<group>"; };
 		55CF2BD1142350A100E033AF /* undo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = undo.png; sourceTree = "<group>"; };
+		55CF2BDE142361A700E033AF /* photo-camera.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "photo-camera.png"; sourceTree = "<group>"; };
+		55CF2BE31423648000E033AF /* PadPadPaperView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PadPadPaperView.h; sourceTree = "<group>"; };
+		55CF2BE41423648000E033AF /* PadPadPaperView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PadPadPaperView.m; sourceTree = "<group>"; };
+		55CF2BE61423657F00E033AF /* PadPadBookView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PadPadBookView.h; sourceTree = "<group>"; };
+		55CF2BE71423657F00E033AF /* PadPadBookView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PadPadBookView.m; sourceTree = "<group>"; };
 		55E314D21420CE8600159C45 /* PadPad.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PadPad.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		55E314D61420CE8600159C45 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		55E314D81420CE8600159C45 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -104,19 +119,20 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		55CF2BBE14234A2300E033AF /* controllers */ = {
+		55CF2BBE14234A2300E033AF /* controller */ = {
 			isa = PBXGroup;
 			children = (
 				55E314EB1420CE8600159C45 /* PadPadViewController.h */,
 				55E314EC1420CE8600159C45 /* PadPadViewController.m */,
 				55E314EE1420CE8600159C45 /* PadPadViewController.xib */,
 			);
-			name = controllers;
+			name = controller;
 			sourceTree = "<group>";
 		};
 		55CF2BC314234CE300E033AF /* assets */ = {
 			isa = PBXGroup;
 			children = (
+				55CF2BDE142361A700E033AF /* photo-camera.png */,
 				55CF2BC9142350A100E033AF /* books.png */,
 				55CF2BCA142350A100E033AF /* camera.png */,
 				55CF2BCB142350A100E033AF /* clear.png */,
@@ -136,8 +152,33 @@
 				55E314E51420CE8600159C45 /* PadPadAppDelegate.h */,
 				55E314E61420CE8600159C45 /* PadPadAppDelegate.m */,
 				55E314E81420CE8600159C45 /* MainWindow.xib */,
+				556EB3821423792400EE1A4E /* PadPadCGUtil.h */,
 			);
 			name = app;
+			sourceTree = "<group>";
+		};
+		55CF2BDC14235F7E00E033AF /* view */ = {
+			isa = PBXGroup;
+			children = (
+				55CF2BC014234CA900E033AF /* PadPadMenuView.h */,
+				55CF2BC114234CA900E033AF /* PadPadMenuView.m */,
+				55CF2BE31423648000E033AF /* PadPadPaperView.h */,
+				55CF2BE41423648000E033AF /* PadPadPaperView.m */,
+				55CF2BE61423657F00E033AF /* PadPadBookView.h */,
+				55CF2BE71423657F00E033AF /* PadPadBookView.m */,
+				556EB3771423678200EE1A4E /* PadPadPageView.h */,
+				556EB3781423678200EE1A4E /* PadPadPageView.m */,
+			);
+			name = view;
+			sourceTree = "<group>";
+		};
+		55CF2BDD14235FCC00E033AF /* model */ = {
+			isa = PBXGroup;
+			children = (
+				556EB37B142368D800EE1A4E /* PadPadPage.h */,
+				556EB37C142368D800EE1A4E /* PadPadPage.m */,
+			);
+			name = model;
 			sourceTree = "<group>";
 		};
 		55E314C71420CE8600159C45 = {
@@ -173,12 +214,12 @@
 		55E314DC1420CE8600159C45 /* PadPad */ = {
 			isa = PBXGroup;
 			children = (
-				55CF2BC314234CE300E033AF /* assets */,
 				55CF2BDB14235D6400E033AF /* app */,
-				55CF2BBE14234A2300E033AF /* controllers */,
+				55CF2BC314234CE300E033AF /* assets */,
+				55CF2BDD14235FCC00E033AF /* model */,
+				55CF2BDC14235F7E00E033AF /* view */,
+				55CF2BBE14234A2300E033AF /* controller */,
 				55E314DD1420CE8600159C45 /* Supporting Files */,
-				55CF2BC014234CA900E033AF /* PadPadMenuView.h */,
-				55CF2BC114234CA900E033AF /* PadPadMenuView.m */,
 			);
 			path = PadPad;
 			sourceTree = "<group>";
@@ -292,6 +333,7 @@
 				55CF2BD8142350A100E033AF /* photosicon.png in Resources */,
 				55CF2BD9142350A100E033AF /* redo.png in Resources */,
 				55CF2BDA142350A100E033AF /* undo.png in Resources */,
+				55CF2BDF142361A700E033AF /* photo-camera.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -331,6 +373,10 @@
 				55E314E71420CE8600159C45 /* PadPadAppDelegate.m in Sources */,
 				55E314ED1420CE8600159C45 /* PadPadViewController.m in Sources */,
 				55CF2BC214234CA900E033AF /* PadPadMenuView.m in Sources */,
+				55CF2BE51423648000E033AF /* PadPadPaperView.m in Sources */,
+				55CF2BE81423657F00E033AF /* PadPadBookView.m in Sources */,
+				556EB3791423678200EE1A4E /* PadPadPageView.m in Sources */,
+				556EB37D142368D800EE1A4E /* PadPadPage.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
