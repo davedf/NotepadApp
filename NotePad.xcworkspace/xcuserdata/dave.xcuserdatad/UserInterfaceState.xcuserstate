@@ -2080,7 +2080,7 @@
     s = 0;
 }</string>
 		</dict>
-		<real>337881003.47984701</real>
+		<real>337881008.67710501</real>
 		<string>{339, 792}</string>
 		<string>{529, 0}</string>
 		<dict>
@@ -2897,7 +2897,7 @@
 				</dict>
 			</array>
 		</dict>
-		<real>337881003.47996598</real>
+		<real>337881003.52231902</real>
 		<string>{142, 598}</string>
 		<dict>
 			<key>$class</key>
@@ -4686,7 +4686,7 @@
 				</dict>
 			</array>
 		</dict>
-		<real>337881003.48052698</real>
+		<real>337881008.67775297</real>
 		<string>{339, 792}</string>
 		<string>{529, 0}</string>
 		<string>-willRotateToInterfaceOrientation:duration:</string>
