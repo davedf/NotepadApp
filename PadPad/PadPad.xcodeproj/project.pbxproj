@@ -1,0 +1,458 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		553A669814333A8900503CC7 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 553A669714333A8900503CC7 /* UIKit.framework */; };
+		553A669A14333A8900503CC7 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 553A669914333A8900503CC7 /* Foundation.framework */; };
+		553A669C14333A8900503CC7 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 553A669B14333A8900503CC7 /* CoreGraphics.framework */; };
+		553A66A214333A8900503CC7 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 553A66A014333A8900503CC7 /* InfoPlist.strings */; };
+		553A66A414333A8900503CC7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 553A66A314333A8900503CC7 /* main.m */; };
+		553A66A814333A8900503CC7 /* DdfPadPadAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 553A66A714333A8900503CC7 /* DdfPadPadAppDelegate.m */; };
+		553A66AB14333A8900503CC7 /* DdfPadPadRootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 553A66AA14333A8900503CC7 /* DdfPadPadRootViewController.m */; };
+		553A66AE14333A8900503CC7 /* DdfPadPadDataViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 553A66AD14333A8900503CC7 /* DdfPadPadDataViewController.m */; };
+		553A66B114333A8900503CC7 /* DdfPadPadModelController.m in Sources */ = {isa = PBXBuildFile; fileRef = 553A66B014333A8900503CC7 /* DdfPadPadModelController.m */; };
+		553A66B414333A8900503CC7 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 553A66B214333A8900503CC7 /* MainStoryboard.storyboard */; };
+		553A66BC14333A8900503CC7 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 553A66BB14333A8900503CC7 /* SenTestingKit.framework */; };
+		553A66BD14333A8900503CC7 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 553A669714333A8900503CC7 /* UIKit.framework */; };
+		553A66BE14333A8900503CC7 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 553A669914333A8900503CC7 /* Foundation.framework */; };
+		553A66C614333A8900503CC7 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 553A66C414333A8900503CC7 /* InfoPlist.strings */; };
+		553A66C914333A8A00503CC7 /* PadPadTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 553A66C814333A8A00503CC7 /* PadPadTests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		553A66BF14333A8900503CC7 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 553A668A14333A8900503CC7 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 553A669214333A8900503CC7;
+			remoteInfo = PadPad;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		553A669314333A8900503CC7 /* PadPad.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PadPad.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		553A669714333A8900503CC7 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		553A669914333A8900503CC7 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		553A669B14333A8900503CC7 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		553A669F14333A8900503CC7 /* PadPad-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "PadPad-Info.plist"; sourceTree = "<group>"; };
+		553A66A114333A8900503CC7 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		553A66A314333A8900503CC7 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		553A66A514333A8900503CC7 /* PadPad-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "PadPad-Prefix.pch"; sourceTree = "<group>"; };
+		553A66A614333A8900503CC7 /* DdfPadPadAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DdfPadPadAppDelegate.h; sourceTree = "<group>"; };
+		553A66A714333A8900503CC7 /* DdfPadPadAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DdfPadPadAppDelegate.m; sourceTree = "<group>"; };
+		553A66A914333A8900503CC7 /* DdfPadPadRootViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DdfPadPadRootViewController.h; sourceTree = "<group>"; };
+		553A66AA14333A8900503CC7 /* DdfPadPadRootViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DdfPadPadRootViewController.m; sourceTree = "<group>"; };
+		553A66AC14333A8900503CC7 /* DdfPadPadDataViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DdfPadPadDataViewController.h; sourceTree = "<group>"; };
+		553A66AD14333A8900503CC7 /* DdfPadPadDataViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DdfPadPadDataViewController.m; sourceTree = "<group>"; };
+		553A66AF14333A8900503CC7 /* DdfPadPadModelController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DdfPadPadModelController.h; sourceTree = "<group>"; };
+		553A66B014333A8900503CC7 /* DdfPadPadModelController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DdfPadPadModelController.m; sourceTree = "<group>"; };
+		553A66B314333A8900503CC7 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
+		553A66BA14333A8900503CC7 /* PadPadTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PadPadTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
+		553A66BB14333A8900503CC7 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
+		553A66C314333A8900503CC7 /* PadPadTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "PadPadTests-Info.plist"; sourceTree = "<group>"; };
+		553A66C514333A8900503CC7 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		553A66C714333A8A00503CC7 /* PadPadTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PadPadTests.h; sourceTree = "<group>"; };
+		553A66C814333A8A00503CC7 /* PadPadTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PadPadTests.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		553A669014333A8900503CC7 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				553A669814333A8900503CC7 /* UIKit.framework in Frameworks */,
+				553A669A14333A8900503CC7 /* Foundation.framework in Frameworks */,
+				553A669C14333A8900503CC7 /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		553A66B614333A8900503CC7 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				553A66BC14333A8900503CC7 /* SenTestingKit.framework in Frameworks */,
+				553A66BD14333A8900503CC7 /* UIKit.framework in Frameworks */,
+				553A66BE14333A8900503CC7 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		553A668814333A8900503CC7 = {
+			isa = PBXGroup;
+			children = (
+				553A669D14333A8900503CC7 /* PadPad */,
+				553A66C114333A8900503CC7 /* PadPadTests */,
+				553A669614333A8900503CC7 /* Frameworks */,
+				553A669414333A8900503CC7 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		553A669414333A8900503CC7 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				553A669314333A8900503CC7 /* PadPad.app */,
+				553A66BA14333A8900503CC7 /* PadPadTests.octest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		553A669614333A8900503CC7 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				553A669714333A8900503CC7 /* UIKit.framework */,
+				553A669914333A8900503CC7 /* Foundation.framework */,
+				553A669B14333A8900503CC7 /* CoreGraphics.framework */,
+				553A66BB14333A8900503CC7 /* SenTestingKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		553A669D14333A8900503CC7 /* PadPad */ = {
+			isa = PBXGroup;
+			children = (
+				553A66A614333A8900503CC7 /* DdfPadPadAppDelegate.h */,
+				553A66A714333A8900503CC7 /* DdfPadPadAppDelegate.m */,
+				553A66A914333A8900503CC7 /* DdfPadPadRootViewController.h */,
+				553A66AA14333A8900503CC7 /* DdfPadPadRootViewController.m */,
+				553A66AC14333A8900503CC7 /* DdfPadPadDataViewController.h */,
+				553A66AD14333A8900503CC7 /* DdfPadPadDataViewController.m */,
+				553A66AF14333A8900503CC7 /* DdfPadPadModelController.h */,
+				553A66B014333A8900503CC7 /* DdfPadPadModelController.m */,
+				553A66B214333A8900503CC7 /* MainStoryboard.storyboard */,
+				553A669E14333A8900503CC7 /* Supporting Files */,
+			);
+			path = PadPad;
+			sourceTree = "<group>";
+		};
+		553A669E14333A8900503CC7 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				553A669F14333A8900503CC7 /* PadPad-Info.plist */,
+				553A66A014333A8900503CC7 /* InfoPlist.strings */,
+				553A66A314333A8900503CC7 /* main.m */,
+				553A66A514333A8900503CC7 /* PadPad-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		553A66C114333A8900503CC7 /* PadPadTests */ = {
+			isa = PBXGroup;
+			children = (
+				553A66C714333A8A00503CC7 /* PadPadTests.h */,
+				553A66C814333A8A00503CC7 /* PadPadTests.m */,
+				553A66C214333A8900503CC7 /* Supporting Files */,
+			);
+			path = PadPadTests;
+			sourceTree = "<group>";
+		};
+		553A66C214333A8900503CC7 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				553A66C314333A8900503CC7 /* PadPadTests-Info.plist */,
+				553A66C414333A8900503CC7 /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		553A669214333A8900503CC7 /* PadPad */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 553A66CC14333A8A00503CC7 /* Build configuration list for PBXNativeTarget "PadPad" */;
+			buildPhases = (
+				553A668F14333A8900503CC7 /* Sources */,
+				553A669014333A8900503CC7 /* Frameworks */,
+				553A669114333A8900503CC7 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = PadPad;
+			productName = PadPad;
+			productReference = 553A669314333A8900503CC7 /* PadPad.app */;
+			productType = "com.apple.product-type.application";
+		};
+		553A66B914333A8900503CC7 /* PadPadTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 553A66CF14333A8A00503CC7 /* Build configuration list for PBXNativeTarget "PadPadTests" */;
+			buildPhases = (
+				553A66B514333A8900503CC7 /* Sources */,
+				553A66B614333A8900503CC7 /* Frameworks */,
+				553A66B714333A8900503CC7 /* Resources */,
+				553A66B814333A8900503CC7 /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				553A66C014333A8900503CC7 /* PBXTargetDependency */,
+			);
+			name = PadPadTests;
+			productName = PadPadTests;
+			productReference = 553A66BA14333A8900503CC7 /* PadPadTests.octest */;
+			productType = "com.apple.product-type.bundle";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		553A668A14333A8900503CC7 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0420;
+			};
+			buildConfigurationList = 553A668D14333A8900503CC7 /* Build configuration list for PBXProject "PadPad" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 553A668814333A8900503CC7;
+			productRefGroup = 553A669414333A8900503CC7 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				553A669214333A8900503CC7 /* PadPad */,
+				553A66B914333A8900503CC7 /* PadPadTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		553A669114333A8900503CC7 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				553A66A214333A8900503CC7 /* InfoPlist.strings in Resources */,
+				553A66B414333A8900503CC7 /* MainStoryboard.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		553A66B714333A8900503CC7 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				553A66C614333A8900503CC7 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		553A66B814333A8900503CC7 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		553A668F14333A8900503CC7 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				553A66A414333A8900503CC7 /* main.m in Sources */,
+				553A66A814333A8900503CC7 /* DdfPadPadAppDelegate.m in Sources */,
+				553A66AB14333A8900503CC7 /* DdfPadPadRootViewController.m in Sources */,
+				553A66AE14333A8900503CC7 /* DdfPadPadDataViewController.m in Sources */,
+				553A66B114333A8900503CC7 /* DdfPadPadModelController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		553A66B514333A8900503CC7 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				553A66C914333A8A00503CC7 /* PadPadTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		553A66C014333A8900503CC7 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 553A669214333A8900503CC7 /* PadPad */;
+			targetProxy = 553A66BF14333A8900503CC7 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		553A66A014333A8900503CC7 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				553A66A114333A8900503CC7 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		553A66B214333A8900503CC7 /* MainStoryboard.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				553A66B314333A8900503CC7 /* en */,
+			);
+			name = MainStoryboard.storyboard;
+			sourceTree = "<group>";
+		};
+		553A66C414333A8900503CC7 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				553A66C514333A8900503CC7 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		553A66CA14333A8A00503CC7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = 2;
+			};
+			name = Debug;
+		};
+		553A66CB14333A8A00503CC7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = 2;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		553A66CD14333A8A00503CC7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "PadPad/PadPad-Prefix.pch";
+				INFOPLIST_FILE = "PadPad/PadPad-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		553A66CE14333A8A00503CC7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "PadPad/PadPad-Prefix.pch";
+				INFOPLIST_FILE = "PadPad/PadPad-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		553A66D014333A8A00503CC7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/PadPad.app/PadPad";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "PadPad/PadPad-Prefix.pch";
+				INFOPLIST_FILE = "PadPadTests/PadPadTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Debug;
+		};
+		553A66D114333A8A00503CC7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/PadPad.app/PadPad";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "PadPad/PadPad-Prefix.pch";
+				INFOPLIST_FILE = "PadPadTests/PadPadTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		553A668D14333A8900503CC7 /* Build configuration list for PBXProject "PadPad" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				553A66CA14333A8A00503CC7 /* Debug */,
+				553A66CB14333A8A00503CC7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		553A66CC14333A8A00503CC7 /* Build configuration list for PBXNativeTarget "PadPad" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				553A66CD14333A8A00503CC7 /* Debug */,
+				553A66CE14333A8A00503CC7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		553A66CF14333A8A00503CC7 /* Build configuration list for PBXNativeTarget "PadPadTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				553A66D014333A8A00503CC7 /* Debug */,
+				553A66D114333A8A00503CC7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 553A668A14333A8900503CC7 /* Project object */;
+}
