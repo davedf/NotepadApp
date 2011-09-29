@@ -30,7 +30,7 @@
 
     // Set the page view controller's bounds using an inset rect so that self's view is visible around the edges of the pages.
     CGRect pageViewRect = self.view.bounds;
-    pageViewRect = CGRectInset(pageViewRect, 40.0, 40.0);
+    pageViewRect = CGRectOffset(CGRectInset(pageViewRect, 0.0, 20.0), 0, 20) ;
     self.pageViewController.view.frame = pageViewRect;
 
     [self.pageViewController didMoveToParentViewController:self];    

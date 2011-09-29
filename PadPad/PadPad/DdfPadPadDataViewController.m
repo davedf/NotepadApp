@@ -1,5 +1,5 @@
 #import "DdfPadPadDataViewController.h"
-
+#import "DdFPadPadPage.h"
 @implementation DdfPadPadDataViewController
 
 @synthesize dataLabel=_dataLabel,dataObject=_dataObject,inkView=_inkView;
@@ -9,7 +9,8 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    self.dataLabel.text = [self.dataObject description];
+    NSLog(@"dataObject:%@",self.dataObject);
+    self.dataLabel.text = self.dataObject.pageLabel;
     [self.inkView addGestureRecognizer:[[UIPanGestureRecognizer alloc]initWithTarget:self action:@selector(inkPanned:)]];
 }
 

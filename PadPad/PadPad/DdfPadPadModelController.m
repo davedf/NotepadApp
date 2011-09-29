@@ -1,6 +1,7 @@
 #import "DdfPadPadModelController.h"
 
 #import "DdfPadPadDataViewController.h"
+#import "DdFPadPadPage.h"
 
 /*
  A controller object that manages a simple model -- a collection of month names.
@@ -12,30 +13,45 @@
  */
 
 @interface DdfPadPadModelController()
-@property (readonly, strong, nonatomic) NSArray *pageData;
+@property (readonly, strong, nonatomic) NSMutableArray *pageData;
+
+-(void)ensurePageToIndex:(NSUInteger)index;
 @end
 
 @implementation DdfPadPadModelController
 
-@synthesize pageData = _pageData;
+@synthesize pageData=_pageData;
 
 - (id)init
 {
     self = [super init];
     if (self) {
         // Create the data model.
-        NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-        _pageData = [[dateFormatter monthSymbols] copy];
+//        NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+//        _pageData = [[dateFormatter monthSymbols] copy];
+        _pageData= [NSMutableArray array];
     }
     return self;
 }
 
+-(void)ensurePageToIndex:(NSUInteger)index {
+    BOOL added = NO;
+    while (self.pageData.count <= index) {
+        [self.pageData addObject:[[DdFPadPadPage alloc]init]];
+        added = YES;
+    }
+    if (added) {
+        for (NSUInteger i = 0; i < self.pageData.count; i++) {
+            DdFPadPadPage *page = [self.pageData objectAtIndex:i];
+            page.pageLabel = [NSString stringWithFormat:@"%d",(i+1)];
+        }
+    }
+    
+}
 - (DdfPadPadDataViewController *)viewControllerAtIndex:(NSUInteger)index storyboard:(UIStoryboard *)storyboard
 {   
     // Return the data view controller for the given index.
-    if (([self.pageData count] == 0) || (index >= [self.pageData count])) {
-        return nil;
-    }
+    [self ensurePageToIndex:index];
     
     // Create a new view controller and pass suitable data.
     DdfPadPadDataViewController *dataViewController = [storyboard instantiateViewControllerWithIdentifier:@"DdfPadPadDataViewController"];
@@ -70,12 +86,10 @@
     NSUInteger index = [self indexOfViewController:(DdfPadPadDataViewController *)viewController];
     if (index == NSNotFound) {
         return nil;
-    }
-    
+    }    
     index++;
-    if (index == [self.pageData count]) {
-        return nil;
-    }
+    [self ensurePageToIndex:index];
+
     return [self viewControllerAtIndex:index storyboard:viewController.storyboard];
 }
 

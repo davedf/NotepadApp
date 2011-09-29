@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		551872541434A0D3009125A6 /* photo-camera.png in Resources */ = {isa = PBXBuildFile; fileRef = 551872531434A0D3009125A6 /* photo-camera.png */; };
+		5518725B1434ABC1009125A6 /* DdFPadPadPage.m in Sources */ = {isa = PBXBuildFile; fileRef = 5518725A1434ABC1009125A6 /* DdFPadPadPage.m */; };
 		553A669814333A8900503CC7 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 553A669714333A8900503CC7 /* UIKit.framework */; };
 		553A669A14333A8900503CC7 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 553A669914333A8900503CC7 /* Foundation.framework */; };
 		553A669C14333A8900503CC7 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 553A669B14333A8900503CC7 /* CoreGraphics.framework */; };
@@ -35,6 +37,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		551872531434A0D3009125A6 /* photo-camera.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "photo-camera.png"; sourceTree = "<group>"; };
+		551872591434ABC1009125A6 /* DdFPadPadPage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DdFPadPadPage.h; sourceTree = "<group>"; };
+		5518725A1434ABC1009125A6 /* DdFPadPadPage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DdFPadPadPage.m; sourceTree = "<group>"; };
 		553A669314333A8900503CC7 /* PadPad.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PadPad.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		553A669714333A8900503CC7 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		553A669914333A8900503CC7 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -84,6 +89,53 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		551872511434A07E009125A6 /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				551872531434A0D3009125A6 /* photo-camera.png */,
+			);
+			path = Assets;
+			sourceTree = "<group>";
+		};
+		551872551434A2BA009125A6 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				553A66A914333A8900503CC7 /* DdfPadPadRootViewController.h */,
+				553A66AA14333A8900503CC7 /* DdfPadPadRootViewController.m */,
+				553A66AC14333A8900503CC7 /* DdfPadPadDataViewController.h */,
+				553A66AD14333A8900503CC7 /* DdfPadPadDataViewController.m */,
+				553A66AF14333A8900503CC7 /* DdfPadPadModelController.h */,
+				553A66B014333A8900503CC7 /* DdfPadPadModelController.m */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		551872561434A2D3009125A6 /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				553A66A614333A8900503CC7 /* DdfPadPadAppDelegate.h */,
+				553A66A714333A8900503CC7 /* DdfPadPadAppDelegate.m */,
+				553A66B214333A8900503CC7 /* MainStoryboard.storyboard */,
+			);
+			name = Application;
+			sourceTree = "<group>";
+		};
+		551872571434A2EC009125A6 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				551872591434ABC1009125A6 /* DdFPadPadPage.h */,
+				5518725A1434ABC1009125A6 /* DdFPadPadPage.m */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		551872581434A300009125A6 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
 		553A668814333A8900503CC7 = {
 			isa = PBXGroup;
 			children = (
@@ -117,15 +169,11 @@
 		553A669D14333A8900503CC7 /* PadPad */ = {
 			isa = PBXGroup;
 			children = (
-				553A66A614333A8900503CC7 /* DdfPadPadAppDelegate.h */,
-				553A66A714333A8900503CC7 /* DdfPadPadAppDelegate.m */,
-				553A66A914333A8900503CC7 /* DdfPadPadRootViewController.h */,
-				553A66AA14333A8900503CC7 /* DdfPadPadRootViewController.m */,
-				553A66AC14333A8900503CC7 /* DdfPadPadDataViewController.h */,
-				553A66AD14333A8900503CC7 /* DdfPadPadDataViewController.m */,
-				553A66AF14333A8900503CC7 /* DdfPadPadModelController.h */,
-				553A66B014333A8900503CC7 /* DdfPadPadModelController.m */,
-				553A66B214333A8900503CC7 /* MainStoryboard.storyboard */,
+				551872511434A07E009125A6 /* Assets */,
+				551872561434A2D3009125A6 /* Application */,
+				551872571434A2EC009125A6 /* Model */,
+				551872581434A300009125A6 /* View */,
+				551872551434A2BA009125A6 /* Controllers */,
 				553A669E14333A8900503CC7 /* Supporting Files */,
 			);
 			path = PadPad;
@@ -233,6 +281,7 @@
 			files = (
 				553A66A214333A8900503CC7 /* InfoPlist.strings in Resources */,
 				553A66B414333A8900503CC7 /* MainStoryboard.storyboard in Resources */,
+				551872541434A0D3009125A6 /* photo-camera.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -272,6 +321,7 @@
 				553A66AB14333A8900503CC7 /* DdfPadPadRootViewController.m in Sources */,
 				553A66AE14333A8900503CC7 /* DdfPadPadDataViewController.m in Sources */,
 				553A66B114333A8900503CC7 /* DdfPadPadModelController.m in Sources */,
+				5518725B1434ABC1009125A6 /* DdFPadPadPage.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -443,6 +493,7 @@
 				553A66CE14333A8A00503CC7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		553A66CF14333A8A00503CC7 /* Build configuration list for PBXNativeTarget "PadPadTests" */ = {
 			isa = XCConfigurationList;
@@ -451,6 +502,7 @@
 				553A66D114333A8A00503CC7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
