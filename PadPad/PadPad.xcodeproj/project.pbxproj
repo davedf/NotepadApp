@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		551872541434A0D3009125A6 /* photo-camera.png in Resources */ = {isa = PBXBuildFile; fileRef = 551872531434A0D3009125A6 /* photo-camera.png */; };
 		5518725B1434ABC1009125A6 /* DdFPadPadPage.m in Sources */ = {isa = PBXBuildFile; fileRef = 5518725A1434ABC1009125A6 /* DdFPadPadPage.m */; };
+		551872681435D202009125A6 /* DdFPadPadBook.m in Sources */ = {isa = PBXBuildFile; fileRef = 551872671435D202009125A6 /* DdFPadPadBook.m */; };
+		5518726B1435D29A009125A6 /* DdFPadPadPageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5518726A1435D29A009125A6 /* DdFPadPadPageView.m */; };
+		5518726D1435D6B5009125A6 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5518726C1435D6B5009125A6 /* QuartzCore.framework */; };
 		553A669814333A8900503CC7 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 553A669714333A8900503CC7 /* UIKit.framework */; };
 		553A669A14333A8900503CC7 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 553A669914333A8900503CC7 /* Foundation.framework */; };
 		553A669C14333A8900503CC7 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 553A669B14333A8900503CC7 /* CoreGraphics.framework */; };
@@ -40,6 +43,11 @@
 		551872531434A0D3009125A6 /* photo-camera.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "photo-camera.png"; sourceTree = "<group>"; };
 		551872591434ABC1009125A6 /* DdFPadPadPage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DdFPadPadPage.h; sourceTree = "<group>"; };
 		5518725A1434ABC1009125A6 /* DdFPadPadPage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DdFPadPadPage.m; sourceTree = "<group>"; };
+		551872661435D202009125A6 /* DdFPadPadBook.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DdFPadPadBook.h; sourceTree = "<group>"; };
+		551872671435D202009125A6 /* DdFPadPadBook.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DdFPadPadBook.m; sourceTree = "<group>"; };
+		551872691435D29A009125A6 /* DdFPadPadPageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DdFPadPadPageView.h; sourceTree = "<group>"; };
+		5518726A1435D29A009125A6 /* DdFPadPadPageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DdFPadPadPageView.m; sourceTree = "<group>"; };
+		5518726C1435D6B5009125A6 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		553A669314333A8900503CC7 /* PadPad.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PadPad.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		553A669714333A8900503CC7 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		553A669914333A8900503CC7 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -70,6 +78,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5518726D1435D6B5009125A6 /* QuartzCore.framework in Frameworks */,
 				553A669814333A8900503CC7 /* UIKit.framework in Frameworks */,
 				553A669A14333A8900503CC7 /* Foundation.framework in Frameworks */,
 				553A669C14333A8900503CC7 /* CoreGraphics.framework in Frameworks */,
@@ -125,6 +134,8 @@
 			children = (
 				551872591434ABC1009125A6 /* DdFPadPadPage.h */,
 				5518725A1434ABC1009125A6 /* DdFPadPadPage.m */,
+				551872661435D202009125A6 /* DdFPadPadBook.h */,
+				551872671435D202009125A6 /* DdFPadPadBook.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -132,6 +143,8 @@
 		551872581434A300009125A6 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				551872691435D29A009125A6 /* DdFPadPadPageView.h */,
+				5518726A1435D29A009125A6 /* DdFPadPadPageView.m */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -158,6 +171,7 @@
 		553A669614333A8900503CC7 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				5518726C1435D6B5009125A6 /* QuartzCore.framework */,
 				553A669714333A8900503CC7 /* UIKit.framework */,
 				553A669914333A8900503CC7 /* Foundation.framework */,
 				553A669B14333A8900503CC7 /* CoreGraphics.framework */,
@@ -322,6 +336,8 @@
 				553A66AE14333A8900503CC7 /* DdfPadPadDataViewController.m in Sources */,
 				553A66B114333A8900503CC7 /* DdfPadPadModelController.m in Sources */,
 				5518725B1434ABC1009125A6 /* DdFPadPadPage.m in Sources */,
+				551872681435D202009125A6 /* DdFPadPadBook.m in Sources */,
+				5518726B1435D29A009125A6 /* DdFPadPadPageView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

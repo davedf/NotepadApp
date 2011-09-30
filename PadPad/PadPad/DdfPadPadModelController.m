@@ -44,6 +44,7 @@
         for (NSUInteger i = 0; i < self.pageData.count; i++) {
             DdFPadPadPage *page = [self.pageData objectAtIndex:i];
             page.pageLabel = [NSString stringWithFormat:@"%d",(i+1)];
+            page.pageNumber = (i+1);
         }
     }
     
