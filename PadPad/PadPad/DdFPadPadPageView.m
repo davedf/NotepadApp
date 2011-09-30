@@ -4,6 +4,10 @@
 
 @interface DdFPadPadPageView()
 -(void)setPageSide:(DdFPadPadPageViewSide)side;
+-(void)showSpineShading;
+-(void)hideSpineShading;
+
+@property (strong, nonatomic) DdFPadPadPage *dataObject;
 
 @end
 
@@ -51,7 +55,16 @@
         drawnSide = requestedSide;
     }
 }
+-(void)willRotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration {
+    NSLog(@"hidePageSide for page:%d",self.dataObject.pageNumber);
+    [self hideSpineShading];
+    [self performSelector:@selector(showSpineShading) withObject:nil afterDelay:duration/2];    
+}
 
+-(void)showPage:(DdFPadPadPage*)page {
+    self.dataObject= page;
+    [self showSpineShading];
+}
 -(void)showSpineShading {
     if (UIInterfaceOrientationIsPortrait([[UIApplication sharedApplication] statusBarOrientation])) {
         NSLog(@"setSpineShading:Left for page:%d",self.dataObject.pageNumber);

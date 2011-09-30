@@ -17,8 +17,7 @@
     [super viewWillAppear:animated];
     NSLog(@"dataObject:%@",self.dataObject);
     self.dataLabel.text = self.dataObject.pageLabel;
-    self.pageView.dataObject= self.dataObject;
-    [self.pageView showSpineShading];
+    [self.pageView showPage:self.dataObject];
     [self.inkView setBackgroundColor:[UIColor clearColor]];
     [self.inkView addGestureRecognizer:[[UIPanGestureRecognizer alloc]initWithTarget:self action:@selector(inkPanned:)]];
 }
@@ -33,11 +32,8 @@
     return YES;
 }
 
--(void)willRotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration {
-        NSLog(@"hidePageSide for page:%d",self.dataObject.pageNumber);
-        [self.pageView hideSpineShading];
-        [self.pageView performSelector:@selector(showSpineShading) withObject:nil afterDelay:duration];
-        return;
+-(void)willRotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration {        
+    [self.pageView willRotateToInterfaceOrientation:toInterfaceOrientation duration:duration];
 }
 
 #pragma mark - DdfPadPadDataViewController() 

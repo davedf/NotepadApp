@@ -6,8 +6,7 @@ typedef enum {kDdFPadPadPageView_None=0,kDdFPadPadPageView_Left,kDdFPadPadPageVi
 
 @interface DdFPadPadPageView : UIView
 
-@property (strong, nonatomic) DdFPadPadPage *dataObject;
 
--(void)showSpineShading;
--(void)hideSpineShading;
+-(void)willRotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration;
+-(void)showPage:(DdFPadPadPage*)page;
 @end
