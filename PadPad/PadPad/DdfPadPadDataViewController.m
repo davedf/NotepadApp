@@ -1,9 +1,9 @@
 #import "DdfPadPadDataViewController.h"
 #import "DdFPadPadPage.h"
 #import "DdFPadPadPageView.h"
+
 @interface DdfPadPadDataViewController()
 @property (readonly) DdFPadPadPageView *pageView;
--(void)setSpineShading;
 @end
 
 @implementation DdfPadPadDataViewController
@@ -17,7 +17,8 @@
     [super viewWillAppear:animated];
     NSLog(@"dataObject:%@",self.dataObject);
     self.dataLabel.text = self.dataObject.pageLabel;
-    [self setSpineShading];
+    self.pageView.dataObject= self.dataObject;
+    [self.pageView showSpineShading];
     [self.inkView setBackgroundColor:[UIColor clearColor]];
     [self.inkView addGestureRecognizer:[[UIPanGestureRecognizer alloc]initWithTarget:self action:@selector(inkPanned:)]];
 }
@@ -29,24 +30,14 @@
                                        
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
-    // Return YES for supported orientations
     return YES;
 }
 
 -(void)willRotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration {
-    NSLog(@"willRotateToInterfaceOrientation:%@ from:%@",UIInterfaceOrientationIsPortrait(toInterfaceOrientation) ? @"Portrait": @"Landscape",UIInterfaceOrientationIsPortrait([[UIApplication sharedApplication] statusBarOrientation]) ? @"Portrait": @"Landscape");
-    if (UIInterfaceOrientationIsPortrait([[UIApplication sharedApplication] statusBarOrientation]) && !UIInterfaceOrientationIsPortrait(toInterfaceOrientation)) {
         NSLog(@"hidePageSide for page:%d",self.dataObject.pageNumber);
-        [self.pageView hidePageSide];
-        [self performSelector:@selector(setSpineShading) withObject:nil afterDelay:duration];
+        [self.pageView hideSpineShading];
+        [self.pageView performSelector:@selector(showSpineShading) withObject:nil afterDelay:duration];
         return;
-    } 
-    if (UIInterfaceOrientationIsLandscape([[UIApplication sharedApplication] statusBarOrientation]) && !UIInterfaceOrientationIsLandscape(toInterfaceOrientation)) {
-        NSLog(@"hidePageSide for page:%d",self.dataObject.pageNumber);
-        [self.pageView hidePageSide];
-        [self performSelector:@selector(setSpineShading) withObject:nil afterDelay:duration + 0.01];
-        return;
-    } 
 }
 
 #pragma mark - DdfPadPadDataViewController() 
@@ -54,23 +45,4 @@
     return (DdFPadPadPageView*)self.view;
 }
 
--(void)setSpineShading {
-    NSLog(@"setSpineShading for page:%d orientation:%@",self.dataObject.pageNumber,UIInterfaceOrientationIsPortrait([[UIApplication sharedApplication] statusBarOrientation]) ? @"Protrait": @"Landscape");
-
-    if (UIInterfaceOrientationIsPortrait([[UIApplication sharedApplication] statusBarOrientation])) {
-        NSLog(@"setSpineShading:Left for page:%d",self.dataObject.pageNumber);
-        [self.pageView setPageSide:kDdFPadPadPageView_Left];
-    }       
-    else {
-        if (self.dataObject.pageNumber % 2 == 0) {
-            NSLog(@"setSpineShading:Left for page:%d",self.dataObject.pageNumber);
-            [self.pageView setPageSide:kDdFPadPadPageView_Left];            
-        }
-        else {
-            NSLog(@"setSpineShading:Right for page:%d",self.dataObject.pageNumber);
-            [self.pageView setPageSide:kDdFPadPadPageView_Right];
-        }
-    }
-
-}
 @end

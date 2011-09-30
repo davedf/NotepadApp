@@ -1,5 +1,11 @@
 #import "DdFPadPadPageView.h"
 #import <QuartzCore/QuartzCore.h>
+#import "DdFPadPadPage.h"
+
+@interface DdFPadPadPageView()
+-(void)setPageSide:(DdFPadPadPageViewSide)side;
+
+@end
 
 #define SPINE_SHADING_WIDTH 20
 @implementation DdFPadPadPageView {
@@ -7,8 +13,9 @@
     DdFPadPadPageViewSide drawnSide;
     DdFPadPadPageViewSide requestedSide;
 }
+@synthesize dataObject=_dataObject;
 
--(void)hidePageSide {
+-(void)hideSpineShading {
     requestedSide = kDdFPadPadPageView_None;
     [self setNeedsDisplay];
 }
@@ -43,6 +50,24 @@
         }
         drawnSide = requestedSide;
     }
+}
+
+-(void)showSpineShading {
+    if (UIInterfaceOrientationIsPortrait([[UIApplication sharedApplication] statusBarOrientation])) {
+        NSLog(@"setSpineShading:Left for page:%d",self.dataObject.pageNumber);
+        [self setPageSide:kDdFPadPadPageView_Left];
+    }       
+    else {
+        if (self.dataObject.pageNumber % 2 == 0) {
+            NSLog(@"setSpineShading:Left for page:%d",self.dataObject.pageNumber);
+            [self setPageSide:kDdFPadPadPageView_Left];            
+        }
+        else {
+            NSLog(@"setSpineShading:Right for page:%d",self.dataObject.pageNumber);
+            [self setPageSide:kDdFPadPadPageView_Right];
+        }
+    }
+    
 }
 
 @end
