@@ -1,6 +1,6 @@
 #import <UIKit/UIKit.h>
 
-typedef enum {kDdFPadPadPageView_Left,kDdFPadPadPageView_Right} DdFPadPadPageViewSide;
+typedef enum {kDdFPadPadPageView_None=0,kDdFPadPadPageView_Left,kDdFPadPadPageView_Right} DdFPadPadPageViewSide;
 
 @interface DdFPadPadPageView : UIView
 
