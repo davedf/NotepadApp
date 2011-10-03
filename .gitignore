@@ -17,6 +17,7 @@ VersionX-revision.h
 
 # build products
 build/
+xcuserdata/
 *.[oa]
 .idea
 # Other source repository archive directories (protects when importing)
