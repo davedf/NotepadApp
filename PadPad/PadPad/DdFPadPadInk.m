@@ -16,4 +16,24 @@
     }
     return self;
 }
+
+-(BOOL)isEqual:(id)object {
+    if (!object) {
+        return NO;
+    }
+    if ([self class] != [object class]) {
+        return NO;
+    }
+    DdFPadPadInk *other = (DdFPadPadInk*)object;
+    if (other.inkSize != self.inkSize) {
+        return NO;
+    }
+    if (other.inkType != self.inkType) {
+        return NO;
+    }
+    if (![other.color isEqual:self.color]) {
+        return NO;
+    }
+    return YES;
+}
 @end

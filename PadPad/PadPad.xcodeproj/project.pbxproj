@@ -28,7 +28,11 @@
 		553A66BD14333A8900503CC7 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 553A669714333A8900503CC7 /* UIKit.framework */; };
 		553A66BE14333A8900503CC7 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 553A669914333A8900503CC7 /* Foundation.framework */; };
 		553A66C614333A8900503CC7 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 553A66C414333A8900503CC7 /* InfoPlist.strings */; };
-		553A66C914333A8A00503CC7 /* PadPadTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 553A66C814333A8A00503CC7 /* PadPadTests.m */; };
+		559C10581439B8B900FBD055 /* DdFPadPadLine.m in Sources */ = {isa = PBXBuildFile; fileRef = 559C10571439B8B900FBD055 /* DdFPadPadLine.m */; };
+		559C105C1439BC4000FBD055 /* DdFPadPadLinePoint.m in Sources */ = {isa = PBXBuildFile; fileRef = 559C105B1439BC4000FBD055 /* DdFPadPadLinePoint.m */; };
+		559C10601439BFF800FBD055 /* DdFPadPadLinePointTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 559C105F1439BFF800FBD055 /* DdFPadPadLinePointTests.m */; };
+		559C10641439C3BD00FBD055 /* CGDdFPadPadUtilsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 559C10631439C3BD00FBD055 /* CGDdFPadPadUtilsTests.m */; };
+		559C10671439C50800FBD055 /* DdFPadPadLineTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 559C10661439C50800FBD055 /* DdFPadPadLineTests.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -75,8 +79,17 @@
 		553A66BB14333A8900503CC7 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
 		553A66C314333A8900503CC7 /* PadPadTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "PadPadTests-Info.plist"; sourceTree = "<group>"; };
 		553A66C514333A8900503CC7 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		553A66C714333A8A00503CC7 /* PadPadTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PadPadTests.h; sourceTree = "<group>"; };
-		553A66C814333A8A00503CC7 /* PadPadTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PadPadTests.m; sourceTree = "<group>"; };
+		559C10561439B8B900FBD055 /* DdFPadPadLine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DdFPadPadLine.h; sourceTree = "<group>"; };
+		559C10571439B8B900FBD055 /* DdFPadPadLine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DdFPadPadLine.m; sourceTree = "<group>"; };
+		559C105A1439BC4000FBD055 /* DdFPadPadLinePoint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DdFPadPadLinePoint.h; sourceTree = "<group>"; };
+		559C105B1439BC4000FBD055 /* DdFPadPadLinePoint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DdFPadPadLinePoint.m; sourceTree = "<group>"; };
+		559C105E1439BFF800FBD055 /* DdFPadPadLinePointTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DdFPadPadLinePointTests.h; sourceTree = "<group>"; };
+		559C105F1439BFF800FBD055 /* DdFPadPadLinePointTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DdFPadPadLinePointTests.m; sourceTree = "<group>"; };
+		559C10611439C15500FBD055 /* CGDdFPadPadUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGDdFPadPadUtils.h; sourceTree = "<group>"; };
+		559C10621439C3BD00FBD055 /* CGDdFPadPadUtilsTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGDdFPadPadUtilsTests.h; sourceTree = "<group>"; };
+		559C10631439C3BD00FBD055 /* CGDdFPadPadUtilsTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CGDdFPadPadUtilsTests.m; sourceTree = "<group>"; };
+		559C10651439C50800FBD055 /* DdFPadPadLineTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DdFPadPadLineTests.h; sourceTree = "<group>"; };
+		559C10661439C50800FBD055 /* DdFPadPadLineTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DdFPadPadLineTests.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -146,6 +159,11 @@
 				5518726F1436015E009125A6 /* DdFPadPadPaper.m */,
 				5518727514360435009125A6 /* DdFPadPadInk.h */,
 				5518727614360435009125A6 /* DdFPadPadInk.m */,
+				559C10561439B8B900FBD055 /* DdFPadPadLine.h */,
+				559C10571439B8B900FBD055 /* DdFPadPadLine.m */,
+				559C105A1439BC4000FBD055 /* DdFPadPadLinePoint.h */,
+				559C105B1439BC4000FBD055 /* DdFPadPadLinePoint.m */,
+				559C10611439C15500FBD055 /* CGDdFPadPadUtils.h */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -233,8 +251,7 @@
 		553A66C114333A8900503CC7 /* PadPadTests */ = {
 			isa = PBXGroup;
 			children = (
-				553A66C714333A8A00503CC7 /* PadPadTests.h */,
-				553A66C814333A8A00503CC7 /* PadPadTests.m */,
+				559C105D1439BFCB00FBD055 /* Model */,
 				553A66C214333A8900503CC7 /* Supporting Files */,
 			);
 			path = PadPadTests;
@@ -247,6 +264,19 @@
 				553A66C414333A8900503CC7 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		559C105D1439BFCB00FBD055 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				559C105E1439BFF800FBD055 /* DdFPadPadLinePointTests.h */,
+				559C105F1439BFF800FBD055 /* DdFPadPadLinePointTests.m */,
+				559C10621439C3BD00FBD055 /* CGDdFPadPadUtilsTests.h */,
+				559C10631439C3BD00FBD055 /* CGDdFPadPadUtilsTests.m */,
+				559C10651439C50800FBD055 /* DdFPadPadLineTests.h */,
+				559C10661439C50800FBD055 /* DdFPadPadLineTests.m */,
+			);
+			name = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -366,6 +396,8 @@
 				5518726B1435D29A009125A6 /* DdFPadPadPageView.m in Sources */,
 				551872701436015E009125A6 /* DdFPadPadPaper.m in Sources */,
 				5518727714360436009125A6 /* DdFPadPadInk.m in Sources */,
+				559C10581439B8B900FBD055 /* DdFPadPadLine.m in Sources */,
+				559C105C1439BC4000FBD055 /* DdFPadPadLinePoint.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -373,7 +405,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				553A66C914333A8A00503CC7 /* PadPadTests.m in Sources */,
+				559C10601439BFF800FBD055 /* DdFPadPadLinePointTests.m in Sources */,
+				559C10641439C3BD00FBD055 /* CGDdFPadPadUtilsTests.m in Sources */,
+				559C10671439C50800FBD055 /* DdFPadPadLineTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
