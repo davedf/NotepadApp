@@ -1,5 +1,13 @@
 #import <Foundation/Foundation.h>
 
-@interface DdFPadPadBook : NSObject
-//UIDocument , NSFileWrapper
+
+@protocol DdFPadPadBookDelegate <NSObject>
+-(void)bookUpdated;
 @end
+
+@interface DdFPadPadBook : UIDocument
+//UIDocument , NSFileWrapper
+
+@property (weak) NSObject<DdFPadPadBookDelegate> *delegate;
+@end
+

@@ -33,6 +33,17 @@
 		559C10601439BFF800FBD055 /* DdFPadPadLinePointTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 559C105F1439BFF800FBD055 /* DdFPadPadLinePointTests.m */; };
 		559C10641439C3BD00FBD055 /* CGDdFPadPadUtilsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 559C10631439C3BD00FBD055 /* CGDdFPadPadUtilsTests.m */; };
 		559C10671439C50800FBD055 /* DdFPadPadLineTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 559C10661439C50800FBD055 /* DdFPadPadLineTests.m */; };
+		55FC97211439FB1600C508F9 /* NSObject+SBJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = 55FC97171439FB1600C508F9 /* NSObject+SBJSON.m */; };
+		55FC97221439FB1600C508F9 /* NSString+SBJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = 55FC97191439FB1600C508F9 /* NSString+SBJSON.m */; };
+		55FC97231439FB1600C508F9 /* SBJsonBase.m in Sources */ = {isa = PBXBuildFile; fileRef = 55FC971B1439FB1600C508F9 /* SBJsonBase.m */; };
+		55FC97241439FB1600C508F9 /* SBJsonParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 55FC971D1439FB1600C508F9 /* SBJsonParser.m */; };
+		55FC97251439FB1600C508F9 /* SBJsonWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = 55FC971F1439FB1600C508F9 /* SBJsonWriter.m */; };
+		55FC97281439FCDC00C508F9 /* DdFPadPadBookInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 55FC97271439FCDC00C508F9 /* DdFPadPadBookInfo.m */; };
+		55FC972C143A05BC00C508F9 /* DdFStringUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 55FC972B143A05BC00C508F9 /* DdFStringUtils.m */; };
+		55FC972F143A088F00C508F9 /* DdFTimeSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 55FC972E143A088F00C508F9 /* DdFTimeSource.m */; };
+		55FC9732143A099100C508F9 /* DdFPadPadBookInfoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 55FC9731143A099100C508F9 /* DdFPadPadBookInfoTests.m */; };
+		55FC9739143B1A4300C508F9 /* NSDate+DdFFormattingTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 55FC9738143B1A4300C508F9 /* NSDate+DdFFormattingTests.m */; };
+		55FC973A143B1A4D00C508F9 /* NSDate+DdFFormatting.m in Sources */ = {isa = PBXBuildFile; fileRef = 55FC9734143B189A00C508F9 /* NSDate+DdFFormatting.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -90,6 +101,29 @@
 		559C10631439C3BD00FBD055 /* CGDdFPadPadUtilsTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CGDdFPadPadUtilsTests.m; sourceTree = "<group>"; };
 		559C10651439C50800FBD055 /* DdFPadPadLineTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DdFPadPadLineTests.h; sourceTree = "<group>"; };
 		559C10661439C50800FBD055 /* DdFPadPadLineTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DdFPadPadLineTests.m; sourceTree = "<group>"; };
+		55FC97131439FB1600C508F9 /* JSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSON.h; sourceTree = "<group>"; };
+		55FC97161439FB1600C508F9 /* NSObject+SBJSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+SBJSON.h"; sourceTree = "<group>"; };
+		55FC97171439FB1600C508F9 /* NSObject+SBJSON.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+SBJSON.m"; sourceTree = "<group>"; };
+		55FC97181439FB1600C508F9 /* NSString+SBJSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+SBJSON.h"; sourceTree = "<group>"; };
+		55FC97191439FB1600C508F9 /* NSString+SBJSON.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+SBJSON.m"; sourceTree = "<group>"; };
+		55FC971A1439FB1600C508F9 /* SBJsonBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonBase.h; sourceTree = "<group>"; };
+		55FC971B1439FB1600C508F9 /* SBJsonBase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonBase.m; sourceTree = "<group>"; };
+		55FC971C1439FB1600C508F9 /* SBJsonParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonParser.h; sourceTree = "<group>"; };
+		55FC971D1439FB1600C508F9 /* SBJsonParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonParser.m; sourceTree = "<group>"; };
+		55FC971E1439FB1600C508F9 /* SBJsonWriter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonWriter.h; sourceTree = "<group>"; };
+		55FC971F1439FB1600C508F9 /* SBJsonWriter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonWriter.m; sourceTree = "<group>"; };
+		55FC97261439FCDC00C508F9 /* DdFPadPadBookInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DdFPadPadBookInfo.h; sourceTree = "<group>"; };
+		55FC97271439FCDC00C508F9 /* DdFPadPadBookInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DdFPadPadBookInfo.m; sourceTree = "<group>"; };
+		55FC972A143A05BC00C508F9 /* DdFStringUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DdFStringUtils.h; sourceTree = "<group>"; };
+		55FC972B143A05BC00C508F9 /* DdFStringUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DdFStringUtils.m; sourceTree = "<group>"; };
+		55FC972D143A088F00C508F9 /* DdFTimeSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DdFTimeSource.h; sourceTree = "<group>"; };
+		55FC972E143A088F00C508F9 /* DdFTimeSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DdFTimeSource.m; sourceTree = "<group>"; };
+		55FC9730143A099100C508F9 /* DdFPadPadBookInfoTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DdFPadPadBookInfoTests.h; sourceTree = "<group>"; };
+		55FC9731143A099100C508F9 /* DdFPadPadBookInfoTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DdFPadPadBookInfoTests.m; sourceTree = "<group>"; };
+		55FC9733143B189A00C508F9 /* NSDate+DdFFormatting.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+DdFFormatting.h"; sourceTree = "<group>"; };
+		55FC9734143B189A00C508F9 /* NSDate+DdFFormatting.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+DdFFormatting.m"; sourceTree = "<group>"; };
+		55FC9737143B1A4300C508F9 /* NSDate+DdFFormattingTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+DdFFormattingTests.h"; sourceTree = "<group>"; };
+		55FC9738143B1A4300C508F9 /* NSDate+DdFFormattingTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+DdFFormattingTests.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -164,6 +198,8 @@
 				559C105A1439BC4000FBD055 /* DdFPadPadLinePoint.h */,
 				559C105B1439BC4000FBD055 /* DdFPadPadLinePoint.m */,
 				559C10611439C15500FBD055 /* CGDdFPadPadUtils.h */,
+				55FC97261439FCDC00C508F9 /* DdFPadPadBookInfo.h */,
+				55FC97271439FCDC00C508F9 /* DdFPadPadBookInfo.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -188,8 +224,19 @@
 		5518727914360865009125A6 /* JSON */ = {
 			isa = PBXGroup;
 			children = (
+				55FC97131439FB1600C508F9 /* JSON.h */,
+				55FC97161439FB1600C508F9 /* NSObject+SBJSON.h */,
+				55FC97171439FB1600C508F9 /* NSObject+SBJSON.m */,
+				55FC97181439FB1600C508F9 /* NSString+SBJSON.h */,
+				55FC97191439FB1600C508F9 /* NSString+SBJSON.m */,
+				55FC971A1439FB1600C508F9 /* SBJsonBase.h */,
+				55FC971B1439FB1600C508F9 /* SBJsonBase.m */,
+				55FC971C1439FB1600C508F9 /* SBJsonParser.h */,
+				55FC971D1439FB1600C508F9 /* SBJsonParser.m */,
+				55FC971E1439FB1600C508F9 /* SBJsonWriter.h */,
+				55FC971F1439FB1600C508F9 /* SBJsonWriter.m */,
 			);
-			name = JSON;
+			path = JSON;
 			sourceTree = "<group>";
 		};
 		553A668814333A8900503CC7 = {
@@ -232,6 +279,7 @@
 				551872571434A2EC009125A6 /* Model */,
 				551872581434A300009125A6 /* View */,
 				551872551434A2BA009125A6 /* Controllers */,
+				55FC9729143A051300C508F9 /* Utils */,
 				553A669E14333A8900503CC7 /* Supporting Files */,
 			);
 			path = PadPad;
@@ -251,6 +299,7 @@
 		553A66C114333A8900503CC7 /* PadPadTests */ = {
 			isa = PBXGroup;
 			children = (
+				55FC9736143B1A2100C508F9 /* Utils */,
 				559C105D1439BFCB00FBD055 /* Model */,
 				553A66C214333A8900503CC7 /* Supporting Files */,
 			);
@@ -275,8 +324,32 @@
 				559C10631439C3BD00FBD055 /* CGDdFPadPadUtilsTests.m */,
 				559C10651439C50800FBD055 /* DdFPadPadLineTests.h */,
 				559C10661439C50800FBD055 /* DdFPadPadLineTests.m */,
+				55FC9730143A099100C508F9 /* DdFPadPadBookInfoTests.h */,
+				55FC9731143A099100C508F9 /* DdFPadPadBookInfoTests.m */,
 			);
 			name = Model;
+			sourceTree = "<group>";
+		};
+		55FC9729143A051300C508F9 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				55FC972A143A05BC00C508F9 /* DdFStringUtils.h */,
+				55FC972B143A05BC00C508F9 /* DdFStringUtils.m */,
+				55FC972D143A088F00C508F9 /* DdFTimeSource.h */,
+				55FC972E143A088F00C508F9 /* DdFTimeSource.m */,
+				55FC9733143B189A00C508F9 /* NSDate+DdFFormatting.h */,
+				55FC9734143B189A00C508F9 /* NSDate+DdFFormatting.m */,
+			);
+			name = Utils;
+			sourceTree = "<group>";
+		};
+		55FC9736143B1A2100C508F9 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				55FC9737143B1A4300C508F9 /* NSDate+DdFFormattingTests.h */,
+				55FC9738143B1A4300C508F9 /* NSDate+DdFFormattingTests.m */,
+			);
+			name = Utils;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -398,6 +471,15 @@
 				5518727714360436009125A6 /* DdFPadPadInk.m in Sources */,
 				559C10581439B8B900FBD055 /* DdFPadPadLine.m in Sources */,
 				559C105C1439BC4000FBD055 /* DdFPadPadLinePoint.m in Sources */,
+				55FC97211439FB1600C508F9 /* NSObject+SBJSON.m in Sources */,
+				55FC97221439FB1600C508F9 /* NSString+SBJSON.m in Sources */,
+				55FC97231439FB1600C508F9 /* SBJsonBase.m in Sources */,
+				55FC97241439FB1600C508F9 /* SBJsonParser.m in Sources */,
+				55FC97251439FB1600C508F9 /* SBJsonWriter.m in Sources */,
+				55FC97281439FCDC00C508F9 /* DdFPadPadBookInfo.m in Sources */,
+				55FC972C143A05BC00C508F9 /* DdFStringUtils.m in Sources */,
+				55FC972F143A088F00C508F9 /* DdFTimeSource.m in Sources */,
+				55FC973A143B1A4D00C508F9 /* NSDate+DdFFormatting.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -408,6 +490,8 @@
 				559C10601439BFF800FBD055 /* DdFPadPadLinePointTests.m in Sources */,
 				559C10641439C3BD00FBD055 /* CGDdFPadPadUtilsTests.m in Sources */,
 				559C10671439C50800FBD055 /* DdFPadPadLineTests.m in Sources */,
+				55FC9732143A099100C508F9 /* DdFPadPadBookInfoTests.m in Sources */,
+				55FC9739143B1A4300C508F9 /* NSDate+DdFFormattingTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
