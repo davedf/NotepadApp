@@ -36,7 +36,7 @@
     STAssertEqualObjects(@"foo", parsed.bookName, @"Fail");
     
 }
-
+ 
 -(void)testToAndFromNSFileWrapperRepresentation{
     NSFileWrapper *dir = [[NSFileWrapper alloc]initDirectoryWithFileWrappers:nil];
     [dir addRegularFileWithContents:[underTest NSDataRepresentation] preferredFilename:underTest.fileName];
@@ -48,5 +48,12 @@
     NSURL *url = [NSURL fileURLWithPath:filePath];
     BOOL result = [dir writeToURL:url options:NSFileWrapperWritingAtomic originalContentsURL:url error:&error];
     STAssertTrue(result, @"Fail");
+    STAssertNil(error, @"Fail");
+    
+    NSFileWrapper *loaded = [[NSFileWrapper alloc]initWithURL:url options:0 error:&error];
+    NSFileWrapper *loadedWrapper = [loaded.fileWrappers objectForKey:underTest.fileName];
+    DdFPadPadBookInfo *loadedInfo = [DdFPadPadBookInfo bookInfoWithNSFileWrapper:loadedWrapper];
+    DdFPadPadBookInfo *expected = [DdFPadPadBookInfo bookInfoWithJSON:[underTest JSONRepresentation]];
+    STAssertEqualObjects(loadedInfo, expected, @"Fail");
 }
 @end
