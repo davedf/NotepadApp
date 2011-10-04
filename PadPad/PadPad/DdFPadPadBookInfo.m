@@ -13,6 +13,13 @@
 @synthesize bookId,bookName,creationDate,lastChangedDate;
 
 
+-(NSFileWrapper*)NSFileWrapperRepresentation {
+    NSString *json = [self JSONRepresentation];
+    NSData *data = [NSData dataWithBytes:[json UTF8String] length:[json length]];
+    NSFileWrapper *wrapper = [[NSFileWrapper alloc]initRegularFileWithContents:data];
+    return wrapper;
+}
+
 -(NSString*)JSONRepresentation {
     NSDictionary *json = [[NSDictionary alloc]initWithObjectsAndKeys:
                           self.bookId,BOOK_ID,
@@ -51,7 +58,7 @@
     return [self JSONRepresentation];
 }
 
-+(DdFPadPadBookInfo*)newBookInfoWithName:(NSString *)bookName  {
++(DdFPadPadBookInfo*)bookInfoWithName:(NSString *)bookName  {
     DdFPadPadBookInfo *newinfo = [[DdFPadPadBookInfo alloc] init];
     newinfo.bookName = bookName;
     newinfo.bookId = [DdFStringUtils newStringWithUUID];
@@ -60,7 +67,7 @@
     return newinfo;
 }
 
-+(DdFPadPadBookInfo*)newBookInfoWithJSON:(NSString *)json {
++(DdFPadPadBookInfo*)bookInfoWithJSON:(NSString *)json {
     DdFPadPadBookInfo *newinfo = [[DdFPadPadBookInfo alloc] init];
     NSDictionary *vals = [json JSONValue];
     newinfo.bookId = [vals objectForKey:BOOK_ID];
@@ -68,5 +75,10 @@
     newinfo.creationDate = [NSDate dateFromFileFormat:[vals objectForKey:CREATION_DATE]];
     newinfo.lastChangedDate = [NSDate dateFromFileFormat:[vals objectForKey:LAST_CHANGED_DATE]];
     return newinfo;
+}
+
++(DdFPadPadBookInfo*)bookInfoWithNSFileWrapper:(NSFileWrapper*)fileWrapper {
+    NSString *json = [[NSString alloc]initWithBytes:[fileWrapper.regularFileContents bytes] length:[fileWrapper.regularFileContents length] encoding:NSUTF8StringEncoding];
+    return [DdFPadPadBookInfo bookInfoWithJSON:json];
 }
 @end

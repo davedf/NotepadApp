@@ -6,7 +6,10 @@
 @property (strong) NSDate *creationDate;
 @property (strong) NSDate *lastChangedDate;
 
+-(NSFileWrapper*)NSFileWrapperRepresentation;
 -(NSString*)JSONRepresentation;
-+(DdFPadPadBookInfo*)newBookInfoWithName:(NSString*)bookName;
-+(DdFPadPadBookInfo*)newBookInfoWithJSON:(NSString *)json;
+
++(DdFPadPadBookInfo*)bookInfoWithName:(NSString*)bookName;
++(DdFPadPadBookInfo*)bookInfoWithJSON:(NSString *)json;
++(DdFPadPadBookInfo*)bookInfoWithNSFileWrapper:(NSFileWrapper*)fileWrapper;
 @end

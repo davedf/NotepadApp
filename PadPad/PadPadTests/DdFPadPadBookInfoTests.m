@@ -9,7 +9,7 @@
 
 -(void)setUp {
     [super setUp];
-    underTest = [DdFPadPadBookInfo newBookInfoWithName:@"foo"];
+    underTest = [DdFPadPadBookInfo bookInfoWithName:@"foo"];
                  
 }
 
@@ -29,11 +29,26 @@
 -(void)testNewInfoFromJSON {
     NSString *dateString = @"2011-10-04T12:21:26.140Z+0100";
     NSString *json = @"{\"lastChangedDate\":\"2011-10-04T12:21:26.140Z+0100\",\"bookName\":\"foo\",\"bookId\":\"bar\",\"creationDate\":\"2011-10-04T12:21:26.140Z+0100\"}";
-    DdFPadPadBookInfo *parsed = [DdFPadPadBookInfo newBookInfoWithJSON:json];
+    DdFPadPadBookInfo *parsed = [DdFPadPadBookInfo bookInfoWithJSON:json];
     STAssertEqualObjects([NSDate dateFromFileFormat:dateString], parsed.creationDate, @"Fail");
     STAssertEqualObjects([NSDate dateFromFileFormat:dateString], parsed.lastChangedDate, @"Fail");
     STAssertEqualObjects(@"bar", parsed.bookId, @"Fail");
     STAssertEqualObjects(@"foo", parsed.bookName, @"Fail");
+    
+}
+
+-(void)testToAndFromNSFileWrapperRepresentation{
+    NSFileWrapper *wrapper = [underTest NSFileWrapperRepresentation];
+    NSFileWrapper *dir = [[NSFileWrapper alloc]initDirectoryWithFileWrappers:[NSDictionary dictionaryWithObjectsAndKeys:wrapper,@"book.info", nil]];
+
+    
+    NSError *error;
+	NSString *documentsDirectory = [NSHomeDirectory() stringByAppendingPathComponent:@"Documents"]; 
+    NSString *filePath = [documentsDirectory stringByAppendingPathComponent:@"test.book"];     
+    NSLog(@"filePath:%@",filePath);
+
+    NSURL *url = [NSURL fileURLWithPath:filePath];
+    BOOL result = [dir writeToURL:url options:NSFileWrapperWritingAtomic originalContentsURL:url error:&error];
     
 }
 @end

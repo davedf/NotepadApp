@@ -37,6 +37,22 @@
 
     // Add the page view controller's gesture recognizers to the book view controller's view so that the gestures are started more easily.
     self.view.gestureRecognizers = self.pageViewController.gestureRecognizers;
+    
+//    NSFileWrapper *wrapper = [[NSFileWrapper alloc] initDirectoryWithFileWrappers:nil];
+//    [wrapper addRegularFileWithContents:[@"please work" dataUsingEncoding:NSUTF8StringEncoding] preferredFilename:@"foobar.item"];
+//    NSError *error=nil;
+//	NSString *documentsDirectory = [NSHomeDirectory() stringByAppendingPathComponent:@"Documents"]; 
+//    NSString *filePath = [documentsDirectory stringByAppendingPathComponent:@"book2.book"];     
+//    NSLog(@"filePath:%@",filePath);
+//    
+//    NSURL *url = [NSURL fileURLWithPath:filePath];
+////    [[NSFileManager defaultManager] createDirectoryAtPath:[url path] withIntermediateDirectories:YES attributes:nil error:nil];
+//    BOOL RES = [wrapper writeToURL:url options:NSFileWrapperWritingAtomic originalContentsURL:nil error:&error];
+//
+//    if (error) {
+//        NSLog(@"Error:%@",[error localizedDescription]);
+//    }
+//    NSLog(@"RES:%@",RES?@"Y":@"N");
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
