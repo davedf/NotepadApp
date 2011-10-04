@@ -38,10 +38,8 @@
 }
 
 -(void)testToAndFromNSFileWrapperRepresentation{
-    NSFileWrapper *wrapper = [underTest NSFileWrapperRepresentation];
-    NSFileWrapper *dir = [[NSFileWrapper alloc]initDirectoryWithFileWrappers:[NSDictionary dictionaryWithObjectsAndKeys:wrapper,@"book.info", nil]];
-
-    
+    NSFileWrapper *dir = [[NSFileWrapper alloc]initDirectoryWithFileWrappers:nil];
+    [dir addRegularFileWithContents:[underTest NSDataRepresentation] preferredFilename:underTest.fileName];
     NSError *error;
 	NSString *documentsDirectory = [NSHomeDirectory() stringByAppendingPathComponent:@"Documents"]; 
     NSString *filePath = [documentsDirectory stringByAppendingPathComponent:@"test.book"];     
@@ -49,6 +47,6 @@
 
     NSURL *url = [NSURL fileURLWithPath:filePath];
     BOOL result = [dir writeToURL:url options:NSFileWrapperWritingAtomic originalContentsURL:url error:&error];
-    
+    STAssertTrue(result, @"Fail");
 }
 @end

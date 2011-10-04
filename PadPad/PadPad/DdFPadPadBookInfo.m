@@ -13,13 +13,15 @@
 @synthesize bookId,bookName,creationDate,lastChangedDate;
 
 
--(NSFileWrapper*)NSFileWrapperRepresentation {
+
+-(NSString*)fileName {
+    return [NSString stringWithFormat:@"%@.bookinfo",self.bookId];
+}
+-(NSData*)NSDataRepresentation {
     NSString *json = [self JSONRepresentation];
     NSData *data = [NSData dataWithBytes:[json UTF8String] length:[json length]];
-    NSFileWrapper *wrapper = [[NSFileWrapper alloc]initRegularFileWithContents:data];
-    return wrapper;
+    return data;
 }
-
 -(NSString*)JSONRepresentation {
     NSDictionary *json = [[NSDictionary alloc]initWithObjectsAndKeys:
                           self.bookId,BOOK_ID,
