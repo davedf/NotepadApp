@@ -10,6 +10,7 @@
 
 -(NSString*)JSONRepresentation;
 -(NSData*)NSDataRepresentation;
+-(NSFileWrapper*)NSFileWrapperRepresentation;
 
 +(DdFPadPadBookInfo*)bookInfoWithName:(NSString*)bookName;
 +(DdFPadPadBookInfo*)bookInfoWithJSON:(NSString *)json;

@@ -1,5 +1,6 @@
 #import <Foundation/Foundation.h>
 
+@class DdFPadPadBookInfo;
 
 @protocol DdFPadPadBookDelegate <NSObject>
 -(void)bookUpdated;
@@ -9,5 +10,7 @@
 //UIDocument , NSFileWrapper
 
 @property (weak) NSObject<DdFPadPadBookDelegate> *delegate;
+
+@property (strong) DdFPadPadBookInfo *bookInfo;
 @end
 

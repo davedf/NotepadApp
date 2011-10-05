@@ -39,7 +39,7 @@
  
 -(void)testToAndFromNSFileWrapperRepresentation{
     NSFileWrapper *dir = [[NSFileWrapper alloc]initDirectoryWithFileWrappers:nil];
-    [dir addRegularFileWithContents:[underTest NSDataRepresentation] preferredFilename:underTest.fileName];
+    [dir addFileWrapper:[underTest NSFileWrapperRepresentation]];
     NSError *error;
 	NSString *documentsDirectory = [NSHomeDirectory() stringByAppendingPathComponent:@"Documents"]; 
     NSString *filePath = [documentsDirectory stringByAppendingPathComponent:@"test.book"];     

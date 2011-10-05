@@ -17,6 +17,12 @@
 -(NSString*)fileName {
     return [NSString stringWithFormat:@"%@.bookinfo",self.bookId];
 }
+
+-(NSFileWrapper*)NSFileWrapperRepresentation {
+    NSFileWrapper *wrapper = [[NSFileWrapper alloc]initRegularFileWithContents:[self NSDataRepresentation]];
+    [wrapper setPreferredFilename:self.fileName];
+    return wrapper;
+}
 -(NSData*)NSDataRepresentation {
     NSString *json = [self JSONRepresentation];
     NSData *data = [NSData dataWithBytes:[json UTF8String] length:[json length]];

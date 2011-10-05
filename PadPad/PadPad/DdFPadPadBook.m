@@ -1,4 +1,5 @@
 #import "DdFPadPadBook.h"
+#import "DdFPadPadBookInfo.h"
 
 #define TYPE_NAME_BOOKROOT @"book"
 
@@ -10,7 +11,7 @@
 @implementation DdFPadPadBook {
     NSArray *pages;
 }
-@synthesize delegate;
+@synthesize delegate,bookInfo;
 
 #pragma mark - UIDocument
 
