@@ -12,5 +12,8 @@
 @property (weak) NSObject<DdFPadPadBookDelegate> *delegate;
 
 @property (strong) DdFPadPadBookInfo *bookInfo;
+
++(DdFPadPadBook*)newBookWithName:(NSString*)name Delegate:(NSObject<DdFPadPadBookDelegate>*)delegate CompletionHandler:(void (^)(BOOL success))completionHandler;
+
 @end
 
