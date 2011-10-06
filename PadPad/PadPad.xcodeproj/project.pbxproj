@@ -44,6 +44,8 @@
 		55FC9732143A099100C508F9 /* DdFPadPadBookInfoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 55FC9731143A099100C508F9 /* DdFPadPadBookInfoTests.m */; };
 		55FC9739143B1A4300C508F9 /* NSDate+DdFFormattingTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 55FC9738143B1A4300C508F9 /* NSDate+DdFFormattingTests.m */; };
 		55FC973A143B1A4D00C508F9 /* NSDate+DdFFormatting.m in Sources */ = {isa = PBXBuildFile; fileRef = 55FC9734143B189A00C508F9 /* NSDate+DdFFormatting.m */; };
+		55FF877D143DC6FE00807691 /* DdFPadPadBookTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 55FF877C143DC6FE00807691 /* DdFPadPadBookTests.m */; };
+		55FF8787143DF97700807691 /* DdFPadPadCloudValueStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 55FF8786143DF97700807691 /* DdFPadPadCloudValueStore.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -124,6 +126,11 @@
 		55FC9734143B189A00C508F9 /* NSDate+DdFFormatting.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+DdFFormatting.m"; sourceTree = "<group>"; };
 		55FC9737143B1A4300C508F9 /* NSDate+DdFFormattingTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+DdFFormattingTests.h"; sourceTree = "<group>"; };
 		55FC9738143B1A4300C508F9 /* NSDate+DdFFormattingTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+DdFFormattingTests.m"; sourceTree = "<group>"; };
+		55FF877B143DC6FE00807691 /* DdFPadPadBookTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DdFPadPadBookTests.h; sourceTree = "<group>"; };
+		55FF877C143DC6FE00807691 /* DdFPadPadBookTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DdFPadPadBookTests.m; sourceTree = "<group>"; };
+		55FF877F143DE32000807691 /* PadPad.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = PadPad.entitlements; sourceTree = "<group>"; };
+		55FF8785143DF97600807691 /* DdFPadPadCloudValueStore.h */ = {isa = PBXFileReference; fileEncoding = 4; path = DdFPadPadCloudValueStore.h; sourceTree = "<group>"; };
+		55FF8786143DF97700807691 /* DdFPadPadCloudValueStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DdFPadPadCloudValueStore.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -200,6 +207,8 @@
 				559C10611439C15500FBD055 /* CGDdFPadPadUtils.h */,
 				55FC97261439FCDC00C508F9 /* DdFPadPadBookInfo.h */,
 				55FC97271439FCDC00C508F9 /* DdFPadPadBookInfo.m */,
+				55FF8785143DF97600807691 /* DdFPadPadCloudValueStore.h */,
+				55FF8786143DF97700807691 /* DdFPadPadCloudValueStore.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -273,6 +282,7 @@
 		553A669D14333A8900503CC7 /* PadPad */ = {
 			isa = PBXGroup;
 			children = (
+				55FF877F143DE32000807691 /* PadPad.entitlements */,
 				5518727814360840009125A6 /* External */,
 				551872511434A07E009125A6 /* Assets */,
 				551872561434A2D3009125A6 /* Application */,
@@ -326,6 +336,8 @@
 				559C10661439C50800FBD055 /* DdFPadPadLineTests.m */,
 				55FC9730143A099100C508F9 /* DdFPadPadBookInfoTests.h */,
 				55FC9731143A099100C508F9 /* DdFPadPadBookInfoTests.m */,
+				55FF877B143DC6FE00807691 /* DdFPadPadBookTests.h */,
+				55FF877C143DC6FE00807691 /* DdFPadPadBookTests.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -480,6 +492,7 @@
 				55FC972C143A05BC00C508F9 /* DdFStringUtils.m in Sources */,
 				55FC972F143A088F00C508F9 /* DdFTimeSource.m in Sources */,
 				55FC973A143B1A4D00C508F9 /* NSDate+DdFFormatting.m in Sources */,
+				55FF8787143DF97700807691 /* DdFPadPadCloudValueStore.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -492,6 +505,7 @@
 				559C10671439C50800FBD055 /* DdFPadPadLineTests.m in Sources */,
 				55FC9732143A099100C508F9 /* DdFPadPadBookInfoTests.m in Sources */,
 				55FC9739143B1A4300C508F9 /* NSDate+DdFFormattingTests.m in Sources */,
+				55FF877D143DC6FE00807691 /* DdFPadPadBookTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -583,10 +597,15 @@
 		553A66CD14333A8A00503CC7 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = PadPad/PadPad.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer: D F de Florinier (MQC6CUY786)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: D F de Florinier (MQC6CUY786)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "PadPad/PadPad-Prefix.pch";
 				INFOPLIST_FILE = "PadPad/PadPad-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "7CD1C827-20F6-402D-96CD-723A277B5DDD";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "7CD1C827-20F6-402D-96CD-723A277B5DDD";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -594,10 +613,15 @@
 		553A66CE14333A8A00503CC7 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = PadPad/PadPad.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer: D F de Florinier (MQC6CUY786)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: D F de Florinier (MQC6CUY786)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "PadPad/PadPad-Prefix.pch";
 				INFOPLIST_FILE = "PadPad/PadPad-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "7CD1C827-20F6-402D-96CD-723A277B5DDD";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "7CD1C827-20F6-402D-96CD-723A277B5DDD";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

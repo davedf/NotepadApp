@@ -7,6 +7,16 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
+    NSFileManager *fileManager = [NSFileManager defaultManager];
+    // Team-ID + Bundle Identifier
+    NSURL *iCloudURL = [fileManager URLForUbiquityContainerIdentifier:@"ZNRQWH2HBB.com.deflorinier.PadPad"];
+    NSLog(@"iCloudURL will be%@", [iCloudURL absoluteString]);
+    
+    NSUbiquitousKeyValueStore *cloudStore = [NSUbiquitousKeyValueStore defaultStore];
+    [cloudStore setString:[iCloudURL absoluteString] forKey:@"iCloudURL"];
+    [cloudStore synchronize]; // Important as it stores the values you set before on iCloud
+    NSLog(@"iCloudURL=%@", [cloudStore stringForKey:@"iCloudURL"]);
+    
     return YES;
 }
 

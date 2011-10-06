@@ -12,7 +12,7 @@
 @implementation DdFPadPadBook {
     NSArray *pages;
 }
-@synthesize delegate,bookInfo;
+@synthesize delegate=_delegate,bookInfo=_bookInfo;
 
 #pragma mark - UIDocument
 
@@ -37,25 +37,24 @@
     return nil;
 }
 
-//-(id)initWithName:(NSString*)name Delegate:(NSObject<DdFPadPadBookDelegate>*)delegate {
-//    DdFPadPadBookInfo *newBookInfo = [DdFPadPadBookInfo bookInfoWithName:name];
-//    NSString *bookFile =[NSString stringWithFormat:@"%@.book",self.bookInfo.bookId];
-//    
-//    self = [super initWithFileURL:<#(NSURL *)#>];
-//    if (self) {
-//        
-//    }
-//    return self;
-//}
-+(DdFPadPadBook*)newBookWithName:(NSString*)name Delegate:(NSObject<DdFPadPadBookDelegate>*)delegate CompletionHandler:(void (^)(BOOL success))completionHandler {
-    DdFPadPadBookInfo *newBookInfo = [DdFPadPadBookInfo bookInfoWithName:name];
-    DdFPadPadBook *newBook = [[DdFPadPadBook alloc] init];
-    newBook.bookInfo = newBookInfo;
-    newBook.delegate = delegate;
+-(id)initWithName:(NSString*)name Delegate:(NSObject<DdFPadPadBookDelegate>*)delegate {
+    DdFPadPadBookInfo *bookInfo = [DdFPadPadBookInfo bookInfoWithName:name];
+    NSString *bookFile =[NSString stringWithFormat:@"%@.book",bookInfo.bookId];
     NSString *documentsDirectory = [NSHomeDirectory() stringByAppendingPathComponent:@"Documents"]; 
-    NSString *filePath = [documentsDirectory stringByAppendingPathComponent:newBook.bookFile];     
+    NSString *filePath = [documentsDirectory stringByAppendingPathComponent:bookFile];     
     NSURL *url = [NSURL fileURLWithPath:filePath];
-    [newBook saveToURL:url forSaveOperation:UIDocumentSaveForCreating completionHandler:completionHandler];
+    
+    self = [super initWithFileURL:url];
+    if (self) {
+        self.delegate = delegate;
+        self.bookInfo = bookInfo;
+    }
+    return self;
+}
+
++(DdFPadPadBook*)newBookWithName:(NSString*)name Delegate:(NSObject<DdFPadPadBookDelegate>*)delegate CompletionHandler:(void (^)(BOOL success))completionHandler {
+    DdFPadPadBook *newBook = [[DdFPadPadBook alloc] initWithName:name Delegate:delegate];
+    [newBook saveToURL:newBook.fileURL forSaveOperation:UIDocumentSaveForCreating completionHandler:completionHandler];
     return newBook;
 }
 
