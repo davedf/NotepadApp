@@ -17,11 +17,15 @@
 #pragma mark - UIDocument
 
 -(id) contentsForType:(NSString *)typeName error:(NSError *__autoreleasing *)outError {
-    return nil;
+    NSFileWrapper *book = [[NSFileWrapper alloc]initDirectoryWithFileWrappers:nil];
+    [book addFileWrapper:[self.bookInfo NSFileWrapperRepresentation]];
+    [book setPreferredFilename:self.bookFile];        
+    return book;
 }
 
 -(BOOL)loadFromContents:(id)contents ofType:(NSString *)typeName error:(NSError *__autoreleasing *)outError {
     [self.delegate bookUpdated];
+    
     return YES;
 }
 
@@ -42,6 +46,7 @@
     NSString *bookFile =[NSString stringWithFormat:@"%@.book",bookInfo.bookId];
     NSString *documentsDirectory = [NSHomeDirectory() stringByAppendingPathComponent:@"Documents"]; 
     NSString *filePath = [documentsDirectory stringByAppendingPathComponent:bookFile];     
+    NSLog(@"filePath:%@",filePath);
     NSURL *url = [NSURL fileURLWithPath:filePath];
     
     self = [super initWithFileURL:url];
