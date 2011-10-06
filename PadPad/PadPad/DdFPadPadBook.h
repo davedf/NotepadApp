@@ -10,8 +10,9 @@
 //UIDocument , NSFileWrapper
 
 @property (weak) NSObject<DdFPadPadBookDelegate> *delegate;
-
 @property (strong) DdFPadPadBookInfo *bookInfo;
+
+//-(id)initWithName:(NSString*)name Delegate:(NSObject<DdFPadPadBookDelegate>*)delegate;
 
 +(DdFPadPadBook*)newBookWithName:(NSString*)name Delegate:(NSObject<DdFPadPadBookDelegate>*)delegate CompletionHandler:(void (^)(BOOL success))completionHandler;
 

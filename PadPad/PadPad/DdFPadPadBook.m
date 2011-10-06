@@ -37,6 +37,16 @@
     return nil;
 }
 
+//-(id)initWithName:(NSString*)name Delegate:(NSObject<DdFPadPadBookDelegate>*)delegate {
+//    DdFPadPadBookInfo *newBookInfo = [DdFPadPadBookInfo bookInfoWithName:name];
+//    NSString *bookFile =[NSString stringWithFormat:@"%@.book",self.bookInfo.bookId];
+//    
+//    self = [super initWithFileURL:<#(NSURL *)#>];
+//    if (self) {
+//        
+//    }
+//    return self;
+//}
 +(DdFPadPadBook*)newBookWithName:(NSString*)name Delegate:(NSObject<DdFPadPadBookDelegate>*)delegate CompletionHandler:(void (^)(BOOL success))completionHandler {
     DdFPadPadBookInfo *newBookInfo = [DdFPadPadBookInfo bookInfoWithName:name];
     DdFPadPadBook *newBook = [[DdFPadPadBook alloc] init];
