@@ -1,27 +1,24 @@
 #import "DdFPadPadBook.h"
 #import "DdFPadPadBookInfo.h"
-
+#import "NSMutableArray+DdFPadPadPageOrder.h"
 #define TYPE_NAME_BOOKROOT @"book"
 
 @interface DdFPadPadBook()
--(NSFileWrapper*)pageOrder;
--(NSFileWrapper*)pageInfo;
 @property (readonly) NSString *bookFile;
+@property (strong) NSMutableArray *pageOrder;
 @end
 
 @implementation DdFPadPadBook {
     NSArray *pages;
 }
-@synthesize delegate=_delegate,bookInfo=_bookInfo;
+@synthesize delegate=_delegate,bookInfo=_bookInfo,pageOrder=_pageOrder;
 
--(void)clearBook {
-    
-}
 #pragma mark - UIDocument
 
 -(id) contentsForType:(NSString *)typeName error:(NSError *__autoreleasing *)outError {
     NSFileWrapper *book = [[NSFileWrapper alloc]initDirectoryWithFileWrappers:nil];
     [book addFileWrapper:[self.bookInfo NSFileWrapperRepresentation]];
+    [book addFileWrapper:[self.pageOrder NSFileWrapperRepresentation]];
     [book setPreferredFilename:self.bookFile];        
     return book;
 }
@@ -35,6 +32,10 @@
             self.bookInfo = [DdFPadPadBookInfo bookInfoWithNSFileWrapper:childWrapper];
             NSLog(@"bookInfo:[bookId:%@ name:%@]",self.bookInfo.bookId,self.bookInfo.bookName);
         } 
+        else if ([self.pageOrder recognises:childWrapper]) {
+            [self.pageOrder AddFromNSFileWrapper:childWrapper];
+            NSLog(@"New page order:%@",self.pageOrder);
+        }
     }
     return YES;
 }
@@ -43,18 +44,11 @@
     return [NSString stringWithFormat:@"%@.book",self.bookInfo.bookId];
 }
 
-#pragma mark - DdFPadPadBook()
--(NSFileWrapper*)pageOrder {
-    return nil;
-}
--(NSFileWrapper*)pageInfo {
-    return nil;
-}
-
 -(id)initWithURL:(NSURL*)url Delegate:(NSObject<DdFPadPadBookDelegate>*)delegate {
     self = [super initWithFileURL:url];
     if (self) {
         self.delegate = delegate;
+        self.pageOrder = [[NSMutableArray alloc]init];
     }
     return self;
 }
@@ -71,6 +65,7 @@
     if (self) {
         self.delegate = delegate;
         self.bookInfo = bookInfo;
+        self.pageOrder = [[NSMutableArray alloc]init];
     }
     return self;
 }
