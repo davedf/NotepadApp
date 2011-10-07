@@ -33,6 +33,7 @@
 		559C10601439BFF800FBD055 /* DdFPadPadLinePointTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 559C105F1439BFF800FBD055 /* DdFPadPadLinePointTests.m */; };
 		559C10641439C3BD00FBD055 /* CGDdFPadPadUtilsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 559C10631439C3BD00FBD055 /* CGDdFPadPadUtilsTests.m */; };
 		559C10671439C50800FBD055 /* DdFPadPadLineTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 559C10661439C50800FBD055 /* DdFPadPadLineTests.m */; };
+		55D69445143F109400DFE8EF /* DdFPadPadBookRepository.m in Sources */ = {isa = PBXBuildFile; fileRef = 55D69444143F109400DFE8EF /* DdFPadPadBookRepository.m */; };
 		55FC97211439FB1600C508F9 /* NSObject+SBJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = 55FC97171439FB1600C508F9 /* NSObject+SBJSON.m */; };
 		55FC97221439FB1600C508F9 /* NSString+SBJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = 55FC97191439FB1600C508F9 /* NSString+SBJSON.m */; };
 		55FC97231439FB1600C508F9 /* SBJsonBase.m in Sources */ = {isa = PBXBuildFile; fileRef = 55FC971B1439FB1600C508F9 /* SBJsonBase.m */; };
@@ -103,6 +104,8 @@
 		559C10631439C3BD00FBD055 /* CGDdFPadPadUtilsTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CGDdFPadPadUtilsTests.m; sourceTree = "<group>"; };
 		559C10651439C50800FBD055 /* DdFPadPadLineTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DdFPadPadLineTests.h; sourceTree = "<group>"; };
 		559C10661439C50800FBD055 /* DdFPadPadLineTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DdFPadPadLineTests.m; sourceTree = "<group>"; };
+		55D69443143F109400DFE8EF /* DdFPadPadBookRepository.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DdFPadPadBookRepository.h; sourceTree = "<group>"; };
+		55D69444143F109400DFE8EF /* DdFPadPadBookRepository.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DdFPadPadBookRepository.m; sourceTree = "<group>"; };
 		55FC97131439FB1600C508F9 /* JSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSON.h; sourceTree = "<group>"; };
 		55FC97161439FB1600C508F9 /* NSObject+SBJSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+SBJSON.h"; sourceTree = "<group>"; };
 		55FC97171439FB1600C508F9 /* NSObject+SBJSON.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+SBJSON.m"; sourceTree = "<group>"; };
@@ -129,7 +132,7 @@
 		55FF877B143DC6FE00807691 /* DdFPadPadBookTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DdFPadPadBookTests.h; sourceTree = "<group>"; };
 		55FF877C143DC6FE00807691 /* DdFPadPadBookTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DdFPadPadBookTests.m; sourceTree = "<group>"; };
 		55FF877F143DE32000807691 /* PadPad.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = PadPad.entitlements; sourceTree = "<group>"; };
-		55FF8785143DF97600807691 /* DdFPadPadCloudValueStore.h */ = {isa = PBXFileReference; fileEncoding = 4; path = DdFPadPadCloudValueStore.h; sourceTree = "<group>"; };
+		55FF8785143DF97600807691 /* DdFPadPadCloudValueStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DdFPadPadCloudValueStore.h; sourceTree = "<group>"; };
 		55FF8786143DF97700807691 /* DdFPadPadCloudValueStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DdFPadPadCloudValueStore.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -209,6 +212,8 @@
 				55FC97271439FCDC00C508F9 /* DdFPadPadBookInfo.m */,
 				55FF8785143DF97600807691 /* DdFPadPadCloudValueStore.h */,
 				55FF8786143DF97700807691 /* DdFPadPadCloudValueStore.m */,
+				55D69443143F109400DFE8EF /* DdFPadPadBookRepository.h */,
+				55D69444143F109400DFE8EF /* DdFPadPadBookRepository.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -493,6 +498,7 @@
 				55FC972F143A088F00C508F9 /* DdFTimeSource.m in Sources */,
 				55FC973A143B1A4D00C508F9 /* NSDate+DdFFormatting.m in Sources */,
 				55FF8787143DF97700807691 /* DdFPadPadCloudValueStore.m in Sources */,
+				55D69445143F109400DFE8EF /* DdFPadPadBookRepository.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

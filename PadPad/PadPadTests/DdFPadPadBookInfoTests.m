@@ -55,5 +55,6 @@
     DdFPadPadBookInfo *loadedInfo = [DdFPadPadBookInfo bookInfoWithNSFileWrapper:loadedWrapper];
     DdFPadPadBookInfo *expected = [DdFPadPadBookInfo bookInfoWithJSON:[underTest JSONRepresentation]];
     STAssertEqualObjects(loadedInfo, expected, @"Fail");
+    
 }
 @end

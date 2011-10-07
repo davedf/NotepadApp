@@ -9,13 +9,15 @@
 #define CREATION_DATE @"creationDate"
 #define LAST_CHANGED_DATE @"lastChangedDate"
 
+#define BOOK_INFO_FILE_TYPE @"bookinfo"
+
 @implementation DdFPadPadBookInfo
 @synthesize bookId,bookName,creationDate,lastChangedDate;
 
 
 
 -(NSString*)fileName {
-    return [NSString stringWithFormat:@"%@.bookinfo",self.bookId];
+    return [NSString stringWithFormat:@"%@.%@",self.bookId,BOOK_INFO_FILE_TYPE];
 }
 
 -(NSFileWrapper*)NSFileWrapperRepresentation {
@@ -66,6 +68,13 @@
     return [self JSONRepresentation];
 }
 
++(BOOL)recognises:(NSFileWrapper*)fileWrapper {
+    NSArray *parts = [fileWrapper.filename componentsSeparatedByString:@"."];
+    if ([[parts lastObject] isEqual:BOOK_INFO_FILE_TYPE]) {
+        return YES;
+    }
+    return NO;
+}
 +(DdFPadPadBookInfo*)bookInfoWithName:(NSString *)bookName  {
     DdFPadPadBookInfo *newinfo = [[DdFPadPadBookInfo alloc] init];
     newinfo.bookName = bookName;

@@ -11,9 +11,13 @@
 @property (weak) NSObject<DdFPadPadBookDelegate> *delegate;
 @property (strong) DdFPadPadBookInfo *bookInfo;
 
+-(void)clearBook;
 -(id)initWithName:(NSString*)name Delegate:(NSObject<DdFPadPadBookDelegate>*)delegate;
 
 +(DdFPadPadBook*)newBookWithName:(NSString*)name Delegate:(NSObject<DdFPadPadBookDelegate>*)delegate CompletionHandler:(void (^)(BOOL success))completionHandler;
+
++(DdFPadPadBook*)bookWithURL:(NSURL*)url Delegate:(NSObject<DdFPadPadBookDelegate>*)delegate CompletionHandler:(void (^)(BOOL success))completionHandler;
+
 
 @end
 

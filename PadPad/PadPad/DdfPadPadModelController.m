@@ -2,6 +2,7 @@
 
 #import "DdfPadPadDataViewController.h"
 #import "DdFPadPadPage.h"
+#import "DdFPadPadBookRepository.h"
 
 /*
  A controller object that manages a simple model -- a collection of month names.
@@ -14,13 +15,13 @@
 
 @interface DdfPadPadModelController()
 @property (readonly, strong, nonatomic) NSMutableArray *pageData;
-
+@property (strong,nonatomic) DdFPadPadBook *book;
 -(void)ensurePageToIndex:(NSUInteger)index;
 @end
 
 @implementation DdfPadPadModelController
 
-@synthesize pageData=_pageData;
+@synthesize pageData=_pageData,book=_book;
 
 - (id)init
 {
@@ -30,6 +31,10 @@
 //        NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
 //        _pageData = [[dateFormatter monthSymbols] copy];
         _pageData= [NSMutableArray array];
+        self.book =[[DdFPadPadBookRepository sharedRepository] openDefaultBookWithDelegate:nil CompletionHandler:^(BOOL success) {
+            NSLog(@"new book created:%@",success?@"Y":@"N");
+        } ];
+                    
     }
     return self;
 }

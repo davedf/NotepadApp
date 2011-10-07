@@ -14,6 +14,9 @@
 }
 @synthesize delegate=_delegate,bookInfo=_bookInfo;
 
+-(void)clearBook {
+    
+}
 #pragma mark - UIDocument
 
 -(id) contentsForType:(NSString *)typeName error:(NSError *__autoreleasing *)outError {
@@ -25,7 +28,14 @@
 
 -(BOOL)loadFromContents:(id)contents ofType:(NSString *)typeName error:(NSError *__autoreleasing *)outError {
     [self.delegate bookUpdated];
-    
+    NSFileWrapper *wrapper = (NSFileWrapper*)contents;
+    for (NSFileWrapper *childWrapper in [wrapper.fileWrappers allValues]) {
+        
+        if ([DdFPadPadBookInfo recognises:childWrapper]) {
+            self.bookInfo = [DdFPadPadBookInfo bookInfoWithNSFileWrapper:childWrapper];
+            NSLog(@"bookInfo:[bookId:%@ name:%@]",self.bookInfo.bookId,self.bookInfo.bookName);
+        } 
+    }
     return YES;
 }
 
@@ -39,6 +49,14 @@
 }
 -(NSFileWrapper*)pageInfo {
     return nil;
+}
+
+-(id)initWithURL:(NSURL*)url Delegate:(NSObject<DdFPadPadBookDelegate>*)delegate {
+    self = [super initWithFileURL:url];
+    if (self) {
+        self.delegate = delegate;
+    }
+    return self;
 }
 
 -(id)initWithName:(NSString*)name Delegate:(NSObject<DdFPadPadBookDelegate>*)delegate {
@@ -59,8 +77,17 @@
 
 +(DdFPadPadBook*)newBookWithName:(NSString*)name Delegate:(NSObject<DdFPadPadBookDelegate>*)delegate CompletionHandler:(void (^)(BOOL success))completionHandler {
     DdFPadPadBook *newBook = [[DdFPadPadBook alloc] initWithName:name Delegate:delegate];
-    [newBook saveToURL:newBook.fileURL forSaveOperation:UIDocumentSaveForCreating completionHandler:completionHandler];
+    [newBook saveToURL:newBook.fileURL forSaveOperation:UIDocumentSaveForCreating completionHandler:^(BOOL success) {
+        NSLog(@"save completed:%@",success?@"Y":@"N");
+        [newBook openWithCompletionHandler:completionHandler];
+    }];
+    
     return newBook;
 }
 
++(DdFPadPadBook*)bookWithURL:(NSURL*)url Delegate:(NSObject<DdFPadPadBookDelegate>*)delegate CompletionHandler:(void (^)(BOOL success))completionHandler {
+    DdFPadPadBook *newBook = [[DdFPadPadBook alloc] initWithURL:url Delegate:delegate];
+    [newBook openWithCompletionHandler:completionHandler];
+    return newBook;
+}
 @end

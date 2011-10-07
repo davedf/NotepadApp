@@ -9,4 +9,8 @@
 #import <Foundation/Foundation.h>
 
 @interface DdFPadPadCloudValueStore : NSObject
+
++(void)synchronize;
++(NSURL*)LastOpenedDocumentURL;
++(void)SetLastOpenedDocumentURL:(NSURL*)url;
 @end
