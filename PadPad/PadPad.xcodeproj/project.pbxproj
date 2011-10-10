@@ -52,6 +52,10 @@
 		55FC973A143B1A4D00C508F9 /* NSDate+DdFFormatting.m in Sources */ = {isa = PBXBuildFile; fileRef = 55FC9734143B189A00C508F9 /* NSDate+DdFFormatting.m */; };
 		55FF877D143DC6FE00807691 /* DdFPadPadBookTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 55FF877C143DC6FE00807691 /* DdFPadPadBookTests.m */; };
 		55FF8787143DF97700807691 /* DdFPadPadCloudValueStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 55FF8786143DF97700807691 /* DdFPadPadCloudValueStore.m */; };
+		55FF878E1443131400807691 /* UIColor+DdFJSONTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 55FF878D1443131400807691 /* UIColor+DdFJSONTests.m */; };
+		55FF87921443185600807691 /* NSString+DdFJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = 55FF87911443185600807691 /* NSString+DdFJSON.m */; };
+		55FF879514431B8200807691 /* NSString+DdFJSONTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 55FF879414431B8200807691 /* NSString+DdFJSONTests.m */; };
+		55FF8798144329D700807691 /* NSDictionary+DdFJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = 55FF8797144329D700807691 /* NSDictionary+DdFJSON.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -149,6 +153,14 @@
 		55FF877F143DE32000807691 /* PadPad.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = PadPad.entitlements; sourceTree = "<group>"; };
 		55FF8785143DF97600807691 /* DdFPadPadCloudValueStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DdFPadPadCloudValueStore.h; sourceTree = "<group>"; };
 		55FF8786143DF97700807691 /* DdFPadPadCloudValueStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DdFPadPadCloudValueStore.m; sourceTree = "<group>"; };
+		55FF878C1443131400807691 /* UIColor+DdFJSONTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+DdFJSONTests.h"; sourceTree = "<group>"; };
+		55FF878D1443131400807691 /* UIColor+DdFJSONTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+DdFJSONTests.m"; sourceTree = "<group>"; };
+		55FF87901443185600807691 /* NSString+DdFJSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+DdFJSON.h"; sourceTree = "<group>"; };
+		55FF87911443185600807691 /* NSString+DdFJSON.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+DdFJSON.m"; sourceTree = "<group>"; };
+		55FF879314431B8200807691 /* NSString+DdFJSONTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+DdFJSONTests.h"; sourceTree = "<group>"; };
+		55FF879414431B8200807691 /* NSString+DdFJSONTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+DdFJSONTests.m"; sourceTree = "<group>"; };
+		55FF8796144329D700807691 /* NSDictionary+DdFJSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+DdFJSON.h"; sourceTree = "<group>"; };
+		55FF8797144329D700807691 /* NSDictionary+DdFJSON.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+DdFJSON.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -381,6 +393,10 @@
 				55FC9734143B189A00C508F9 /* NSDate+DdFFormatting.m */,
 				55059EBD14430ED7003B62A7 /* UIColor+DdFJSON.h */,
 				55059EBE14430ED7003B62A7 /* UIColor+DdFJSON.m */,
+				55FF87901443185600807691 /* NSString+DdFJSON.h */,
+				55FF87911443185600807691 /* NSString+DdFJSON.m */,
+				55FF8796144329D700807691 /* NSDictionary+DdFJSON.h */,
+				55FF8797144329D700807691 /* NSDictionary+DdFJSON.m */,
 			);
 			name = Utils;
 			sourceTree = "<group>";
@@ -390,6 +406,10 @@
 			children = (
 				55FC9737143B1A4300C508F9 /* NSDate+DdFFormattingTests.h */,
 				55FC9738143B1A4300C508F9 /* NSDate+DdFFormattingTests.m */,
+				55FF878C1443131400807691 /* UIColor+DdFJSONTests.h */,
+				55FF878D1443131400807691 /* UIColor+DdFJSONTests.m */,
+				55FF879314431B8200807691 /* NSString+DdFJSONTests.h */,
+				55FF879414431B8200807691 /* NSString+DdFJSONTests.m */,
 			);
 			name = Utils;
 			sourceTree = "<group>";
@@ -527,6 +547,8 @@
 				55D69449143F5F2D00DFE8EF /* NSMutableArray+DdFPadPadPageOrder.m in Sources */,
 				55059EB5144304C5003B62A7 /* DdFPadPadPages.m in Sources */,
 				55059EBF14430ED7003B62A7 /* UIColor+DdFJSON.m in Sources */,
+				55FF87921443185600807691 /* NSString+DdFJSON.m in Sources */,
+				55FF8798144329D700807691 /* NSDictionary+DdFJSON.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -542,6 +564,8 @@
 				55FF877D143DC6FE00807691 /* DdFPadPadBookTests.m in Sources */,
 				55D6944F143F61E000DFE8EF /* NSMutableArray+DdFPadPadPagOrderTests.m in Sources */,
 				55059EB914430B98003B62A7 /* DdFPadPadInkTests.m in Sources */,
+				55FF878E1443131400807691 /* UIColor+DdFJSONTests.m in Sources */,
+				55FF879514431B8200807691 /* NSString+DdFJSONTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

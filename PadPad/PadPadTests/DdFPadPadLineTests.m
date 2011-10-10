@@ -9,7 +9,7 @@
 }
 
 -(void)setUp {
-    ink = [[DdFPadPadInk alloc]initWithColor:[UIColor blackColor] Size:10 Type:kFeltTip];
+    ink = [[DdFPadPadInk alloc]initWithColorRed:0 Green:0 Blue:0 Alpha:1 Size:10 Type:kFeltTip];
     underTest = [[DdFPadPadLine alloc]initWithInk:ink Points:[NSArray array]];
 }
 

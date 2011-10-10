@@ -10,9 +10,9 @@ typedef CGFloat DdFPadPadInkSize;
 @property (readonly) DdFPadPadInkType inkType;
 @property (readonly) DdFPadPadInkSize inkSize;
 
--(id)initWithColor:(UIColor*)color Size:(DdFPadPadInkSize)size Type:(DdFPadPadInkType)type;
-
--(NSString*)JSONRepresentation;
--(NSFileWrapper*)NSFileWrapperRepresenation;
+-(id)initWithColorRed:(CGFloat)red Green:(CGFloat)green Blue:(CGFloat)blue Alpha:(CGFloat)alpha Size:(DdFPadPadInkSize)size Type:(DdFPadPadInkType)type ;
+-(id)initWithJSONDictionary:(NSDictionary*)json;
+-(NSString*)InkJSONDictionary;
+-(NSString*)InkJSONRepresentation;
 
 @end
