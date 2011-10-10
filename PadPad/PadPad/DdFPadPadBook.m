@@ -6,37 +6,48 @@
 @interface DdFPadPadBook()
 @property (readonly) NSString *bookFile;
 @property (strong) NSMutableArray *pageOrder;
+@property (strong) NSFileWrapper *fileWrapper;
 @end
 
 @implementation DdFPadPadBook {
     NSArray *pages;
 }
-@synthesize delegate=_delegate,bookInfo=_bookInfo,pageOrder=_pageOrder;
+@synthesize delegate=_delegate,bookInfo=_bookInfo,pageOrder=_pageOrder,fileWrapper=_fileWrapper;
 
 #pragma mark - UIDocument
 
 -(id) contentsForType:(NSString *)typeName error:(NSError *__autoreleasing *)outError {
-    NSFileWrapper *book = [[NSFileWrapper alloc]initDirectoryWithFileWrappers:nil];
-    [book addFileWrapper:[self.bookInfo NSFileWrapperRepresentation]];
-    [book addFileWrapper:[self.pageOrder NSFileWrapperRepresentation]];
-    [book setPreferredFilename:self.bookFile];        
-    return book;
+    NSLog(@"contentsForType:%@",typeName);
+    if (!self.fileWrapper) {
+        self.fileWrapper  =[[NSFileWrapper alloc]initDirectoryWithFileWrappers:nil];
+        [self.fileWrapper setPreferredFilename:self.bookFile];        
+    }
+    [self.fileWrapper addFileWrapper:[self.bookInfo NSFileWrapperRepresentation]];    
+    [self.fileWrapper addFileWrapper:[self.pageOrder NSFileWrapperRepresentation]];
+    return self.fileWrapper;
 }
 
 -(BOOL)loadFromContents:(id)contents ofType:(NSString *)typeName error:(NSError *__autoreleasing *)outError {
-    [self.delegate bookUpdated];
-    NSFileWrapper *wrapper = (NSFileWrapper*)contents;
-    for (NSFileWrapper *childWrapper in [wrapper.fileWrappers allValues]) {
+    NSLog(@"loadFromContents:ofType:%@",typeName);
+    self.fileWrapper = (NSFileWrapper*)contents;
+    NSMutableArray *loadedWrappers = [NSMutableArray array];
+    for (NSFileWrapper *childWrapper in [self.fileWrapper.fileWrappers allValues]) {
         
         if ([DdFPadPadBookInfo recognises:childWrapper]) {
             self.bookInfo = [DdFPadPadBookInfo bookInfoWithNSFileWrapper:childWrapper];
             NSLog(@"bookInfo:[bookId:%@ name:%@]",self.bookInfo.bookId,self.bookInfo.bookName);
+            [loadedWrappers addObject:childWrapper];
         } 
         else if ([self.pageOrder recognises:childWrapper]) {
             [self.pageOrder AddFromNSFileWrapper:childWrapper];
             NSLog(@"New page order:%@",self.pageOrder);
+            [loadedWrappers addObject:childWrapper];
         }
     }
+    for (NSFileWrapper *loadedWrapper in loadedWrappers) {
+        [self.fileWrapper removeFileWrapper:loadedWrapper];
+    }
+    [self.delegate bookUpdated];
     return YES;
 }
 
