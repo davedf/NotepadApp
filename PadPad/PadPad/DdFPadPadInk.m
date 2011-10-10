@@ -17,6 +17,13 @@
     return self;
 }
 
+-(NSString*)JSONRepresentation {
+//    NSDictionary *dictionary = [[NSDictionary dictionaryWithObjectsAndKeys:, nil
+    return nil;
+}
+-(NSFileWrapper*)NSFileWrapperRepresenation {
+    return nil;
+}
 -(BOOL)isEqual:(id)object {
     if (!object) {
         return NO;

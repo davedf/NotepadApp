@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		55059EB5144304C5003B62A7 /* DdFPadPadPages.m in Sources */ = {isa = PBXBuildFile; fileRef = 55059EB4144304C5003B62A7 /* DdFPadPadPages.m */; };
+		55059EB914430B98003B62A7 /* DdFPadPadInkTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 55059EB814430B98003B62A7 /* DdFPadPadInkTests.m */; };
+		55059EBF14430ED7003B62A7 /* UIColor+DdFJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = 55059EBE14430ED7003B62A7 /* UIColor+DdFJSON.m */; };
 		551872541434A0D3009125A6 /* photo-camera.png in Resources */ = {isa = PBXBuildFile; fileRef = 551872531434A0D3009125A6 /* photo-camera.png */; };
 		5518725B1434ABC1009125A6 /* DdFPadPadPage.m in Sources */ = {isa = PBXBuildFile; fileRef = 5518725A1434ABC1009125A6 /* DdFPadPadPage.m */; };
 		551872681435D202009125A6 /* DdFPadPadBook.m in Sources */ = {isa = PBXBuildFile; fileRef = 551872671435D202009125A6 /* DdFPadPadBook.m */; };
@@ -65,6 +67,10 @@
 /* Begin PBXFileReference section */
 		55059EB3144304C5003B62A7 /* DdFPadPadPages.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DdFPadPadPages.h; sourceTree = "<group>"; };
 		55059EB4144304C5003B62A7 /* DdFPadPadPages.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DdFPadPadPages.m; sourceTree = "<group>"; };
+		55059EB714430B97003B62A7 /* DdFPadPadInkTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DdFPadPadInkTests.h; sourceTree = "<group>"; };
+		55059EB814430B98003B62A7 /* DdFPadPadInkTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DdFPadPadInkTests.m; sourceTree = "<group>"; };
+		55059EBD14430ED7003B62A7 /* UIColor+DdFJSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+DdFJSON.h"; sourceTree = "<group>"; };
+		55059EBE14430ED7003B62A7 /* UIColor+DdFJSON.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+DdFJSON.m"; sourceTree = "<group>"; };
 		551872531434A0D3009125A6 /* photo-camera.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "photo-camera.png"; sourceTree = "<group>"; };
 		551872591434ABC1009125A6 /* DdFPadPadPage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DdFPadPadPage.h; sourceTree = "<group>"; };
 		5518725A1434ABC1009125A6 /* DdFPadPadPage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DdFPadPadPage.m; sourceTree = "<group>"; };
@@ -358,6 +364,8 @@
 				55FF877C143DC6FE00807691 /* DdFPadPadBookTests.m */,
 				55D6944D143F61E000DFE8EF /* NSMutableArray+DdFPadPadPagOrderTests.h */,
 				55D6944E143F61E000DFE8EF /* NSMutableArray+DdFPadPadPagOrderTests.m */,
+				55059EB714430B97003B62A7 /* DdFPadPadInkTests.h */,
+				55059EB814430B98003B62A7 /* DdFPadPadInkTests.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -371,6 +379,8 @@
 				55FC972E143A088F00C508F9 /* DdFTimeSource.m */,
 				55FC9733143B189A00C508F9 /* NSDate+DdFFormatting.h */,
 				55FC9734143B189A00C508F9 /* NSDate+DdFFormatting.m */,
+				55059EBD14430ED7003B62A7 /* UIColor+DdFJSON.h */,
+				55059EBE14430ED7003B62A7 /* UIColor+DdFJSON.m */,
 			);
 			name = Utils;
 			sourceTree = "<group>";
@@ -516,6 +526,7 @@
 				55D69445143F109400DFE8EF /* DdFPadPadBookRepository.m in Sources */,
 				55D69449143F5F2D00DFE8EF /* NSMutableArray+DdFPadPadPageOrder.m in Sources */,
 				55059EB5144304C5003B62A7 /* DdFPadPadPages.m in Sources */,
+				55059EBF14430ED7003B62A7 /* UIColor+DdFJSON.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -530,6 +541,7 @@
 				55FC9739143B1A4300C508F9 /* NSDate+DdFFormattingTests.m in Sources */,
 				55FF877D143DC6FE00807691 /* DdFPadPadBookTests.m in Sources */,
 				55D6944F143F61E000DFE8EF /* NSMutableArray+DdFPadPadPagOrderTests.m in Sources */,
+				55059EB914430B98003B62A7 /* DdFPadPadInkTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

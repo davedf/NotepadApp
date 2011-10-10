@@ -12,5 +12,7 @@ typedef CGFloat DdFPadPadInkSize;
 
 -(id)initWithColor:(UIColor*)color Size:(DdFPadPadInkSize)size Type:(DdFPadPadInkType)type;
 
+-(NSString*)JSONRepresentation;
+-(NSFileWrapper*)NSFileWrapperRepresenation;
 
 @end
