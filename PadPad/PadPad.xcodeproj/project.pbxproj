@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		55059EB5144304C5003B62A7 /* DdFPadPadPages.m in Sources */ = {isa = PBXBuildFile; fileRef = 55059EB4144304C5003B62A7 /* DdFPadPadPages.m */; };
 		551872541434A0D3009125A6 /* photo-camera.png in Resources */ = {isa = PBXBuildFile; fileRef = 551872531434A0D3009125A6 /* photo-camera.png */; };
 		5518725B1434ABC1009125A6 /* DdFPadPadPage.m in Sources */ = {isa = PBXBuildFile; fileRef = 5518725A1434ABC1009125A6 /* DdFPadPadPage.m */; };
 		551872681435D202009125A6 /* DdFPadPadBook.m in Sources */ = {isa = PBXBuildFile; fileRef = 551872671435D202009125A6 /* DdFPadPadBook.m */; };
@@ -62,6 +63,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		55059EB3144304C5003B62A7 /* DdFPadPadPages.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DdFPadPadPages.h; sourceTree = "<group>"; };
+		55059EB4144304C5003B62A7 /* DdFPadPadPages.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DdFPadPadPages.m; sourceTree = "<group>"; };
 		551872531434A0D3009125A6 /* photo-camera.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "photo-camera.png"; sourceTree = "<group>"; };
 		551872591434ABC1009125A6 /* DdFPadPadPage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DdFPadPadPage.h; sourceTree = "<group>"; };
 		5518725A1434ABC1009125A6 /* DdFPadPadPage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DdFPadPadPage.m; sourceTree = "<group>"; };
@@ -222,6 +225,8 @@
 				55D69444143F109400DFE8EF /* DdFPadPadBookRepository.m */,
 				55D69447143F5F2D00DFE8EF /* NSMutableArray+DdFPadPadPageOrder.h */,
 				55D69448143F5F2D00DFE8EF /* NSMutableArray+DdFPadPadPageOrder.m */,
+				55059EB3144304C5003B62A7 /* DdFPadPadPages.h */,
+				55059EB4144304C5003B62A7 /* DdFPadPadPages.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -510,6 +515,7 @@
 				55FF8787143DF97700807691 /* DdFPadPadCloudValueStore.m in Sources */,
 				55D69445143F109400DFE8EF /* DdFPadPadBookRepository.m in Sources */,
 				55D69449143F5F2D00DFE8EF /* NSMutableArray+DdFPadPadPageOrder.m in Sources */,
+				55059EB5144304C5003B62A7 /* DdFPadPadPages.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
