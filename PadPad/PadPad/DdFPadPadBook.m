@@ -45,6 +45,7 @@
 }
 
 -(id)initWithURL:(NSURL*)url Delegate:(NSObject<DdFPadPadBookDelegate>*)delegate {
+    
     self = [super initWithFileURL:url];
     if (self) {
         self.delegate = delegate;
