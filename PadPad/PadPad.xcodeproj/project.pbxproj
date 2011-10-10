@@ -203,12 +203,12 @@
 		551872551434A2BA009125A6 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				553A66A914333A8900503CC7 /* DdfPadPadRootViewController.h */,
-				553A66AA14333A8900503CC7 /* DdfPadPadRootViewController.m */,
 				553A66AC14333A8900503CC7 /* DdfPadPadDataViewController.h */,
 				553A66AD14333A8900503CC7 /* DdfPadPadDataViewController.m */,
 				553A66AF14333A8900503CC7 /* DdfPadPadModelController.h */,
 				553A66B014333A8900503CC7 /* DdfPadPadModelController.m */,
+				553A66A914333A8900503CC7 /* DdfPadPadRootViewController.h */,
+				553A66AA14333A8900503CC7 /* DdfPadPadRootViewController.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -226,29 +226,29 @@
 		551872571434A2EC009125A6 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				551872591434ABC1009125A6 /* DdFPadPadPage.h */,
-				5518725A1434ABC1009125A6 /* DdFPadPadPage.m */,
+				559C10611439C15500FBD055 /* CGDdFPadPadUtils.h */,
 				551872661435D202009125A6 /* DdFPadPadBook.h */,
 				551872671435D202009125A6 /* DdFPadPadBook.m */,
-				5518726E1436015E009125A6 /* DdFPadPadPaper.h */,
-				5518726F1436015E009125A6 /* DdFPadPadPaper.m */,
+				55FC97261439FCDC00C508F9 /* DdFPadPadBookInfo.h */,
+				55FC97271439FCDC00C508F9 /* DdFPadPadBookInfo.m */,
+				55D69443143F109400DFE8EF /* DdFPadPadBookRepository.h */,
+				55D69444143F109400DFE8EF /* DdFPadPadBookRepository.m */,
+				55FF8785143DF97600807691 /* DdFPadPadCloudValueStore.h */,
+				55FF8786143DF97700807691 /* DdFPadPadCloudValueStore.m */,
 				5518727514360435009125A6 /* DdFPadPadInk.h */,
 				5518727614360435009125A6 /* DdFPadPadInk.m */,
 				559C10561439B8B900FBD055 /* DdFPadPadLine.h */,
 				559C10571439B8B900FBD055 /* DdFPadPadLine.m */,
 				559C105A1439BC4000FBD055 /* DdFPadPadLinePoint.h */,
 				559C105B1439BC4000FBD055 /* DdFPadPadLinePoint.m */,
-				559C10611439C15500FBD055 /* CGDdFPadPadUtils.h */,
-				55FC97261439FCDC00C508F9 /* DdFPadPadBookInfo.h */,
-				55FC97271439FCDC00C508F9 /* DdFPadPadBookInfo.m */,
-				55FF8785143DF97600807691 /* DdFPadPadCloudValueStore.h */,
-				55FF8786143DF97700807691 /* DdFPadPadCloudValueStore.m */,
-				55D69443143F109400DFE8EF /* DdFPadPadBookRepository.h */,
-				55D69444143F109400DFE8EF /* DdFPadPadBookRepository.m */,
-				55D69447143F5F2D00DFE8EF /* NSMutableArray+DdFPadPadPageOrder.h */,
-				55D69448143F5F2D00DFE8EF /* NSMutableArray+DdFPadPadPageOrder.m */,
+				551872591434ABC1009125A6 /* DdFPadPadPage.h */,
+				5518725A1434ABC1009125A6 /* DdFPadPadPage.m */,
 				55059EB3144304C5003B62A7 /* DdFPadPadPages.h */,
 				55059EB4144304C5003B62A7 /* DdFPadPadPages.m */,
+				5518726E1436015E009125A6 /* DdFPadPadPaper.h */,
+				5518726F1436015E009125A6 /* DdFPadPadPaper.m */,
+				55D69447143F5F2D00DFE8EF /* NSMutableArray+DdFPadPadPageOrder.h */,
+				55D69448143F5F2D00DFE8EF /* NSMutableArray+DdFPadPadPageOrder.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
