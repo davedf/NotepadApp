@@ -1,6 +1,10 @@
 #import "DdFPadPadLine.h"
 #import "DdFPadPadInk.h"
 #import "DdFPadPadLinePoint.h"
+#import "JSON.h"
+
+#define INK_KEY @"ink"
+#define POINTS_KEY @"points"
 
 @interface DdFPadPadLine()
 -(void)calculateBounds;
@@ -11,13 +15,15 @@
     DdFPadPadInk *_ink;
     NSArray *_points;
     CGRect _bounds;
+    NSString *_lineId;
     BOOL _requiresBoundsCalculation;
 }
-@synthesize ink=_ink, points=_points;
+@synthesize ink=_ink, points=_points,lineId=_lineId;
 
--(id)initWithInk:(DdFPadPadInk*)ink Points:(NSArray*)points {
+-(id)initWithId:(NSString*)lineId Ink:(DdFPadPadInk*)ink Points:(NSArray*)points {
     self = [super init];
     if (self) {
+        _lineId = lineId;
         _ink = ink;
         _points = points;
         if (!_points) {
@@ -71,5 +77,45 @@
     }
     _bounds = CGRectMake(minX, minY, maxX - minX, maxY - minY);    
     _requiresBoundsCalculation = NO;
+}
+
+-(NSArray*)PointsJSONArray {
+    NSMutableArray *json = [[NSMutableArray alloc]initWithCapacity:self.points.count];
+    for (DdFPadPadLinePoint *point in self.points) {
+        [json addObject:[point DdFJSONRepresentation]];
+    }
+    return [NSArray arrayWithArray:json];
+}
+-(NSString*)DdFJSONRepresentation {
+    NSDictionary *json = [NSDictionary dictionaryWithObjectsAndKeys:
+                          [_ink InkJSONDictionary], INK_KEY, 
+                          [self PointsJSONArray],POINTS_KEY,
+                          nil];
+    return [json JSONRepresentation];
+}
+-(NSFileWrapper*)NSFileWrapperRepresentation {
+    NSString *json = [self DdFJSONRepresentation];
+    NSData *data = [NSData dataWithBytes:[json UTF8String] length:[json length]];
+
+    NSFileWrapper *wrapper = [[NSFileWrapper alloc]initRegularFileWithContents:data];
+    [wrapper setPreferredFilename:[NSString stringWithFormat:@"%@.line",self.lineId]];
+    return wrapper;
+}
+
++(DdFPadPadLine*)lineFromNSFileWrapper:(NSFileWrapper*)wrapper {
+    NSString *json = [[NSString alloc]initWithBytes:[wrapper.regularFileContents bytes] length:[wrapper.regularFileContents length] encoding:NSUTF8StringEncoding];
+    NSDictionary *jsonDictionary = [json JSONValue];
+    DdFPadPadInk *ink = [[DdFPadPadInk alloc]initWithJSONDictionary:[jsonDictionary objectForKey:INK_KEY]];
+    return [[DdFPadPadLine alloc]initWithId:[wrapper.filename stringByReplacingOccurrencesOfString:@".line" withString:@""] Ink:ink Points:[DdFPadPadLine JSONArrayToPoints:[jsonDictionary objectForKey:POINTS_KEY]]];
+}
+
++(NSArray*)JSONArrayToPoints:(NSArray*)jsonArray {
+    NSMutableArray *points = [[NSMutableArray alloc]initWithCapacity:jsonArray.count];
+
+    for (NSDictionary *pointDictionary in jsonArray) {
+        [points addObject:[[DdFPadPadLinePoint alloc]initWithJSONRepresentation:pointDictionary]];
+        
+    }
+    return [NSArray arrayWithArray:points];
 }
 @end
