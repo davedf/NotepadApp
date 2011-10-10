@@ -7,5 +7,7 @@
 @property (readonly) CGFloat speed;
 
 -(id)initWithOrigin:(CGPoint)origin velocity:(CGPoint)velocity;
+-(id)initWithJSONRepresentation:(NSDictionary*)jsonRepresentation;
 
+-(NSDictionary*)DdFJSONRepresentation;
 @end

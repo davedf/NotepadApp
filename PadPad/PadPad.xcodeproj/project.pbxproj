@@ -56,6 +56,7 @@
 		55FF87921443185600807691 /* NSString+DdFJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = 55FF87911443185600807691 /* NSString+DdFJSON.m */; };
 		55FF879514431B8200807691 /* NSString+DdFJSONTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 55FF879414431B8200807691 /* NSString+DdFJSONTests.m */; };
 		55FF8798144329D700807691 /* NSDictionary+DdFJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = 55FF8797144329D700807691 /* NSDictionary+DdFJSON.m */; };
+		55FF879C144335BB00807691 /* DdFCGUtilsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 55FF879B144335BB00807691 /* DdFCGUtilsTests.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -161,6 +162,9 @@
 		55FF879414431B8200807691 /* NSString+DdFJSONTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+DdFJSONTests.m"; sourceTree = "<group>"; };
 		55FF8796144329D700807691 /* NSDictionary+DdFJSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+DdFJSON.h"; sourceTree = "<group>"; };
 		55FF8797144329D700807691 /* NSDictionary+DdFJSON.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+DdFJSON.m"; sourceTree = "<group>"; };
+		55FF87991443346300807691 /* DdFCGUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DdFCGUtils.h; sourceTree = "<group>"; };
+		55FF879A144335BB00807691 /* DdFCGUtilsTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DdFCGUtilsTests.h; sourceTree = "<group>"; };
+		55FF879B144335BB00807691 /* DdFCGUtilsTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DdFCGUtilsTests.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -397,6 +401,7 @@
 				55FF87911443185600807691 /* NSString+DdFJSON.m */,
 				55FF8796144329D700807691 /* NSDictionary+DdFJSON.h */,
 				55FF8797144329D700807691 /* NSDictionary+DdFJSON.m */,
+				55FF87991443346300807691 /* DdFCGUtils.h */,
 			);
 			name = Utils;
 			sourceTree = "<group>";
@@ -410,6 +415,8 @@
 				55FF878D1443131400807691 /* UIColor+DdFJSONTests.m */,
 				55FF879314431B8200807691 /* NSString+DdFJSONTests.h */,
 				55FF879414431B8200807691 /* NSString+DdFJSONTests.m */,
+				55FF879A144335BB00807691 /* DdFCGUtilsTests.h */,
+				55FF879B144335BB00807691 /* DdFCGUtilsTests.m */,
 			);
 			name = Utils;
 			sourceTree = "<group>";
@@ -566,6 +573,7 @@
 				55059EB914430B98003B62A7 /* DdFPadPadInkTests.m in Sources */,
 				55FF878E1443131400807691 /* UIColor+DdFJSONTests.m in Sources */,
 				55FF879514431B8200807691 /* NSString+DdFJSONTests.m in Sources */,
+				55FF879C144335BB00807691 /* DdFCGUtilsTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
