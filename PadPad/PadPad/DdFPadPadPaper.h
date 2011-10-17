@@ -1,12 +1,16 @@
 #import <Foundation/Foundation.h>
 
-//@class DdFPadPadPageLineInformation;
+@class DdFPadPadPageLineInformation;
 
 
 @interface DdFPadPadPaper : NSObject
 
-//@property (readonly) DdFPadPadPageLineInformation *horizontal;
-//@property (readonly) DdFPadPadPageLineInformation *vertical;
+@property (readonly,strong) DdFPadPadPageLineInformation *horizontal;
+@property (readonly,strong) DdFPadPadPageLineInformation *vertical;
 
+-(id)initWithHoriziontal:(DdFPadPadPageLineInformation*)horizontal Vertical:(DdFPadPadPageLineInformation*)vertical;
 
+-(NSDictionary*)DdFJSONRepresentation;
+
++(DdFPadPadPaper*)paperWithJSONRepresentation:(NSDictionary*)json;
 @end

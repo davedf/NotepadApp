@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		55004C61144C6BF3006A4FA5 /* DdFPadPadPaperTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 55004C60144C6BF3006A4FA5 /* DdFPadPadPaperTests.m */; };
 		55059EB5144304C5003B62A7 /* DdFPadPadPages.m in Sources */ = {isa = PBXBuildFile; fileRef = 55059EB4144304C5003B62A7 /* DdFPadPadPages.m */; };
 		55059EB914430B98003B62A7 /* DdFPadPadInkTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 55059EB814430B98003B62A7 /* DdFPadPadInkTests.m */; };
 		55059EBF14430ED7003B62A7 /* UIColor+DdFJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = 55059EBE14430ED7003B62A7 /* UIColor+DdFJSON.m */; };
@@ -72,6 +73,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		55004C5F144C6BF3006A4FA5 /* DdFPadPadPaperTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DdFPadPadPaperTests.h; sourceTree = "<group>"; };
+		55004C60144C6BF3006A4FA5 /* DdFPadPadPaperTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DdFPadPadPaperTests.m; sourceTree = "<group>"; };
 		55059EB3144304C5003B62A7 /* DdFPadPadPages.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DdFPadPadPages.h; sourceTree = "<group>"; };
 		55059EB4144304C5003B62A7 /* DdFPadPadPages.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DdFPadPadPages.m; sourceTree = "<group>"; };
 		55059EB714430B97003B62A7 /* DdFPadPadInkTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DdFPadPadInkTests.h; sourceTree = "<group>"; };
@@ -392,6 +395,8 @@
 				55059EB814430B98003B62A7 /* DdFPadPadInkTests.m */,
 				55FF87A914459B2D00807691 /* DdFPadPadPageLineInformationTests.h */,
 				55FF87AA14459B2D00807691 /* DdFPadPadPageLineInformationTests.m */,
+				55004C5F144C6BF3006A4FA5 /* DdFPadPadPaperTests.h */,
+				55004C60144C6BF3006A4FA5 /* DdFPadPadPaperTests.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -586,6 +591,7 @@
 				55FF879514431B8200807691 /* NSString+DdFJSONTests.m in Sources */,
 				55FF879C144335BB00807691 /* DdFCGUtilsTests.m in Sources */,
 				55FF87AB14459B2D00807691 /* DdFPadPadPageLineInformationTests.m in Sources */,
+				55004C61144C6BF3006A4FA5 /* DdFPadPadPaperTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
