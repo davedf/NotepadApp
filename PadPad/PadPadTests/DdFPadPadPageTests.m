@@ -31,4 +31,18 @@
 -(void)testPageLabel {
     STAssertEqualObjects(@"1", underTest.pageLabel, @"Fail");
 }
+
+-(void)testDdFJSONRepresentation {
+    NSString *expected = [NSString stringWithFormat:@"{\"number\":%d,\"paper\":%@}",underTest.pageNumber,[[underTest.paper DdFJSONRepresentation] JSONRepresentation]];
+    STAssertEqualObjects(expected, [[underTest DdFJSONRepresentation] JSONRepresentation], @"Fail");
+}
+
+-(void)testFromJSONRepresentation {
+   NSDictionary *json = [NSDictionary dictionaryWithObjectsAndKeys:
+                         [NSNumber numberWithInt:underTest.pageNumber], @"number",
+                         [underTest.paper DdFJSONRepresentation], @"paper", 
+                         nil ];
+    DdFPadPadPage *result = [DdFPadPadPage pageFromJSONDictionary:json];
+    STAssertEqualObjects(result, underTest, @"Fail");
+}
 @end

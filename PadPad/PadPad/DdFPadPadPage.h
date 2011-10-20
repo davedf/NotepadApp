@@ -10,4 +10,8 @@
 
 @property (strong) DdFPadPadPaper *paper;
 @property NSUInteger pageNumber;
+
+-(NSDictionary*)DdFJSONRepresentation;
+
++(DdFPadPadPage*)pageFromJSONDictionary:(NSDictionary*)jsonDictionary;
 @end
