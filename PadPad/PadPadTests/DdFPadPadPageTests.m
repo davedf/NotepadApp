@@ -16,7 +16,7 @@
     
     paper = [[DdFPadPadPaper alloc]initWithHoriziontal:h Vertical:v];
 
-    underTest = [[DdFPadPadPage alloc]initWithPaper:paper PageNumber:1 Lines:[NSArray array]];
+    underTest = [[DdFPadPadPage alloc]initWithPaper:paper PageNumber:1 Lines:[NSArray array] Identifier:@"foo"];
                   
 }
 
@@ -32,4 +32,21 @@
     STAssertEqualObjects(@"1", underTest.pageLabel, @"Fail");
 }
 
+-(void)testIdentifierSet {
+    STAssertEqualObjects(@"foo", underTest.identifier, @"Fail");
+}
+
+-(void)testFileWrapperHasNameSet {
+    NSFileWrapper *wrapper= [underTest NSFileWrapperRepresentation];
+    STAssertEqualObjects(@"foo.page", wrapper.preferredFilename, @"File");
+}
+
+-(void)testFileWrapperHasPaper {
+    NSFileWrapper *wrapper= [underTest NSFileWrapperRepresentation];
+
+    NSFileWrapper *paperWrapper = [wrapper.fileWrappers objectForKey:@"page.paper"];
+    STAssertNotNil(paperWrapper, @"Fail");
+    DdFPadPadPaper *newPaper = [DdFPadPadPaper paperWithNSFileWrapperRepresentation:paperWrapper];
+    STAssertEqualObjects(newPaper, paper, @"Fail");
+}
 @end

@@ -58,6 +58,7 @@
 
 -(void)testRehydrateJSON {
     NSFileWrapper *wrapper = [underTest NSFileWrapperRepresentation];
+    wrapper.filename = wrapper.preferredFilename;
     DdFPadPadPaper *result = [DdFPadPadPaper paperWithNSFileWrapperRepresentation:wrapper];
     STAssertEqualObjects(underTest, result, @"Fail");
 }
