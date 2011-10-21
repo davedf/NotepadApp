@@ -1,6 +1,6 @@
 #import "DdFPadPadPaper.h"
 #import "DdFPadPadPageLineInformation.h"
-
+#import "JSON.h"
 #define HORIZONTAL_KEY @"h"
 #define VERTICAL_KEY @"v"
 
@@ -34,6 +34,22 @@
             [_horizontal DdFJSONRepresentation],HORIZONTAL_KEY, 
             [_vertical DdFJSONRepresentation],VERTICAL_KEY, 
             nil];
+}
+
+-(NSFileWrapper*)NSFileWrapperRepresentation {
+    NSString *json = [[self DdFJSONRepresentation] JSONRepresentation];
+    NSData *data = [NSData dataWithBytes:[json UTF8String] length:[json length]];
+    
+    NSFileWrapper *wrapper = [[NSFileWrapper alloc]initRegularFileWithContents:data];
+    [wrapper setPreferredFilename:@"page.paper"];
+    return wrapper;
+
+}
+
++(DdFPadPadPaper*)paperWithNSFileWrapperRepresentation:(NSFileWrapper*)wrapper {
+    NSString *json = [[NSString alloc]initWithBytes:[wrapper.regularFileContents bytes] length:[wrapper.regularFileContents length] encoding:NSUTF8StringEncoding];
+    NSDictionary *jsonDictionary = [json JSONValue];
+    return [DdFPadPadPaper paperWithJSONRepresentation:jsonDictionary];
 }
 
 +(DdFPadPadPaper*)paperWithJSONRepresentation:(NSDictionary*)json {

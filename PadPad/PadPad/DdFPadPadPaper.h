@@ -11,6 +11,9 @@
 -(id)initWithHoriziontal:(DdFPadPadPageLineInformation*)horizontal Vertical:(DdFPadPadPageLineInformation*)vertical;
 
 -(NSDictionary*)DdFJSONRepresentation;
+-(NSFileWrapper*)NSFileWrapperRepresentation;
 
 +(DdFPadPadPaper*)paperWithJSONRepresentation:(NSDictionary*)json;
++(DdFPadPadPaper*)paperWithNSFileWrapperRepresentation:(NSFileWrapper*)wrapper;
+
 @end

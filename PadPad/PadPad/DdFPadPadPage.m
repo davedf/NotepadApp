@@ -7,7 +7,6 @@
 #define LINES_KEY @"lines"
 
 @interface DdFPadPadPage()
--(NSArray*)LinesJSONRepresentation;
 @end
 
 @implementation DdFPadPadPage
@@ -39,29 +38,5 @@
     }
     return YES;
 }
--(NSArray*)LinesJSONRepresentation {
-    NSMutableArray *jsonLines = [[NSMutableArray alloc]initWithCapacity:self.lines.count];
-    for (DdFPadPadLine *line in self.lines) {
-        [jsonLines addObject:[line DdFJSONRepresentation]];
-    }
-    return jsonLines;
-}
--(NSDictionary*)DdFJSONRepresentation {
-    return [NSDictionary dictionaryWithObjectsAndKeys:
-            [NSNumber numberWithInt:self.pageNumber], PAGE_NUMBER_KEY,
-            [self.paper DdFJSONRepresentation],PAPER_KEY,
-            [self LinesJSONRepresentation], LINES_KEY,
-            nil];
-}
 
-+(DdFPadPadPage*)pageFromJSONDictionary:(NSDictionary*)jsonDictionary {
-    NSUInteger pageNumber = [[jsonDictionary objectForKey:PAGE_NUMBER_KEY] intValue];
-    DdFPadPadPaper *paper = [DdFPadPadPaper paperWithJSONRepresentation:[jsonDictionary objectForKey:PAPER_KEY]];
-//    NSArray *jsonLines = [jsonDictionary objectForKey:LINES_KEY];
-//    NSMutableArray *lines = [[NSMutableArray alloc]initWithCapacity:jsonLines.count];
-//    for (NSDictionary *jsonLine in jsonLines) {
-//        [lines addObject:[DdFPadPadLine lin
-//    }
-    return [[DdFPadPadPage alloc]initWithPaper:paper PageNumber:pageNumber Lines:[NSArray array]];
-}
 @end
