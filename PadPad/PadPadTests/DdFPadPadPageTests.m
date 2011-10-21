@@ -16,7 +16,7 @@
     
     paper = [[DdFPadPadPaper alloc]initWithHoriziontal:h Vertical:v];
 
-    underTest = [[DdFPadPadPage alloc]initWithPaper:paper PageNumber:1];
+    underTest = [[DdFPadPadPage alloc]initWithPaper:paper PageNumber:1 Lines:[NSArray array]];
                   
 }
 
@@ -33,7 +33,7 @@
 }
 
 -(void)testDdFJSONRepresentation {
-    NSString *expected = [NSString stringWithFormat:@"{\"number\":%d,\"paper\":%@}",underTest.pageNumber,[[underTest.paper DdFJSONRepresentation] JSONRepresentation]];
+    NSString *expected = [NSString stringWithFormat:@"{\"lines\":[],\"number\":%d,\"paper\":%@}",underTest.pageNumber,[[underTest.paper DdFJSONRepresentation] JSONRepresentation]];
     STAssertEqualObjects(expected, [[underTest DdFJSONRepresentation] JSONRepresentation], @"Fail");
 }
 
