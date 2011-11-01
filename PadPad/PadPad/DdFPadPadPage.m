@@ -53,7 +53,13 @@
 +(DdFPadPadPage*)pageWithPageNumber:(NSUInteger)pageNumber NSFileWrapper:(NSFileWrapper*)wrapper {
     NSFileWrapper *paperWrapper = [wrapper.fileWrappers objectForKey:@"page.paper"];
     DdFPadPadPaper *paper = [DdFPadPadPaper paperWithNSFileWrapperRepresentation:paperWrapper];
-    NSString *identifier = [[wrapper.filename componentsSeparatedByString:@"."] objectAtIndex:0];
+    NSString *identifier = [DdFPadPadPage pageIdentifierFromNSFileWrapper:wrapper];
     return [[DdFPadPadPage alloc]initWithPaper:paper PageNumber:pageNumber Lines:[NSArray array] Identifier:identifier];
+}
+
++(NSString*)pageIdentifierFromNSFileWrapper:(NSFileWrapper*)wrapper {
+    NSString *fileName = wrapper.filename ? wrapper.filename : wrapper.preferredFilename;
+    return  [[fileName componentsSeparatedByString:@"."] objectAtIndex:0];
+
 }
 @end

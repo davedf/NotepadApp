@@ -16,4 +16,5 @@
 -(NSFileWrapper*)NSFileWrapperRepresentation;
 
 +(DdFPadPadPage*)pageWithPageNumber:(NSUInteger)pageNumber NSFileWrapper:(NSFileWrapper*)wrapper;
++(NSString*)pageIdentifierFromNSFileWrapper:(NSFileWrapper*)wrapper;
 @end
