@@ -49,4 +49,8 @@
     DdFPadPadPaper *newPaper = [DdFPadPadPaper paperWithNSFileWrapperRepresentation:paperWrapper];
     STAssertEqualObjects(newPaper, paper, @"Fail");
 }
+
+-(void)testAddLine {
+    
+}
 @end

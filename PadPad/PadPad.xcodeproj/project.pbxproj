@@ -241,7 +241,6 @@
 		551872571434A2EC009125A6 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				559C10611439C15500FBD055 /* CGDdFPadPadUtils.h */,
 				551872661435D202009125A6 /* DdFPadPadBook.h */,
 				551872671435D202009125A6 /* DdFPadPadBook.m */,
 				55FC97261439FCDC00C508F9 /* DdFPadPadBookInfo.h */,
@@ -414,6 +413,7 @@
 		55FC9729143A051300C508F9 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				559C10611439C15500FBD055 /* CGDdFPadPadUtils.h */,
 				55FC972A143A05BC00C508F9 /* DdFStringUtils.h */,
 				55FC972B143A05BC00C508F9 /* DdFStringUtils.m */,
 				55FC972D143A088F00C508F9 /* DdFTimeSource.h */,
