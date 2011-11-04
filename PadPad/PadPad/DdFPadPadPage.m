@@ -43,10 +43,16 @@
     return YES;
 }
 
+-(void)addLine:(DdFPadPadLine*)line {
+    _lines = [_lines arrayByAddingObject:line];
+}
 -(NSFileWrapper*)NSFileWrapperRepresentation {
     NSFileWrapper *wrapper = [[NSFileWrapper alloc]initDirectoryWithFileWrappers:[NSDictionary dictionary]];
     wrapper.preferredFilename = [NSString stringWithFormat:@"%@.page",self.identifier];
     [wrapper addFileWrapper:[self.paper NSFileWrapperRepresentation]];
+    for (DdFPadPadLine *line in self.lines) {
+        [wrapper addFileWrapper:[line NSFileWrapperRepresentation]];
+    }
     return  wrapper;
 }
 

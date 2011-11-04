@@ -1,7 +1,7 @@
 #import <Foundation/Foundation.h>
 
 @class DdFPadPadPaper;
-
+@class DdFPadPadLine;
 @interface DdFPadPadPage : NSObject
 
 -(id)initWithPaper:(DdFPadPadPaper*)paper PageNumber:(NSUInteger)pageNumber Lines:(NSArray*)lines Identifier:(NSString*)identifier;
@@ -14,6 +14,8 @@
 @property NSUInteger pageNumber;
 
 -(NSFileWrapper*)NSFileWrapperRepresentation;
+
+-(void)addLine:(DdFPadPadLine*)line;
 
 +(DdFPadPadPage*)pageWithPageNumber:(NSUInteger)pageNumber NSFileWrapper:(NSFileWrapper*)wrapper;
 +(NSString*)pageIdentifierFromNSFileWrapper:(NSFileWrapper*)wrapper;

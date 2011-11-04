@@ -34,6 +34,7 @@
 		553A66BD14333A8900503CC7 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 553A669714333A8900503CC7 /* UIKit.framework */; };
 		553A66BE14333A8900503CC7 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 553A669914333A8900503CC7 /* Foundation.framework */; };
 		553A66C614333A8900503CC7 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 553A66C414333A8900503CC7 /* InfoPlist.strings */; };
+		555C05511464187E00494506 /* DdFPadPadModelTestHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 555C05501464187E00494506 /* DdFPadPadModelTestHelper.m */; };
 		559C10581439B8B900FBD055 /* DdFPadPadLine.m in Sources */ = {isa = PBXBuildFile; fileRef = 559C10571439B8B900FBD055 /* DdFPadPadLine.m */; };
 		559C105C1439BC4000FBD055 /* DdFPadPadLinePoint.m in Sources */ = {isa = PBXBuildFile; fileRef = 559C105B1439BC4000FBD055 /* DdFPadPadLinePoint.m */; };
 		559C10601439BFF800FBD055 /* DdFPadPadLinePointTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 559C105F1439BFF800FBD055 /* DdFPadPadLinePointTests.m */; };
@@ -120,6 +121,8 @@
 		553A66BB14333A8900503CC7 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
 		553A66C314333A8900503CC7 /* PadPadTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "PadPadTests-Info.plist"; sourceTree = "<group>"; };
 		553A66C514333A8900503CC7 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		555C054F1464187E00494506 /* DdFPadPadModelTestHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DdFPadPadModelTestHelper.h; sourceTree = "<group>"; };
+		555C05501464187E00494506 /* DdFPadPadModelTestHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DdFPadPadModelTestHelper.m; sourceTree = "<group>"; };
 		559C10561439B8B900FBD055 /* DdFPadPadLine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DdFPadPadLine.h; sourceTree = "<group>"; };
 		559C10571439B8B900FBD055 /* DdFPadPadLine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DdFPadPadLine.m; sourceTree = "<group>"; };
 		559C105A1439BC4000FBD055 /* DdFPadPadLinePoint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DdFPadPadLinePoint.h; sourceTree = "<group>"; };
@@ -442,6 +445,8 @@
 				55FF879414431B8200807691 /* NSString+DdFJSONTests.m */,
 				55FF879A144335BB00807691 /* DdFCGUtilsTests.h */,
 				55FF879B144335BB00807691 /* DdFCGUtilsTests.m */,
+				555C054F1464187E00494506 /* DdFPadPadModelTestHelper.h */,
+				555C05501464187E00494506 /* DdFPadPadModelTestHelper.m */,
 			);
 			name = Utils;
 			sourceTree = "<group>";
@@ -604,6 +609,7 @@
 				55004C61144C6BF3006A4FA5 /* DdFPadPadPaperTests.m in Sources */,
 				55004C65144DBB5E006A4FA5 /* DdFPadPadPageTests.m in Sources */,
 				55004C681451B3F6006A4FA5 /* DdFPadPadPagesTest.m in Sources */,
+				555C05511464187E00494506 /* DdFPadPadModelTestHelper.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

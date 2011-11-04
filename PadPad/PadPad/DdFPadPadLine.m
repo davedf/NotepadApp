@@ -46,7 +46,23 @@
     return _bounds;
 }
 
-
+-(BOOL)isEqual:(id)object {
+    if ([self class] != [object class]) {
+        return NO;
+    }
+    DdFPadPadLine *other = (DdFPadPadLine*)object;
+    if (![self.ink isEqual:other.ink]) {
+        return NO;
+    }
+    if (![self.lineId isEqual:other.lineId]) {
+        NSLog(@"lineids not same: %@ != %@",self.lineId,other.lineId);
+        return NO;
+    }
+    if (![self.points isEqual:other.points]) {
+        return NO;
+    }
+    return YES;
+}
 #pragma mark - DdFPadPadLine()
 -(void)calculateBounds {
     BOOL first = YES;
@@ -106,7 +122,8 @@
     NSString *json = [[NSString alloc]initWithBytes:[wrapper.regularFileContents bytes] length:[wrapper.regularFileContents length] encoding:NSUTF8StringEncoding];
     NSDictionary *jsonDictionary = [json JSONValue];
     DdFPadPadInk *ink = [[DdFPadPadInk alloc]initWithJSONDictionary:[jsonDictionary objectForKey:INK_KEY]];
-    return [[DdFPadPadLine alloc]initWithId:[wrapper.filename stringByReplacingOccurrencesOfString:@".line" withString:@""] Ink:ink Points:[DdFPadPadLine JSONArrayToPoints:[jsonDictionary objectForKey:POINTS_KEY]]];
+    NSString *fileName = wrapper.filename ? wrapper.filename : wrapper.preferredFilename;
+    return [[DdFPadPadLine alloc]initWithId:[fileName stringByReplacingOccurrencesOfString:@".line" withString:@""] Ink:ink Points:[DdFPadPadLine JSONArrayToPoints:[jsonDictionary objectForKey:POINTS_KEY]]];
 }
 
 +(NSArray*)JSONArrayToPoints:(NSArray*)jsonArray {

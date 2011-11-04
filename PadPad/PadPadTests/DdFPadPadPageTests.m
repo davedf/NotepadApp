@@ -3,6 +3,9 @@
 #import "DdFPadPadPageLineInformationTests.h"
 #import "DdFPadPadPageLineInformation.h"
 #import "DdFPadPadPaper.h"
+#import "DdFPadPadLine.h"
+#import "DdFPadPadModelTestHelper.h"
+
 #import "JSON.h"
 @implementation DdFPadPadPageTests {
     DdFPadPadPaper *paper;
@@ -52,5 +55,20 @@
 
 -(void)testAddLine {
     
+    DdFPadPadLine *line =[DdFPadPadModelTestHelper lineWithPoints];
+    [underTest addLine:line];
+    STAssertEqualObjects([NSArray arrayWithObject:line], underTest.lines, @"Fail");
+    
+}
+
+-(void)testFileWrapperHasLineFileWrapper {
+    DdFPadPadLine *line =[DdFPadPadModelTestHelper lineWithPoints];
+    [underTest addLine:line];
+    NSFileWrapper *wrapper= [underTest NSFileWrapperRepresentation];
+    NSString *lineFile = [NSString stringWithFormat:@"%@.line",line.lineId];
+    NSFileWrapper *lineWrapper = [wrapper.fileWrappers objectForKey:lineFile];
+    STAssertNotNil(lineWrapper, @"Fail");
+    DdFPadPadLine *wrappedLine = [DdFPadPadLine lineFromNSFileWrapper:lineWrapper];
+    STAssertEqualObjects(line, wrappedLine, @"Fail");
 }
 @end
