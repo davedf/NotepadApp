@@ -1,5 +1,5 @@
 #import "DdFPadPadModelTestHelper.h"
-
+#import "JSON.h"
 
 @implementation DdFPadPadModelTestHelper
 
@@ -20,4 +20,11 @@
     return [[DdFPadPadLinePoint alloc]initWithOrigin:point  velocity:CGPointMake(1, 1)];
 }
 
++(DdFPadPadPaper*)paper {
+    DdFPadPadPageLineInformation *h = [DdFPadPadPageLineInformation pageLineInformationWithJSONRepresentation:[JSON_MAJOR_LINES JSONValue]];
+    DdFPadPadPageLineInformation *v = [DdFPadPadPageLineInformation pageLineInformationWithJSONRepresentation:[JSON_NO_MAJOR_LINES JSONValue]];
+    
+    return [[DdFPadPadPaper alloc]initWithHoriziontal:h Vertical:v];
+
+}
 @end

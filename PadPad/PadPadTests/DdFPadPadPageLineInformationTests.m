@@ -2,6 +2,7 @@
 #import "DdFPadPadPageLineInformation.h"
 #import "DdFPadPadInk.h"
 #import "JSON.h"
+#import "DdFPadPadModelTestHelper.h"
 
 
 @implementation DdFPadPadPageLineInformationTests {

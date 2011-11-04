@@ -3,6 +3,7 @@
 #import "DdFPadPadPageLineInformation.h"
 #import "JSON.h"
 #import "DdFPadPadPageLineInformationTests.h"
+#import "DdFPadPadModelTestHelper.h"
 @implementation DdFPadPadPaperTests {
     DdFPadPadPaper *underTest;
     DdFPadPadPageLineInformation *h;

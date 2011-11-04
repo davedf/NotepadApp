@@ -14,10 +14,7 @@
 
 -(void)setUp {
     [super setUp];
-    DdFPadPadPageLineInformation *h = [DdFPadPadPageLineInformation pageLineInformationWithJSONRepresentation:[JSON_MAJOR_LINES JSONValue]];
-    DdFPadPadPageLineInformation *v = [DdFPadPadPageLineInformation pageLineInformationWithJSONRepresentation:[JSON_NO_MAJOR_LINES JSONValue]];
-    
-    paper = [[DdFPadPadPaper alloc]initWithHoriziontal:h Vertical:v];
+    paper = [DdFPadPadModelTestHelper paper];
 
     underTest = [[DdFPadPadPage alloc]initWithPaper:paper PageNumber:1 Lines:[NSArray array] Identifier:@"foo"];
                   
