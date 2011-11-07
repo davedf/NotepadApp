@@ -4,18 +4,21 @@
 #import "JSON.h"
 #import "DdFPadPadPageLineInformationTests.h"
 #import "DdFPadPadModelTestHelper.h"
+#import "DdFPadPadColor.h"
+
 @implementation DdFPadPadPaperTests {
     DdFPadPadPaper *underTest;
     DdFPadPadPageLineInformation *h;
     DdFPadPadPageLineInformation *v;
+    DdFPadPadColor *c;
 }
 
 -(void)setUp {
     [super setUp];
     h = [DdFPadPadPageLineInformation pageLineInformationWithJSONRepresentation:[JSON_MAJOR_LINES JSONValue]];
     v = [DdFPadPadPageLineInformation pageLineInformationWithJSONRepresentation:[JSON_NO_MAJOR_LINES JSONValue]];
-    
-    underTest = [[DdFPadPadPaper alloc]initWithHoriziontal:h Vertical:v];
+    c = [DdFPadPadColor ivoryPaper];
+    underTest = [[DdFPadPadPaper alloc]initWithHoriziontal:h Vertical:v PaperColor:c];
 }
 
 -(void)testVerticalSet {
@@ -30,15 +33,17 @@
     NSDictionary *expected = [NSDictionary dictionaryWithObjectsAndKeys:
      [h DdFJSONRepresentation],@"h", 
      [v DdFJSONRepresentation],@"v", 
+     [c DdFJSONRepresentation],@"c",               
      nil];
     STAssertEqualObjects([underTest DdFJSONRepresentation], expected, @"Fail");
 }
 
 -(void)testFromJSONRepresentation {
     NSDictionary *json = [NSDictionary dictionaryWithObjectsAndKeys:
-                              [h DdFJSONRepresentation],@"h", 
-                              [v DdFJSONRepresentation],@"v", 
-                              nil];
+                          [h DdFJSONRepresentation],@"h",                             
+                          [v DdFJSONRepresentation],@"v", 
+                          [c DdFJSONRepresentation],@"c",
+                          nil];
 
     DdFPadPadPaper *result = [DdFPadPadPaper paperWithJSONRepresentation:json];
     STAssertEqualObjects(underTest, result, @"Fail");

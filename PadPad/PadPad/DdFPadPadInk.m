@@ -1,23 +1,17 @@
 #import "DdFPadPadInk.h"
 #import "JSON.h"
-#import "UIColor+DdFJSON.h"
-#import "NSDictionary+DdFJSON.h"
 
 #define COLOR_KEY @"color"
 #define INK_SIZE_KEY @"size"
 #define INK_TYPE_KEY @"type"
 
-@implementation DdFPadPadInk {
-    UIColor *_color;
-    DdFPadPadInkType _inkType;
-    DdFPadPadInkSize _inkSize;
-}
+@implementation DdFPadPadInk 
 @synthesize inkSize=_inkSize,inkType=_inkType,color=_color;
 
--(id)initWithColorRed:(CGFloat)red Green:(CGFloat)green Blue:(CGFloat)blue Alpha:(CGFloat)alpha Size:(DdFPadPadInkSize)size Type:(DdFPadPadInkType)type {
+-(id)initWithColor:(DdFPadPadColor*)color Size:(DdFPadPadInkSize)size Type:(DdFPadPadInkType)type {
     self = [super init];
     if (self) {
-        _color = [UIColor colorWithRed:red green:green blue:blue alpha:alpha];
+        _color = color;
         _inkSize = size;
         _inkType = type;
     }
@@ -27,7 +21,7 @@
 -(id)initWithJSONDictionary:(NSDictionary*)json {
     self = [super init];
     if (self) {
-        _color = [[json objectForKey:COLOR_KEY] UIColorJSONValue];
+        _color = [DdFPadPadColor colorFromJSONRepresentation: [json objectForKey:COLOR_KEY]];
         _inkSize = [[json objectForKey:INK_SIZE_KEY] floatValue];
         _inkType = [[json objectForKey:INK_TYPE_KEY] intValue];
     }
@@ -36,7 +30,7 @@
 
 -(NSString*)InkJSONDictionary {
     return [NSDictionary dictionaryWithObjectsAndKeys:
-                                [self.color DdFJSONDictionary],COLOR_KEY,
+                                [self.color DdFJSONRepresentation],COLOR_KEY,
                                 [NSNumber numberWithFloat:self.inkSize],INK_SIZE_KEY,
                                 [NSNumber numberWithInt:self.inkType],INK_TYPE_KEY,
                                 nil];    

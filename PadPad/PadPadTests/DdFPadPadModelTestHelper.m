@@ -1,10 +1,11 @@
 #import "DdFPadPadModelTestHelper.h"
 #import "JSON.h"
+#import "DdFPadPadColor.h"
 
 @implementation DdFPadPadModelTestHelper
 
 +(DdFPadPadInk*)ink  {
-    return [[DdFPadPadInk alloc]initWithColorRed:1 Green:1 Blue:1 Alpha:1 Size:2 Type:kFeltTip];
+    return [[DdFPadPadInk alloc]initWithColor:[DdFPadPadColor blackInk] Size:2 Type:kFeltTip];
 }
 +(DdFPadPadLine*)line {
     return [[DdFPadPadLine alloc]initWithId:@"foo" Ink:[DdFPadPadModelTestHelper ink] Points:[NSArray array]];
@@ -24,7 +25,7 @@
     DdFPadPadPageLineInformation *h = [DdFPadPadPageLineInformation pageLineInformationWithJSONRepresentation:[JSON_MAJOR_LINES JSONValue]];
     DdFPadPadPageLineInformation *v = [DdFPadPadPageLineInformation pageLineInformationWithJSONRepresentation:[JSON_NO_MAJOR_LINES JSONValue]];
     
-    return [[DdFPadPadPaper alloc]initWithHoriziontal:h Vertical:v];
+    return [[DdFPadPadPaper alloc]initWithHoriziontal:h Vertical:v PaperColor:[DdFPadPadColor ivoryPaper]];
 
 }
 @end

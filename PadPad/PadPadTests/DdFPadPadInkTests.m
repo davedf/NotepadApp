@@ -2,9 +2,10 @@
 #import "DdFPadPadInk.h"
 #import "UIColor+DdFJSON.h"
 #import "JSON.h"
+#import "DdFPadPadColor.h"
 
 @implementation DdFPadPadInkTests {
-    UIColor *color;
+    DdFPadPadColor *color;
     DdFPadPadInkSize inkSize;
     DdFPadPadInkType inkType;
     DdFPadPadInk *underTest;
@@ -12,10 +13,10 @@
 
 -(void)setUp {
     [super setUp];
-    color = [UIColor colorWithRed:0.1 green:0.2 blue:0.3 alpha:0.4];
+    color = [DdFPadPadColor blackInk];
     inkSize = 1.5;
     inkType = kFeltTip;
-    underTest = [[DdFPadPadInk alloc]initWithColorRed:0.1 Green:0.2 Blue:0.3 Alpha:0.4 Size:inkSize Type:inkType];
+    underTest = [[DdFPadPadInk alloc]initWithColor:[DdFPadPadColor blackInk] Size:inkSize Type:inkType];
 }
 
 -(void)testSetsColor {
@@ -31,7 +32,7 @@
 }
 
 -(void)testJSONRepresentation {
-    NSString *expected = [NSString stringWithFormat:@"{\"color\":%@,\"type\":0,\"size\":1.5}",[color DdFJSONRepresentation]];
+    NSString *expected = [NSString stringWithFormat:@"{\"color\":%@,\"type\":0,\"size\":1.5}",[color.color DdFJSONRepresentation]];
     STAssertEqualObjects(expected, [underTest InkJSONRepresentation], @"Fail");
 }
 

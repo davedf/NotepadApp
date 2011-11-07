@@ -1,17 +1,21 @@
 #import "DdFPadPadPaper.h"
 #import "DdFPadPadPageLineInformation.h"
 #import "JSON.h"
+#import "DdFPadPadColor.h"
+
 #define HORIZONTAL_KEY @"h"
 #define VERTICAL_KEY @"v"
+#define PAPER_COLOR_KEY @"c"
 
 @implementation DdFPadPadPaper
-@synthesize horizontal=_horizontal,vertical=_vertical;
+@synthesize horizontal=_horizontal,vertical=_vertical,paperColor=_paperColor;
 
--(id)initWithHoriziontal:(DdFPadPadPageLineInformation*)horizontal Vertical:(DdFPadPadPageLineInformation*)vertical {
+-(id)initWithHoriziontal:(DdFPadPadPageLineInformation*)horizontal Vertical:(DdFPadPadPageLineInformation*)vertical PaperColor:(DdFPadPadColor*)paperColor {
     self = [super init];
     if (self) {
         _horizontal = horizontal;
         _vertical = vertical;
+        _paperColor = paperColor;
     }
     return self;
 }
@@ -27,12 +31,16 @@
     if (![self.vertical isEqual:other.vertical]) {
         return NO;
     }
+    if (![self.paperColor.color isEqual:other.paperColor.color]) {
+        return NO;
+    }
     return YES;
 }
 -(NSDictionary*)DdFJSONRepresentation {
     return [NSDictionary dictionaryWithObjectsAndKeys:
             [_horizontal DdFJSONRepresentation],HORIZONTAL_KEY, 
             [_vertical DdFJSONRepresentation],VERTICAL_KEY, 
+            [_paperColor DdFJSONRepresentation],PAPER_COLOR_KEY,
             nil];
 }
 
@@ -56,7 +64,8 @@
     DdFPadPadPageLineInformation *h = [DdFPadPadPageLineInformation pageLineInformationWithJSONRepresentation:[json objectForKey:HORIZONTAL_KEY]];
 
     DdFPadPadPageLineInformation *v = [DdFPadPadPageLineInformation pageLineInformationWithJSONRepresentation:[json objectForKey:VERTICAL_KEY]];
-
-    return [[DdFPadPadPaper alloc]initWithHoriziontal:h Vertical:v];
+    DdFPadPadColor *paperColor = [DdFPadPadColor colorFromJSONRepresentation:[json objectForKey:PAPER_COLOR_KEY]];
+    
+    return [[DdFPadPadPaper alloc]initWithHoriziontal:h Vertical:v PaperColor:paperColor];
 }
 @end
