@@ -11,6 +11,8 @@
 
 static inline CGRect DrawableFrameInContainingFrame(CGRect containerFrame) {
     CGFloat inkWidth = MIN(containerFrame.size.width,STANDARD_INK_WIDTH);
-    CGFloat offset = (containerFrame.size.width - inkWidth) / 2;
-    return CGRectMake(offset, 0, inkWidth, inkWidth/INK_HEIGHT_RATIO);
+    CGFloat inkHeight = inkWidth / INK_HEIGHT_RATIO;
+    CGFloat xOffset = (containerFrame.size.width - inkWidth) / 2;
+    CGFloat yOffset = (containerFrame.size.height - inkHeight) /2;
+    return CGRectMake(xOffset, yOffset, inkWidth, inkHeight);
 }
