@@ -40,6 +40,9 @@
     if (![self.paper isEqual:other.paper]) {
         return NO;
     }
+    if (![self.lines isEqual:other.lines]) {
+        return NO;
+    }
     return YES;
 }
 
@@ -60,11 +63,12 @@
     NSFileWrapper *paperWrapper = [wrapper.fileWrappers objectForKey:@"page.paper"];
     DdFPadPadPaper *paper = [DdFPadPadPaper paperWithNSFileWrapperRepresentation:paperWrapper];
     NSString *identifier = [DdFPadPadPage pageIdentifierFromNSFileWrapper:wrapper];
-    return [[DdFPadPadPage alloc]initWithPaper:paper PageNumber:pageNumber Lines:[NSArray array] Identifier:identifier];
+    return [[DdFPadPadPage alloc]initWithPaper:paper PageNumber:pageNumber Lines:[DdFPadPadLine linesContainedByFileWrapper:wrapper] Identifier:identifier];
 }
 
 +(NSString*)pageIdentifierFromNSFileWrapper:(NSFileWrapper*)wrapper {
     NSString *fileName = wrapper.filename ? wrapper.filename : wrapper.preferredFilename;
+    NSLog(@"fileName:%@",fileName);
     return  [[fileName componentsSeparatedByString:@"."] objectAtIndex:0];
 
 }

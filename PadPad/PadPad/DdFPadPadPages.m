@@ -1,6 +1,7 @@
 #import "DdFPadPadPages.h"
 #import "JSON.h"
 #import "DdFPadPadPage.h"
+#import "DdFPadPadPageBuilder.h"
 
 #define PAGE_ORDER_FILE_NAME @"page.order"
 
@@ -32,10 +33,13 @@
     _loadedPageIdToDdFPadPadPageMap = [[NSMutableDictionary alloc]init];
 
     for (NSString *wrapperName in [fileWrapper.fileWrappers allKeys]) {        
-            
-        if ([_pageIndexToPageIdMap objectForKey:wrapperName]) {
-            NSFileWrapper *pageWrapper = [fileWrapper.fileWrappers objectForKey:wrapperName];
-            [_pageIdToNSFileWrapperMap setObject:pageWrapper forKey:wrapperName];                
+        NSFileWrapper *pageWrapper = [fileWrapper.fileWrappers objectForKey:wrapperName];
+
+        NSString *pageId = [DdFPadPadPage pageIdentifierFromNSFileWrapper:pageWrapper];
+        NSLog(@"pageId:%@", pageId);
+        if (pageId && [[_pageIndexToPageIdMap allValues] containsObject:pageId]) {
+            NSLog(@"Adding pageId:%@ to _pageIdToNSFileWrapperMap",pageId);
+            [_pageIdToNSFileWrapperMap setObject:pageWrapper forKey:pageId];                
         }
     }
 }
@@ -52,8 +56,29 @@
     }    
 }
 
--(DdFPadPadPage*)pageForIndex {
-    return nil;
+-(DdFPadPadPage*)pageForIndex:(NSUInteger)pageIndex {
+    NSString *pageIndexNumber = [NSString stringWithFormat:@"%d",pageIndex];
+    NSUInteger pageNumber = pageIndex + 1;
+    NSString *pageId = [_pageIndexToPageIdMap objectForKey:pageIndexNumber];
+    if (pageId) {
+        DdFPadPadPage *loadedPage = [_loadedPageIdToDdFPadPadPageMap objectForKey:pageId];
+        if (loadedPage) {
+            return loadedPage;
+        }
+        
+        NSFileWrapper *wrapper = [_pageIdToNSFileWrapperMap objectForKey:pageId];
+        if (wrapper) {
+            DdFPadPadPage *unwrapped = [DdFPadPadPage pageWithPageNumber:pageNumber NSFileWrapper:wrapper];
+            [_loadedPageIdToDdFPadPadPageMap setObject:unwrapped forKey:pageId];
+            [_pageIdToNSFileWrapperMap removeObjectForKey:pageId];
+            return unwrapped;
+        }
+    }
+    DdFPadPadPage *newPage = [[DdFPadPadPageBuilder sharedPageBuilder] pageWithPageNumber:pageNumber];
+    [_loadedPageIdToDdFPadPadPageMap setObject:newPage forKey:newPage.identifier];
+    NSLog(@"adding to page order identifier:%@ key:%@",newPage.identifier,pageIndexNumber);
+    [_pageIndexToPageIdMap setObject:newPage.identifier forKey:pageIndexNumber];
+    return newPage;
 }
 
 -(BOOL)isEqual:(id)object {
@@ -76,6 +101,7 @@
 #pragma mark - DdFPadPadPages()
 -(void)addPageOrderToFileWrapper:(NSFileWrapper*)fileWrapper {
     NSString *pageOrderJSON = [_pageIndexToPageIdMap JSONRepresentation];
+    NSLog(@"saving page order:%@",pageOrderJSON);
     NSData *data = [NSData dataWithBytes:[pageOrderJSON UTF8String] length:[pageOrderJSON length]];
     
     NSFileWrapper *pageOrderWrapper = [[NSFileWrapper alloc]initRegularFileWithContents:data];
@@ -87,7 +113,7 @@
 -(void)loadPageOrderFromFileWrapper:(NSFileWrapper*)fileWrapper {
     NSFileWrapper *pageOrderFileWrapper = [fileWrapper.fileWrappers objectForKey:PAGE_ORDER_FILE_NAME];
     NSString *json = [[NSString alloc]initWithBytes:[pageOrderFileWrapper.regularFileContents bytes] length:[pageOrderFileWrapper.regularFileContents length] encoding:NSUTF8StringEncoding];
-
+    NSLog(@"loading page order:%@",json);
     NSDictionary *order = [json JSONValue];
     _pageIndexToPageIdMap = [NSMutableDictionary dictionaryWithDictionary:order];
 }

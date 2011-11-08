@@ -17,5 +17,8 @@
 -(NSFileWrapper*)NSFileWrapperRepresentation;
 
 +(DdFPadPadLine*)lineFromNSFileWrapper:(NSFileWrapper*)fileWrapper;
+
++(BOOL)recognises:(NSFileWrapper*)fileWrapper;
++(NSArray*)linesContainedByFileWrapper:(NSFileWrapper*)fileWrapper;
 +(NSArray*)JSONArrayToPoints:(NSArray*)jsonArray;
 @end

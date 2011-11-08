@@ -126,6 +126,27 @@
     return [[DdFPadPadLine alloc]initWithId:[fileName stringByReplacingOccurrencesOfString:@".line" withString:@""] Ink:ink Points:[DdFPadPadLine JSONArrayToPoints:[jsonDictionary objectForKey:POINTS_KEY]]];
 }
 
++(NSArray*)linesContainedByFileWrapper:(NSFileWrapper*)fileWrapper {
+    NSMutableArray *lines = [[NSMutableArray alloc]init];
+    for (NSFileWrapper *wrapper in [fileWrapper.fileWrappers allValues]) {
+        if ([DdFPadPadLine recognises:wrapper]) {
+            NSLog(@"adding line from wrapper");
+            [lines addObject:[DdFPadPadLine lineFromNSFileWrapper:wrapper]];
+        }
+    }
+    return [NSArray arrayWithArray:lines];
+}
+
++(BOOL)recognises:(NSFileWrapper*)fileWrapper {
+    NSString *fileName = fileWrapper.filename ? fileWrapper.filename : fileWrapper.preferredFilename;
+    if (!fileName) {
+        return NO;
+    }
+    NSString *filetype = [[fileName componentsSeparatedByString:@"."] lastObject];
+    NSLog(@"fileType:%@",filetype);
+    return [filetype isEqualToString:@"line"];
+}
+
 +(NSArray*)JSONArrayToPoints:(NSArray*)jsonArray {
     NSMutableArray *points = [[NSMutableArray alloc]initWithCapacity:jsonArray.count];
 
