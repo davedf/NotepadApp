@@ -1,6 +1,7 @@
 #import "DdfPadPadDataViewController.h"
 #import "DdFPadPadPage.h"
 #import "DdFPadPadPageView.h"
+#import "DdFPadPadViewContants.h"
 
 @interface DdfPadPadDataViewController()
 @property (readonly) DdFPadPadPageView *pageView;
@@ -27,9 +28,7 @@
     [self sizeInkView];    
 }
 -(void)sizeInkView {
-    CGFloat inkWidth = MIN(self.pageView.frame.size.width,708);
-    CGFloat offset = (self.pageView.frame.size.width - inkWidth) / 2;
-    self.inkView.frame = CGRectMake(offset, 0, inkWidth, inkWidth/0.75);
+    self.inkView.frame = DrawableFrameInContainingFrame(self.pageView.frame);
     NSLog(@"inkView size height:%f width:%f",self.inkView.frame.size.height,self.inkView.frame.size.width);
     
 }

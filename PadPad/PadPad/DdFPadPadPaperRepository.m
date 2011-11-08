@@ -21,9 +21,9 @@
 -(id)init {
     self = [super init];
     if (self) {
-        DdFPadPadInk *blackInk =[[DdFPadPadInk alloc]initWithColor:[DdFPadPadColor blackInk] Size:2 Type:kFeltTip ];
+        DdFPadPadInk *blackInk =[[DdFPadPadInk alloc]initWithColor:[DdFPadPadColor faintBlackInk] Size:0.5 Type:kFeltTip ];
         
-        DdFPadPadPageLineInformation *blackCloseRuled = [[DdFPadPadPageLineInformation alloc] initWithLineInk:blackInk LineGap:10];
+        DdFPadPadPageLineInformation *blackCloseRuled = [[DdFPadPadPageLineInformation alloc] initWithLineInk:blackInk LineGap:30];
         
         DdFPadPadColor *ivoryPaper = [DdFPadPadColor ivoryPaper];
         

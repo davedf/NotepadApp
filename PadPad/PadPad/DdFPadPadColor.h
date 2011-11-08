@@ -17,5 +17,6 @@
 
 +(DdFPadPadColor*)ivoryPaper;
 +(DdFPadPadColor*)blackInk;
++(DdFPadPadColor*)faintBlackInk;
 +(DdFPadPadColor*)totalBlackInk;
 @end

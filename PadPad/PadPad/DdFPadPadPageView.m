@@ -2,7 +2,8 @@
 #import <QuartzCore/QuartzCore.h>
 #import "DdFPadPadPage.h"
 #import "DdFPadPadPaper.h"
-
+#import "UIView+DdFPadPadPaper.h"
+#import "DdFPadPadViewContants.h"
 #import "DdFPadPadColor.h"
 @interface DdFPadPadPageView()
 -(void)setPageSide:(DdFPadPadPageViewSide)side;
@@ -57,7 +58,8 @@
         }
         drawnSide = requestedSide;
     }
-    
+    CGContextRef context = UIGraphicsGetCurrentContext();        
+    [self drawPaper:self.dataObject.paper InContext:context WithFrame:DrawableFrameInContainingFrame(self.frame)];
 }
 -(void)willRotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration {
     NSLog(@"hidePageSide for page:%d",self.dataObject.pageNumber);
