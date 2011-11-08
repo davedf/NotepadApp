@@ -4,6 +4,7 @@
 
 @interface DdfPadPadDataViewController()
 @property (readonly) DdFPadPadPageView *pageView;
+-(void)sizeInkView;
 @end
 
 @implementation DdfPadPadDataViewController
@@ -22,7 +23,16 @@
     [self.inkView addGestureRecognizer:[[UIPanGestureRecognizer alloc]initWithTarget:self action:@selector(inkPanned:)]];
 }
 
-                                       
+-(void)viewDidAppear:(BOOL)animated {
+    [self sizeInkView];    
+}
+-(void)sizeInkView {
+    CGFloat inkWidth = MIN(self.pageView.frame.size.width,708);
+    CGFloat offset = (self.pageView.frame.size.width - inkWidth) / 2;
+    self.inkView.frame = CGRectMake(offset, 0, inkWidth, inkWidth/0.75);
+    NSLog(@"inkView size height:%f width:%f",self.inkView.frame.size.height,self.inkView.frame.size.width);
+    
+}
 -(IBAction)inkPanned:(id)sender {
                                            
 }
@@ -34,8 +44,13 @@
 
 -(void)willRotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration {        
     [self.pageView willRotateToInterfaceOrientation:toInterfaceOrientation duration:duration];
+    
 }
 
+-(void) didRotateFromInterfaceOrientation:(UIInterfaceOrientation)fromInterfaceOrientation {
+    [self sizeInkView];
+    NSLog(@"didRotateFromInterfaceOrientation size height:%f width:%f",self.view.frame.size.height,self.view.frame.size.width);
+}
 #pragma mark - DdfPadPadDataViewController() 
 -(DdFPadPadPageView*)pageView {
     return (DdFPadPadPageView*)self.view;

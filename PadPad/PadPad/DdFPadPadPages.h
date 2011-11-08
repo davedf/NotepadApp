@@ -6,4 +6,5 @@
 -(void)loadFromFileWrapper:(NSFileWrapper*)fileWrapper;
 -(void)addToFileWrapper:(NSFileWrapper*)fileWrapper;
 -(DdFPadPadPage*)pageForIndex:(NSUInteger)pageIndex;
+-(NSUInteger)indexOfPage:(DdFPadPadPage*)page;
 @end

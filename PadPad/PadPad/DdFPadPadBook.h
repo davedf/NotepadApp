@@ -1,4 +1,5 @@
 #import <Foundation/Foundation.h>
+#import "DdFPadPadPage.h"
 
 @class DdFPadPadBookInfo;
 
@@ -11,6 +12,8 @@
 @property (weak) NSObject<DdFPadPadBookDelegate> *delegate;
 @property (strong) DdFPadPadBookInfo *bookInfo;
 
+-(DdFPadPadPage*)pageForIndex:(NSUInteger)index;
+-(NSUInteger)indexOfPage:(DdFPadPadPage*)page;
 -(id)initWithName:(NSString*)name Delegate:(NSObject<DdFPadPadBookDelegate>*)delegate;
 
 +(DdFPadPadBook*)newBookWithName:(NSString*)name Delegate:(NSObject<DdFPadPadBookDelegate>*)delegate CompletionHandler:(void (^)(BOOL success))completionHandler;

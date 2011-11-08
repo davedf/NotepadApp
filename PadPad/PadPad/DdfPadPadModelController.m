@@ -14,23 +14,18 @@
  */
 
 @interface DdfPadPadModelController()
-@property (readonly, strong, nonatomic) NSMutableArray *pageData;
 @property (strong,nonatomic) DdFPadPadBook *book;
--(void)ensurePageToIndex:(NSUInteger)index;
 @end
 
 @implementation DdfPadPadModelController
 
-@synthesize pageData=_pageData,book=_book;
+@synthesize book=_book;
 
 - (id)init
 {
     self = [super init];
     if (self) {
         // Create the data model.
-//        NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-//        _pageData = [[dateFormatter monthSymbols] copy];
-        _pageData= [NSMutableArray array];
         self.book =[[DdFPadPadBookRepository sharedRepository] openDefaultBookWithDelegate:nil CompletionHandler:^(BOOL success) {
             NSLog(@"new book created:%@",success?@"Y":@"N");
         } ];
@@ -39,28 +34,12 @@
     return self;
 }
 
--(void)ensurePageToIndex:(NSUInteger)index {
-    BOOL added = NO;
-    while (self.pageData.count <= index) {
-        [self.pageData addObject:[[DdFPadPadPage alloc]init]];
-        added = YES;
-    }
-    if (added) {
-        for (NSUInteger i = 0; i < self.pageData.count; i++) {
-            DdFPadPadPage *page = [self.pageData objectAtIndex:i];
-            page.pageNumber = (i+1);
-        }
-    }
-    
-}
 - (DdfPadPadDataViewController *)viewControllerAtIndex:(NSUInteger)index storyboard:(UIStoryboard *)storyboard
 {   
     // Return the data view controller for the given index.
-    [self ensurePageToIndex:index];
-    
     // Create a new view controller and pass suitable data.
     DdfPadPadDataViewController *dataViewController = [storyboard instantiateViewControllerWithIdentifier:@"DdfPadPadDataViewController"];
-    dataViewController.dataObject = [self.pageData objectAtIndex:index];
+    dataViewController.dataObject = [self.book pageForIndex:index];
     return dataViewController;
 }
 
@@ -70,7 +49,7 @@
      Return the index of the given data view controller.
      For simplicity, this implementation uses a static array of model objects and the view controller stores the model object; you can therefore use the model object to identify the index.
      */
-    return [self.pageData indexOfObject:viewController.dataObject];
+    return [self.book indexOfPage:viewController.dataObject];
 }
 
 #pragma mark - Page View Controller Data Source
@@ -93,7 +72,6 @@
         return nil;
     }    
     index++;
-    [self ensurePageToIndex:index];
 
     return [self viewControllerAtIndex:index storyboard:viewController.storyboard];
 }

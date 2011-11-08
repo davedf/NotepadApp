@@ -12,6 +12,7 @@
 
 @implementation DdFPadPadPages {
     NSMutableDictionary *_pageIndexToPageIdMap;
+    NSMutableDictionary *_pageIdToPageIndexMap;
     NSMutableDictionary *_pageIdToNSFileWrapperMap;
     NSMutableDictionary *_loadedPageIdToDdFPadPadPageMap;
 }
@@ -20,6 +21,7 @@
     self = [super init];
     if (self) {
         _pageIndexToPageIdMap = [[NSMutableDictionary alloc]init];
+        _pageIdToPageIndexMap = [[NSMutableDictionary alloc]init];
         _pageIdToNSFileWrapperMap = [[NSMutableDictionary alloc]init];
         _loadedPageIdToDdFPadPadPageMap = [[NSMutableDictionary alloc]init];
     }
@@ -56,6 +58,9 @@
     }    
 }
 
+-(NSUInteger)indexOfPage:(DdFPadPadPage*)page {
+    return [[_pageIdToPageIndexMap objectForKey:page.identifier] intValue];
+}
 -(DdFPadPadPage*)pageForIndex:(NSUInteger)pageIndex {
     NSString *pageIndexNumber = [NSString stringWithFormat:@"%d",pageIndex];
     NSUInteger pageNumber = pageIndex + 1;
@@ -78,6 +83,7 @@
     [_loadedPageIdToDdFPadPadPageMap setObject:newPage forKey:newPage.identifier];
     NSLog(@"adding to page order identifier:%@ key:%@",newPage.identifier,pageIndexNumber);
     [_pageIndexToPageIdMap setObject:newPage.identifier forKey:pageIndexNumber];
+    [_pageIdToPageIndexMap setObject:pageIndexNumber forKey:newPage.identifier];
     return newPage;
 }
 
@@ -116,6 +122,9 @@
     NSLog(@"loading page order:%@",json);
     NSDictionary *order = [json JSONValue];
     _pageIndexToPageIdMap = [NSMutableDictionary dictionaryWithDictionary:order];
+    for (NSString *pageIndex in [_pageIndexToPageIdMap allKeys]) {
+        [_pageIdToPageIndexMap setObject:pageIndex forKey:[_pageIndexToPageIdMap objectForKey:pageIndex]];
+    }
 }
 
 @end

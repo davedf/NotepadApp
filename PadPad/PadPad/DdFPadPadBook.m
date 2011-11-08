@@ -75,6 +75,13 @@
     return YES;
 }
 
+-(DdFPadPadPage*)pageForIndex:(NSUInteger)index {
+    return [self.pages pageForIndex:index];
+}
+
+-(NSUInteger)indexOfPage:(DdFPadPadPage*)page {
+    return [self.pages indexOfPage:page];
+}
 #pragma mark - creating and loading a book
 
 +(DdFPadPadBook*)newBookWithName:(NSString*)name Delegate:(NSObject<DdFPadPadBookDelegate>*)delegate CompletionHandler:(void (^)(BOOL success))completionHandler {

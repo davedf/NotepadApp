@@ -1,7 +1,9 @@
 #import "DdFPadPadPageView.h"
 #import <QuartzCore/QuartzCore.h>
 #import "DdFPadPadPage.h"
+#import "DdFPadPadPaper.h"
 
+#import "DdFPadPadColor.h"
 @interface DdFPadPadPageView()
 -(void)setPageSide:(DdFPadPadPageViewSide)side;
 -(void)showSpineShading;
@@ -11,13 +13,14 @@
 
 @end
 
-#define SPINE_SHADING_WIDTH 20
+#define SPINE_SHADING_WIDTH 30
 @implementation DdFPadPadPageView {
     CAGradientLayer *spine;
     DdFPadPadPageViewSide drawnSide;
     DdFPadPadPageViewSide requestedSide;
 }
 @synthesize dataObject=_dataObject;
+
 
 -(void)hideSpineShading {
     requestedSide = kDdFPadPadPageView_None;
@@ -30,7 +33,7 @@
 }
 
 - (void)drawRect:(CGRect)rect
-{
+{    
     if (drawnSide != requestedSide) {
         if (spine) {
             [spine removeFromSuperlayer];
@@ -39,12 +42,12 @@
         if (requestedSide != kDdFPadPadPageView_None) {
             CAGradientLayer *gradient = [CAGradientLayer layer];
             if (requestedSide == kDdFPadPadPageView_Left) {
-                gradient.colors = [NSArray arrayWithObjects:(id)[[UIColor colorWithRed:0 green:0 blue:0 alpha:0.1] CGColor], (id)[[UIColor colorWithRed:0 green:0 blue:0 alpha:0] CGColor],nil];
+                gradient.colors = [NSArray arrayWithObjects:(id)[[UIColor colorWithRed:0 green:0 blue:0 alpha:0.15] CGColor], (id)[[UIColor colorWithRed:0 green:0 blue:0 alpha:0] CGColor],nil];
                 gradient.frame = CGRectMake(0, 0, SPINE_SHADING_WIDTH, self.bounds.size.height);        
                 
             }
             else  {
-                gradient.colors = [NSArray arrayWithObjects:(id)[[UIColor colorWithRed:0 green:0 blue:0 alpha:0] CGColor], (id)[[UIColor colorWithRed:0 green:0 blue:0 alpha:0.05] CGColor],nil];
+                gradient.colors = [NSArray arrayWithObjects:(id)[[UIColor colorWithRed:0 green:0 blue:0 alpha:0] CGColor], (id)[[UIColor colorWithRed:0 green:0 blue:0 alpha:0.1] CGColor],nil];
                 gradient.frame = CGRectMake(self.bounds.size.width - SPINE_SHADING_WIDTH, 0, SPINE_SHADING_WIDTH, self.bounds.size.height);
             }
             gradient.startPoint = CGPointMake(0, 0.5);
@@ -54,6 +57,7 @@
         }
         drawnSide = requestedSide;
     }
+    
 }
 -(void)willRotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration {
     NSLog(@"hidePageSide for page:%d",self.dataObject.pageNumber);
@@ -61,8 +65,10 @@
     [self performSelector:@selector(showSpineShading) withObject:nil afterDelay:duration/2];    
 }
 
+
 -(void)showPage:(DdFPadPadPage*)page {
     self.dataObject= page;
+    [self setBackgroundColor:self.dataObject.paper.paperColor.color];
     [self showSpineShading];
 }
 -(void)showSpineShading {

@@ -9,6 +9,7 @@
 #import "DdFPadPadColor.h"
 #import "UIColor+DdFJSON.h"
 #import "NSDictionary+DdFJSON.h"
+#import "JSON.h"
 
 @interface DdFPadPadColor()
 -(id)initWithUIColor:(UIColor*)uiColor;
@@ -39,6 +40,9 @@
     return YES;
 }
 
+-(NSString*)description {
+    return [[self.color DdFJSONDictionary] JSONRepresentation]; 
+}
 +(DdFPadPadColor*)colorFromJSONRepresentation:(NSDictionary*)jsonDictionary {
     return [[DdFPadPadColor alloc]initWithUIColor:[jsonDictionary UIColorJSONValue]];
 }
