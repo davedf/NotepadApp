@@ -25,6 +25,8 @@
 		552AE9F5146826DE00BE8A07 /* DdFPadPadPaperRepository.m in Sources */ = {isa = PBXBuildFile; fileRef = 552AE9F4146826DE00BE8A07 /* DdFPadPadPaperRepository.m */; };
 		552AE9F814682FC700BE8A07 /* DdFPadPadColor.m in Sources */ = {isa = PBXBuildFile; fileRef = 552AE9F714682FC700BE8A07 /* DdFPadPadColor.m */; };
 		552AE9FB14684B2A00BE8A07 /* DdFPadPadPaperRepositoryTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 552AE9FA14684B2A00BE8A07 /* DdFPadPadPaperRepositoryTests.m */; };
+		5533B885146AF5990096FF9F /* paper.png in Resources */ = {isa = PBXBuildFile; fileRef = 5533B884146AF5990096FF9F /* paper.png */; };
+		5533B88A146AF6F80096FF9F /* DdFPadPadPaperSelectorController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5533B888146AF6F80096FF9F /* DdFPadPadPaperSelectorController.m */; };
 		553A669814333A8900503CC7 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 553A669714333A8900503CC7 /* UIKit.framework */; };
 		553A669A14333A8900503CC7 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 553A669914333A8900503CC7 /* Foundation.framework */; };
 		553A669C14333A8900503CC7 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 553A669B14333A8900503CC7 /* CoreGraphics.framework */; };
@@ -119,6 +121,9 @@
 		552AE9F714682FC700BE8A07 /* DdFPadPadColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DdFPadPadColor.m; sourceTree = "<group>"; };
 		552AE9F914684B2A00BE8A07 /* DdFPadPadPaperRepositoryTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DdFPadPadPaperRepositoryTests.h; sourceTree = "<group>"; };
 		552AE9FA14684B2A00BE8A07 /* DdFPadPadPaperRepositoryTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DdFPadPadPaperRepositoryTests.m; sourceTree = "<group>"; };
+		5533B884146AF5990096FF9F /* paper.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = paper.png; sourceTree = "<group>"; };
+		5533B887146AF6F80096FF9F /* DdFPadPadPaperSelectorController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DdFPadPadPaperSelectorController.h; sourceTree = "<group>"; };
+		5533B888146AF6F80096FF9F /* DdFPadPadPaperSelectorController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DdFPadPadPaperSelectorController.m; sourceTree = "<group>"; };
 		553A669314333A8900503CC7 /* PadPad.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PadPad.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		553A669714333A8900503CC7 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		553A669914333A8900503CC7 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -238,6 +243,7 @@
 		551872511434A07E009125A6 /* Assets */ = {
 			isa = PBXGroup;
 			children = (
+				5533B884146AF5990096FF9F /* paper.png */,
 				5589D330146AE47800146640 /* tabletop.png */,
 				551872531434A0D3009125A6 /* photo-camera.png */,
 			);
@@ -253,6 +259,8 @@
 				553A66B014333A8900503CC7 /* DdfPadPadModelController.m */,
 				553A66A914333A8900503CC7 /* DdfPadPadRootViewController.h */,
 				553A66AA14333A8900503CC7 /* DdfPadPadRootViewController.m */,
+				5533B887146AF6F80096FF9F /* DdFPadPadPaperSelectorController.h */,
+				5533B888146AF6F80096FF9F /* DdFPadPadPaperSelectorController.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -567,6 +575,7 @@
 				553A66B414333A8900503CC7 /* MainStoryboard.storyboard in Resources */,
 				551872541434A0D3009125A6 /* photo-camera.png in Resources */,
 				5589D331146AE47800146640 /* tabletop.png in Resources */,
+				5533B885146AF5990096FF9F /* paper.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -635,6 +644,7 @@
 				552AE9F814682FC700BE8A07 /* DdFPadPadColor.m in Sources */,
 				5589D32614698B9900146640 /* UIView+DdFPadPadPaper.m in Sources */,
 				5589D334146AE9D400146640 /* DdFPadPadShadeView.m in Sources */,
+				5533B88A146AF6F80096FF9F /* DdFPadPadPaperSelectorController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
