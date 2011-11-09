@@ -41,7 +41,8 @@
 		553A66C614333A8900503CC7 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 553A66C414333A8900503CC7 /* InfoPlist.strings */; };
 		555C05511464187E00494506 /* DdFPadPadModelTestHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 555C05501464187E00494506 /* DdFPadPadModelTestHelper.m */; };
 		5589D32614698B9900146640 /* UIView+DdFPadPadPaper.m in Sources */ = {isa = PBXBuildFile; fileRef = 5589D32514698B9900146640 /* UIView+DdFPadPadPaper.m */; };
-		5589D329146ADB4700146640 /* tabletop.png in Resources */ = {isa = PBXBuildFile; fileRef = 5589D328146ADB4700146640 /* tabletop.png */; };
+		5589D331146AE47800146640 /* tabletop.png in Resources */ = {isa = PBXBuildFile; fileRef = 5589D330146AE47800146640 /* tabletop.png */; };
+		5589D334146AE9D400146640 /* DdFPadPadShadeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5589D333146AE9D400146640 /* DdFPadPadShadeView.m */; };
 		559C10581439B8B900FBD055 /* DdFPadPadLine.m in Sources */ = {isa = PBXBuildFile; fileRef = 559C10571439B8B900FBD055 /* DdFPadPadLine.m */; };
 		559C105C1439BC4000FBD055 /* DdFPadPadLinePoint.m in Sources */ = {isa = PBXBuildFile; fileRef = 559C105B1439BC4000FBD055 /* DdFPadPadLinePoint.m */; };
 		559C10601439BFF800FBD055 /* DdFPadPadLinePointTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 559C105F1439BFF800FBD055 /* DdFPadPadLinePointTests.m */; };
@@ -144,7 +145,9 @@
 		5589D32414698B9900146640 /* UIView+DdFPadPadPaper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+DdFPadPadPaper.h"; sourceTree = "<group>"; };
 		5589D32514698B9900146640 /* UIView+DdFPadPadPaper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+DdFPadPadPaper.m"; sourceTree = "<group>"; };
 		5589D32714698C5C00146640 /* DdFPadPadViewContants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DdFPadPadViewContants.h; sourceTree = "<group>"; };
-		5589D328146ADB4700146640 /* tabletop.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tabletop.png; sourceTree = "<group>"; };
+		5589D330146AE47800146640 /* tabletop.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tabletop.png; sourceTree = "<group>"; };
+		5589D332146AE9D400146640 /* DdFPadPadShadeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DdFPadPadShadeView.h; sourceTree = "<group>"; };
+		5589D333146AE9D400146640 /* DdFPadPadShadeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DdFPadPadShadeView.m; sourceTree = "<group>"; };
 		559C10561439B8B900FBD055 /* DdFPadPadLine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DdFPadPadLine.h; sourceTree = "<group>"; };
 		559C10571439B8B900FBD055 /* DdFPadPadLine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DdFPadPadLine.m; sourceTree = "<group>"; };
 		559C105A1439BC4000FBD055 /* DdFPadPadLinePoint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DdFPadPadLinePoint.h; sourceTree = "<group>"; };
@@ -235,7 +238,7 @@
 		551872511434A07E009125A6 /* Assets */ = {
 			isa = PBXGroup;
 			children = (
-				5589D328146ADB4700146640 /* tabletop.png */,
+				5589D330146AE47800146640 /* tabletop.png */,
 				551872531434A0D3009125A6 /* photo-camera.png */,
 			);
 			path = Assets;
@@ -309,6 +312,8 @@
 				5589D32414698B9900146640 /* UIView+DdFPadPadPaper.h */,
 				5589D32514698B9900146640 /* UIView+DdFPadPadPaper.m */,
 				5589D32714698C5C00146640 /* DdFPadPadViewContants.h */,
+				5589D332146AE9D400146640 /* DdFPadPadShadeView.h */,
+				5589D333146AE9D400146640 /* DdFPadPadShadeView.m */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -561,7 +566,7 @@
 				553A66A214333A8900503CC7 /* InfoPlist.strings in Resources */,
 				553A66B414333A8900503CC7 /* MainStoryboard.storyboard in Resources */,
 				551872541434A0D3009125A6 /* photo-camera.png in Resources */,
-				5589D329146ADB4700146640 /* tabletop.png in Resources */,
+				5589D331146AE47800146640 /* tabletop.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -629,6 +634,7 @@
 				552AE9F5146826DE00BE8A07 /* DdFPadPadPaperRepository.m in Sources */,
 				552AE9F814682FC700BE8A07 /* DdFPadPadColor.m in Sources */,
 				5589D32614698B9900146640 /* UIView+DdFPadPadPaper.m in Sources */,
+				5589D334146AE9D400146640 /* DdFPadPadShadeView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
