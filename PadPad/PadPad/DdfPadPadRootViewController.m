@@ -14,6 +14,9 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    UIImage *bgImage = [UIImage imageNamed:@"tabletop"];
+    UIColor *bgColor = [UIColor colorWithPatternImage:bgImage];
+    [self.view setBackgroundColor:bgColor];
 	// Do any additional setup after loading the view, typically from a nib.
     // Configure the page view controller and add it as a child view controller.
     self.pageViewController = [[UIPageViewController alloc] initWithTransitionStyle:UIPageViewControllerTransitionStylePageCurl navigationOrientation:UIPageViewControllerNavigationOrientationHorizontal options:nil];
