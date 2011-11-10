@@ -16,6 +16,7 @@
 #define DEFAULT_PAPER CHECKED_IVORY_PAPER_BLACK_LINES
 @implementation DdFPadPadPaperRepository {
     NSDictionary *_papers;
+    NSArray *_sortedNames;
 }
 
 -(id)init {
@@ -26,17 +27,31 @@
         DdFPadPadPageLineInformation *blackCloseRuled = [[DdFPadPadPageLineInformation alloc] initWithLineInk:blackInk LineGap:30];
         
         DdFPadPadColor *ivoryPaper = [DdFPadPadColor ivoryPaper];
+        DdFPadPadColor *whitePaper = [DdFPadPadColor whitePaper];
         
         _papers = [NSDictionary dictionaryWithObjectsAndKeys:
                    [[DdFPadPadPaper alloc]initWithHoriziontal:blackCloseRuled Vertical:blackCloseRuled PaperColor:ivoryPaper],CHECKED_IVORY_PAPER_BLACK_LINES,
+                   [[DdFPadPadPaper alloc]initWithHoriziontal:blackCloseRuled Vertical:blackCloseRuled PaperColor:whitePaper],CHECKED_WHITE_PAPER_BLACK_LINES,
                    [[DdFPadPadPaper alloc]initWithHoriziontal:blackCloseRuled Vertical:nil PaperColor:ivoryPaper],IVORY_PAPER_BLACK_LINES,
+                   [[DdFPadPadPaper alloc]initWithHoriziontal:blackCloseRuled Vertical:nil PaperColor:whitePaper],WHITE_PAPER_BLACK_LINES,
+                   [[DdFPadPadPaper alloc]initWithHoriziontal:nil Vertical:nil PaperColor:whitePaper],WHITE_PAPER,
+                   [[DdFPadPadPaper alloc]initWithHoriziontal:nil Vertical:nil PaperColor:ivoryPaper],IVORY_PAPER,
                    nil];
+        
+        _sortedNames = [NSArray arrayWithObjects:
+                        CHECKED_IVORY_PAPER_BLACK_LINES, 
+                        CHECKED_WHITE_PAPER_BLACK_LINES,
+                        IVORY_PAPER_BLACK_LINES,
+                        WHITE_PAPER_BLACK_LINES,
+                        IVORY_PAPER,
+                        WHITE_PAPER,
+                        nil];
     }
     return self;
 }
 
 -(NSArray*)paperNames {
-    return [_papers allKeys];
+    return _sortedNames;
 }
 -(DdFPadPadPaper*)defaultPaper {
     return [self paperWithName:DEFAULT_PAPER];

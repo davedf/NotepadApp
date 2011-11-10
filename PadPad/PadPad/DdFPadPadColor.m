@@ -51,6 +51,10 @@
     return [[DdFPadPadColor alloc]initWithUIColor:[UIColor colorWithRed:0.933 green:0.933 blue:0.878 alpha:1]];
 }
 
++(DdFPadPadColor*)whitePaper {
+    return [[DdFPadPadColor alloc]initWithUIColor:[UIColor colorWithRed:0.98 green:0.98 blue:0.98 alpha:1]];
+}
+
 +(DdFPadPadColor*)blackInk {
     return [[DdFPadPadColor alloc]initWithUIColor:[UIColor colorWithRed:0.278 green:0.278 blue:0.278 alpha:0.7]];    
 }

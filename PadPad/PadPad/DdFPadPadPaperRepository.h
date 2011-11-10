@@ -10,8 +10,13 @@
 #import "DdFPadPadPaper.h"
 
 #define CHECKED_IVORY_PAPER_BLACK_LINES @"checked ivory black lines"
+#define CHECKED_WHITE_PAPER_BLACK_LINES @"checked white black lines"
 
-#define IVORY_PAPER_BLACK_LINES @"ivory black lines"
+#define IVORY_PAPER_BLACK_LINES @"unchecked ivory black lines"
+#define WHITE_PAPER_BLACK_LINES @"unchecked white black lines"
+
+#define IVORY_PAPER @"ivory"
+#define WHITE_PAPER @"white"
 
 @interface DdFPadPadPaperRepository : NSObject
 @property (readonly) DdFPadPadPaper *defaultPaper;

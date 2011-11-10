@@ -27,6 +27,8 @@
 		552AE9FB14684B2A00BE8A07 /* DdFPadPadPaperRepositoryTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 552AE9FA14684B2A00BE8A07 /* DdFPadPadPaperRepositoryTests.m */; };
 		5533B885146AF5990096FF9F /* paper.png in Resources */ = {isa = PBXBuildFile; fileRef = 5533B884146AF5990096FF9F /* paper.png */; };
 		5533B88A146AF6F80096FF9F /* DdFPadPadPaperSelectorController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5533B888146AF6F80096FF9F /* DdFPadPadPaperSelectorController.m */; };
+		5533B89A146BE1890096FF9F /* DdFPadPadPaperTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5533B899146BE1890096FF9F /* DdFPadPadPaperTableViewCell.m */; };
+		5533B89E146BEAC90096FF9F /* DdFPadPadPaperView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5533B89D146BEAC90096FF9F /* DdFPadPadPaperView.m */; };
 		553A669814333A8900503CC7 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 553A669714333A8900503CC7 /* UIKit.framework */; };
 		553A669A14333A8900503CC7 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 553A669914333A8900503CC7 /* Foundation.framework */; };
 		553A669C14333A8900503CC7 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 553A669B14333A8900503CC7 /* CoreGraphics.framework */; };
@@ -124,6 +126,10 @@
 		5533B884146AF5990096FF9F /* paper.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = paper.png; sourceTree = "<group>"; };
 		5533B887146AF6F80096FF9F /* DdFPadPadPaperSelectorController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DdFPadPadPaperSelectorController.h; sourceTree = "<group>"; };
 		5533B888146AF6F80096FF9F /* DdFPadPadPaperSelectorController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DdFPadPadPaperSelectorController.m; sourceTree = "<group>"; };
+		5533B898146BE1890096FF9F /* DdFPadPadPaperTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DdFPadPadPaperTableViewCell.h; sourceTree = "<group>"; };
+		5533B899146BE1890096FF9F /* DdFPadPadPaperTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DdFPadPadPaperTableViewCell.m; sourceTree = "<group>"; };
+		5533B89C146BEAC90096FF9F /* DdFPadPadPaperView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DdFPadPadPaperView.h; sourceTree = "<group>"; };
+		5533B89D146BEAC90096FF9F /* DdFPadPadPaperView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DdFPadPadPaperView.m; sourceTree = "<group>"; };
 		553A669314333A8900503CC7 /* PadPad.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PadPad.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		553A669714333A8900503CC7 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		553A669914333A8900503CC7 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -286,6 +292,8 @@
 				55D69444143F109400DFE8EF /* DdFPadPadBookRepository.m */,
 				55FF8785143DF97600807691 /* DdFPadPadCloudValueStore.h */,
 				55FF8786143DF97700807691 /* DdFPadPadCloudValueStore.m */,
+				552AE9F614682FC700BE8A07 /* DdFPadPadColor.h */,
+				552AE9F714682FC700BE8A07 /* DdFPadPadColor.m */,
 				5518727514360435009125A6 /* DdFPadPadInk.h */,
 				5518727614360435009125A6 /* DdFPadPadInk.m */,
 				559C10561439B8B900FBD055 /* DdFPadPadLine.h */,
@@ -294,20 +302,18 @@
 				559C105B1439BC4000FBD055 /* DdFPadPadLinePoint.m */,
 				551872591434ABC1009125A6 /* DdFPadPadPage.h */,
 				5518725A1434ABC1009125A6 /* DdFPadPadPage.m */,
+				552AE9EB14681C8300BE8A07 /* DdFPadPadPageBuilder.h */,
+				552AE9EC14681C8300BE8A07 /* DdFPadPadPageBuilder.m */,
+				55FF87A51445958E00807691 /* DdFPadPadPageLineInformation.h */,
+				55FF87A61445958E00807691 /* DdFPadPadPageLineInformation.m */,
 				55059EB3144304C5003B62A7 /* DdFPadPadPages.h */,
 				55059EB4144304C5003B62A7 /* DdFPadPadPages.m */,
 				5518726E1436015E009125A6 /* DdFPadPadPaper.h */,
 				5518726F1436015E009125A6 /* DdFPadPadPaper.m */,
-				55D69447143F5F2D00DFE8EF /* NSMutableArray+DdFPadPadPageOrder.h */,
-				55D69448143F5F2D00DFE8EF /* NSMutableArray+DdFPadPadPageOrder.m */,
-				55FF87A51445958E00807691 /* DdFPadPadPageLineInformation.h */,
-				55FF87A61445958E00807691 /* DdFPadPadPageLineInformation.m */,
-				552AE9EB14681C8300BE8A07 /* DdFPadPadPageBuilder.h */,
-				552AE9EC14681C8300BE8A07 /* DdFPadPadPageBuilder.m */,
 				552AE9F3146826DE00BE8A07 /* DdFPadPadPaperRepository.h */,
 				552AE9F4146826DE00BE8A07 /* DdFPadPadPaperRepository.m */,
-				552AE9F614682FC700BE8A07 /* DdFPadPadColor.h */,
-				552AE9F714682FC700BE8A07 /* DdFPadPadColor.m */,
+				55D69447143F5F2D00DFE8EF /* NSMutableArray+DdFPadPadPageOrder.h */,
+				55D69448143F5F2D00DFE8EF /* NSMutableArray+DdFPadPadPageOrder.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -317,11 +323,15 @@
 			children = (
 				551872691435D29A009125A6 /* DdFPadPadPageView.h */,
 				5518726A1435D29A009125A6 /* DdFPadPadPageView.m */,
-				5589D32414698B9900146640 /* UIView+DdFPadPadPaper.h */,
-				5589D32514698B9900146640 /* UIView+DdFPadPadPaper.m */,
-				5589D32714698C5C00146640 /* DdFPadPadViewContants.h */,
+				5533B898146BE1890096FF9F /* DdFPadPadPaperTableViewCell.h */,
+				5533B899146BE1890096FF9F /* DdFPadPadPaperTableViewCell.m */,
+				5533B89C146BEAC90096FF9F /* DdFPadPadPaperView.h */,
+				5533B89D146BEAC90096FF9F /* DdFPadPadPaperView.m */,
 				5589D332146AE9D400146640 /* DdFPadPadShadeView.h */,
 				5589D333146AE9D400146640 /* DdFPadPadShadeView.m */,
+				5589D32714698C5C00146640 /* DdFPadPadViewContants.h */,
+				5589D32414698B9900146640 /* UIView+DdFPadPadPaper.h */,
+				5589D32514698B9900146640 /* UIView+DdFPadPadPaper.m */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -466,20 +476,20 @@
 			isa = PBXGroup;
 			children = (
 				559C10611439C15500FBD055 /* CGDdFPadPadUtils.h */,
+				55FF87991443346300807691 /* DdFCGUtils.h */,
+				552AE9EF14681DD800BE8A07 /* DdFGCDSingleton.h */,
 				55FC972A143A05BC00C508F9 /* DdFStringUtils.h */,
 				55FC972B143A05BC00C508F9 /* DdFStringUtils.m */,
 				55FC972D143A088F00C508F9 /* DdFTimeSource.h */,
 				55FC972E143A088F00C508F9 /* DdFTimeSource.m */,
 				55FC9733143B189A00C508F9 /* NSDate+DdFFormatting.h */,
 				55FC9734143B189A00C508F9 /* NSDate+DdFFormatting.m */,
-				55059EBD14430ED7003B62A7 /* UIColor+DdFJSON.h */,
-				55059EBE14430ED7003B62A7 /* UIColor+DdFJSON.m */,
-				55FF87901443185600807691 /* NSString+DdFJSON.h */,
-				55FF87911443185600807691 /* NSString+DdFJSON.m */,
 				55FF8796144329D700807691 /* NSDictionary+DdFJSON.h */,
 				55FF8797144329D700807691 /* NSDictionary+DdFJSON.m */,
-				55FF87991443346300807691 /* DdFCGUtils.h */,
-				552AE9EF14681DD800BE8A07 /* DdFGCDSingleton.h */,
+				55FF87901443185600807691 /* NSString+DdFJSON.h */,
+				55FF87911443185600807691 /* NSString+DdFJSON.m */,
+				55059EBD14430ED7003B62A7 /* UIColor+DdFJSON.h */,
+				55059EBE14430ED7003B62A7 /* UIColor+DdFJSON.m */,
 			);
 			name = Utils;
 			sourceTree = "<group>";
@@ -645,6 +655,8 @@
 				5589D32614698B9900146640 /* UIView+DdFPadPadPaper.m in Sources */,
 				5589D334146AE9D400146640 /* DdFPadPadShadeView.m in Sources */,
 				5533B88A146AF6F80096FF9F /* DdFPadPadPaperSelectorController.m in Sources */,
+				5533B89A146BE1890096FF9F /* DdFPadPadPaperTableViewCell.m in Sources */,
+				5533B89E146BEAC90096FF9F /* DdFPadPadPaperView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

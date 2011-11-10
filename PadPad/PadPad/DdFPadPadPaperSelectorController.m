@@ -7,7 +7,8 @@
 //
 
 #import "DdFPadPadPaperSelectorController.h"
-
+#import "DdFPadPadPaperRepository.h"
+#import "DdFPadPadPaperTableViewCell.h"
 @implementation DdFPadPadPaperSelectorController
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -51,5 +52,24 @@
     // Return YES for supported orientations
 	return YES;
 }
+
+-(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return [DdFPadPadPaperRepository sharedPaperRepository].paperNames.count;
+}
+
+-(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+    return 1;
+}
+
+-(UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    DdFPadPadPaperRepository *repo = [DdFPadPadPaperRepository sharedPaperRepository];
+    NSString *paperName = [repo.paperNames objectAtIndex:indexPath.row];
+    DdFPadPadPaper *paper = [repo paperWithName:paperName];
+    DdFPadPadPaperTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"PaperTypeCell"];
+    [cell.paperMiniView setPaperToShow:paper];
+    [cell setNeedsLayout];
+    return cell;
+}
+
 
 @end

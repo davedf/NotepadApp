@@ -16,6 +16,7 @@
 +(DdFPadPadColor*)colorFromJSONRepresentation:(NSDictionary*)jsonDictionary;
 
 +(DdFPadPadColor*)ivoryPaper;
++(DdFPadPadColor*)whitePaper;
 +(DdFPadPadColor*)blackInk;
 +(DdFPadPadColor*)faintBlackInk;
 +(DdFPadPadColor*)totalBlackInk;
