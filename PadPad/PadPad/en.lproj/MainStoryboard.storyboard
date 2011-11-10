@@ -31,7 +31,7 @@
                                 </state>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="3nu-p6-Izl">
-                                <rect key="frame" x="50" y="0.0" width="30" height="30"/>
+                                <rect key="frame" x="86" y="0.0" width="30" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal" image="paper.png">
@@ -46,6 +46,18 @@
                                         <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
                                     </segue>
                                 </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="69r-cl-sJc">
+                                <rect key="frame" x="48" y="0.0" width="30" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" image="Pen tool.png">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
                             </button>
                         </subviews>
                         <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -115,6 +127,7 @@
                                 <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <connections>
                                     <outlet property="paperMiniView" destination="NCv-58-KuS" id="vCd-Sg-PSN"/>
+                                    <segue destination="6D3-ba-d1a" kind="push" id="f8w-oW-qf2"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -123,7 +136,7 @@
                             <outlet property="delegate" destination="Wc7-3N-bf3" id="C66-Lh-VjU"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Paper Types" id="fE4-BX-qwQ"/>
+                    <navigationItem key="navigationItem" title="Choose Paper" id="fE4-BX-qwQ"/>
                     <nil key="simulatedStatusBarMetrics"/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="blackOpaque" prompted="NO"/>
                     <nil key="simulatedBottomBarMetrics"/>
@@ -131,6 +144,39 @@
                 </tableViewController>
             </objects>
             <point key="canvasLocation" x="998" y="-1188"/>
+        </scene>
+        <scene sceneID="aEJ-Tj-Az4">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="tCa-gF-3yS" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tableViewController id="6D3-ba-d1a" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="9V9-th-RJb">
+                        <rect key="frame" x="0.0" y="44" width="300" height="400"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="5qs-bL-W6W">
+                                <rect key="frame" x="0.0" y="22" width="300" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                    <rect key="frame" x="0.0" y="0.0" width="300" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                </view>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="6D3-ba-d1a" id="lwz-Ok-P2S"/>
+                            <outlet property="delegate" destination="6D3-ba-d1a" id="w4n-CB-uhm"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="What to Change?" id="d9u-PF-JgF"/>
+                    <nil key="simulatedStatusBarMetrics"/>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="blackOpaque" prompted="NO"/>
+                    <nil key="simulatedBottomBarMetrics"/>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                </tableViewController>
+            </objects>
+            <point key="canvasLocation" x="1540" y="-1123"/>
         </scene>
         <scene sceneID="2H5-eH-1Va">
             <objects>
@@ -151,6 +197,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="Pen tool.png" width="48" height="48"/>
         <image name="paper.png" width="40" height="40"/>
         <image name="photo-camera.png" width="48" height="48"/>
     </resources>
