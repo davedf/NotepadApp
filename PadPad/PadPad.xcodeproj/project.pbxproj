@@ -26,6 +26,11 @@
 		552AE9F814682FC700BE8A07 /* DdFPadPadColor.m in Sources */ = {isa = PBXBuildFile; fileRef = 552AE9F714682FC700BE8A07 /* DdFPadPadColor.m */; };
 		552AE9FB14684B2A00BE8A07 /* DdFPadPadPaperRepositoryTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 552AE9FA14684B2A00BE8A07 /* DdFPadPadPaperRepositoryTests.m */; };
 		552AEA09146BF99500BE8A07 /* Pen tool.png in Resources */ = {isa = PBXBuildFile; fileRef = 552AEA08146BF99500BE8A07 /* Pen tool.png */; };
+		552AEA0F146C0F0900BE8A07 /* book-all.png in Resources */ = {isa = PBXBuildFile; fileRef = 552AEA0B146C0F0800BE8A07 /* book-all.png */; };
+		552AEA10146C0F0900BE8A07 /* book-both.png in Resources */ = {isa = PBXBuildFile; fileRef = 552AEA0C146C0F0800BE8A07 /* book-both.png */; };
+		552AEA11146C0F0900BE8A07 /* book-left.png in Resources */ = {isa = PBXBuildFile; fileRef = 552AEA0D146C0F0800BE8A07 /* book-left.png */; };
+		552AEA12146C0F0900BE8A07 /* book-right.png in Resources */ = {isa = PBXBuildFile; fileRef = 552AEA0E146C0F0800BE8A07 /* book-right.png */; };
+		552AEA15146C135F00BE8A07 /* DdFPadPadPaperToChangeController.m in Sources */ = {isa = PBXBuildFile; fileRef = 552AEA14146C135F00BE8A07 /* DdFPadPadPaperToChangeController.m */; };
 		5533B885146AF5990096FF9F /* paper.png in Resources */ = {isa = PBXBuildFile; fileRef = 5533B884146AF5990096FF9F /* paper.png */; };
 		5533B88A146AF6F80096FF9F /* DdFPadPadPaperSelectorController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5533B888146AF6F80096FF9F /* DdFPadPadPaperSelectorController.m */; };
 		5533B89A146BE1890096FF9F /* DdFPadPadPaperTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5533B899146BE1890096FF9F /* DdFPadPadPaperTableViewCell.m */; };
@@ -125,6 +130,12 @@
 		552AE9F914684B2A00BE8A07 /* DdFPadPadPaperRepositoryTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DdFPadPadPaperRepositoryTests.h; sourceTree = "<group>"; };
 		552AE9FA14684B2A00BE8A07 /* DdFPadPadPaperRepositoryTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DdFPadPadPaperRepositoryTests.m; sourceTree = "<group>"; };
 		552AEA08146BF99500BE8A07 /* Pen tool.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Pen tool.png"; sourceTree = "<group>"; };
+		552AEA0B146C0F0800BE8A07 /* book-all.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "book-all.png"; sourceTree = "<group>"; };
+		552AEA0C146C0F0800BE8A07 /* book-both.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "book-both.png"; sourceTree = "<group>"; };
+		552AEA0D146C0F0800BE8A07 /* book-left.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "book-left.png"; sourceTree = "<group>"; };
+		552AEA0E146C0F0800BE8A07 /* book-right.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "book-right.png"; sourceTree = "<group>"; };
+		552AEA13146C135F00BE8A07 /* DdFPadPadPaperToChangeController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DdFPadPadPaperToChangeController.h; sourceTree = "<group>"; };
+		552AEA14146C135F00BE8A07 /* DdFPadPadPaperToChangeController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DdFPadPadPaperToChangeController.m; sourceTree = "<group>"; };
 		5533B884146AF5990096FF9F /* paper.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = paper.png; sourceTree = "<group>"; };
 		5533B887146AF6F80096FF9F /* DdFPadPadPaperSelectorController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DdFPadPadPaperSelectorController.h; sourceTree = "<group>"; };
 		5533B888146AF6F80096FF9F /* DdFPadPadPaperSelectorController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DdFPadPadPaperSelectorController.m; sourceTree = "<group>"; };
@@ -251,6 +262,10 @@
 		551872511434A07E009125A6 /* Assets */ = {
 			isa = PBXGroup;
 			children = (
+				552AEA0B146C0F0800BE8A07 /* book-all.png */,
+				552AEA0C146C0F0800BE8A07 /* book-both.png */,
+				552AEA0D146C0F0800BE8A07 /* book-left.png */,
+				552AEA0E146C0F0800BE8A07 /* book-right.png */,
 				552AEA08146BF99500BE8A07 /* Pen tool.png */,
 				5533B884146AF5990096FF9F /* paper.png */,
 				5589D330146AE47800146640 /* tabletop.png */,
@@ -270,6 +285,8 @@
 				553A66AA14333A8900503CC7 /* DdfPadPadRootViewController.m */,
 				5533B887146AF6F80096FF9F /* DdFPadPadPaperSelectorController.h */,
 				5533B888146AF6F80096FF9F /* DdFPadPadPaperSelectorController.m */,
+				552AEA13146C135F00BE8A07 /* DdFPadPadPaperToChangeController.h */,
+				552AEA14146C135F00BE8A07 /* DdFPadPadPaperToChangeController.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -590,6 +607,10 @@
 				5589D331146AE47800146640 /* tabletop.png in Resources */,
 				5533B885146AF5990096FF9F /* paper.png in Resources */,
 				552AEA09146BF99500BE8A07 /* Pen tool.png in Resources */,
+				552AEA0F146C0F0900BE8A07 /* book-all.png in Resources */,
+				552AEA10146C0F0900BE8A07 /* book-both.png in Resources */,
+				552AEA11146C0F0900BE8A07 /* book-left.png in Resources */,
+				552AEA12146C0F0900BE8A07 /* book-right.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -661,6 +682,7 @@
 				5533B88A146AF6F80096FF9F /* DdFPadPadPaperSelectorController.m in Sources */,
 				5533B89A146BE1890096FF9F /* DdFPadPadPaperTableViewCell.m in Sources */,
 				5533B89E146BEAC90096FF9F /* DdFPadPadPaperView.m in Sources */,
+				552AEA15146C135F00BE8A07 /* DdFPadPadPaperToChangeController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

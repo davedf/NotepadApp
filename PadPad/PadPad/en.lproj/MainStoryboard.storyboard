@@ -105,7 +105,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rwh-pF-nKA" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <tableViewController id="Wc7-3N-bf3" customClass="DdFPadPadPaperSelectorController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="340" sectionHeaderHeight="22" sectionFooterHeight="22" id="sKD-qg-n9K">
-                        <rect key="frame" x="0.0" y="44" width="300" height="576"/>
+                        <rect key="frame" x="0.0" y="44" width="300" height="500"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
@@ -136,7 +136,7 @@
                             <outlet property="delegate" destination="Wc7-3N-bf3" id="C66-Lh-VjU"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Choose Paper" id="fE4-BX-qwQ"/>
+                    <navigationItem key="navigationItem" title="Choose paper" id="fE4-BX-qwQ"/>
                     <nil key="simulatedStatusBarMetrics"/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="blackOpaque" prompted="NO"/>
                     <nil key="simulatedBottomBarMetrics"/>
@@ -148,18 +148,121 @@
         <scene sceneID="aEJ-Tj-Az4">
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tCa-gF-3yS" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <tableViewController id="6D3-ba-d1a" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="9V9-th-RJb">
-                        <rect key="frame" x="0.0" y="44" width="300" height="400"/>
+                <tableViewController id="6D3-ba-d1a" customClass="DdFPadPadPaperToChangeController" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="150" sectionHeaderHeight="22" sectionFooterHeight="22" id="9V9-th-RJb">
+                        <rect key="frame" x="0.0" y="44" width="350" height="500"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="5qs-bL-W6W">
-                                <rect key="frame" x="0.0" y="22" width="300" height="44"/>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="WholeBookCell" id="5qs-bL-W6W">
+                                <rect key="frame" x="0.0" y="22" width="350" height="150"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                    <rect key="frame" x="0.0" y="0.0" width="300" height="43"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="350" height="149"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="book-all.png" id="oWR-0R-EW8">
+                                            <rect key="frame" x="11" y="11" width="128" height="128"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        </imageView>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="All pages in this book" lineBreakMode="tailTruncation" minimumFontSize="10" id="Bmw-N9-SHk">
+                                            <rect key="frame" x="147" y="64" width="163" height="21"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                </view>
+                            </tableViewCell>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" indentationWidth="10" reuseIdentifier="BothPagesCell" id="z5I-xM-fGY">
+                                <rect key="frame" x="0.0" y="172" width="350" height="150"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                    <rect key="frame" x="0.0" y="0.0" width="350" height="149"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="book-both.png" id="UMc-KR-wvq">
+                                            <rect key="frame" x="11" y="11" width="128" height="128"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        </imageView>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Both visible pages" lineBreakMode="tailTruncation" minimumFontSize="10" id="gxg-fl-dtc">
+                                            <rect key="frame" x="147" y="64" width="140" height="21"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                </view>
+                            </tableViewCell>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" indentationWidth="10" reuseIdentifier="LeftPageCell" id="JdR-7N-NiJ">
+                                <rect key="frame" x="0.0" y="322" width="350" height="150"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                    <rect key="frame" x="0.0" y="0.0" width="350" height="149"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="book-left.png" id="zhO-UI-9PY">
+                                            <rect key="frame" x="11" y="11" width="128" height="128"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        </imageView>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Left page only" lineBreakMode="tailTruncation" minimumFontSize="10" id="QNz-Kw-Fyg">
+                                            <rect key="frame" x="147" y="64" width="109" height="21"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                </view>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            </tableViewCell>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" indentationWidth="10" reuseIdentifier="RightPageCell" id="YuG-jY-UjT">
+                                <rect key="frame" x="0.0" y="472" width="350" height="150"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                    <rect key="frame" x="0.0" y="0.0" width="350" height="149"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="book-right.png" id="B9N-37-kkc">
+                                            <rect key="frame" x="11" y="11" width="128" height="128"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </imageView>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Right page only" lineBreakMode="tailTruncation" minimumFontSize="10" id="hkw-dJ-2bF">
+                                            <rect key="frame" x="147" y="64" width="120" height="21"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                </view>
+                            </tableViewCell>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" indentationWidth="10" reuseIdentifier="CurrentPageCell" id="Oax-3k-fvv">
+                                <rect key="frame" x="0.0" y="622" width="350" height="150"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                    <rect key="frame" x="0.0" y="0.0" width="350" height="149"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="book-right.png" id="WV4-G4-Jx5">
+                                            <rect key="frame" x="11" y="11" width="128" height="128"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        </imageView>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Current page only" lineBreakMode="tailTruncation" minimumFontSize="10" id="Tv6-Dz-tOH">
+                                            <rect key="frame" x="147" y="64" width="137" height="21"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </view>
                             </tableViewCell>
@@ -169,14 +272,14 @@
                             <outlet property="delegate" destination="6D3-ba-d1a" id="w4n-CB-uhm"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="What to Change?" id="d9u-PF-JgF"/>
+                    <navigationItem key="navigationItem" title="Choose pages" id="d9u-PF-JgF"/>
                     <nil key="simulatedStatusBarMetrics"/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="blackOpaque" prompted="NO"/>
                     <nil key="simulatedBottomBarMetrics"/>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                 </tableViewController>
             </objects>
-            <point key="canvasLocation" x="1540" y="-1123"/>
+            <point key="canvasLocation" x="1462" y="-1188"/>
         </scene>
         <scene sceneID="2H5-eH-1Va">
             <objects>
@@ -198,6 +301,10 @@
     </scenes>
     <resources>
         <image name="Pen tool.png" width="48" height="48"/>
+        <image name="book-all.png" width="128" height="128"/>
+        <image name="book-both.png" width="128" height="128"/>
+        <image name="book-left.png" width="128" height="128"/>
+        <image name="book-right.png" width="128" height="128"/>
         <image name="paper.png" width="40" height="40"/>
         <image name="photo-camera.png" width="48" height="48"/>
     </resources>
@@ -213,6 +320,9 @@
             <relationships>
                 <relationship kind="outlet" name="paperMiniView" candidateClass="DdFPadPadPaperView"/>
             </relationships>
+        </class>
+        <class className="DdFPadPadPaperToChangeController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/DdFPadPadPaperToChangeController.h"/>
         </class>
         <class className="DdFPadPadPaperView" superclassName="UIView">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/DdFPadPadPaperView.h"/>
