@@ -9,49 +9,12 @@
 #import "DdFPadPadPaperSelectorController.h"
 #import "DdFPadPadPaperRepository.h"
 #import "DdFPadPadPaperTableViewCell.h"
+
+
 @implementation DdFPadPadPaperSelectorController
-
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
-}
-
-- (void)didReceiveMemoryWarning
-{
-    // Releases the view if it doesn't have a superview.
-    [super didReceiveMemoryWarning];
-    
-    // Release any cached data, images, etc that aren't in use.
-}
+@synthesize delegate=_delegate,selectedPaper=_selectedPaper;
 
 #pragma mark - View lifecycle
-
-- (void)viewDidLoad
-{
-    [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
-//    UIImage *bgImage = [UIImage imageNamed:@"tabletop"];
-//    UIColor *bgColor = [UIColor colorWithPatternImage:bgImage];
-//    [self.view setBackgroundColor:bgColor];
-
-}
-
-- (void)viewDidUnload
-{
-    [super viewDidUnload];
-    // Release any retained subviews of the main view.
-    // e.g. self.myOutlet = nil;
-}
-
-- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
-{
-    // Return YES for supported orientations
-	return YES;
-}
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return [DdFPadPadPaperRepository sharedPaperRepository].paperNames.count;
@@ -71,5 +34,22 @@
     return cell;
 }
 
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    DdFPadPadPaperRepository *repo = [DdFPadPadPaperRepository sharedPaperRepository];
+    NSString *paperName = [repo.paperNames objectAtIndex:indexPath.row];
+    NSLog(@"selected paper:%@",paperName);
+    self.selectedPaper = [repo paperWithName:paperName];
+}
 
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if ([segue.identifier isEqualToString:@"PaperToChange"]) {
+        DdFPadPadPaperToChangeController *ctl = segue.destinationViewController;
+        ctl.delegate = self;
+    }
+}
+
+#pragma mark - DdFPadPadPaperSelectorControllerDelegate
+-(void)DidSelectToChange:(NSString *)pagesToChange {
+    NSLog(@"DidSelectToChange:%@",pagesToChange);
+}
 @end

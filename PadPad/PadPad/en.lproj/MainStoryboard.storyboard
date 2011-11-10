@@ -127,7 +127,7 @@
                                 <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <connections>
                                     <outlet property="paperMiniView" destination="NCv-58-KuS" id="vCd-Sg-PSN"/>
-                                    <segue destination="6D3-ba-d1a" kind="push" id="f8w-oW-qf2"/>
+                                    <segue destination="6D3-ba-d1a" kind="push" identifier="PaperToChange" id="f8w-oW-qf2"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -308,39 +308,6 @@
         <image name="paper.png" width="40" height="40"/>
         <image name="photo-camera.png" width="48" height="48"/>
     </resources>
-    <classes>
-        <class className="DdFPadPadPageView" superclassName="UIView">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/DdFPadPadPageView.h"/>
-        </class>
-        <class className="DdFPadPadPaperSelectorController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/DdFPadPadPaperSelectorController.h"/>
-        </class>
-        <class className="DdFPadPadPaperTableViewCell" superclassName="UITableViewCell">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/DdFPadPadPaperTableViewCell.h"/>
-            <relationships>
-                <relationship kind="outlet" name="paperMiniView" candidateClass="DdFPadPadPaperView"/>
-            </relationships>
-        </class>
-        <class className="DdFPadPadPaperToChangeController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/DdFPadPadPaperToChangeController.h"/>
-        </class>
-        <class className="DdFPadPadPaperView" superclassName="UIView">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/DdFPadPadPaperView.h"/>
-        </class>
-        <class className="DdFPadPadShadeView" superclassName="UIView">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/DdFPadPadShadeView.h"/>
-        </class>
-        <class className="DdfPadPadDataViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/DdfPadPadDataViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="dataLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="inkView" candidateClass="UIView"/>
-            </relationships>
-        </class>
-        <class className="DdfPadPadRootViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/DdfPadPadRootViewController.h"/>
-        </class>
-    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar" statusBarStyle="blackTranslucent"/>
         <simulatedOrientationMetrics key="orientation"/>

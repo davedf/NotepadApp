@@ -7,7 +7,19 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "DdfPadPadDataViewController.h"
+#import "DdFPadPadBook.h"
+#import "DdFPadPadPaperToChangeController.h"
 
-@interface DdFPadPadPaperSelectorController : UITableViewController
+@protocol DdFPadPadPaperSelectorControllerDelegate <NSObject>
 
+@property (readonly) DdfPadPadDataViewController *leftPageController;
+@property (readonly) DdfPadPadDataViewController *rightPageController;
+@property (readonly) DdFPadPadBook *book;
+
+@end
+
+@interface DdFPadPadPaperSelectorController : UITableViewController<DdFPadPadPaperToChangeControllerDelegate>
+@property (strong) DdFPadPadPaper *selectedPaper;
+@property (weak) NSObject<DdFPadPadPaperSelectorControllerDelegate> *delegate;
 @end
