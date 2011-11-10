@@ -31,6 +31,7 @@
 		552AEA11146C0F0900BE8A07 /* book-left.png in Resources */ = {isa = PBXBuildFile; fileRef = 552AEA0D146C0F0800BE8A07 /* book-left.png */; };
 		552AEA12146C0F0900BE8A07 /* book-right.png in Resources */ = {isa = PBXBuildFile; fileRef = 552AEA0E146C0F0800BE8A07 /* book-right.png */; };
 		552AEA15146C135F00BE8A07 /* DdFPadPadPaperToChangeController.m in Sources */ = {isa = PBXBuildFile; fileRef = 552AEA14146C135F00BE8A07 /* DdFPadPadPaperToChangeController.m */; };
+		552AEA18146C4A5200BE8A07 /* DdFPadPadApplicationState.m in Sources */ = {isa = PBXBuildFile; fileRef = 552AEA17146C4A5200BE8A07 /* DdFPadPadApplicationState.m */; };
 		5533B885146AF5990096FF9F /* paper.png in Resources */ = {isa = PBXBuildFile; fileRef = 5533B884146AF5990096FF9F /* paper.png */; };
 		5533B88A146AF6F80096FF9F /* DdFPadPadPaperSelectorController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5533B888146AF6F80096FF9F /* DdFPadPadPaperSelectorController.m */; };
 		5533B89A146BE1890096FF9F /* DdFPadPadPaperTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5533B899146BE1890096FF9F /* DdFPadPadPaperTableViewCell.m */; };
@@ -136,6 +137,8 @@
 		552AEA0E146C0F0800BE8A07 /* book-right.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "book-right.png"; sourceTree = "<group>"; };
 		552AEA13146C135F00BE8A07 /* DdFPadPadPaperToChangeController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DdFPadPadPaperToChangeController.h; sourceTree = "<group>"; };
 		552AEA14146C135F00BE8A07 /* DdFPadPadPaperToChangeController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DdFPadPadPaperToChangeController.m; sourceTree = "<group>"; };
+		552AEA16146C4A5200BE8A07 /* DdFPadPadApplicationState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DdFPadPadApplicationState.h; sourceTree = "<group>"; };
+		552AEA17146C4A5200BE8A07 /* DdFPadPadApplicationState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DdFPadPadApplicationState.m; sourceTree = "<group>"; };
 		5533B884146AF5990096FF9F /* paper.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = paper.png; sourceTree = "<group>"; };
 		5533B887146AF6F80096FF9F /* DdFPadPadPaperSelectorController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DdFPadPadPaperSelectorController.h; sourceTree = "<group>"; };
 		5533B888146AF6F80096FF9F /* DdFPadPadPaperSelectorController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DdFPadPadPaperSelectorController.m; sourceTree = "<group>"; };
@@ -334,6 +337,8 @@
 				552AE9F4146826DE00BE8A07 /* DdFPadPadPaperRepository.m */,
 				55D69447143F5F2D00DFE8EF /* NSMutableArray+DdFPadPadPageOrder.h */,
 				55D69448143F5F2D00DFE8EF /* NSMutableArray+DdFPadPadPageOrder.m */,
+				552AEA16146C4A5200BE8A07 /* DdFPadPadApplicationState.h */,
+				552AEA17146C4A5200BE8A07 /* DdFPadPadApplicationState.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -683,6 +688,7 @@
 				5533B89A146BE1890096FF9F /* DdFPadPadPaperTableViewCell.m in Sources */,
 				5533B89E146BEAC90096FF9F /* DdFPadPadPaperView.m in Sources */,
 				552AEA15146C135F00BE8A07 /* DdFPadPadPaperToChangeController.m in Sources */,
+				552AEA18146C4A5200BE8A07 /* DdFPadPadApplicationState.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
