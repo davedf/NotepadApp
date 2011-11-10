@@ -91,4 +91,8 @@
     
 }
 
+-(void)requiresRedraw {
+    [self setBackgroundColor:self.dataObject.paper.paperColor.color];
+    [self setNeedsDisplay];
+}
 @end

@@ -9,7 +9,7 @@
 #import "DdFPadPadPaperSelectorController.h"
 #import "DdFPadPadPaperRepository.h"
 #import "DdFPadPadPaperTableViewCell.h"
-
+#import "DdFPadPadApplicationState.h"
 
 @implementation DdFPadPadPaperSelectorController
 @synthesize delegate=_delegate,selectedPaper=_selectedPaper;
@@ -51,5 +51,26 @@
 #pragma mark - DdFPadPadPaperSelectorControllerDelegate
 -(void)DidSelectToChange:(NSString *)pagesToChange {
     NSLog(@"DidSelectToChange:%@",pagesToChange);
+    DdFPadPadApplicationState *state = [DdFPadPadApplicationState sharedDdFPadPadApplicationState];
+    if ([pagesToChange isEqualToString:LEFT_PAGE] | [pagesToChange isEqualToString:CURRENT_PAGE]) {
+        [state.book changePaper:self.selectedPaper ForPages:[NSArray arrayWithObjects:state.leftPageController.dataObject, nil]];
+        [state.leftPageController requiresRedraw];        
+    }
+    else if ([pagesToChange isEqualToString:RIGHT_PAGE]) {
+        [state.book changePaper:self.selectedPaper ForPages:[NSArray arrayWithObjects:state.rightPageController.dataObject, nil]];
+        [state.rightPageController requiresRedraw];                
+    }
+    else if ([pagesToChange isEqualToString:BOTH_PAGES]) {
+        [state.book changePaper:self.selectedPaper ForPages:[NSArray arrayWithObjects:state.leftPageController.dataObject,state.rightPageController.dataObject, nil]];
+        [state.leftPageController requiresRedraw];        
+        [state.rightPageController requiresRedraw];                
+        
+    }
+    else if ([pagesToChange isEqualToString:WHOLE_BOOK]) {
+        [state.book changePaper:self.selectedPaper ForPages:nil];
+        [state.leftPageController requiresRedraw];        
+        [state.rightPageController requiresRedraw];                
+        
+    }
 }
 @end

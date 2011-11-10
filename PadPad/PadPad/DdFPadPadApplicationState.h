@@ -7,8 +7,15 @@
 //
 
 #import <Foundation/Foundation.h>
+@class DdfPadPadDataViewController;
+@class DdfPadPadRootViewController;
+@class DdFPadPadBook;
 
 @interface DdFPadPadApplicationState : NSObject
 
+@property (readonly) DdfPadPadDataViewController *leftPageController;
+@property (readonly) DdfPadPadDataViewController *rightPageController;
+@property (readonly) DdFPadPadBook *book;
+@property (weak) DdfPadPadRootViewController *rootController;
 +(DdFPadPadApplicationState*)sharedDdFPadPadApplicationState;
 @end

@@ -9,4 +9,5 @@ typedef enum {kDdFPadPadPageView_None=0,kDdFPadPadPageView_Left,kDdFPadPadPageVi
 
 -(void)willRotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration;
 -(void)showPage:(DdFPadPadPage*)page;
+-(void)requiresRedraw;
 @end

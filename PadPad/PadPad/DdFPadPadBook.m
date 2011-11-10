@@ -82,6 +82,14 @@
 -(NSUInteger)indexOfPage:(DdFPadPadPage*)page {
     return [self.pages indexOfPage:page];
 }
+
+-(void)changePaper:(DdFPadPadPaper*)paper ForPages:(NSArray*)pages {
+    //TODO:undo manager
+    for (DdFPadPadPage *page in pages) {
+        page.paper = paper;
+    }    
+    //TODO:nil of empty pages means all pages
+}
 #pragma mark - creating and loading a book
 
 +(DdFPadPadBook*)newBookWithName:(NSString*)name Delegate:(NSObject<DdFPadPadBookDelegate>*)delegate CompletionHandler:(void (^)(BOOL success))completionHandler {

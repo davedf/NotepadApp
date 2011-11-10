@@ -1,10 +1,6 @@
 #import "DdfPadPadRootViewController.h"
-#import "DdfPadPadModelController.h"
 #import "DdfPadPadDataViewController.h"
-
-@interface DdfPadPadRootViewController ()
-@property (readonly, strong, nonatomic) DdfPadPadModelController *modelController;
-@end
+#import "DdFPadPadApplicationState.h"
 
 @implementation DdfPadPadRootViewController
 @synthesize pageViewController=_pageViewController,modelController=_modelController;
@@ -14,6 +10,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    [DdFPadPadApplicationState sharedDdFPadPadApplicationState].rootController = self;
+    
     UIImage *bgImage = [UIImage imageNamed:@"tabletop"];
     UIColor *bgColor = [UIColor colorWithPatternImage:bgImage];
     [self.view setBackgroundColor:bgColor];
@@ -27,7 +25,7 @@
     [self.pageViewController setViewControllers:viewControllers direction:UIPageViewControllerNavigationDirectionForward animated:NO completion:NULL];
 
     self.pageViewController.dataSource = self.modelController;
-
+    
     [self addChildViewController:self.pageViewController];
     [self.view addSubview:self.pageViewController.view];
 
@@ -53,6 +51,9 @@
     return _modelController;
 }
 
+-(BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation {
+    return YES;
+}
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([segue.identifier isEqualToString:@"ChangePaper"]) {
         NSLog(@"segue to %@",[segue.destinationViewController class]);
@@ -84,6 +85,7 @@
         UIViewController *previousViewController = [self.modelController pageViewController:self.pageViewController viewControllerBeforeViewController:currentViewController];
         viewControllers = [NSArray arrayWithObjects:previousViewController, currentViewController, nil];
     }
+
     [self.pageViewController setViewControllers:viewControllers direction:UIPageViewControllerNavigationDirectionForward animated:YES completion:NULL];
 
 

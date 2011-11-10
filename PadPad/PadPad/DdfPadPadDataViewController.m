@@ -55,4 +55,7 @@
     return (DdFPadPadPageView*)self.view;
 }
 
+-(void)requiresRedraw {
+    [self.pageView requiresRedraw];
+}
 @end

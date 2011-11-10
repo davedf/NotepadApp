@@ -16,6 +16,8 @@
 -(NSUInteger)indexOfPage:(DdFPadPadPage*)page;
 -(id)initWithName:(NSString*)name Delegate:(NSObject<DdFPadPadBookDelegate>*)delegate;
 
+-(void)changePaper:(DdFPadPadPaper*)paper ForPages:(NSArray*)pages;
+
 +(DdFPadPadBook*)newBookWithName:(NSString*)name Delegate:(NSObject<DdFPadPadBookDelegate>*)delegate CompletionHandler:(void (^)(BOOL success))completionHandler;
 
 +(DdFPadPadBook*)bookWithURL:(NSURL*)url Delegate:(NSObject<DdFPadPadBookDelegate>*)delegate CompletionHandler:(void (^)(BOOL success))completionHandler;

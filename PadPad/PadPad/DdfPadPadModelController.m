@@ -13,10 +13,6 @@
  There is no need to actually create view controllers for each page in advance -- indeed doing so incurs unnecessary overhead. Given the data model, these methods create, configure, and return a new view controller on demand.
  */
 
-@interface DdfPadPadModelController()
-@property (strong,nonatomic) DdFPadPadBook *book;
-@end
-
 @implementation DdfPadPadModelController
 
 @synthesize book=_book;
