@@ -23,8 +23,10 @@
     self = [super init];
     if (self) {
         DdFPadPadInk *blackInk =[[DdFPadPadInk alloc]initWithColor:[DdFPadPadColor faintBlackInk] Size:0.5 Type:kFeltTip ];
+        DdFPadPadInk *heavyBlackInk =[[DdFPadPadInk alloc]initWithColor:[DdFPadPadColor blackInk] Size:2 Type:kFeltTip ];
         
         DdFPadPadPageLineInformation *blackCloseRuled = [[DdFPadPadPageLineInformation alloc] initWithLineInk:blackInk LineGap:30];
+        DdFPadPadPageLineInformation *blackMinorRuled = [[DdFPadPadPageLineInformation alloc] initWithLineInk:blackInk LineGap:10 MajorLineInk:heavyBlackInk MajorLineInterval:12];
         
         DdFPadPadColor *ivoryPaper = [DdFPadPadColor ivoryPaper];
         DdFPadPadColor *whitePaper = [DdFPadPadColor whitePaper];
@@ -32,6 +34,8 @@
         _papers = [NSDictionary dictionaryWithObjectsAndKeys:
                    [[DdFPadPadPaper alloc]initWithHoriziontal:blackCloseRuled Vertical:blackCloseRuled PaperColor:ivoryPaper],CHECKED_IVORY_PAPER_BLACK_LINES,
                    [[DdFPadPadPaper alloc]initWithHoriziontal:blackCloseRuled Vertical:blackCloseRuled PaperColor:whitePaper],CHECKED_WHITE_PAPER_BLACK_LINES,
+                   [[DdFPadPadPaper alloc]initWithHoriziontal:blackMinorRuled Vertical:blackMinorRuled PaperColor:ivoryPaper],MINOR_CHECKED_IVORY_PAPER_BLACK_LINES,
+                   [[DdFPadPadPaper alloc]initWithHoriziontal:blackMinorRuled Vertical:blackMinorRuled PaperColor:whitePaper],MINOR_CHECKED_WHITE_PAPER_BLACK_LINES,
                    [[DdFPadPadPaper alloc]initWithHoriziontal:blackCloseRuled Vertical:nil PaperColor:ivoryPaper],IVORY_PAPER_BLACK_LINES,
                    [[DdFPadPadPaper alloc]initWithHoriziontal:blackCloseRuled Vertical:nil PaperColor:whitePaper],WHITE_PAPER_BLACK_LINES,
                    [[DdFPadPadPaper alloc]initWithHoriziontal:nil Vertical:nil PaperColor:whitePaper],WHITE_PAPER,
@@ -41,6 +45,8 @@
         _sortedNames = [NSArray arrayWithObjects:
                         CHECKED_IVORY_PAPER_BLACK_LINES, 
                         CHECKED_WHITE_PAPER_BLACK_LINES,
+                        MINOR_CHECKED_IVORY_PAPER_BLACK_LINES,
+                        MINOR_CHECKED_WHITE_PAPER_BLACK_LINES,
                         IVORY_PAPER_BLACK_LINES,
                         WHITE_PAPER_BLACK_LINES,
                         IVORY_PAPER,
