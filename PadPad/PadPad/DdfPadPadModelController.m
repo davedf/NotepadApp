@@ -17,15 +17,12 @@
 
 @synthesize book=_book;
 
-- (id)init
+-(id)initWithBook:(DdFPadPadBook*)book
 {
     self = [super init];
     if (self) {
         // Create the data model.
-        self.book =[[DdFPadPadBookRepository sharedRepository] openDefaultBookWithDelegate:nil CompletionHandler:^(BOOL success) {
-            NSLog(@"new book created:%@",success?@"Y":@"N");
-        } ];
-                    
+        self.book =book;                    
     }
     return self;
 }

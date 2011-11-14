@@ -10,5 +10,5 @@
 
 @property (strong,nonatomic) DdFPadPadBook *book;
 
-
+-(id)initWithBook:(DdFPadPadBook*)book;
 @end
