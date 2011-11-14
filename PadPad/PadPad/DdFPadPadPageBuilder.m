@@ -23,6 +23,7 @@
     return self;
 }
 -(DdFPadPadPage*)pageWithPageNumber:(NSUInteger)pageNumber {
+    NSLog(@"pageWithPageNumber:%d",pageNumber);
     return [[DdFPadPadPage alloc]initWithPaper:self.selectedPaper PageNumber:pageNumber Lines:[NSArray array] Identifier:[DdFStringUtils newStringWithUUID]];
 }
 

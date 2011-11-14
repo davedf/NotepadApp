@@ -10,6 +10,7 @@
 #import "DdFPadPadPaperRepository.h"
 #import "DdFPadPadPaperTableViewCell.h"
 #import "DdFPadPadApplicationState.h"
+#import "DdFPadPadPageBuilder.h"
 
 @implementation DdFPadPadPaperSelectorController
 @synthesize delegate=_delegate,selectedPaper=_selectedPaper;
@@ -52,6 +53,7 @@
 -(void)DidSelectToChange:(NSString *)pagesToChange {
     NSLog(@"DidSelectToChange:%@",pagesToChange);
     DdFPadPadApplicationState *state = [DdFPadPadApplicationState sharedDdFPadPadApplicationState];
+    [DdFPadPadPageBuilder sharedPageBuilder].selectedPaper = self.selectedPaper;
     if ([pagesToChange isEqualToString:LEFT_PAGE] | [pagesToChange isEqualToString:CURRENT_PAGE]) {
         [state.book changePaper:self.selectedPaper ForPages:[NSArray arrayWithObjects:state.leftPageController.dataObject, nil]];
         [state.leftPageController requiresRedraw];        
