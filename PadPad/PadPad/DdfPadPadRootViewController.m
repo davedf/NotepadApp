@@ -6,12 +6,13 @@
 
 @interface DdfPadPadRootViewController()     
 -(void)bookDidfinishLoading:(DdFPadPadBook*)book;
+//-(NSArray*)getViewControllers;
 @property (strong) UIImageView *splashScreen;
-@property (strong) DdFPadPadBook *book;
+//@property (strong) DdFPadPadBook *book;
 @end
 
 @implementation DdfPadPadRootViewController
-@synthesize pageViewController=_pageViewController,modelController=_modelController,splashScreen=_splashScreen,book=_book;
+@synthesize pageViewController=_pageViewController,modelController=_modelController,splashScreen=_splashScreen;
 
 #pragma mark - View lifecycle
 
@@ -28,12 +29,12 @@
 
     [self.splashScreen setImage:[UIImage imageNamed:@"Default-Portrait"]];
     [self.view addSubview:self.splashScreen];
-    self.book =[[DdFPadPadBookRepository sharedRepository] openDefaultBookWithDelegate:nil CompletionHandler:^(BOOL success) {
+    __block DdFPadPadBook *book =[[DdFPadPadBookRepository sharedRepository] openDefaultBookWithDelegate:nil CompletionHandler:^(BOOL success) {
         
-        [self bookDidfinishLoading:self.book];
+        [self bookDidfinishLoading:book];
         NSLog(@"book loaded:%@",success?@"Y":@"N");
     }];
-    _modelController = [[DdfPadPadModelController alloc] initWithBook:self.book];
+    _modelController = [[DdfPadPadModelController alloc] initWithBook:book];
 
 }
 
@@ -42,12 +43,11 @@
     // Configure the page view controller and add it as a child view controller.
     self.pageViewController = [[UIPageViewController alloc] initWithTransitionStyle:UIPageViewControllerTransitionStylePageCurl navigationOrientation:UIPageViewControllerNavigationOrientationHorizontal options:nil];
     self.pageViewController.delegate = self;
+    self.pageViewController.dataSource = self.modelController;
     
     DdfPadPadDataViewController *startingViewController = [self.modelController viewControllerAtIndex:0 storyboard:self.storyboard];
     NSArray *viewControllers = [NSArray arrayWithObject:startingViewController];
     [self.pageViewController setViewControllers:viewControllers direction:UIPageViewControllerNavigationDirectionForward animated:NO completion:NULL];
-    
-    self.pageViewController.dataSource = self.modelController;
     
     [self addChildViewController:self.pageViewController];
     [self.view addSubview:self.pageViewController.view];
@@ -60,7 +60,8 @@
     [self.pageViewController didMoveToParentViewController:self];    
     [self.splashScreen removeFromSuperview];
     self.splashScreen = nil;
-
+    
+//    self.pageViewController. = [self pageViewController:self.pageViewController spineLocationForInterfaceOrientation:[[UIApplication sharedApplication] statusBarOrientation]];
 }
 
 -(BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation {
@@ -72,6 +73,7 @@
     }
 }
 #pragma mark - UIPageViewController delegate methods
+
 
 - (UIPageViewControllerSpineLocation)pageViewController:(UIPageViewController *)pageViewController spineLocationForInterfaceOrientation:(UIInterfaceOrientation)orientation
 {

@@ -106,6 +106,8 @@
 
 #pragma mark - DdFPadPadPages()
 -(void)addPageOrderToFileWrapper:(NSFileWrapper*)fileWrapper {
+    NSFileWrapper *currentPageOrderFileWrapper = [fileWrapper.fileWrappers objectForKey:PAGE_ORDER_FILE_NAME];
+    [fileWrapper removeFileWrapper:currentPageOrderFileWrapper];
     NSString *pageOrderJSON = [_pageIndexToPageIdMap JSONRepresentation];
     NSLog(@"saving page order:%@",pageOrderJSON);
     NSData *data = [NSData dataWithBytes:[pageOrderJSON UTF8String] length:[pageOrderJSON length]];

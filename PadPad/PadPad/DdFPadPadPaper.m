@@ -37,11 +37,15 @@
     return YES;
 }
 -(NSDictionary*)DdFJSONRepresentation {
-    return [NSDictionary dictionaryWithObjectsAndKeys:
-            [_horizontal DdFJSONRepresentation],HORIZONTAL_KEY, 
-            [_vertical DdFJSONRepresentation],VERTICAL_KEY, 
-            [_paperColor DdFJSONRepresentation],PAPER_COLOR_KEY,
-            nil];
+
+    NSMutableDictionary *rep = [NSMutableDictionary dictionaryWithObjectsAndKeys:[_paperColor DdFJSONRepresentation],PAPER_COLOR_KEY, nil];
+    if (_horizontal) {
+        [rep setObject:[_horizontal DdFJSONRepresentation] forKey:HORIZONTAL_KEY];
+    }
+    if (_vertical) {
+        [rep setObject:[_vertical DdFJSONRepresentation] forKey:VERTICAL_KEY];
+    }
+    return [NSDictionary dictionaryWithDictionary:rep];            
 }
 
 -(NSFileWrapper*)NSFileWrapperRepresentation {
@@ -61,11 +65,18 @@
 }
 
 +(DdFPadPadPaper*)paperWithJSONRepresentation:(NSDictionary*)json {
-    DdFPadPadPageLineInformation *h = [DdFPadPadPageLineInformation pageLineInformationWithJSONRepresentation:[json objectForKey:HORIZONTAL_KEY]];
+    DdFPadPadPageLineInformation *h = nil;
+    if ([[json allKeys] containsObject:HORIZONTAL_KEY]) {
+        h = [DdFPadPadPageLineInformation pageLineInformationWithJSONRepresentation:[json objectForKey:HORIZONTAL_KEY]];        
+    }
 
-    DdFPadPadPageLineInformation *v = [DdFPadPadPageLineInformation pageLineInformationWithJSONRepresentation:[json objectForKey:VERTICAL_KEY]];
-    DdFPadPadColor *paperColor = [DdFPadPadColor colorFromJSONRepresentation:[json objectForKey:PAPER_COLOR_KEY]];
+    DdFPadPadPageLineInformation *v = nil;
+    if ([[json allKeys] containsObject:VERTICAL_KEY]) {
+        v = [DdFPadPadPageLineInformation pageLineInformationWithJSONRepresentation:[json objectForKey:VERTICAL_KEY]];
+    }
     
+    DdFPadPadColor *paperColor = [DdFPadPadColor colorFromJSONRepresentation:[json objectForKey:PAPER_COLOR_KEY]];
+
     return [[DdFPadPadPaper alloc]initWithHoriziontal:h Vertical:v PaperColor:paperColor];
 }
 @end
