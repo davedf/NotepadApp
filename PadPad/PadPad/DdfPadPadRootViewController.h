@@ -4,5 +4,6 @@
 @interface DdfPadPadRootViewController : UIViewController <UIPageViewControllerDelegate>
 
 @property (strong, nonatomic) UIPageViewController *pageViewController;
-@property (readonly, strong, nonatomic) DdfPadPadModelController *modelController;;
+@property (readonly, strong, nonatomic) DdfPadPadModelController *modelController;
+@property (strong) DdFPadPadBook *book;
 @end

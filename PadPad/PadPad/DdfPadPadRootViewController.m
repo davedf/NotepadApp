@@ -4,53 +4,34 @@
 #import "DdFPadPadBook.h"
 #import "DdFPadPadBookRepository.h"
 
-@interface DdfPadPadRootViewController()     
--(void)bookDidfinishLoading:(DdFPadPadBook*)book;
-//-(NSArray*)getViewControllers;
-@property (strong) UIImageView *splashScreen;
-//@property (strong) DdFPadPadBook *book;
-@end
 
 @implementation DdfPadPadRootViewController
-@synthesize pageViewController=_pageViewController,modelController=_modelController,splashScreen=_splashScreen;
+@synthesize pageViewController=_pageViewController,modelController=_modelController,book=_book;
 
 #pragma mark - View lifecycle
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    [DdFPadPadApplicationState sharedDdFPadPadApplicationState].rootController = self;
-    
+    if (!self.book) {
+        self.book =[[DdFPadPadBookRepository sharedRepository] openDefaultBookWithDelegate:nil CompletionHandler:nil];
+    }
+    _modelController = [[DdfPadPadModelController alloc] initWithBook:self.book];
+
     UIImage *bgImage = [UIImage imageNamed:@"tabletop"];
     UIColor *bgColor = [UIColor colorWithPatternImage:bgImage];
     [self.view setBackgroundColor:bgColor];
-
-    self.splashScreen = [[UIImageView alloc]initWithFrame:self.view.bounds];
-
-    [self.splashScreen setImage:[UIImage imageNamed:@"Default-Portrait"]];
-    [self.view addSubview:self.splashScreen];
-    __block DdFPadPadBook *book =[[DdFPadPadBookRepository sharedRepository] openDefaultBookWithDelegate:nil CompletionHandler:^(BOOL success) {
-        
-        [self bookDidfinishLoading:book];
-        NSLog(@"book loaded:%@",success?@"Y":@"N");
-    }];
-    _modelController = [[DdfPadPadModelController alloc] initWithBook:book];
-
-}
-
--(void)bookDidfinishLoading:(DdFPadPadBook*)book {
-	// Do any additional setup after loading the view, typically from a nib.
+    // Do any additional setup after loading the view, typically from a nib.
     // Configure the page view controller and add it as a child view controller.
     self.pageViewController = [[UIPageViewController alloc] initWithTransitionStyle:UIPageViewControllerTransitionStylePageCurl navigationOrientation:UIPageViewControllerNavigationOrientationHorizontal options:nil];
     self.pageViewController.delegate = self;
     self.pageViewController.dataSource = self.modelController;
+    [self addChildViewController:self.pageViewController];
+    [self.view addSubview:self.pageViewController.view];
     
     DdfPadPadDataViewController *startingViewController = [self.modelController viewControllerAtIndex:0 storyboard:self.storyboard];
     NSArray *viewControllers = [NSArray arrayWithObject:startingViewController];
     [self.pageViewController setViewControllers:viewControllers direction:UIPageViewControllerNavigationDirectionForward animated:NO completion:NULL];
-    
-    [self addChildViewController:self.pageViewController];
-    [self.view addSubview:self.pageViewController.view];
     
     // Set the page view controller's bounds using an inset rect so that self's view is visible around the edges of the pages.
     CGRect pageViewRect = self.view.bounds;
@@ -58,10 +39,6 @@
     self.pageViewController.view.frame = pageViewRect;
     
     [self.pageViewController didMoveToParentViewController:self];    
-    [self.splashScreen removeFromSuperview];
-    self.splashScreen = nil;
-    
-//    self.pageViewController. = [self pageViewController:self.pageViewController spineLocationForInterfaceOrientation:[[UIApplication sharedApplication] statusBarOrientation]];
 }
 
 -(BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation {
