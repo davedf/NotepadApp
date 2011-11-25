@@ -13,9 +13,6 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    if (!self.book) {
-        self.book =[[DdFPadPadBookRepository sharedRepository] openDefaultBookWithDelegate:nil CompletionHandler:nil];
-    }
     _modelController = [[DdfPadPadModelController alloc] initWithBook:self.book];
 
     UIImage *bgImage = [UIImage imageNamed:@"tabletop"];
