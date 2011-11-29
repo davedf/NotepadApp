@@ -12,6 +12,7 @@
 @property (readonly) DdFPadPadInk *ink;
 @property (readonly) NSArray /*<DdFPadPadLinePoint>*/ *points;
 @property (readonly) CGRect bounds;
+@property (readonly) NSString *filename;
 
 -(NSString*)DdFJSONRepresentation;
 -(NSFileWrapper*)NSFileWrapperRepresentation;

@@ -48,13 +48,14 @@
 
 -(void)addToFileWrapper:(NSFileWrapper*)fileWrapper {
     [self addPageOrderToFileWrapper:fileWrapper];
-    //add page filewrappers from _pageIdToNSFileWrapperMap
-    for (NSFileWrapper *wrapper in [_pageIdToNSFileWrapperMap allValues]) {
-        [fileWrapper addFileWrapper:wrapper];
-    }
-    //add loaded pages from _loadedPageIdToDdFPadPadPageMap
     for (DdFPadPadPage *page in [_loadedPageIdToDdFPadPadPageMap allValues]) {
-        [fileWrapper addFileWrapper:[page NSFileWrapperRepresentation]];
+        NSFileWrapper *existing = [fileWrapper.fileWrappers objectForKey:page.filename];
+        if (existing) {
+            [page UpdateNSFileWrapperRepresentation:existing];
+        }
+        else {
+            [fileWrapper addFileWrapper:[page NSFileWrapperRepresentation]];
+        }
     }    
 }
 

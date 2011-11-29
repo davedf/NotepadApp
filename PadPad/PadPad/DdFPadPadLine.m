@@ -109,12 +109,17 @@
                           nil];
     return [json JSONRepresentation];
 }
+
+-(NSString*)filename {
+    return [NSString stringWithFormat:@"%@.line",self.lineId];
+}
+
 -(NSFileWrapper*)NSFileWrapperRepresentation {
     NSString *json = [self DdFJSONRepresentation];
     NSData *data = [NSData dataWithBytes:[json UTF8String] length:[json length]];
 
     NSFileWrapper *wrapper = [[NSFileWrapper alloc]initRegularFileWithContents:data];
-    [wrapper setPreferredFilename:[NSString stringWithFormat:@"%@.line",self.lineId]];
+    [wrapper setPreferredFilename:self.filename];
     return wrapper;
 }
 

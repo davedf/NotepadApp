@@ -53,7 +53,7 @@
     NSData *data = [NSData dataWithBytes:[json UTF8String] length:[json length]];
     
     NSFileWrapper *wrapper = [[NSFileWrapper alloc]initRegularFileWithContents:data];
-    [wrapper setPreferredFilename:@"page.paper"];
+    [wrapper setPreferredFilename:PAGE_PAPER_FILE_NAME];
     return wrapper;
 
 }

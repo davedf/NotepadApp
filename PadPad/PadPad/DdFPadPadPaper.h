@@ -3,6 +3,7 @@
 @class DdFPadPadPageLineInformation;
 @class DdFPadPadColor;
 
+#define PAGE_PAPER_FILE_NAME @"page.paper"
 @interface DdFPadPadPaper : NSObject
 
 @property (readonly,strong) DdFPadPadPageLineInformation *horizontal;

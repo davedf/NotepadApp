@@ -49,13 +49,25 @@
 -(void)addLine:(DdFPadPadLine*)line {
     _lines = [_lines arrayByAddingObject:line];
 }
+
+-(NSString*)filename {
+    return [NSString stringWithFormat:@"%@.page",self.identifier];
+}
+
+-(void)UpdateNSFileWrapperRepresentation:(NSFileWrapper*)wrapper {
+    for (NSFileWrapper *currentWrapper in [wrapper.fileWrappers allValues]) {
+        [wrapper removeFileWrapper:currentWrapper];
+    }
+    [wrapper addFileWrapper:[self.paper NSFileWrapperRepresentation]];    
+    for (DdFPadPadLine *line in self.lines) {
+        [wrapper addFileWrapper:[line NSFileWrapperRepresentation]];            
+    }
+    
+}
 -(NSFileWrapper*)NSFileWrapperRepresentation {
     NSFileWrapper *wrapper = [[NSFileWrapper alloc]initDirectoryWithFileWrappers:[NSDictionary dictionary]];
-    wrapper.preferredFilename = [NSString stringWithFormat:@"%@.page",self.identifier];
-    [wrapper addFileWrapper:[self.paper NSFileWrapperRepresentation]];
-    for (DdFPadPadLine *line in self.lines) {
-        [wrapper addFileWrapper:[line NSFileWrapperRepresentation]];
-    }
+    wrapper.preferredFilename = self.filename;
+    [self UpdateNSFileWrapperRepresentation:wrapper];
     return  wrapper;
 }
 

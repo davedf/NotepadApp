@@ -14,7 +14,7 @@
 {
     [super viewDidLoad];
     _modelController = [[DdfPadPadModelController alloc] initWithBook:self.book];
-
+    [DdFPadPadApplicationState sharedDdFPadPadApplicationState].rootController = self;
     UIImage *bgImage = [UIImage imageNamed:@"tabletop"];
     UIColor *bgColor = [UIColor colorWithPatternImage:bgImage];
     [self.view setBackgroundColor:bgColor];
@@ -44,6 +44,7 @@
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([segue.identifier isEqualToString:@"ChangePaper"]) {
         NSLog(@"segue to %@",[segue.destinationViewController class]);
+        
     }
 }
 #pragma mark - UIPageViewController delegate methods

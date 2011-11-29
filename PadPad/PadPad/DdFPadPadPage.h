@@ -12,8 +12,10 @@
 
 @property (strong) DdFPadPadPaper *paper;
 @property NSUInteger pageNumber;
+@property (readonly) NSString *filename;
 
 -(NSFileWrapper*)NSFileWrapperRepresentation;
+-(void)UpdateNSFileWrapperRepresentation:(NSFileWrapper*)wrapper;
 
 -(void)addLine:(DdFPadPadLine*)line;
 
