@@ -8,6 +8,9 @@
 @interface DdFPadPadPages()
 -(void)addPageOrderToFileWrapper:(NSFileWrapper*)fileWrapper;
 -(void)loadPageOrderFromFileWrapper:(NSFileWrapper*)fileWrapper;
+-(DdFPadPadPage*)existingPageForIndex:(NSUInteger)pageIndex;
+-(NSString*)pageIdForIndex:(NSUInteger)pageIndex;
+-(void)storePage:(DdFPadPadPage*)page ForIndex:(NSUInteger)pageIndex;
 @end
 
 @implementation DdFPadPadPages {
@@ -64,10 +67,25 @@
 -(NSUInteger)indexOfPage:(DdFPadPadPage*)page {
     return [[_pageIdToPageIndexMap objectForKey:page.identifier] intValue];
 }
--(DdFPadPadPage*)pageForIndex:(NSUInteger)pageIndex {
+
+-(NSString*)pageIdForIndex:(NSUInteger)pageIndex {
     NSString *pageIndexNumber = [NSString stringWithFormat:@"%d",pageIndex];
+
+    return [_pageIndexToPageIdMap objectForKey:pageIndexNumber];
+    
+}
+
+-(void)storePage:(DdFPadPadPage*)page ForIndex:(NSUInteger)pageIndex {
+    NSString *pageIndexNumber = [NSString stringWithFormat:@"%d",pageIndex];
+    [_loadedPageIdToDdFPadPadPageMap setObject:page forKey:page.identifier];
+    NSLog(@"adding to page order identifier:%@ key:%@",page.identifier,pageIndexNumber);
+    [_pageIndexToPageIdMap setObject:page.identifier forKey:pageIndexNumber];
+    [_pageIdToPageIndexMap setObject:pageIndexNumber forKey:page.identifier];
+}
+
+-(DdFPadPadPage*)existingPageForIndex:(NSUInteger)pageIndex {
     NSUInteger pageNumber = pageIndex + 1;
-    NSString *pageId = [_pageIndexToPageIdMap objectForKey:pageIndexNumber];
+    NSString *pageId = [self pageIdForIndex:pageIndex];
     if (pageId) {
         DdFPadPadPage *loadedPage = [_loadedPageIdToDdFPadPadPageMap objectForKey:pageId];
         if (loadedPage) {
@@ -82,11 +100,24 @@
             return unwrapped;
         }
     }
-    DdFPadPadPage *newPage = [[DdFPadPadPageBuilder sharedPageBuilder] pageWithPageNumber:pageNumber];
-    [_loadedPageIdToDdFPadPadPageMap setObject:newPage forKey:newPage.identifier];
-    NSLog(@"adding to page order identifier:%@ key:%@",newPage.identifier,pageIndexNumber);
-    [_pageIndexToPageIdMap setObject:newPage.identifier forKey:pageIndexNumber];
-    [_pageIdToPageIndexMap setObject:pageIndexNumber forKey:newPage.identifier];
+    return nil;
+}
+-(DdFPadPadPage*)pageForIndex:(NSUInteger)pageIndex {
+    DdFPadPadPage *existingPage = [self existingPageForIndex:pageIndex];
+    if (existingPage) {
+        return existingPage;
+    }
+    DdFPadPadPage *previousExistingPage = nil;
+    if (pageIndex > 0) {
+        previousExistingPage = [self existingPageForIndex:(pageIndex-1)];
+    }
+    
+    DdFPadPadPage *newPage = [[DdFPadPadPageBuilder sharedPageBuilder] pageWithPageNumber:pageIndex + 1];
+    if (previousExistingPage) {
+        [newPage changePaper:previousExistingPage.paper];
+    }
+
+    [self storePage:newPage ForIndex:pageIndex];
     return newPage;
 }
 
