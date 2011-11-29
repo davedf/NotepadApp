@@ -22,9 +22,9 @@
 {
     [super viewDidLoad];
     
-    UIImage *bgImage = [UIImage imageNamed:@"tabletop"];
-    UIColor *bgColor = [UIColor colorWithPatternImage:bgImage];
-    [self.view setBackgroundColor:bgColor];
+//    UIImage *bgImage = [UIImage imageNamed:@"tabletop"];
+//    UIColor *bgColor = [UIColor colorWithPatternImage:bgImage];
+//    [self.view setBackgroundColor:bgColor];
     
     
     [self.splashScreen setImage:[UIImage imageNamed:@"Default-Portrait"]];

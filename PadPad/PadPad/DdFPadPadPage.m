@@ -55,6 +55,7 @@
 }
 
 -(void)UpdateNSFileWrapperRepresentation:(NSFileWrapper*)wrapper {
+    NSLog(@"UpdateNSFileWrapperRepresentation");
     for (NSFileWrapper *currentWrapper in [wrapper.fileWrappers allValues]) {
         [wrapper removeFileWrapper:currentWrapper];
     }
@@ -65,6 +66,8 @@
     
 }
 -(NSFileWrapper*)NSFileWrapperRepresentation {
+    NSLog(@"NSFileWrapperRepresentation");
+
     NSFileWrapper *wrapper = [[NSFileWrapper alloc]initDirectoryWithFileWrappers:[NSDictionary dictionary]];
     wrapper.preferredFilename = self.filename;
     [self UpdateNSFileWrapperRepresentation:wrapper];
