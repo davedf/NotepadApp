@@ -11,7 +11,7 @@
 //UIDocument , NSFileWrapper, NSUbiquitousKeyValueStore
 @property (weak) NSObject<DdFPadPadBookDelegate> *delegate;
 @property (strong) DdFPadPadBookInfo *bookInfo;
-
+@property (readonly) NSUInteger lastChangedPage;
 -(DdFPadPadPage*)pageForIndex:(NSUInteger)index;
 -(NSUInteger)indexOfPage:(DdFPadPadPage*)page;
 -(id)initWithName:(NSString*)name Delegate:(NSObject<DdFPadPadBookDelegate>*)delegate;

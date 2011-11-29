@@ -41,6 +41,9 @@
     return [self initWithURL:url Delegate:delegate BookInfo:bookInfo];
 }
 
+-(NSUInteger)lastChangedPage {
+    return _pages.numberOfPagesIndexed == 0 ? 0 :(_pages.numberOfPagesIndexed - 1);
+}
 
 #pragma mark - UIDocument
 

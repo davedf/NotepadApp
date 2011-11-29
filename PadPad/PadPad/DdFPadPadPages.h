@@ -9,4 +9,6 @@
 -(DdFPadPadPage*)pageForIndex:(NSUInteger)pageIndex;
 -(NSUInteger)indexOfPage:(DdFPadPadPage*)page;
 -(void)changeAllPaper:(DdFPadPadPaper*)paper;
+
+@property (readonly) NSUInteger numberOfPagesIndexed;
 @end

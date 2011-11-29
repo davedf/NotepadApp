@@ -75,6 +75,9 @@
     
 }
 
+-(NSUInteger) numberOfPagesIndexed {
+    return [_pageIdToPageIndexMap count];
+}
 -(void)storePage:(DdFPadPadPage*)page ForIndex:(NSUInteger)pageIndex {
     NSString *pageIndexNumber = [NSString stringWithFormat:@"%d",pageIndex];
     [_loadedPageIdToDdFPadPadPageMap setObject:page forKey:page.identifier];
