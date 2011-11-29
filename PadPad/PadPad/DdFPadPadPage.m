@@ -10,14 +10,15 @@
 @end
 
 @implementation DdFPadPadPage
-@synthesize pageNumber=_pageNumber,paper=_paper,lines=_lines,identifier=_identifier;
+@synthesize pageNumber=_pageNumber,paper=_paper,lines=_lines,identifier=_identifier,requiresSave=_requiresSave;
 
 -(id)initWithPaper:(DdFPadPadPaper*)paper PageNumber:(NSUInteger)pageNumber Lines:(NSArray*)lines Identifier:(NSString*)identifier{
     self = [super init];
     if (self) {
         _identifier = identifier;
-        self.paper = paper;
+        _paper = paper;
         self.pageNumber = pageNumber;
+        _requiresSave = NO;
         _lines = lines;
     }
     return self;
@@ -48,6 +49,12 @@
 
 -(void)addLine:(DdFPadPadLine*)line {
     _lines = [_lines arrayByAddingObject:line];
+    _requiresSave = YES;
+}
+
+-(void)changePaper:(DdFPadPadPaper*)newPaper {
+    _paper = newPaper;
+    _requiresSave = YES;
 }
 
 -(NSString*)filename {
@@ -63,7 +70,7 @@
     for (DdFPadPadLine *line in self.lines) {
         [wrapper addFileWrapper:[line NSFileWrapperRepresentation]];            
     }
-    
+    _requiresSave = NO;
 }
 -(NSFileWrapper*)NSFileWrapperRepresentation {
     NSLog(@"NSFileWrapperRepresentation");

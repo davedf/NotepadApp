@@ -10,13 +10,15 @@
 @property (readonly, strong) NSArray *lines;
 @property (readonly, strong) NSString *identifier;
 
-@property (strong) DdFPadPadPaper *paper;
+@property (readonly,strong) DdFPadPadPaper *paper;
 @property NSUInteger pageNumber;
 @property (readonly) NSString *filename;
+@property (readonly) BOOL requiresSave;
 
 -(NSFileWrapper*)NSFileWrapperRepresentation;
 -(void)UpdateNSFileWrapperRepresentation:(NSFileWrapper*)wrapper;
 
+-(void)changePaper:(DdFPadPadPaper*)newPaper;
 -(void)addLine:(DdFPadPadLine*)line;
 
 +(DdFPadPadPage*)pageWithPageNumber:(NSUInteger)pageNumber NSFileWrapper:(NSFileWrapper*)wrapper;

@@ -51,7 +51,9 @@
     for (DdFPadPadPage *page in [_loadedPageIdToDdFPadPadPageMap allValues]) {
         NSFileWrapper *existing = [fileWrapper.fileWrappers objectForKey:page.filename];
         if (existing) {
-            [page UpdateNSFileWrapperRepresentation:existing];
+            if (page.requiresSave) {
+                [page UpdateNSFileWrapperRepresentation:existing];                
+            }
         }
         else {
             [fileWrapper addFileWrapper:[page NSFileWrapperRepresentation]];

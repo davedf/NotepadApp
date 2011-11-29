@@ -85,9 +85,9 @@
 
 -(void)changePaper:(DdFPadPadPaper*)paper ForPages:(NSArray*)pages {
     //TODO:undo manager
-//    self.version = self.version++;
     for (DdFPadPadPage *page in pages) {
-        page.paper = paper;
+        [page changePaper:paper];
+        
     }    
     //TODO:nil of empty pages means all pages
     [self updateChangeCount:UIDocumentChangeDone];
