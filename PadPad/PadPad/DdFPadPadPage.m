@@ -53,6 +53,10 @@
 }
 
 -(void)changePaper:(DdFPadPadPaper*)newPaper {
+    if ([_paper isEqual:newPaper]) {
+        NSLog(@"no change to paper, skipping");
+        return;
+    }
     _paper = newPaper;
     _requiresSave = YES;
 }

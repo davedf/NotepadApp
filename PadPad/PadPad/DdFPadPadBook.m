@@ -85,11 +85,14 @@
 
 -(void)changePaper:(DdFPadPadPaper*)paper ForPages:(NSArray*)pages {
     //TODO:undo manager
-    for (DdFPadPadPage *page in pages) {
-        [page changePaper:paper];
-        
-    }    
-    //TODO:nil of empty pages means all pages
+    if (pages) {
+        for (DdFPadPadPage *page in pages) {
+            [page changePaper:paper];            
+        }    
+    }
+    else {
+        [_pages changeAllPaper:paper];
+    }
     [self updateChangeCount:UIDocumentChangeDone];
 }
 #pragma mark - creating and loading a book

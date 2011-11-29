@@ -107,6 +107,13 @@
     return YES;
 }
 
+-(void)changeAllPaper:(DdFPadPadPaper*)paper {
+    for (NSString *pageIndex in [_pageIdToPageIndexMap allValues]) {
+        DdFPadPadPage *page = [self pageForIndex:[pageIndex intValue]];
+        [page changePaper:paper];
+    }
+}
+
 #pragma mark - DdFPadPadPages()
 -(void)addPageOrderToFileWrapper:(NSFileWrapper*)fileWrapper {
     NSFileWrapper *currentPageOrderFileWrapper = [fileWrapper.fileWrappers objectForKey:PAGE_ORDER_FILE_NAME];
