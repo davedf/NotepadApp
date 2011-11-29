@@ -112,10 +112,7 @@
         previousExistingPage = [self existingPageForIndex:(pageIndex-1)];
     }
     
-    DdFPadPadPage *newPage = [[DdFPadPadPageBuilder sharedPageBuilder] pageWithPageNumber:pageIndex + 1];
-    if (previousExistingPage) {
-        [newPage changePaper:previousExistingPage.paper];
-    }
+    DdFPadPadPage *newPage = [[DdFPadPadPageBuilder sharedPageBuilder] pageWithPageNumber:pageIndex + 1 Paper:previousExistingPage.paper];
 
     [self storePage:newPage ForIndex:pageIndex];
     return newPage;

@@ -50,6 +50,10 @@
         self.fileWrapper  =[[NSFileWrapper alloc]initDirectoryWithFileWrappers:nil];
         [self.fileWrapper setPreferredFilename:self.bookInfo.fileName];        
     }
+    NSFileWrapper *existingBookInfo = [self.fileWrapper.fileWrappers objectForKey:self.bookInfo.fileName];
+    if (existingBookInfo) {
+        [self.fileWrapper removeFileWrapper:existingBookInfo];
+    }
     [self.fileWrapper addFileWrapper:[self.bookInfo NSFileWrapperRepresentation]];    
     [self.pages addToFileWrapper:self.fileWrapper];
     return self.fileWrapper;

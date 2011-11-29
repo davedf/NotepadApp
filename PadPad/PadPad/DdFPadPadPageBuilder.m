@@ -22,9 +22,9 @@
     }
     return self;
 }
--(DdFPadPadPage*)pageWithPageNumber:(NSUInteger)pageNumber {
+-(DdFPadPadPage*)pageWithPageNumber:(NSUInteger)pageNumber Paper:(DdFPadPadPaper*)paper {
     NSLog(@"pageWithPageNumber:%d",pageNumber);
-    return [[DdFPadPadPage alloc]initWithPaper:self.selectedPaper PageNumber:pageNumber Lines:[NSArray array] Identifier:[DdFStringUtils newStringWithUUID]];
+    return [[DdFPadPadPage alloc]initWithPaper:paper? paper : self.selectedPaper PageNumber:pageNumber Lines:[NSArray array] Identifier:[DdFStringUtils newStringWithUUID]];
 }
 
 +(id)sharedPageBuilder {

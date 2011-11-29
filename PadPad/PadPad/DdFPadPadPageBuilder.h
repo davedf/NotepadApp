@@ -14,6 +14,6 @@
 @interface DdFPadPadPageBuilder : NSObject
 @property (strong) DdFPadPadPaper *selectedPaper;
 -(id) initWithSelectedPaper:(DdFPadPadPaper*)selectedPaper;
--(DdFPadPadPage*)pageWithPageNumber:(NSUInteger)pageNumber;
+-(DdFPadPadPage*)pageWithPageNumber:(NSUInteger)pageNumber Paper:(DdFPadPadPaper*)paper;
 +(DdFPadPadPageBuilder*)sharedPageBuilder;
 @end
