@@ -30,19 +30,19 @@
 }
 
 -(void)testPageHasCorrectPageNumber {
-    DdFPadPadPage *page = [[DdFPadPadPageBuilder sharedPageBuilder] pageWithPageNumber:1];
+    DdFPadPadPage *page = [[DdFPadPadPageBuilder sharedPageBuilder] pageWithPageNumber:1 Paper:nil];
     STAssertEquals((NSUInteger)1,page.pageNumber,@"Fail");
-    page = [[DdFPadPadPageBuilder sharedPageBuilder] pageWithPageNumber:2];
+    page = [[DdFPadPadPageBuilder sharedPageBuilder] pageWithPageNumber:2  Paper:nil];
     STAssertEquals((NSUInteger)2,page.pageNumber,@"Fail");
 }
 
 -(void)testPageHasIdentifier {
-    DdFPadPadPage *page = [[DdFPadPadPageBuilder sharedPageBuilder] pageWithPageNumber:1];
+    DdFPadPadPage *page = [[DdFPadPadPageBuilder sharedPageBuilder] pageWithPageNumber:1  Paper:nil];
     STAssertNotNil(page.identifier, @"Fail");
 }
 
 -(void)testPageHasCurrentlySelectedPaper {
-    DdFPadPadPage *page = [[DdFPadPadPageBuilder sharedPageBuilder] pageWithPageNumber:1];
+    DdFPadPadPage *page = [[DdFPadPadPageBuilder sharedPageBuilder] pageWithPageNumber:1  Paper:nil];
     STAssertEqualObjects(page.paper, [[DdFPadPadPageBuilder sharedPageBuilder] selectedPaper], @"Fail");
 }
 @end

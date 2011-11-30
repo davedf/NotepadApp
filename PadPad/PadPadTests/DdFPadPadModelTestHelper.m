@@ -1,6 +1,7 @@
 #import "DdFPadPadModelTestHelper.h"
 #import "JSON.h"
 #import "DdFPadPadColor.h"
+#import <SenTestingKit/SenTestingKit.h>
 
 @implementation DdFPadPadModelTestHelper
 
@@ -28,4 +29,8 @@
     return [[DdFPadPadPaper alloc]initWithHoriziontal:h Vertical:v PaperColor:[DdFPadPadColor ivoryPaper]];
 
 }
+
+
+
+
 @end

@@ -10,7 +10,7 @@
 -(void)showSpineShading;
 -(void)hideSpineShading;
 
-@property (strong, nonatomic) DdFPadPadPage *dataObject;
+@property (weak) DdFPadPadPage *dataObject;
 
 @end
 

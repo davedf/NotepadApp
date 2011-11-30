@@ -6,7 +6,6 @@
 //  Copyright (c) 2011 de Florinier Consulting Ltd. All rights reserved.
 //
 
-
 #import <Foundation/Foundation.h>
 #import "DdFPadPadLine.h"
 #import "DdFPadPadInk.h"
@@ -24,4 +23,5 @@
 +(DdFPadPadLine*)lineWithPoints;
 +(DdFPadPadLinePoint*)point:(CGPoint)point;
 +(DdFPadPadPaper*)paper;
+
 @end
