@@ -15,6 +15,9 @@
 		55059EBF14430ED7003B62A7 /* UIColor+DdFJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = 55059EBE14430ED7003B62A7 /* UIColor+DdFJSON.m */; };
 		550615981486747800F3EED8 /* DdFPadPadLineBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = 550615971486747800F3EED8 /* DdFPadPadLineBuilder.m */; };
 		5506159C14867A9500F3EED8 /* DdFPadPadLineBuilderTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5506159B14867A9500F3EED8 /* DdFPadPadLineBuilderTests.m */; };
+		5506159F1486806E00F3EED8 /* DdFPadPadPenTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 5506159E1486806E00F3EED8 /* DdFPadPadPenTool.m */; };
+		550615A21486822300F3EED8 /* DdFPadPadToolCoordinateAdaptor.m in Sources */ = {isa = PBXBuildFile; fileRef = 550615A11486822300F3EED8 /* DdFPadPadToolCoordinateAdaptor.m */; };
+		550615A614868F7F00F3EED8 /* DdFPadPadToolCoordinateAdaptorTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 550615A514868F7F00F3EED8 /* DdFPadPadToolCoordinateAdaptorTests.m */; };
 		551872541434A0D3009125A6 /* photo-camera.png in Resources */ = {isa = PBXBuildFile; fileRef = 551872531434A0D3009125A6 /* photo-camera.png */; };
 		5518725B1434ABC1009125A6 /* DdFPadPadPage.m in Sources */ = {isa = PBXBuildFile; fileRef = 5518725A1434ABC1009125A6 /* DdFPadPadPage.m */; };
 		551872681435D202009125A6 /* DdFPadPadBook.m in Sources */ = {isa = PBXBuildFile; fileRef = 551872671435D202009125A6 /* DdFPadPadBook.m */; };
@@ -119,6 +122,12 @@
 		550615971486747800F3EED8 /* DdFPadPadLineBuilder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DdFPadPadLineBuilder.m; sourceTree = "<group>"; };
 		5506159A14867A9500F3EED8 /* DdFPadPadLineBuilderTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DdFPadPadLineBuilderTests.h; sourceTree = "<group>"; };
 		5506159B14867A9500F3EED8 /* DdFPadPadLineBuilderTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DdFPadPadLineBuilderTests.m; sourceTree = "<group>"; };
+		5506159D1486806E00F3EED8 /* DdFPadPadPenTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DdFPadPadPenTool.h; sourceTree = "<group>"; };
+		5506159E1486806E00F3EED8 /* DdFPadPadPenTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DdFPadPadPenTool.m; sourceTree = "<group>"; };
+		550615A01486822300F3EED8 /* DdFPadPadToolCoordinateAdaptor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DdFPadPadToolCoordinateAdaptor.h; sourceTree = "<group>"; };
+		550615A11486822300F3EED8 /* DdFPadPadToolCoordinateAdaptor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DdFPadPadToolCoordinateAdaptor.m; sourceTree = "<group>"; };
+		550615A414868F7F00F3EED8 /* DdFPadPadToolCoordinateAdaptorTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DdFPadPadToolCoordinateAdaptorTests.h; sourceTree = "<group>"; };
+		550615A514868F7F00F3EED8 /* DdFPadPadToolCoordinateAdaptorTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DdFPadPadToolCoordinateAdaptorTests.m; sourceTree = "<group>"; };
 		551872531434A0D3009125A6 /* photo-camera.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "photo-camera.png"; sourceTree = "<group>"; };
 		551872591434ABC1009125A6 /* DdFPadPadPage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DdFPadPadPage.h; sourceTree = "<group>"; };
 		5518725A1434ABC1009125A6 /* DdFPadPadPage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DdFPadPadPage.m; sourceTree = "<group>"; };
@@ -283,6 +292,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		550615A314868F5F00F3EED8 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				550615A414868F7F00F3EED8 /* DdFPadPadToolCoordinateAdaptorTests.h */,
+				550615A514868F7F00F3EED8 /* DdFPadPadToolCoordinateAdaptorTests.m */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
 		551872511434A07E009125A6 /* Assets */ = {
 			isa = PBXGroup;
 			children = (
@@ -356,6 +374,8 @@
 				5589D32714698C5C00146640 /* DdFPadPadViewContants.h */,
 				5589D32414698B9900146640 /* UIView+DdFPadPadPaper.h */,
 				5589D32514698B9900146640 /* UIView+DdFPadPadPaper.m */,
+				550615A01486822300F3EED8 /* DdFPadPadToolCoordinateAdaptor.h */,
+				550615A11486822300F3EED8 /* DdFPadPadToolCoordinateAdaptor.m */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -450,6 +470,7 @@
 		553A66C114333A8900503CC7 /* PadPadTests */ = {
 			isa = PBXGroup;
 			children = (
+				550615A314868F5F00F3EED8 /* View */,
 				55FC9736143B1A2100C508F9 /* Utils */,
 				559C105D1439BFCB00FBD055 /* Model */,
 				553A66C214333A8900503CC7 /* Supporting Files */,
@@ -560,6 +581,8 @@
 				55B9B0361486355E00AC92FB /* DdFPadPadDrawingToolDelegate.h */,
 				550615961486747800F3EED8 /* DdFPadPadLineBuilder.h */,
 				550615971486747800F3EED8 /* DdFPadPadLineBuilder.m */,
+				5506159D1486806E00F3EED8 /* DdFPadPadPenTool.h */,
+				5506159E1486806E00F3EED8 /* DdFPadPadPenTool.m */,
 			);
 			name = Tools;
 			sourceTree = "<group>";
@@ -763,6 +786,8 @@
 				558D4AF2147FD07100EB9D08 /* DdFPadPadSplashScreenController.m in Sources */,
 				55B9B0341486332200AC92FB /* DdFPadPadToolRepository.m in Sources */,
 				550615981486747800F3EED8 /* DdFPadPadLineBuilder.m in Sources */,
+				5506159F1486806E00F3EED8 /* DdFPadPadPenTool.m in Sources */,
+				550615A21486822300F3EED8 /* DdFPadPadToolCoordinateAdaptor.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -788,6 +813,7 @@
 				552AE9F21468231A00BE8A07 /* DdFPadPadPageBuilderTests.m in Sources */,
 				552AE9FB14684B2A00BE8A07 /* DdFPadPadPaperRepositoryTests.m in Sources */,
 				5506159C14867A9500F3EED8 /* DdFPadPadLineBuilderTests.m in Sources */,
+				550615A614868F7F00F3EED8 /* DdFPadPadToolCoordinateAdaptorTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

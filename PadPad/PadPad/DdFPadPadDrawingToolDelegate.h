@@ -9,9 +9,12 @@
 #import <Foundation/Foundation.h>
 #import "DdFPadPadPage.h"
 #import "DdFPadPadLine.h"
+#import "DdFPadPadToolCoordinateAdaptor.h"
 @protocol DdFPadPadDrawingToolDelegate <NSObject>
 
--(void)drawInProgressLine:(DdFPadPadLine*)line;
--(void)drawCompletedLine:(DdFPadPadLine*)line;
+@property (readonly) DdFPadPadPage *page;
+@property (readonly) UIView *toolView;
+@property (readonly) DdFPadPadToolCoordinateAdaptor *coordinateAdaptor;
+-(void)pageRedrawRequired;
 
 @end
