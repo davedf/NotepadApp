@@ -123,6 +123,16 @@
     return wrapper;
 }
 
+-(DdFPadPadLine*)scaleForViewWithPointTransform:(CGAffineTransform)transform InkScale:(CGFloat)inkScale {
+    NSMutableArray *newPoints = [[NSMutableArray alloc]initWithCapacity:self.points.count];
+    for (DdFPadPadLinePoint *point in self.points) {
+        DdFPadPadLinePoint  *newPoint = [[DdFPadPadLinePoint alloc]initWithOrigin:CGPointApplyAffineTransform(point.origin, transform) velocity:point.velocity];
+        [newPoints addObject:newPoint];        
+    }
+    DdFPadPadInk *scaledInk = [[DdFPadPadInk alloc]initWithColor:self.ink.color Size:self.ink.inkSize * inkScale Type:self.ink.inkType];
+    return [[DdFPadPadLine alloc]initWithId:self.lineId Ink:scaledInk Points:newPoints];
+}
+
 +(DdFPadPadLine*)lineFromNSFileWrapper:(NSFileWrapper*)wrapper {
     NSString *json = [[NSString alloc]initWithBytes:[wrapper.regularFileContents bytes] length:[wrapper.regularFileContents length] encoding:NSUTF8StringEncoding];
     NSDictionary *jsonDictionary = [json JSONValue];

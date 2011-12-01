@@ -14,6 +14,6 @@
 @property (weak) NSObject<DdFPadPadDrawingToolDelegate> *delegate;
 -(void)newGesture;
 -(void)touchAtPoint:(CGPoint)point WithVelocity:(CGPoint) velocity;
-
+ 
 
 @end

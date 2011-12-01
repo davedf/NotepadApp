@@ -10,10 +10,12 @@
 #import "DdFPadPadDrawingTool.h"
 #import "DdFPadPadDrawingToolBuilder.h"
 #import "DdFPadPadDrawingToolDelegate.h"
+#import "DdFPadPadToolCoordinateAdaptor.h"
 
 @interface DdFPadPadToolRepository : NSObject
 
 @property (strong) NSObject<DdFPadPadDrawingToolBuilder> *selectedToolBuilder;
+
 -(NSObject<DdFPadPadDrawingTool>*)newDrawingToolForDelegate:(NSObject<DdFPadPadDrawingToolDelegate>*)toolDelegate;
 
 @end

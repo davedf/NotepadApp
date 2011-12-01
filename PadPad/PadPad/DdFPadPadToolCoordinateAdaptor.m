@@ -13,20 +13,21 @@
 
 @interface DdFPadPadToolCoordinateAdaptor()
 @property (readonly) CGAffineTransform toolViewToIdealTransform;
-@property (readonly) CGAffineTransform idealToToolViewTransform;
-@property (readonly) CGAffineTransform idealToPageViewTransform;
+@property (readonly) CGAffineTransform toolViewVelocityToIdealVelocityTransform;
 -(void)calculateTransforms;
 @end
-// portrait paperFrame:[origin:[39.000000,22.000000] size:[690.000000,920.000000]]
-// landscape paperFrame:[origin:[0.000000,12.666656] size:[512.000000,682.666687]]
+
+
 @implementation DdFPadPadToolCoordinateAdaptor {
     __weak UIView *_toolView;
     __weak UIView *_pageView;
     CGRect _pageViewBounds;
     CGRect _toolViewFrame;
     CGAffineTransform _toolViewToIdealTransform;
+    CGAffineTransform _toolViewVelocityToIdealVelocityTransform;
     CGAffineTransform _idealToToolViewTransform;
     CGAffineTransform _idealToPageViewTransform;
+    CGFloat _idealToToolLineWidthScale;
 }
 @synthesize idealSize=_idealSize;
 -(id)initWithPageView:(UIView*)pageView ToolView:(UIView*)toolView {
@@ -49,6 +50,9 @@
     return CGPointApplyAffineTransform(idealViewPoint, self.idealToPageViewTransform);
 }
 
+-(CGPoint)convertToolViewVelocityToIdealVelocity:(CGPoint)toolViewVelocity {
+    return CGPointApplyAffineTransform(toolViewVelocity, self.toolViewVelocityToIdealVelocityTransform);
+}
 #pragma mark DdFPadPadToolCoordinateAdaptor()
 -(void)calculateTransforms {
     if (CGRectEqualToRect(_pageViewBounds,_pageView.bounds) && CGRectEqualToRect(_toolViewFrame, _toolView.frame)) {
@@ -70,15 +74,21 @@
     CGPoint toolTranslation = CGPointMake(dx, dy);
     CGAffineTransform t = CGAffineTransformMakeTranslation(toolTranslation.x, toolTranslation.y);
     _toolViewToIdealTransform = CGAffineTransformScale(t, sx, sy);
-    
+    _toolViewVelocityToIdealVelocityTransform = CGAffineTransformMakeScale(sx, sy);
     CGPoint pageTranslation = CGPointMake(-1 * dx, -1 * dy);
     t = CGAffineTransformMakeTranslation(pageTranslation.x, pageTranslation.y);
     _idealToToolViewTransform = CGAffineTransformScale(t, 1/sx, 1/sy);
-  
+    _idealToToolLineWidthScale = 1/sx;
     t = CGAffineTransformMakeTranslation(_toolViewFrame.origin.x ,_toolViewFrame.origin.y);
     _idealToPageViewTransform = CGAffineTransformScale(t, 1/sx, 1/sy);
+    
+    
 }
 
+-(CGFloat) idealToToolLineWidthScale {
+    [self calculateTransforms];
+    return _idealToToolLineWidthScale;
+}
 -(CGAffineTransform) toolViewToIdealTransform {
     [self calculateTransforms];
     return _toolViewToIdealTransform;
@@ -92,6 +102,11 @@
 -(CGAffineTransform) idealToPageViewTransform {
     [self calculateTransforms];
     return _idealToPageViewTransform;
+}
+
+-(CGAffineTransform) toolViewVelocityToIdealVelocityTransform {
+    [self calculateTransforms];
+    return _toolViewVelocityToIdealVelocityTransform;
 }
 
 @end

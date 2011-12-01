@@ -11,9 +11,15 @@
 @implementation DdFPadPadToolRepository
 @synthesize selectedToolBuilder=_selectedToolBuilder;
 
+-(id)init {
+    self = [super init];
+    if (self) {
+        
+    }
+    return self;
+}
 -(NSObject<DdFPadPadDrawingTool>*)newDrawingToolForDelegate:(NSObject<DdFPadPadDrawingToolDelegate>*)toolDelegate {
-    NSObject<DdFPadPadDrawingTool> *newTool = [self.selectedToolBuilder newDrawingTool];
-    newTool.delegate = toolDelegate;
+    NSObject<DdFPadPadDrawingTool> *newTool = [self.selectedToolBuilder newDrawingToolWithDelegate:toolDelegate];
     return newTool;
 }
 

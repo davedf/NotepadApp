@@ -232,3 +232,22 @@ static BOOL CGPointIsInsideCircle(CGPoint p, Circle c) {
 static BOOL LineIsInsideCircle(LineSegment l, Circle c) {
     return CGPointIsInsideCircle(l.p1, c) && CGPointIsInsideCircle(l.p2, c);
 }
+
+static inline CGPoint ccpSub(const CGPoint v1, const CGPoint v2)
+{
+    return CGPointMake(v1.x - v2.x, v1.y - v2.y);
+}
+static inline CGPoint CGPointNormalize(CGPoint point)
+{
+	CGFloat vecMag = CGPointMagnitude(point);
+	if ( vecMag == 0.0 )
+	{
+        return CGPointMake(0, 0);
+	}
+    return CGPointMake(point.x / vecMag, point.y / vecMag);
+}
+
+static inline CGPoint CGPointAdd(CGPoint point1, CGPoint point2) {
+    return CGPointMake(point1.x + point2.x, point1.y + point2.y);
+}
+

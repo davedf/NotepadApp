@@ -7,7 +7,10 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "DdFPadPadDrawingTool.h"
+#import "DdFPadPadPen.h"
 
-@interface DdFPadPadPenTool : NSObject
+@interface DdFPadPadPenTool : NSObject<DdFPadPadDrawingTool>
 
+-(id)initWithDelegate:(NSObject<DdFPadPadDrawingToolDelegate>*)delegate Pen:(DdFPadPadPen*)pen;
 @end

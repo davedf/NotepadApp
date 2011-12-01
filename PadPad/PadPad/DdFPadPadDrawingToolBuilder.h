@@ -8,7 +8,8 @@
 
 #import <Foundation/Foundation.h>
 #import "DdFPadPadDrawingTool.h"
+#import "DdFPadPadDrawingToolDelegate.h"
 
 @protocol DdFPadPadDrawingToolBuilder <NSObject>
--(NSObject<DdFPadPadDrawingTool>*)newDrawingTool;
+-(NSObject<DdFPadPadDrawingTool>*)newDrawingToolWithDelegate:(NSObject<DdFPadPadDrawingToolDelegate>*)delegate;
 @end

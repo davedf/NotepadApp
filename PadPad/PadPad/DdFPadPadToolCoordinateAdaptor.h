@@ -11,9 +11,13 @@
 @interface DdFPadPadToolCoordinateAdaptor : NSObject
 
 @property (readonly) CGSize idealSize;
+@property (readonly) CGAffineTransform idealToToolViewTransform;
+@property (readonly) CGAffineTransform idealToPageViewTransform;
+@property (readonly) CGFloat idealToToolLineWidthScale;
 -(id)initWithPageView:(UIView*)pageView ToolView:(UIView*)toolView;
 
 -(CGPoint)convertToolViewPointToIdealPoint:(CGPoint)toolViewPoint;
+-(CGPoint)convertToolViewVelocityToIdealVelocity:(CGPoint)toolViewPoint;
 -(CGPoint)convertIdealPointToToolViewPoint:(CGPoint)idealViewPoint;
 -(CGPoint)convertIdealPointToPageViewPoint:(CGPoint)idealViewPoint;
 

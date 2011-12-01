@@ -17,6 +17,7 @@
 -(NSString*)DdFJSONRepresentation;
 -(NSFileWrapper*)NSFileWrapperRepresentation;
 
+-(DdFPadPadLine*)scaleForViewWithPointTransform:(CGAffineTransform)transform InkScale:(CGFloat)inkScale;
 +(DdFPadPadLine*)lineFromNSFileWrapper:(NSFileWrapper*)fileWrapper;
 
 +(BOOL)recognises:(NSFileWrapper*)fileWrapper;
