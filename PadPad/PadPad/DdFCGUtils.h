@@ -4,6 +4,9 @@
 #define X_KEY @"x"
 #define Y_KEY @"y"
 
+static inline void CGRectNSLog(NSString *prefix, CGRect frame) {
+    NSLog(@"%@:[origin:[%f,%f] size:[%f,%f]",prefix,frame.origin.x,frame.origin.y,frame.size.width, frame.size.height);
+}
 static inline NSDictionary* CGPointToJSON(CGPoint point) {
 
     return [NSDictionary dictionaryWithObjectsAndKeys:

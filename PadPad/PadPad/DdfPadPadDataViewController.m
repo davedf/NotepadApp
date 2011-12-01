@@ -2,7 +2,7 @@
 #import "DdFPadPadPage.h"
 #import "DdFPadPadPageView.h"
 #import "DdFPadPadViewContants.h"
-
+#import "DdFCGUtils.h"
 @interface DdfPadPadDataViewController()
 @property (readonly) DdFPadPadPageView *pageView;
 -(void)sizeInkView;
@@ -22,6 +22,7 @@
     [self.pageView showPage:self.dataObject];
     [self.inkView setBackgroundColor:[UIColor clearColor]];
     [self.inkView addGestureRecognizer:[[UIPanGestureRecognizer alloc]initWithTarget:self action:@selector(inkPanned:)]];
+    [self.inkView setBackgroundColor:[UIColor colorWithRed:0 green:0 blue:0 alpha:0.2]];
 }
 
 -(void)viewDidAppear:(BOOL)animated {
@@ -29,11 +30,12 @@
 }
 -(void)sizeInkView {
     self.inkView.frame = DrawableFrameInContainingFrame(self.pageView.frame);
-    NSLog(@"inkView size height:%f width:%f",self.inkView.frame.size.height,self.inkView.frame.size.width);
+    CGRectNSLog(@"inkView", self.inkView.frame);
+    CGRectNSLog(@"pageView", self.pageView.frame);
     
 }
 -(IBAction)inkPanned:(id)sender {
-                                           
+    
 }
                                        
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
