@@ -15,7 +15,10 @@
 @interface DdFPadPadToolRepository : NSObject
 
 @property (strong) NSObject<DdFPadPadDrawingToolBuilder> *selectedToolBuilder;
+@property (readonly) NSObject<DdFPadPadDrawingToolBuilder> *penToolBuilder;
 
 -(NSObject<DdFPadPadDrawingTool>*)newDrawingToolForDelegate:(NSObject<DdFPadPadDrawingToolDelegate>*)toolDelegate;
 
+
++(DdFPadPadToolRepository*)sharedDdFPadPadToolRepository;
 @end

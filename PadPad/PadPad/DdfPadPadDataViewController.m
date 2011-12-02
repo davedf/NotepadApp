@@ -3,6 +3,8 @@
 #import "DdFPadPadPageView.h"
 #import "DdFPadPadViewContants.h"
 #import "DdFCGUtils.h"
+#import "DdFPadPadToolView.h"
+
 @interface DdfPadPadDataViewController()
 @property (readonly) DdFPadPadPageView *pageView;
 -(void)sizeInkView;
@@ -28,12 +30,13 @@
 -(void)viewDidAppear:(BOOL)animated {
     [self sizeInkView];    
 }
+
 -(void)sizeInkView {
     self.inkView.frame = DrawableFrameInContainingFrame(self.pageView.frame);
     CGRectNSLog(@"inkView", self.inkView.frame);
-    CGRectNSLog(@"pageView", self.pageView.frame);
-    
+    CGRectNSLog(@"pageView", self.pageView.frame);    
 }
+
 -(IBAction)inkPanned:(id)sender {
     
 }
@@ -44,14 +47,14 @@
 }
 
 -(void)willRotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration {        
-    [self.pageView willRotateToInterfaceOrientation:toInterfaceOrientation duration:duration];
-    
+    [self.pageView willRotateToInterfaceOrientation:toInterfaceOrientation duration:duration];    
 }
 
 -(void) didRotateFromInterfaceOrientation:(UIInterfaceOrientation)fromInterfaceOrientation {
     [self sizeInkView];
     NSLog(@"didRotateFromInterfaceOrientation size height:%f width:%f",self.view.frame.size.height,self.view.frame.size.width);
 }
+
 #pragma mark - DdfPadPadDataViewController() 
 -(DdFPadPadPageView*)pageView {
     return (DdFPadPadPageView*)self.view;
