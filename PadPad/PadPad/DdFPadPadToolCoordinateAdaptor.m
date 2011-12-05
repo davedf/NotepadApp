@@ -51,7 +51,10 @@
     return CGPointApplyAffineTransform(idealViewPoint, self.idealToToolViewTransform);
 }
 -(CGPoint)convertIdealPointToPageViewPoint:(CGPoint)idealViewPoint {
-    return CGPointApplyAffineTransform(idealViewPoint, self.idealToPageViewTransform);
+    CGPointLog(@"idealViewPoint", idealViewPoint);
+    CGPoint converted = CGPointApplyAffineTransform(idealViewPoint, self.idealToPageViewTransform);
+    CGPointLog(@"convertedPoint",converted);
+    return converted;
 }
 
 -(CGPoint)convertToolViewVelocityToIdealVelocity:(CGPoint)toolViewVelocity {
@@ -72,8 +75,8 @@
     CGFloat sx = self.idealSize.width / idealFrame.size.width;
     CGFloat sy = self.idealSize.height / idealFrame.size.height;
     NSLog(@"sx:%f sy:%f",sx,sy);
-    CGFloat dx = (_toolViewFrame.origin.x - _pageViewBounds.origin.x) - idealFrame.origin.x;
-    CGFloat dy = (_toolViewFrame.origin.y - _pageViewBounds.origin.y) - idealFrame.origin.y;
+    CGFloat dx = (_toolViewFrame.origin.x) - idealFrame.origin.x;
+    CGFloat dy = (_toolViewFrame.origin.y) - idealFrame.origin.y;
     NSLog(@"dx:%f dy:%f",dx,dy);
     NSLog(@"calculateTransforms -END ----------------");
 
@@ -85,7 +88,7 @@
     t = CGAffineTransformMakeTranslation(pageTranslation.x, pageTranslation.y);
     _idealToToolViewTransform = CGAffineTransformScale(t, 1/sx, 1/sy);
     _idealToToolLineWidthScale = 1/sx;
-    t = CGAffineTransformMakeTranslation(_pageViewBounds.origin.x  + idealFrame.origin.x, _pageViewBounds.origin.y  + idealFrame.origin.y);
+    t = CGAffineTransformMakeTranslation(idealFrame.origin.x, idealFrame.origin.y);
     _idealToPageViewTransform = CGAffineTransformScale(t, 1/sx, 1/sy);
     
     
