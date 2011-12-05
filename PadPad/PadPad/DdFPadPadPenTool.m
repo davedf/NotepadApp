@@ -33,7 +33,7 @@
     self = [super init];
     if (self) {
         _delegate = delegate;
-        _coordinateAdaptor = [[DdFPadPadToolCoordinateAdaptor alloc]initWithPageView:delegate.pageView ToolView:delegate.pageView];
+        _coordinateAdaptor = [[DdFPadPadToolCoordinateAdaptor alloc]initWithPageView:delegate.pageView ToolView:delegate.toolView];
         _lineBuilder = [[DdFPadPadLineBuilder alloc]initWithGranularityMin:GRANULARITY_MIN WithGranularityMax:GRANULARITY_MAX];
         _pen = pen;
     }

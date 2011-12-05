@@ -18,6 +18,7 @@
     CGAffineTransform idealToPageViewTransform = coordinateAdaptor.idealToPageViewTransform;
     CGFloat idealToToolLineWidthScale = coordinateAdaptor.idealToToolLineWidthScale;
     for (DdFPadPadLine *line in self.lines) {
+        NSLog(@"line:%@",[line DdFJSONRepresentation]);
         [items addObject:[[DdFPadPadInkDrawingItem alloc]initWithLine:line PointTransformer:idealToPageViewTransform LineWidthScale:idealToToolLineWidthScale]];
     }
     return [NSArray arrayWithArray:items];

@@ -8,6 +8,7 @@
 
 #import "DdFPadPadToolCoordinateAdaptor.h"
 #import "DdFPadPadViewContants.h"
+#import "DdFCGUtils.h"
 #define IDEAL_PAGE_WIDTH STANDARD_INK_WIDTH
 #define IDEAL_PAGE_HEIGHT IDEAL_PAGE_WIDTH / INK_HEIGHT_RATIO
 
@@ -41,7 +42,10 @@
 }
 
 -(CGPoint)convertToolViewPointToIdealPoint:(CGPoint)toolViewPoint {
-    return CGPointApplyAffineTransform(toolViewPoint, self.toolViewToIdealTransform);
+    CGPointLog(@"toolViewPoint",toolViewPoint);
+    CGPoint converted = CGPointApplyAffineTransform(toolViewPoint, self.toolViewToIdealTransform);
+    CGPointLog(@"convertedPoint",converted);
+    return converted;
 }
 -(CGPoint)convertIdealPointToToolViewPoint:(CGPoint)idealViewPoint {
     return CGPointApplyAffineTransform(idealViewPoint, self.idealToToolViewTransform);
@@ -63,15 +67,14 @@
     CGRect idealFrame = DrawableFrameInContainingFrame(_pageView.frame);
     NSLog(@"calculateTransforms -START ----------------");
     CGRectNSLog(@"idealFrame", idealFrame);
+    CGRectNSLog(@"_pageViewBounds", _pageViewBounds);
+    CGRectNSLog(@"_toolViewFrame", _toolViewFrame);
     CGFloat sx = self.idealSize.width / idealFrame.size.width;
-    NSLog(@"idealFrame.size.width:%f self.idealSize.width:%f sx:%f",idealFrame.size.width,self.idealSize.width,sx);
     CGFloat sy = self.idealSize.height / idealFrame.size.height;
-    NSLog(@"idealFrame.size.height:%f self.idealSize.height:%f sy:%f",idealFrame.size.height,self.idealSize.height,sy);
-    CGRectNSLog(@"_pageViewBounds",_pageViewBounds);
+    NSLog(@"sx:%f sy:%f",sx,sy);
     CGFloat dx = (_toolViewFrame.origin.x - _pageViewBounds.origin.x) - idealFrame.origin.x;
-    NSLog(@"_toolViewFrame.origin.x:%f idealFrame.origin.x:%f dx:%f",_toolViewFrame.origin.x,idealFrame.origin.x,dx);
     CGFloat dy = (_toolViewFrame.origin.y - _pageViewBounds.origin.y) - idealFrame.origin.y;
-    NSLog(@"_toolViewFrame.origin.y:%f idealFrame.origin.y:%f dy:%f",_toolViewFrame.origin.y,idealFrame.origin.y,dy);
+    NSLog(@"dx:%f dy:%f",dx,dy);
     NSLog(@"calculateTransforms -END ----------------");
 
     CGPoint toolTranslation = CGPointMake(dx, dy);
@@ -82,7 +85,7 @@
     t = CGAffineTransformMakeTranslation(pageTranslation.x, pageTranslation.y);
     _idealToToolViewTransform = CGAffineTransformScale(t, 1/sx, 1/sy);
     _idealToToolLineWidthScale = 1/sx;
-    t = CGAffineTransformMakeTranslation(_pageViewBounds.origin.x + _toolViewFrame.origin.x + idealFrame.origin.x, _pageViewBounds.origin.y + _toolViewFrame.origin.y + idealFrame.origin.y);
+    t = CGAffineTransformMakeTranslation(_pageViewBounds.origin.x  + idealFrame.origin.x, _pageViewBounds.origin.y  + idealFrame.origin.y);
     _idealToPageViewTransform = CGAffineTransformScale(t, 1/sx, 1/sy);
     
     
