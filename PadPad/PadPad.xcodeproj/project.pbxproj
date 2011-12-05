@@ -25,6 +25,7 @@
 		550615B91487DDBE00F3EED8 /* DdFPadPadLine+Interpolation.m in Sources */ = {isa = PBXBuildFile; fileRef = 550615B81487DDBD00F3EED8 /* DdFPadPadLine+Interpolation.m */; };
 		550615BC1487E87100F3EED8 /* DdFPadPadPenToolBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = 550615BB1487E87000F3EED8 /* DdFPadPadPenToolBuilder.m */; };
 		550615BF1487EACF00F3EED8 /* DdFPadPadPenRepository.m in Sources */ = {isa = PBXBuildFile; fileRef = 550615BE1487EACF00F3EED8 /* DdFPadPadPenRepository.m */; };
+		550615C2148CDD4300F3EED8 /* DdFPadPadPage+DrawingItems.m in Sources */ = {isa = PBXBuildFile; fileRef = 550615C1148CDD4200F3EED8 /* DdFPadPadPage+DrawingItems.m */; };
 		551872541434A0D3009125A6 /* photo-camera.png in Resources */ = {isa = PBXBuildFile; fileRef = 551872531434A0D3009125A6 /* photo-camera.png */; };
 		5518725B1434ABC1009125A6 /* DdFPadPadPage.m in Sources */ = {isa = PBXBuildFile; fileRef = 5518725A1434ABC1009125A6 /* DdFPadPadPage.m */; };
 		551872681435D202009125A6 /* DdFPadPadBook.m in Sources */ = {isa = PBXBuildFile; fileRef = 551872671435D202009125A6 /* DdFPadPadBook.m */; };
@@ -150,6 +151,8 @@
 		550615BB1487E87000F3EED8 /* DdFPadPadPenToolBuilder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DdFPadPadPenToolBuilder.m; sourceTree = "<group>"; };
 		550615BD1487EACE00F3EED8 /* DdFPadPadPenRepository.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DdFPadPadPenRepository.h; sourceTree = "<group>"; };
 		550615BE1487EACF00F3EED8 /* DdFPadPadPenRepository.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DdFPadPadPenRepository.m; sourceTree = "<group>"; };
+		550615C0148CDD4100F3EED8 /* DdFPadPadPage+DrawingItems.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "DdFPadPadPage+DrawingItems.h"; sourceTree = "<group>"; };
+		550615C1148CDD4200F3EED8 /* DdFPadPadPage+DrawingItems.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "DdFPadPadPage+DrawingItems.m"; sourceTree = "<group>"; };
 		551872531434A0D3009125A6 /* photo-camera.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "photo-camera.png"; sourceTree = "<group>"; };
 		551872591434ABC1009125A6 /* DdFPadPadPage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DdFPadPadPage.h; sourceTree = "<group>"; };
 		5518725A1434ABC1009125A6 /* DdFPadPadPage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DdFPadPadPage.m; sourceTree = "<group>"; };
@@ -407,6 +410,8 @@
 				550615B51487DD0900F3EED8 /* DdFPadPadLine+CGContextRef.m */,
 				550615B71487DDBD00F3EED8 /* DdFPadPadLine+Interpolation.h */,
 				550615B81487DDBD00F3EED8 /* DdFPadPadLine+Interpolation.m */,
+				550615C0148CDD4100F3EED8 /* DdFPadPadPage+DrawingItems.h */,
+				550615C1148CDD4200F3EED8 /* DdFPadPadPage+DrawingItems.m */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -832,6 +837,7 @@
 				550615B91487DDBE00F3EED8 /* DdFPadPadLine+Interpolation.m in Sources */,
 				550615BC1487E87100F3EED8 /* DdFPadPadPenToolBuilder.m in Sources */,
 				550615BF1487EACF00F3EED8 /* DdFPadPadPenRepository.m in Sources */,
+				550615C2148CDD4300F3EED8 /* DdFPadPadPage+DrawingItems.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

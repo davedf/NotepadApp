@@ -82,7 +82,7 @@
     t = CGAffineTransformMakeTranslation(pageTranslation.x, pageTranslation.y);
     _idealToToolViewTransform = CGAffineTransformScale(t, 1/sx, 1/sy);
     _idealToToolLineWidthScale = 1/sx;
-    t = CGAffineTransformMakeTranslation(_toolViewFrame.origin.x ,_toolViewFrame.origin.y);
+    t = CGAffineTransformMakeTranslation(_pageViewBounds.origin.x + _toolViewFrame.origin.x + idealFrame.origin.x, _pageViewBounds.origin.y + _toolViewFrame.origin.y + idealFrame.origin.y);
     _idealToPageViewTransform = CGAffineTransformScale(t, 1/sx, 1/sy);
     
     

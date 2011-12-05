@@ -5,6 +5,10 @@
 #import "UIView+DdFPadPadPaper.h"
 #import "DdFPadPadViewContants.h"
 #import "DdFPadPadColor.h"
+#import "DdFPadPadToolCoordinateAdaptor.h"
+#import "DdFPadPadPage+DrawingItems.h"
+#import "DdFPadPadToolViewDrawingItem.h"
+
 @interface DdFPadPadPageView()
 -(void)setPageSide:(DdFPadPadPageViewSide)side;
 -(void)showSpineShading;
@@ -20,7 +24,7 @@
     DdFPadPadPageViewSide drawnSide;
     DdFPadPadPageViewSide requestedSide;
 }
-@synthesize dataObject=_dataObject;
+@synthesize dataObject=_dataObject,coordinateAdaptor=_coordinateAdaptor;
 
 
 -(void)hideSpineShading {
@@ -60,6 +64,12 @@
     }
     CGContextRef context = UIGraphicsGetCurrentContext();        
     [self drawPaper:self.dataObject.paper InContext:context WithFrame:DrawableFrameInContainingFrame(self.frame)];
+    if (self.coordinateAdaptor) {
+        NSArray *drawingItems = [self.dataObject drawingItemsWithCoordinateAdaptor:self.coordinateAdaptor];
+        for (NSObject<DdFPadPadToolViewDrawingItem> *drawingItem in drawingItems) {
+            [drawingItem drawInContext:context];
+        }
+    }
 }
 -(void)willRotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration {
     NSLog(@"hidePageSide for page:%d",self.dataObject.pageNumber);

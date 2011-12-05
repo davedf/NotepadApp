@@ -31,9 +31,9 @@
     [self.inkView setBackgroundColor:[UIColor clearColor]];
     _panGestureRecogniser = [[UIPanGestureRecognizer alloc]initWithTarget:self action:@selector(inkPanned:)];    
     [self.inkView addGestureRecognizer:_panGestureRecogniser];
-//    [self.inkView setBackgroundColor:[UIColor colorWithRed:0 green:0 blue:0 alpha:0.2]];
     _coordinateAdaptor = [[DdFPadPadToolCoordinateAdaptor alloc]initWithPageView:self.pageView ToolView:self.inkView];
     _drawingTool = [[DdFPadPadToolRepository sharedDdFPadPadToolRepository] newDrawingToolForDelegate:self];
+    self.pageView.coordinateAdaptor = _coordinateAdaptor;
 }
 
 -(void)viewDidAppear:(BOOL)animated {
@@ -53,7 +53,6 @@
     UIGestureRecognizerState state = _panGestureRecogniser.state;
     CGPoint point = [_panGestureRecogniser locationInView:self.inkView];
     CGPoint velocity = [_panGestureRecogniser velocityInView:self.inkView];
-    CGPointLog(@"inkPanned", point);
     [_drawingTool touchAtPoint:point WithVelocity:velocity];
 
     if (state == UIGestureRecognizerStateEnded) {
@@ -98,5 +97,6 @@
 }
 
 -(void)pageRedrawRequired {
+    [self.pageView requiresRedraw];
 }
 @end
