@@ -55,21 +55,24 @@
 }
 #pragma mark DdFPadPadToolCoordinateAdaptor()
 -(void)calculateTransforms {
-    if (CGRectEqualToRect(_pageViewBounds,_pageView.bounds) && CGRectEqualToRect(_toolViewFrame, _toolView.frame)) {
+    if (CGRectEqualToRect(_pageViewBounds,_pageView.frame) && CGRectEqualToRect(_toolViewFrame, _toolView.frame)) {
         return;
     }
-    _pageViewBounds = _pageView.bounds;
+    _pageViewBounds = _pageView.frame;
     _toolViewFrame = _toolView.frame;
     CGRect idealFrame = DrawableFrameInContainingFrame(_pageView.frame);
-    
+    NSLog(@"calculateTransforms -START ----------------");
+    CGRectNSLog(@"idealFrame", idealFrame);
     CGFloat sx = self.idealSize.width / idealFrame.size.width;
     NSLog(@"idealFrame.size.width:%f self.idealSize.width:%f sx:%f",idealFrame.size.width,self.idealSize.width,sx);
     CGFloat sy = self.idealSize.height / idealFrame.size.height;
     NSLog(@"idealFrame.size.height:%f self.idealSize.height:%f sy:%f",idealFrame.size.height,self.idealSize.height,sy);
-    CGFloat dx = _toolViewFrame.origin.x - idealFrame.origin.x;
+    CGRectNSLog(@"_pageViewBounds",_pageViewBounds);
+    CGFloat dx = (_toolViewFrame.origin.x - _pageViewBounds.origin.x) - idealFrame.origin.x;
     NSLog(@"_toolViewFrame.origin.x:%f idealFrame.origin.x:%f dx:%f",_toolViewFrame.origin.x,idealFrame.origin.x,dx);
-    CGFloat dy = _toolViewFrame.origin.y - idealFrame.origin.y;
+    CGFloat dy = (_toolViewFrame.origin.y - _pageViewBounds.origin.y) - idealFrame.origin.y;
     NSLog(@"_toolViewFrame.origin.y:%f idealFrame.origin.y:%f dy:%f",_toolViewFrame.origin.y,idealFrame.origin.y,dy);
+    NSLog(@"calculateTransforms -END ----------------");
 
     CGPoint toolTranslation = CGPointMake(dx, dy);
     CGAffineTransform t = CGAffineTransformMakeTranslation(toolTranslation.x, toolTranslation.y);

@@ -12,6 +12,7 @@
 #import "DdFPadPadLine.h"
 #import "DdFStringUtils.h"
 #import "DdFPadPadInkDrawingItem.h"
+#import "DdFCGUtils.h"
 
 #define GRANULARITY_MIN 20
 #define GRANULARITY_MAX 200
@@ -50,6 +51,7 @@
 -(void)touchAtPoint:(CGPoint)point WithVelocity:(CGPoint) velocity {
     CGPoint idealPoint = [_coordinateAdaptor convertToolViewPointToIdealPoint:point];
     CGPoint idealVelocity = [_coordinateAdaptor convertToolViewVelocityToIdealVelocity:velocity];
+    CGPointLog(@"idealPoint", idealPoint);
     [_lineBuilder addPoint:idealPoint WithVelocity:idealVelocity];
     [self drawCurrentLine];
 }

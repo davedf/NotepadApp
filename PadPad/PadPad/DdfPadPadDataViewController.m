@@ -4,13 +4,19 @@
 #import "DdFPadPadViewContants.h"
 #import "DdFCGUtils.h"
 #import "DdFPadPadToolView.h"
+#import "DdFPadPadDrawingTool.h"
+#import "DdFPadPadToolRepository.h"
 
 @interface DdfPadPadDataViewController()
-@property (readonly) DdFPadPadPageView *pageView;
+//@property (readonly) DdFPadPadPageView *pageView;
 -(void)sizeInkView;
 @end
 
-@implementation DdfPadPadDataViewController
+@implementation DdfPadPadDataViewController {
+    UIPanGestureRecognizer *_panGestureRecogniser;
+    DdFPadPadToolCoordinateAdaptor *_coordinateAdaptor;
+    NSObject<DdFPadPadDrawingTool> *_drawingTool;
+}
 
 @synthesize dataLabel=_dataLabel,dataObject=_dataObject,inkView=_inkView;
 
@@ -23,12 +29,15 @@
     self.dataLabel.text = self.dataObject.pageLabel;
     [self.pageView showPage:self.dataObject];
     [self.inkView setBackgroundColor:[UIColor clearColor]];
-    [self.inkView addGestureRecognizer:[[UIPanGestureRecognizer alloc]initWithTarget:self action:@selector(inkPanned:)]];
-    [self.inkView setBackgroundColor:[UIColor colorWithRed:0 green:0 blue:0 alpha:0.2]];
+    _panGestureRecogniser = [[UIPanGestureRecognizer alloc]initWithTarget:self action:@selector(inkPanned:)];    
+    [self.inkView addGestureRecognizer:_panGestureRecogniser];
+//    [self.inkView setBackgroundColor:[UIColor colorWithRed:0 green:0 blue:0 alpha:0.2]];
+    _coordinateAdaptor = [[DdFPadPadToolCoordinateAdaptor alloc]initWithPageView:self.pageView ToolView:self.inkView];
+    _drawingTool = [[DdFPadPadToolRepository sharedDdFPadPadToolRepository] newDrawingToolForDelegate:self];
 }
 
 -(void)viewDidAppear:(BOOL)animated {
-    [self sizeInkView];    
+    [self sizeInkView];
 }
 
 -(void)sizeInkView {
@@ -38,7 +47,18 @@
 }
 
 -(IBAction)inkPanned:(id)sender {
-    
+    if (sender != _panGestureRecogniser) {
+        return;
+    }
+    UIGestureRecognizerState state = _panGestureRecogniser.state;
+    CGPoint point = [_panGestureRecogniser locationInView:self.inkView];
+    CGPoint velocity = [_panGestureRecogniser velocityInView:self.inkView];
+    CGPointLog(@"inkPanned", point);
+    [_drawingTool touchAtPoint:point WithVelocity:velocity];
+
+    if (state == UIGestureRecognizerStateEnded) {
+        [_drawingTool newGesture];
+    }
 }
                                        
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
@@ -62,5 +82,21 @@
 
 -(void)requiresRedraw {
     [self.pageView requiresRedraw];
+}
+
+#pragma DdFPadPadDrawingToolDelegate()
+-(DdFPadPadToolCoordinateAdaptor*)coordinateAdaptor {
+    return _coordinateAdaptor;
+}
+
+-(DdFPadPadToolView*)toolView {
+    return self.inkView;
+}
+
+-(DdFPadPadPage*)page {
+    return self.dataObject;
+}
+
+-(void)pageRedrawRequired {
 }
 @end

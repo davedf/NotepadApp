@@ -11,12 +11,12 @@
 #import "DdFPadPadLine.h"
 #import "DdFPadPadToolCoordinateAdaptor.h"
 #import "DdFPadPadToolView.h"
-
+#import "DdFPadPadPageView.h"
 @protocol DdFPadPadDrawingToolDelegate <NSObject>
 
 @property (readonly) DdFPadPadPage *page;
 @property (readonly) DdFPadPadToolView *toolView;
-@property (readonly) UIView *pageView;
+@property (readonly) DdFPadPadPageView *pageView;
 @property (readonly) DdFPadPadToolCoordinateAdaptor *coordinateAdaptor;
 -(void)pageRedrawRequired;
 
