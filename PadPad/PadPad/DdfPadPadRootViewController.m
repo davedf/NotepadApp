@@ -36,7 +36,8 @@
     self.pageViewController.view.frame = pageViewRect;
     for (UIGestureRecognizer *recogniser in self.pageViewController.gestureRecognizers) {
         if ([recogniser class] == [UIPanGestureRecognizer class]) {
-            [recogniser removeTarget:self.pageViewController.view action:nil];
+            recogniser.enabled = NO;
+//            [recogniser removeTarget:self.pageViewController action:nil];
         }
     }
     [self.pageViewController didMoveToParentViewController:self];    
@@ -56,6 +57,7 @@
 
 - (UIPageViewControllerSpineLocation)pageViewController:(UIPageViewController *)pageViewController spineLocationForInterfaceOrientation:(UIInterfaceOrientation)orientation
 {
+    TRACE(@"spineLocationForInterfaceOrientation");
     if (UIInterfaceOrientationIsPortrait(orientation)) {
         // In portrait orientation: Set the spine position to "min" and the page view controller's view controllers array to contain just one view controller. Setting the spine position to 'UIPageViewControllerSpineLocationMid' in landscape orientation sets the doubleSided property to YES, so set it to NO here.
         UIViewController *currentViewController = [self.pageViewController.viewControllers objectAtIndex:0];
