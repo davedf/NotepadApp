@@ -27,12 +27,25 @@
     DdFPadPadPenRepository *repo = [DdFPadPadPenRepository sharedDdFPadPadPenRepository];
     NSString *inkName = [repo.inkNames objectAtIndex:indexPath.row];
     DdFPadPadInk *ink = [repo ink:inkName];
-    DdFPadPadInkTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"inkTypeCell"];
-    cell.inkView.ink = ink;
+    DdFPadPadInkTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"InkTypeCell"];
+    DdFPadPadInkView *iv = cell.inkView;
+    iv.ink = ink;
     [cell setNeedsLayout];
+    [cell.inkView setNeedsDisplay];
     return cell;
 }
 
+-(void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
+    DdFPadPadInkTableViewCell *tcell = (DdFPadPadInkTableViewCell*)cell;
+    if (tcell.inkView.ink == [DdFPadPadPenRepository sharedDdFPadPadPenRepository].pen.ink) {
+        [cell setSelected:YES];
+        [tableView selectRowAtIndexPath:indexPath animated:NO scrollPosition:UITableViewScrollPositionTop];
+    }
+    else {
+        [cell setSelected:NO];
+    }
+
+}
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     DdFPadPadPenRepository *repo = [DdFPadPadPenRepository sharedDdFPadPadPenRepository];
     NSString *inkName = [repo.inkNames objectAtIndex:indexPath.row];

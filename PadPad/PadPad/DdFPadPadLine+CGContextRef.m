@@ -59,8 +59,20 @@
 }
 
 -(void)drawLineFromPoint:(DdFPadPadLinePoint*)point1 ToPoint:(DdFPadPadLinePoint*)point2 InContext:(CGContextRef)context {
+    DdFPadPadColor *color = self.ink.color;
+    UIColor *uicolor = color.color;        
+    CGContextSetStrokeColorWithColor(context, [uicolor CGColor]);    
+    CGContextSetLineCap(context, kCGLineCapRound);
+    
+    CGFloat lineWidthMultiple  = 0.0; 
+    
+    CGFloat lineWidth = [self lineWidthForMultiple:lineWidthMultiple];
+    CGContextSetLineWidth(context, lineWidth * 1.0);
+
+    CGContextStrokePath(context);    
     CGContextMoveToPoint(context, point1.origin.x, point2.origin.y);                
     CGContextAddLineToPoint(context, point2.origin.x, point2.origin.y);
+    CGContextStrokePath(context);    
 }
 
 -(void)drawInterpolatedCurvedLineInContext:(CGContextRef)context {
@@ -121,10 +133,8 @@
     
     switch ([self.points count]) {
         case 0:
-            break;
         case 1:
-            [self drawPoint:[self.points objectAtIndex:0] InContext:context];
-            break;            
+            break;
         case 2:
             [self drawLineFromPoint:[self.points objectAtIndex:0] ToPoint:[self.points objectAtIndex:1] InContext:context];
             break;

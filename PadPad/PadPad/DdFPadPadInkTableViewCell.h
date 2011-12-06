@@ -11,4 +11,6 @@
 @interface DdFPadPadInkTableViewCell : UITableViewCell
 
 @property (strong) IBOutlet DdFPadPadInkView *inkView;
+
+
 @end

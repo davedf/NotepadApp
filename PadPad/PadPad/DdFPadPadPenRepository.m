@@ -22,6 +22,9 @@
                  [[DdFPadPadInk alloc]initWithColor:[DdFPadPadColor blackInk] Size:1 Type:kFeltTip],INK_BLACK_1, 
                  [[DdFPadPadInk alloc]initWithColor:[DdFPadPadColor blackInk] Size:3 Type:kFeltTip],INK_BLACK_3, 
                  [[DdFPadPadInk alloc]initWithColor:[DdFPadPadColor blackInk] Size:5 Type:kFeltTip],INK_BLACK_5, 
+                 [[DdFPadPadInk alloc]initWithColor:[DdFPadPadColor blueInk] Size:1 Type:kFeltTip],INK_BLUE_1, 
+                 [[DdFPadPadInk alloc]initWithColor:[DdFPadPadColor blueInk] Size:3 Type:kFeltTip],INK_BLUE_3, 
+                 [[DdFPadPadInk alloc]initWithColor:[DdFPadPadColor blueInk] Size:5 Type:kFeltTip],INK_BLUE_5, 
                  nil];
         
         _pen = [[DdFPadPadPen alloc]init];
