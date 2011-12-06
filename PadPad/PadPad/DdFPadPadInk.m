@@ -28,6 +28,9 @@
     return self;
 }
 
+-(id)copy {
+    return [[DdFPadPadInk alloc]initWithColor:_color Size:_inkSize Type:_inkType];
+}
 -(NSString*)InkJSONDictionary {
     return [NSDictionary dictionaryWithObjectsAndKeys:
                                 [self.color DdFJSONRepresentation],COLOR_KEY,

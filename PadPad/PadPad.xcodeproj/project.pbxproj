@@ -84,6 +84,9 @@
 		55FC6516148E1DB0007CA3C8 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 55FC6515148E1DB0007CA3C8 /* CFNetwork.framework */; };
 		55FC6518148E1DB8007CA3C8 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 55FC6517148E1DB8007CA3C8 /* SystemConfiguration.framework */; };
 		55FC651C148E1DDF007CA3C8 /* LoggerClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 55FC651A148E1DDF007CA3C8 /* LoggerClient.m */; };
+		55FC652B148E47B8007CA3C8 /* DdFPadPadInkSelectorController.m in Sources */ = {isa = PBXBuildFile; fileRef = 55FC652A148E47B8007CA3C8 /* DdFPadPadInkSelectorController.m */; };
+		55FC652E148E580B007CA3C8 /* DdFPadPadInkTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 55FC652D148E580B007CA3C8 /* DdFPadPadInkTableViewCell.m */; };
+		55FC6531148E58A1007CA3C8 /* DdFPadPadInkView.m in Sources */ = {isa = PBXBuildFile; fileRef = 55FC6530148E58A1007CA3C8 /* DdFPadPadInkView.m */; };
 		55FC97211439FB1600C508F9 /* NSObject+SBJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = 55FC97171439FB1600C508F9 /* NSObject+SBJSON.m */; };
 		55FC97221439FB1600C508F9 /* NSString+SBJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = 55FC97191439FB1600C508F9 /* NSString+SBJSON.m */; };
 		55FC97231439FB1600C508F9 /* SBJsonBase.m in Sources */ = {isa = PBXBuildFile; fileRef = 55FC971B1439FB1600C508F9 /* SBJsonBase.m */; };
@@ -256,6 +259,12 @@
 		55FC651A148E1DDF007CA3C8 /* LoggerClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoggerClient.m; sourceTree = "<group>"; };
 		55FC651B148E1DDF007CA3C8 /* LoggerCommon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoggerCommon.h; sourceTree = "<group>"; };
 		55FC651D148E1F7F007CA3C8 /* Log.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Log.h; sourceTree = "<group>"; };
+		55FC6529148E47B7007CA3C8 /* DdFPadPadInkSelectorController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DdFPadPadInkSelectorController.h; sourceTree = "<group>"; };
+		55FC652A148E47B8007CA3C8 /* DdFPadPadInkSelectorController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DdFPadPadInkSelectorController.m; sourceTree = "<group>"; };
+		55FC652C148E580B007CA3C8 /* DdFPadPadInkTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DdFPadPadInkTableViewCell.h; sourceTree = "<group>"; };
+		55FC652D148E580B007CA3C8 /* DdFPadPadInkTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DdFPadPadInkTableViewCell.m; sourceTree = "<group>"; };
+		55FC652F148E58A1007CA3C8 /* DdFPadPadInkView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DdFPadPadInkView.h; sourceTree = "<group>"; };
+		55FC6530148E58A1007CA3C8 /* DdFPadPadInkView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DdFPadPadInkView.m; sourceTree = "<group>"; };
 		55FC97131439FB1600C508F9 /* JSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSON.h; sourceTree = "<group>"; };
 		55FC97161439FB1600C508F9 /* NSObject+SBJSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+SBJSON.h"; sourceTree = "<group>"; };
 		55FC97171439FB1600C508F9 /* NSObject+SBJSON.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+SBJSON.m"; sourceTree = "<group>"; };
@@ -369,6 +378,8 @@
 				552AEA14146C135F00BE8A07 /* DdFPadPadPaperToChangeController.m */,
 				558D4AF0147FD07100EB9D08 /* DdFPadPadSplashScreenController.h */,
 				558D4AF1147FD07100EB9D08 /* DdFPadPadSplashScreenController.m */,
+				55FC6529148E47B7007CA3C8 /* DdFPadPadInkSelectorController.h */,
+				55FC652A148E47B8007CA3C8 /* DdFPadPadInkSelectorController.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -423,6 +434,10 @@
 				550615B81487DDBD00F3EED8 /* DdFPadPadLine+Interpolation.m */,
 				550615C0148CDD4100F3EED8 /* DdFPadPadPage+DrawingItems.h */,
 				550615C1148CDD4200F3EED8 /* DdFPadPadPage+DrawingItems.m */,
+				55FC652C148E580B007CA3C8 /* DdFPadPadInkTableViewCell.h */,
+				55FC652D148E580B007CA3C8 /* DdFPadPadInkTableViewCell.m */,
+				55FC652F148E58A1007CA3C8 /* DdFPadPadInkView.h */,
+				55FC6530148E58A1007CA3C8 /* DdFPadPadInkView.m */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -864,6 +879,9 @@
 				550615BF1487EACF00F3EED8 /* DdFPadPadPenRepository.m in Sources */,
 				550615C2148CDD4300F3EED8 /* DdFPadPadPage+DrawingItems.m in Sources */,
 				55FC651C148E1DDF007CA3C8 /* LoggerClient.m in Sources */,
+				55FC652B148E47B8007CA3C8 /* DdFPadPadInkSelectorController.m in Sources */,
+				55FC652E148E580B007CA3C8 /* DdFPadPadInkTableViewCell.m in Sources */,
+				55FC6531148E58A1007CA3C8 /* DdFPadPadInkView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

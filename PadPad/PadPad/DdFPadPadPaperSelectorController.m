@@ -18,6 +18,15 @@
 
 #pragma mark - View lifecycle
 
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if ([segue.identifier isEqualToString:@"PaperToChange"]) {
+        DdFPadPadPaperToChangeController *ctl = segue.destinationViewController;
+        ctl.delegate = self;
+    }
+}
+
+#pragma mark - Table view data source
+
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return [DdFPadPadPaperRepository sharedPaperRepository].paperNames.count;
 }
@@ -26,6 +35,7 @@
     return 1;
 }
 
+#pragma mark - Table view delegate
 -(UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     DdFPadPadPaperRepository *repo = [DdFPadPadPaperRepository sharedPaperRepository];
     NSString *paperName = [repo.paperNames objectAtIndex:indexPath.row];
@@ -43,14 +53,9 @@
     self.selectedPaper = [repo paperWithName:paperName];
 }
 
--(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    if ([segue.identifier isEqualToString:@"PaperToChange"]) {
-        DdFPadPadPaperToChangeController *ctl = segue.destinationViewController;
-        ctl.delegate = self;
-    }
-}
 
 #pragma mark - DdFPadPadPaperSelectorControllerDelegate
+
 -(void)DidSelectToChange:(NSString *)pagesToChange {
     TRACE(@"DidSelectToChange:%@",pagesToChange);
     DdFPadPadApplicationState *state = [DdFPadPadApplicationState sharedDdFPadPadApplicationState];

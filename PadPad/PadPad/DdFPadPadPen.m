@@ -10,4 +10,10 @@
 
 @implementation DdFPadPadPen
 @synthesize ink=_ink;
+
+-(id)copy {
+    DdFPadPadPen *newPen = [[DdFPadPadPen alloc]init];
+    newPen.ink = [_ink copy];
+    return newPen;
+}
 @end
