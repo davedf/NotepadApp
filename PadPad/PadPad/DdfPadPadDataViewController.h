@@ -9,7 +9,7 @@
 @property (strong, nonatomic) IBOutlet UILabel *dataLabel;
 @property (strong, nonatomic) IBOutlet DdFPadPadToolView *inkView;
 @property (strong, nonatomic) DdFPadPadPage *dataObject;
-
+@property (strong, readonly) UIPanGestureRecognizer *panGestureRecogniser;
 -(void)requiresRedraw;
 
 @end

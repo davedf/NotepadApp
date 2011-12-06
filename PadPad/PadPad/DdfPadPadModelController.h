@@ -5,7 +5,7 @@
 
 @interface DdfPadPadModelController : NSObject <UIPageViewControllerDataSource>
 
-- (DdfPadPadDataViewController *)viewControllerAtIndex:(NSUInteger)index storyboard:(UIStoryboard *)storyboard;
+- (DdfPadPadDataViewController *)viewControllerAtIndex:(NSUInteger)index storyboard:(UIStoryboard *)storyboard pageViewController:(UIPageViewController*)pageViewController;
 - (NSUInteger)indexOfViewController:(DdfPadPadDataViewController *)viewController;
 
 @property (strong,nonatomic) DdFPadPadBook *book;

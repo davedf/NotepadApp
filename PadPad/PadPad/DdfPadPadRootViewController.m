@@ -26,7 +26,7 @@
     [self addChildViewController:self.pageViewController];
     [self.view addSubview:self.pageViewController.view];
     
-    DdfPadPadDataViewController *startingViewController = [self.modelController viewControllerAtIndex:self.book.lastChangedPage storyboard:self.storyboard];
+    DdfPadPadDataViewController *startingViewController = [self.modelController viewControllerAtIndex:self.book.lastChangedPage storyboard:self.storyboard pageViewController:self.pageViewController];
     NSArray *viewControllers = [NSArray arrayWithObject:startingViewController];
     [self.pageViewController setViewControllers:viewControllers direction:UIPageViewControllerNavigationDirectionForward animated:NO completion:NULL];
     
@@ -34,7 +34,11 @@
     CGRect pageViewRect = self.view.bounds;
     pageViewRect = CGRectOffset(CGRectInset(pageViewRect, 0.0, 20.0), 0, 20) ;
     self.pageViewController.view.frame = pageViewRect;
-    
+    for (UIGestureRecognizer *recogniser in self.pageViewController.gestureRecognizers) {
+        if ([recogniser class] == [UIPanGestureRecognizer class]) {
+            [recogniser removeTarget:self.pageViewController.view action:nil];
+        }
+    }
     [self.pageViewController didMoveToParentViewController:self];    
 }
 

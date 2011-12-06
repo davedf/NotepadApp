@@ -14,15 +14,23 @@
 @end
 
 @implementation DdfPadPadDataViewController {
-    UIPanGestureRecognizer *_panGestureRecogniser;
     DdFPadPadToolCoordinateAdaptor *_coordinateAdaptor;
     NSObject<DdFPadPadDrawingTool> *_drawingTool;
 }
 
-@synthesize dataLabel=_dataLabel,dataObject=_dataObject,inkView=_inkView;
+@synthesize dataLabel=_dataLabel,dataObject=_dataObject,inkView=_inkView,panGestureRecogniser=_panGestureRecogniser;
 
 #pragma mark - View lifecycle
 
+-(id)initWithCoder:(NSCoder *)aDecoder {
+    TRACE(@"initWithCoder");
+    self = [super initWithCoder:aDecoder];
+    if (self) {
+        _panGestureRecogniser = [[UIPanGestureRecognizer alloc]initWithTarget:self action:@selector(inkPanned:)];    
+        _panGestureRecogniser.delaysTouchesBegan = YES;
+    }
+    return self;
+}
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
@@ -30,7 +38,6 @@
     self.dataLabel.text = self.dataObject.pageLabel;
     [self.pageView showPage:self.dataObject];
     [self.inkView setBackgroundColor:[UIColor clearColor]];
-    _panGestureRecogniser = [[UIPanGestureRecognizer alloc]initWithTarget:self action:@selector(inkPanned:)];    
     [self.inkView addGestureRecognizer:_panGestureRecogniser];
     _coordinateAdaptor = [[DdFPadPadToolCoordinateAdaptor alloc]initWithPageView:self.pageView ToolView:self.inkView];
     _drawingTool = [[DdFPadPadToolRepository sharedDdFPadPadToolRepository] newDrawingToolForDelegate:self];
@@ -52,6 +59,7 @@
     if (sender != _panGestureRecogniser) {
         return;
     }
+    
     UIGestureRecognizerState state = _panGestureRecogniser.state;
     CGPoint point = [_panGestureRecogniser locationInView:self.inkView];
     CGPoint velocity = [_panGestureRecogniser velocityInView:self.inkView];

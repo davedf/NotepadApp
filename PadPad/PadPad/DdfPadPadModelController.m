@@ -3,7 +3,7 @@
 #import "DdfPadPadDataViewController.h"
 #import "DdFPadPadPage.h"
 #import "DdFPadPadBookRepository.h"
-
+#import "Log.h"
 /*
  A controller object that manages a simple model -- a collection of month names.
  
@@ -27,46 +27,56 @@
     return self;
 }
 
-- (DdfPadPadDataViewController *)viewControllerAtIndex:(NSUInteger)index storyboard:(UIStoryboard *)storyboard
+- (DdfPadPadDataViewController *)viewControllerAtIndex:(NSUInteger)index storyboard:(UIStoryboard *)storyboard pageViewController:(UIPageViewController*)pageViewController
 {   
+    TRACE(@"viewControllerAtIndex:%d",index);
     // Return the data view controller for the given index.
     // Create a new view controller and pass suitable data.
     DdfPadPadDataViewController *dataViewController = [storyboard instantiateViewControllerWithIdentifier:@"DdfPadPadDataViewController"];
     dataViewController.dataObject = [self.book pageForIndex:index];
+    for (UIGestureRecognizer *recogniser in pageViewController.gestureRecognizers) {
+        TRACE(@"disable pageview pan gesture");
+        [recogniser requireGestureRecognizerToFail:dataViewController.panGestureRecogniser];
+    }
     return dataViewController;
 }
 
 - (NSUInteger)indexOfViewController:(DdfPadPadDataViewController *)viewController
 {   
+
     /*
      Return the index of the given data view controller.
      For simplicity, this implementation uses a static array of model objects and the view controller stores the model object; you can therefore use the model object to identify the index.
      */
-    return [self.book indexOfPage:viewController.dataObject];
+    NSUInteger index = [self.book indexOfPage:viewController.dataObject];
+    TRACE(@"indexOfViewController:%@ is %d",viewController.dataLabel.text,index);
+    return index;
 }
 
 #pragma mark - Page View Controller Data Source
 
 - (UIViewController *)pageViewController:(UIPageViewController *)pageViewController viewControllerBeforeViewController:(UIViewController *)viewController
 {
+    TRACE(@"viewControllerBeforeViewController");
     NSUInteger index = [self indexOfViewController:(DdfPadPadDataViewController *)viewController];
     if ((index == 0) || (index == NSNotFound)) {
         return nil;
     }
     
     index--;
-    return [self viewControllerAtIndex:index storyboard:viewController.storyboard];
+    return [self viewControllerAtIndex:index storyboard:viewController.storyboard pageViewController:pageViewController];
 }
 
 - (UIViewController *)pageViewController:(UIPageViewController *)pageViewController viewControllerAfterViewController:(UIViewController *)viewController
 {
+    TRACE(@"viewControllerAfterViewController");
     NSUInteger index = [self indexOfViewController:(DdfPadPadDataViewController *)viewController];
     if (index == NSNotFound) {
         return nil;
     }    
     index++;
 
-    return [self viewControllerAtIndex:index storyboard:viewController.storyboard];
+    return [self viewControllerAtIndex:index storyboard:viewController.storyboard pageViewController:pageViewController];
 }
 
 @end
