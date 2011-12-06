@@ -31,8 +31,8 @@
 
 -(DdFPadPadLine*)line {
     CGFloat y = self.bounds.size.height /2;
-    CGFloat x1 = 5;
-    CGFloat x2 = self.bounds.size.width - 5;
+    CGFloat x1 = 20;
+    CGFloat x2 = self.bounds.size.width - 20;
     DdFPadPadLinePoint *p1 = [[DdFPadPadLinePoint alloc]initWithOrigin:CGPointMake(x1, y) velocity:CGPointMake(10, 10)];
     DdFPadPadLinePoint *p2 = [[DdFPadPadLinePoint alloc]initWithOrigin:CGPointMake(x2, y) velocity:CGPointMake(10, 10)];
 

@@ -19,6 +19,7 @@
 +(DdFPadPadColor*)whitePaper;
 +(DdFPadPadColor*)blackInk;
 +(DdFPadPadColor*)blueInk;
++(DdFPadPadColor*)yellowHighlightInk;
 +(DdFPadPadColor*)faintBlackInk;
 +(DdFPadPadColor*)totalBlackInk;
 @end

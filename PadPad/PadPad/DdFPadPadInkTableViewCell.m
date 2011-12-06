@@ -15,7 +15,7 @@
 {
     [super setSelected:selected animated:animated];
     if (selected) {
-        [self setBackgroundColor:[UIColor lightGrayColor]];        
+        [self setBackgroundColor:[UIColor blueColor]];        
     }
     else {
         [self setBackgroundColor:[UIColor whiteColor]];

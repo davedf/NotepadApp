@@ -158,7 +158,7 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <view contentMode="scaleToFill" id="JEh-0j-9gO" customClass="DdFPadPadInkView">
-                                            <rect key="frame" x="0.0" y="0.0" width="345" height="80"/>
+                                            <rect key="frame" x="5" y="0.0" width="340" height="80"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </view>

@@ -16,6 +16,9 @@
 #define INK_BLUE_1 @"bl1"
 #define INK_BLUE_3 @"bl3"
 #define INK_BLUE_5 @"bl5"
+#define INK_MARKER_10 @"mk10"
+#define INK_MARKER_20 @"mk20"
+#define INK_MARKER_30 @"mk30"
 #define INK_DEFAULT INK_BLACK_3
 @interface DdFPadPadPenRepository : NSObject
 

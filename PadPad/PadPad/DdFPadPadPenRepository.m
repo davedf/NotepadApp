@@ -12,6 +12,7 @@
 
 @implementation DdFPadPadPenRepository {
     NSDictionary *_inks;
+    NSArray *_inkNames;
 }
 @synthesize pen=_pen;
 
@@ -25,8 +26,15 @@
                  [[DdFPadPadInk alloc]initWithColor:[DdFPadPadColor blueInk] Size:1 Type:kFeltTip],INK_BLUE_1, 
                  [[DdFPadPadInk alloc]initWithColor:[DdFPadPadColor blueInk] Size:3 Type:kFeltTip],INK_BLUE_3, 
                  [[DdFPadPadInk alloc]initWithColor:[DdFPadPadColor blueInk] Size:5 Type:kFeltTip],INK_BLUE_5, 
+                 [[DdFPadPadInk alloc]initWithColor:[DdFPadPadColor yellowHighlightInk] Size:10 Type:kFeltTip],INK_MARKER_10, 
+                 [[DdFPadPadInk alloc]initWithColor:[DdFPadPadColor yellowHighlightInk] Size:20 Type:kFeltTip],INK_MARKER_20, 
+                 [[DdFPadPadInk alloc]initWithColor:[DdFPadPadColor yellowHighlightInk] Size:30 Type:kFeltTip],INK_MARKER_30, 
                  nil];
-        
+        _inkNames = [NSArray arrayWithObjects:
+                     INK_BLACK_1,INK_BLACK_3,INK_BLACK_5,
+                     INK_BLUE_1,INK_BLUE_3,INK_BLUE_5,
+                     INK_MARKER_10,INK_MARKER_20,INK_MARKER_30,
+                     nil];
         _pen = [[DdFPadPadPen alloc]init];
         _pen.ink = [self ink:INK_DEFAULT];
     }
@@ -34,7 +42,7 @@
 }
 
 -(NSArray*)inkNames {
-    return [_inks allKeys];
+    return _inkNames;
 }
 
 -(DdFPadPadInk*)ink:(NSString*)inkName {
