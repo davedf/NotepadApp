@@ -3,7 +3,7 @@
 #import "DdFPadPadApplicationState.h"
 #import "DdFPadPadBook.h"
 #import "DdFPadPadBookRepository.h"
-
+#import "Log.h"
 
 @implementation DdfPadPadRootViewController
 @synthesize pageViewController=_pageViewController,modelController=_modelController,book=_book;
@@ -43,7 +43,7 @@
 }
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([segue.identifier isEqualToString:@"ChangePaper"]) {
-        NSLog(@"segue to %@",[segue.destinationViewController class]);
+        TRACE(@"segue to %@",[segue.destinationViewController class]);
         
     }
 }

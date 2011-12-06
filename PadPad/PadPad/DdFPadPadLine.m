@@ -2,7 +2,7 @@
 #import "DdFPadPadInk.h"
 #import "DdFPadPadLinePoint.h"
 #import "JSON.h"
-
+#import "Log.h"
 #define INK_KEY @"ink"
 #define POINTS_KEY @"points"
 
@@ -55,7 +55,7 @@
         return NO;
     }
     if (![self.lineId isEqual:other.lineId]) {
-        NSLog(@"lineids not same: %@ != %@",self.lineId,other.lineId);
+        TRACE(@"lineids not same: %@ != %@",self.lineId,other.lineId);
         return NO;
     }
     if (![self.points isEqual:other.points]) {
@@ -145,7 +145,7 @@
     NSMutableArray *lines = [[NSMutableArray alloc]init];
     for (NSFileWrapper *wrapper in [fileWrapper.fileWrappers allValues]) {
         if ([DdFPadPadLine recognises:wrapper]) {
-            NSLog(@"adding line from wrapper");
+            TRACE(@"adding line from wrapper");
             [lines addObject:[DdFPadPadLine lineFromNSFileWrapper:wrapper]];
         }
     }
@@ -158,7 +158,7 @@
         return NO;
     }
     NSString *filetype = [[fileName componentsSeparatedByString:@"."] lastObject];
-    NSLog(@"fileType:%@",filetype);
+    TRACE(@"fileType:%@",filetype);
     return [filetype isEqualToString:@"line"];
 }
 

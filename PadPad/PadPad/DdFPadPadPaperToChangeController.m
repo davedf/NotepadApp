@@ -7,6 +7,7 @@
 //
 
 #import "DdFPadPadPaperToChangeController.h"
+#import "Log.h"
 
 @interface DdFPadPadPaperToChangeController()
 @property (readonly) NSArray *options;
@@ -45,7 +46,7 @@
 
 
 -(void)orientationChanged:(id)sender {
-    NSLog(@"orientationChanged");
+    TRACE(@"orientationChanged");
     UIInterfaceOrientation orientation = [[UIApplication sharedApplication] statusBarOrientation];
 
     if (orientation == _orientation) {
@@ -79,7 +80,7 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     NSString *cellIdentifier = [self.options objectAtIndex:indexPath.row];
-    NSLog(@"selected:%@",cellIdentifier);
+    TRACE(@"selected:%@",cellIdentifier);
     [self.delegate DidSelectToChange:cellIdentifier];
 }
 

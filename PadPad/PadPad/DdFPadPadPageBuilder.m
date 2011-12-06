@@ -11,7 +11,7 @@
 #import "DdFStringUtils.h"
 #import "DdFPadPadPaperRepository.h"
 #import "DdFPadPadPaper.h"
-
+#import "Log.h"
 @implementation DdFPadPadPageBuilder
 @synthesize selectedPaper=_selectedPaper;
 
@@ -23,7 +23,7 @@
     return self;
 }
 -(DdFPadPadPage*)pageWithPageNumber:(NSUInteger)pageNumber Paper:(DdFPadPadPaper*)paper {
-    NSLog(@"pageWithPageNumber:%d",pageNumber);
+    TRACE(@"pageWithPageNumber:%d",pageNumber);
     return [[DdFPadPadPage alloc]initWithPaper:paper? paper : self.selectedPaper PageNumber:pageNumber Lines:[NSArray array] Identifier:[DdFStringUtils newStringWithUUID]];
 }
 

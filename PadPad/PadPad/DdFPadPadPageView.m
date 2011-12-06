@@ -8,6 +8,7 @@
 #import "DdFPadPadToolCoordinateAdaptor.h"
 #import "DdFPadPadPage+DrawingItems.h"
 #import "DdFPadPadToolViewDrawingItem.h"
+#import "Log.h"
 
 @interface DdFPadPadPageView()
 -(void)setPageSide:(DdFPadPadPageViewSide)side;
@@ -72,7 +73,7 @@
     }
 }
 -(void)willRotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration {
-    NSLog(@"hidePageSide for page:%d",self.dataObject.pageNumber);
+    TRACE(@"hidePageSide for page:%d",self.dataObject.pageNumber);
     [self hideSpineShading];
     [self performSelector:@selector(showSpineShading) withObject:nil afterDelay:duration/2];    
 }
@@ -85,16 +86,16 @@
 }
 -(void)showSpineShading {
     if (UIInterfaceOrientationIsPortrait([[UIApplication sharedApplication] statusBarOrientation])) {
-        NSLog(@"setSpineShading:Left for page:%d",self.dataObject.pageNumber);
+        TRACE(@"setSpineShading:Left for page:%d",self.dataObject.pageNumber);
         [self setPageSide:kDdFPadPadPageView_Left];
     }       
     else {
         if (self.dataObject.pageNumber % 2 == 0) {
-            NSLog(@"setSpineShading:Left for page:%d",self.dataObject.pageNumber);
+            TRACE(@"setSpineShading:Left for page:%d",self.dataObject.pageNumber);
             [self setPageSide:kDdFPadPadPageView_Left];            
         }
         else {
-            NSLog(@"setSpineShading:Right for page:%d",self.dataObject.pageNumber);
+            TRACE(@"setSpineShading:Right for page:%d",self.dataObject.pageNumber);
             [self setPageSide:kDdFPadPadPageView_Right];
         }
     }

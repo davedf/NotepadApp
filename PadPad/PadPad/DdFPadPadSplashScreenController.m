@@ -10,6 +10,7 @@
 #import "DdFPadPadBook.h"
 #import "DdFPadPadBookRepository.h"
 #import "DdfPadPadRootViewController.h"
+#import "Log.h"
 @interface DdFPadPadSplashScreenController()
 -(void)bookDidfinishLoading:(DdFPadPadBook*)book;
 -(void)loadBook;
@@ -42,7 +43,7 @@
     __block DdFPadPadBook *book =[[DdFPadPadBookRepository sharedRepository] openDefaultBookWithDelegate:nil CompletionHandler:^(BOOL success) {
         
         [self bookDidfinishLoading:book];
-        NSLog(@"book loaded:%@",success?@"Y":@"N");
+        TRACE(@"book loaded:%@",success?@"Y":@"N");
     }];
 
 }

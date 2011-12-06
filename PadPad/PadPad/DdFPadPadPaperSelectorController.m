@@ -11,6 +11,7 @@
 #import "DdFPadPadPaperTableViewCell.h"
 #import "DdFPadPadApplicationState.h"
 #import "DdFPadPadPageBuilder.h"
+#import "Log.h"
 
 @implementation DdFPadPadPaperSelectorController
 @synthesize delegate=_delegate,selectedPaper=_selectedPaper;
@@ -38,7 +39,7 @@
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     DdFPadPadPaperRepository *repo = [DdFPadPadPaperRepository sharedPaperRepository];
     NSString *paperName = [repo.paperNames objectAtIndex:indexPath.row];
-    NSLog(@"selected paper:%@",paperName);
+    TRACE(@"selected paper:%@",paperName);
     self.selectedPaper = [repo paperWithName:paperName];
 }
 
@@ -51,7 +52,7 @@
 
 #pragma mark - DdFPadPadPaperSelectorControllerDelegate
 -(void)DidSelectToChange:(NSString *)pagesToChange {
-    NSLog(@"DidSelectToChange:%@",pagesToChange);
+    TRACE(@"DidSelectToChange:%@",pagesToChange);
     DdFPadPadApplicationState *state = [DdFPadPadApplicationState sharedDdFPadPadApplicationState];
     [DdFPadPadPageBuilder sharedPageBuilder].selectedPaper = self.selectedPaper;
     if ([pagesToChange isEqualToString:LEFT_PAGE] | [pagesToChange isEqualToString:CURRENT_PAGE]) {

@@ -1,15 +1,15 @@
 #import "JSON.h"
 #import <UIKit/UIKit.h>
-
+#import "Log.h"
 #define X_KEY @"x"
 #define Y_KEY @"y"
 
-static inline void CGRectNSLog(NSString *prefix, CGRect frame) {
-    NSLog(@"%@:[origin:[%f,%f] size:[%f,%f]",prefix,frame.origin.x,frame.origin.y,frame.size.width, frame.size.height);
+static inline void CGRectLog(NSString *prefix, CGRect frame) {
+    TRACE(@"%@:[origin:[%f,%f] size:[%f,%f]",prefix,frame.origin.x,frame.origin.y,frame.size.width, frame.size.height);
 }
 
 static inline void CGPointLog(NSString *prefix, CGPoint point) {
-    NSLog(@"%@:[%f,%f]",prefix,point.x,point.y);
+    TRACE(@"%@:[%f,%f]",prefix,point.x,point.y);
 }
 static inline NSDictionary* CGPointToJSON(CGPoint point) {
 

@@ -29,7 +29,7 @@
 
 #import "NSString+SBJSON.h"
 #import "SBJsonParser.h"
-
+#import "Log.h"
 @implementation NSString (NSString_SBJSON)
 
 - (id)JSONValue
@@ -37,7 +37,7 @@
     SBJsonParser *jsonParser = [SBJsonParser new];
     id repr = [jsonParser objectWithString:self];
     if (!repr)
-        NSLog(@"-JSONValue failed. Error trace is: %@", [jsonParser errorTrace]);
+        TRACE(@"-JSONValue failed. Error trace is: %@", [jsonParser errorTrace]);
     return repr;
 }
 

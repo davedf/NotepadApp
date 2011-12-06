@@ -1,6 +1,6 @@
 
 #import "DdFPadPadCloudValueStore.h"
-
+#import "Log.h"
 #define LAST_OPENED_URL_STRING @"lastOpenedDocument"
 @implementation DdFPadPadCloudValueStore
 static NSURL *s_iCloudUrl;
@@ -14,7 +14,7 @@ static NSUbiquitousKeyValueStore *sCloudStore;
     NSFileManager *fileManager = [NSFileManager defaultManager];
     // Team-ID + Bundle Identifier
     s_iCloudUrl = [fileManager URLForUbiquityContainerIdentifier:@"ZNRQWH2HBB.com.deflorinier.PadPad"];
-    NSLog(@"iCloudURL will be%@", [s_iCloudUrl absoluteString]);
+    TRACE(@"iCloudURL will be%@", [s_iCloudUrl absoluteString]);
     sCloudStore = [NSUbiquitousKeyValueStore defaultStore];
     [sCloudStore synchronize];
 }
@@ -24,25 +24,25 @@ static NSUbiquitousKeyValueStore *sCloudStore;
 }
 +(NSURL*)LastOpenedDocumentURL {
     NSString *absoluteUrl = [sCloudStore stringForKey:LAST_OPENED_URL_STRING];
-    NSLog(@"absoluteUrl:%@",absoluteUrl);
+    TRACE(@"absoluteUrl:%@",absoluteUrl);
     if (!absoluteUrl) {
         NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
         [defaults synchronize];
         NSURL *url = [defaults URLForKey:LAST_OPENED_URL_STRING];        
-        NSLog(@"LastOpenedDocumentURL:%@",[url absoluteString]);
+        TRACE(@"LastOpenedDocumentURL:%@",[url absoluteString]);
         return url;
     }
     else {
-        NSLog(@"LastOpenedDocumentURL:%@",absoluteUrl);
+        TRACE(@"LastOpenedDocumentURL:%@",absoluteUrl);
         return [NSURL URLWithString:absoluteUrl];
     }
-    NSLog(@"LastOpenedDocumentURL:nil");
+    TRACE(@"LastOpenedDocumentURL:nil");
     return nil;
 }
 
 +(void)SetLastOpenedDocumentURL:(NSURL*)url {
     NSString *absoluteUrl = [url absoluteString];
-    NSLog(@"SetLastOpenedDocumentURL:%@",absoluteUrl);
+    TRACE(@"SetLastOpenedDocumentURL:%@",absoluteUrl);
     if ([DdFPadPadCloudValueStore iCloudEnabled]) {
         [sCloudStore setString:absoluteUrl forKey:LAST_OPENED_URL_STRING];        
     }

@@ -28,7 +28,7 @@
  */
 
 #import "SBJsonParser.h"
-
+#import "Log.h"
 @interface SBJsonParser ()
 
 - (BOOL)scanValue:(NSObject **)o;
@@ -349,7 +349,7 @@ static char ctrl[0x22];
             return NO;
             
         } else {
-            NSLog(@"should not be able to get here");
+            TRACE(@"should not be able to get here");
         }
     } while (*c);
     

@@ -12,6 +12,7 @@
 #import "DdFPadPadColor.h"
 #import "UIView+DdFPadPadPaper.h"
 #import "DdFPadPadViewContants.h"
+#import "Log.h"
 @implementation UIView (DdFPadPadPaper)
 
 -(void)drawPaper:(DdFPadPadPaper*)paper InContext:(CGContextRef)context WithFrame:(CGRect)paperFrame {
@@ -20,7 +21,7 @@
     CGFloat maxY = y + paperFrame.size.height;
     CGFloat scale = paperFrame.size.width / STANDARD_INK_WIDTH;
     CGFloat maxX = x + paperFrame.size.width;
-    NSLog(@"paperFrame:[origin:[%f,%f] size:[%f,%f]]",paperFrame.origin.x,paperFrame.origin.y, paperFrame.size.width,paperFrame.size.height);
+    TRACE(@"paperFrame:[origin:[%f,%f] size:[%f,%f]]",paperFrame.origin.x,paperFrame.origin.y, paperFrame.size.width,paperFrame.size.height);
     if (paper.horizontal) {
         CGContextStrokePath(context);
         UIColor *penColor = paper.horizontal.lineInk.color.color;

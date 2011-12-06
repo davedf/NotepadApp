@@ -11,13 +11,13 @@
 #import "DdFCGUtils.h"
 
 static inline CGRect DrawableFrameInContainingFrame(CGRect containerFrame) {
-    CGRectNSLog(@"containerFrame", containerFrame);
+    CGRectLog(@"containerFrame", containerFrame);
     CGFloat inkWidth = MIN(containerFrame.size.width,STANDARD_INK_WIDTH);
     CGFloat inkHeight = inkWidth / INK_HEIGHT_RATIO;
     CGFloat xOffset = (containerFrame.size.width - inkWidth) / 2;
     CGFloat yOffset = (containerFrame.size.height - inkHeight) /2;
     CGRect drawableFrame = CGRectMake(xOffset, yOffset, inkWidth, inkHeight);
-    CGRectNSLog(@"drawableFrame", drawableFrame);
+    CGRectLog(@"drawableFrame", drawableFrame);
     return drawableFrame;
     
 }

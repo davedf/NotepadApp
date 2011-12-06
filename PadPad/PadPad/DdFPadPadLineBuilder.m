@@ -26,6 +26,7 @@ static CGPointChecked CGPointCheckedMake(BOOL tooClose, BOOL tooFar, CGPoint con
 #import "DdFPadPadLineBuilder.h"
 #import "DdFCGUtils.h"
 #import "DdFPadPadLinePoint.h"
+#import "Log.h"
 
 @interface DdFPadPadLineBuilder()
 -(CGPointChecked)validateAndConvertPoint:(CGPoint)point;
@@ -59,7 +60,7 @@ static CGPointChecked CGPointCheckedMake(BOOL tooClose, BOOL tooFar, CGPoint con
     [self addCheckedPoint:checked WithVelocity:velocity]; 
 }
 -(void)newLine {
-    NSLog(@"new Line");
+    TRACE(@"new Line");
     _linePoints = [[NSMutableArray alloc]init];
     _lastPointIsFinal = YES;    
 }

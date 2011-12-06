@@ -2,7 +2,7 @@
 #import "JSON.h"
 #import "DdFPadPadPage.h"
 #import "DdFPadPadPageBuilder.h"
-
+#import "Log.h"
 #define PAGE_ORDER_FILE_NAME @"page.order"
 
 @interface DdFPadPadPages()
@@ -41,9 +41,9 @@
         NSFileWrapper *pageWrapper = [fileWrapper.fileWrappers objectForKey:wrapperName];
 
         NSString *pageId = [DdFPadPadPage pageIdentifierFromNSFileWrapper:pageWrapper];
-        NSLog(@"pageId:%@", pageId);
+        TRACE(@"pageId:%@", pageId);
         if (pageId && [[_pageIndexToPageIdMap allValues] containsObject:pageId]) {
-            NSLog(@"Adding pageId:%@ to _pageIdToNSFileWrapperMap",pageId);
+            TRACE(@"Adding pageId:%@ to _pageIdToNSFileWrapperMap",pageId);
             [_pageIdToNSFileWrapperMap setObject:pageWrapper forKey:pageId];                
         }
     }
@@ -81,7 +81,7 @@
 -(void)storePage:(DdFPadPadPage*)page ForIndex:(NSUInteger)pageIndex {
     NSString *pageIndexNumber = [NSString stringWithFormat:@"%d",pageIndex];
     [_loadedPageIdToDdFPadPadPageMap setObject:page forKey:page.identifier];
-    NSLog(@"adding to page order identifier:%@ key:%@",page.identifier,pageIndexNumber);
+    TRACE(@"adding to page order identifier:%@ key:%@",page.identifier,pageIndexNumber);
     [_pageIndexToPageIdMap setObject:page.identifier forKey:pageIndexNumber];
     [_pageIdToPageIndexMap setObject:pageIndexNumber forKey:page.identifier];
 }
@@ -150,7 +150,7 @@
     NSFileWrapper *currentPageOrderFileWrapper = [fileWrapper.fileWrappers objectForKey:PAGE_ORDER_FILE_NAME];
     [fileWrapper removeFileWrapper:currentPageOrderFileWrapper];
     NSString *pageOrderJSON = [_pageIndexToPageIdMap JSONRepresentation];
-    NSLog(@"saving page order:%@",pageOrderJSON);
+    TRACE(@"saving page order:%@",pageOrderJSON);
     NSData *data = [NSData dataWithBytes:[pageOrderJSON UTF8String] length:[pageOrderJSON length]];
     
     NSFileWrapper *pageOrderWrapper = [[NSFileWrapper alloc]initRegularFileWithContents:data];
@@ -162,7 +162,7 @@
 -(void)loadPageOrderFromFileWrapper:(NSFileWrapper*)fileWrapper {
     NSFileWrapper *pageOrderFileWrapper = [fileWrapper.fileWrappers objectForKey:PAGE_ORDER_FILE_NAME];
     NSString *json = [[NSString alloc]initWithBytes:[pageOrderFileWrapper.regularFileContents bytes] length:[pageOrderFileWrapper.regularFileContents length] encoding:NSUTF8StringEncoding];
-    NSLog(@"loading page order:%@",json);
+    TRACE(@"loading page order:%@",json);
     NSDictionary *order = [json JSONValue];
     _pageIndexToPageIdMap = [NSMutableDictionary dictionaryWithDictionary:order];
     for (NSString *pageIndex in [_pageIndexToPageIdMap allKeys]) {

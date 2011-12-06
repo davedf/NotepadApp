@@ -52,7 +52,7 @@
     pageView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, PAGE_PORTRAIT_WIDTH, PAGE_PORTRAIT_HEIGHT)];
     [pageView addSubview:toolView];
     toolView.frame = DrawableFrameInContainingFrame(pageView.frame);
-    CGRectNSLog(@"toolView.frame", toolView.frame);
+    CGRectLog(@"toolView.frame", toolView.frame);
     underTest = [[DdFPadPadToolCoordinateAdaptor alloc]initWithPageView:pageView ToolView:toolView];
 }
 

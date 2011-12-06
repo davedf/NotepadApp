@@ -10,7 +10,7 @@
 #import "DdFPadPadLine.h"
 #import "DdFPadPadInkDrawingItem.h"
 #import "DdFPadPadToolCoordinateAdaptor.h"
-
+#import "Log.h"
 @implementation DdFPadPadPage (DrawingItems)
 
 -(NSArray /*<NSObject<DdFPadPadToolViewDrawingItem>*/ *)drawingItemsWithCoordinateAdaptor:(DdFPadPadToolCoordinateAdaptor*)coordinateAdaptor {
@@ -18,7 +18,7 @@
     CGAffineTransform idealToPageViewTransform = coordinateAdaptor.idealToPageViewTransform;
     CGFloat idealToToolLineWidthScale = coordinateAdaptor.idealToToolLineWidthScale;
     for (DdFPadPadLine *line in self.lines) {
-        NSLog(@"line:%@",[line DdFJSONRepresentation]);
+        TRACE(@"line:%@",[line DdFJSONRepresentation]);
         [items addObject:[[DdFPadPadInkDrawingItem alloc]initWithLine:line PointTransformer:idealToPageViewTransform LineWidthScale:idealToToolLineWidthScale]];
     }
     return [NSArray arrayWithArray:items];

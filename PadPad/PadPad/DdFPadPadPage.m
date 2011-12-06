@@ -1,6 +1,7 @@
 #import "DdFPadPadPage.h"
 #import "DdFPadPadPaper.h"
 #import "DdFPadPadLine.h"
+#import "Log.h"
 
 #define PAPER_KEY @"paper"
 #define PAGE_NUMBER_KEY @"number"
@@ -54,7 +55,7 @@
 
 -(void)changePaper:(DdFPadPadPaper*)newPaper {
     if ([_paper isEqual:newPaper]) {
-        NSLog(@"no change to paper, skipping");
+        TRACE(@"no change to paper, skipping");
         return;
     }
     _paper = newPaper;
@@ -66,7 +67,7 @@
 }
 
 -(void)UpdateNSFileWrapperRepresentation:(NSFileWrapper*)wrapper {
-    NSLog(@"UpdateNSFileWrapperRepresentation");
+    TRACE(@"UpdateNSFileWrapperRepresentation");
     for (NSFileWrapper *currentWrapper in [wrapper.fileWrappers allValues]) {
         [wrapper removeFileWrapper:currentWrapper];
     }
@@ -77,7 +78,7 @@
     _requiresSave = NO;
 }
 -(NSFileWrapper*)NSFileWrapperRepresentation {
-    NSLog(@"NSFileWrapperRepresentation");
+    TRACE(@"NSFileWrapperRepresentation");
 
     NSFileWrapper *wrapper = [[NSFileWrapper alloc]initDirectoryWithFileWrappers:[NSDictionary dictionary]];
     wrapper.preferredFilename = self.filename;
@@ -94,7 +95,7 @@
 
 +(NSString*)pageIdentifierFromNSFileWrapper:(NSFileWrapper*)wrapper {
     NSString *fileName = wrapper.filename ? wrapper.filename : wrapper.preferredFilename;
-    NSLog(@"fileName:%@",fileName);
+    TRACE(@"fileName:%@",fileName);
     return  [[fileName componentsSeparatedByString:@"."] objectAtIndex:0];
 
 }

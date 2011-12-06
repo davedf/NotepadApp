@@ -9,6 +9,8 @@
 #import "DdFPadPadToolCoordinateAdaptor.h"
 #import "DdFPadPadViewContants.h"
 #import "DdFCGUtils.h"
+#import "Log.h"
+
 #define IDEAL_PAGE_WIDTH STANDARD_INK_WIDTH
 #define IDEAL_PAGE_HEIGHT IDEAL_PAGE_WIDTH / INK_HEIGHT_RATIO
 
@@ -68,17 +70,17 @@
     _pageViewBounds = _pageView.frame;
     _toolViewFrame = _toolView.frame;
     CGRect idealFrame = DrawableFrameInContainingFrame(_pageView.frame);
-    NSLog(@"calculateTransforms -START ----------------");
-    CGRectNSLog(@"idealFrame", idealFrame);
-    CGRectNSLog(@"_pageViewBounds", _pageViewBounds);
-    CGRectNSLog(@"_toolViewFrame", _toolViewFrame);
+    TRACE(@"calculateTransforms -START ----------------");
+    CGRectLog(@"idealFrame", idealFrame);
+    CGRectLog(@"_pageViewBounds", _pageViewBounds);
+    CGRectLog(@"_toolViewFrame", _toolViewFrame);
     CGFloat sx = self.idealSize.width / idealFrame.size.width;
     CGFloat sy = self.idealSize.height / idealFrame.size.height;
-    NSLog(@"sx:%f sy:%f",sx,sy);
+    TRACE(@"sx:%f sy:%f",sx,sy);
     CGFloat dx = (_toolViewFrame.origin.x) - idealFrame.origin.x;
     CGFloat dy = (_toolViewFrame.origin.y) - idealFrame.origin.y;
-    NSLog(@"dx:%f dy:%f",dx,dy);
-    NSLog(@"calculateTransforms -END ----------------");
+    TRACE(@"dx:%f dy:%f",dx,dy);
+    TRACE(@"calculateTransforms -END ----------------");
 
     CGPoint toolTranslation = CGPointMake(dx, dy);
     CGAffineTransform t = CGAffineTransformMakeTranslation(toolTranslation.x, toolTranslation.y);

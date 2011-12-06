@@ -43,7 +43,6 @@
     NSError *error;
 	NSString *documentsDirectory = [NSHomeDirectory() stringByAppendingPathComponent:@"Documents"]; 
     NSString *filePath = [documentsDirectory stringByAppendingPathComponent:@"test.book"];     
-    NSLog(@"filePath:%@",filePath);
 
     NSURL *url = [NSURL fileURLWithPath:filePath];
     BOOL result = [dir writeToURL:url options:NSFileWrapperWritingAtomic originalContentsURL:url error:&error];

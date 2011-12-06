@@ -6,6 +6,7 @@
 #import "DdFPadPadToolView.h"
 #import "DdFPadPadDrawingTool.h"
 #import "DdFPadPadToolRepository.h"
+#import "Log.h"
 
 @interface DdfPadPadDataViewController()
 //@property (readonly) DdFPadPadPageView *pageView;
@@ -25,7 +26,7 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    NSLog(@"dataObject:%@",self.dataObject);
+    TRACE(@"dataObject:%@",self.dataObject);
     self.dataLabel.text = self.dataObject.pageLabel;
     [self.pageView showPage:self.dataObject];
     [self.inkView setBackgroundColor:[UIColor clearColor]];
@@ -43,8 +44,8 @@
 
 -(void)sizeInkView {
     self.inkView.frame = DrawableFrameInContainingFrame(self.pageView.frame);
-    CGRectNSLog(@"inkView", self.inkView.frame);
-    CGRectNSLog(@"pageView", self.pageView.frame);    
+    CGRectLog(@"inkView", self.inkView.frame);
+    CGRectLog(@"pageView", self.pageView.frame);    
 }
 
 -(IBAction)inkPanned:(id)sender {
@@ -72,7 +73,7 @@
 
 -(void) didRotateFromInterfaceOrientation:(UIInterfaceOrientation)fromInterfaceOrientation {
     [self sizeInkView];
-    NSLog(@"didRotateFromInterfaceOrientation size height:%f width:%f",self.view.frame.size.height,self.view.frame.size.width);
+    TRACE(@"didRotateFromInterfaceOrientation size height:%f width:%f",self.view.frame.size.height,self.view.frame.size.width);
 }
 
 #pragma mark - DdfPadPadDataViewController() 

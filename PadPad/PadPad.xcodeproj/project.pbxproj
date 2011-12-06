@@ -81,6 +81,9 @@
 		55D69445143F109400DFE8EF /* DdFPadPadBookRepository.m in Sources */ = {isa = PBXBuildFile; fileRef = 55D69444143F109400DFE8EF /* DdFPadPadBookRepository.m */; };
 		55D69449143F5F2D00DFE8EF /* NSMutableArray+DdFPadPadPageOrder.m in Sources */ = {isa = PBXBuildFile; fileRef = 55D69448143F5F2D00DFE8EF /* NSMutableArray+DdFPadPadPageOrder.m */; };
 		55D6944F143F61E000DFE8EF /* NSMutableArray+DdFPadPadPagOrderTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 55D6944E143F61E000DFE8EF /* NSMutableArray+DdFPadPadPagOrderTests.m */; };
+		55FC6516148E1DB0007CA3C8 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 55FC6515148E1DB0007CA3C8 /* CFNetwork.framework */; };
+		55FC6518148E1DB8007CA3C8 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 55FC6517148E1DB8007CA3C8 /* SystemConfiguration.framework */; };
+		55FC651C148E1DDF007CA3C8 /* LoggerClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 55FC651A148E1DDF007CA3C8 /* LoggerClient.m */; };
 		55FC97211439FB1600C508F9 /* NSObject+SBJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = 55FC97171439FB1600C508F9 /* NSObject+SBJSON.m */; };
 		55FC97221439FB1600C508F9 /* NSString+SBJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = 55FC97191439FB1600C508F9 /* NSString+SBJSON.m */; };
 		55FC97231439FB1600C508F9 /* SBJsonBase.m in Sources */ = {isa = PBXBuildFile; fileRef = 55FC971B1439FB1600C508F9 /* SBJsonBase.m */; };
@@ -247,6 +250,12 @@
 		55D69448143F5F2D00DFE8EF /* NSMutableArray+DdFPadPadPageOrder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableArray+DdFPadPadPageOrder.m"; sourceTree = "<group>"; };
 		55D6944D143F61E000DFE8EF /* NSMutableArray+DdFPadPadPagOrderTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableArray+DdFPadPadPagOrderTests.h"; sourceTree = "<group>"; };
 		55D6944E143F61E000DFE8EF /* NSMutableArray+DdFPadPadPagOrderTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableArray+DdFPadPadPagOrderTests.m"; sourceTree = "<group>"; };
+		55FC6515148E1DB0007CA3C8 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		55FC6517148E1DB8007CA3C8 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		55FC6519148E1DDF007CA3C8 /* LoggerClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoggerClient.h; sourceTree = "<group>"; };
+		55FC651A148E1DDF007CA3C8 /* LoggerClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoggerClient.m; sourceTree = "<group>"; };
+		55FC651B148E1DDF007CA3C8 /* LoggerCommon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoggerCommon.h; sourceTree = "<group>"; };
+		55FC651D148E1F7F007CA3C8 /* Log.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Log.h; sourceTree = "<group>"; };
 		55FC97131439FB1600C508F9 /* JSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSON.h; sourceTree = "<group>"; };
 		55FC97161439FB1600C508F9 /* NSObject+SBJSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+SBJSON.h"; sourceTree = "<group>"; };
 		55FC97171439FB1600C508F9 /* NSObject+SBJSON.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+SBJSON.m"; sourceTree = "<group>"; };
@@ -297,6 +306,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				55FC6518148E1DB8007CA3C8 /* SystemConfiguration.framework in Frameworks */,
+				55FC6516148E1DB0007CA3C8 /* CFNetwork.framework in Frameworks */,
 				5518726D1435D6B5009125A6 /* QuartzCore.framework in Frameworks */,
 				553A669814333A8900503CC7 /* UIKit.framework in Frameworks */,
 				553A669A14333A8900503CC7 /* Foundation.framework in Frameworks */,
@@ -419,6 +430,7 @@
 		5518727814360840009125A6 /* External */ = {
 			isa = PBXGroup;
 			children = (
+				55FC6513148E1D2F007CA3C8 /* NSLogger */,
 				5518727914360865009125A6 /* JSON */,
 			);
 			path = External;
@@ -467,6 +479,8 @@
 		553A669614333A8900503CC7 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				55FC6517148E1DB8007CA3C8 /* SystemConfiguration.framework */,
+				55FC6515148E1DB0007CA3C8 /* CFNetwork.framework */,
 				5518726C1435D6B5009125A6 /* QuartzCore.framework */,
 				553A669714333A8900503CC7 /* UIKit.framework */,
 				553A669914333A8900503CC7 /* Foundation.framework */,
@@ -627,6 +641,17 @@
 				550615BE1487EACF00F3EED8 /* DdFPadPadPenRepository.m */,
 			);
 			name = Tools;
+			sourceTree = "<group>";
+		};
+		55FC6513148E1D2F007CA3C8 /* NSLogger */ = {
+			isa = PBXGroup;
+			children = (
+				55FC6519148E1DDF007CA3C8 /* LoggerClient.h */,
+				55FC651A148E1DDF007CA3C8 /* LoggerClient.m */,
+				55FC651B148E1DDF007CA3C8 /* LoggerCommon.h */,
+				55FC651D148E1F7F007CA3C8 /* Log.h */,
+			);
+			path = NSLogger;
 			sourceTree = "<group>";
 		};
 		55FC9729143A051300C508F9 /* Utils */ = {
@@ -838,6 +863,7 @@
 				550615BC1487E87100F3EED8 /* DdFPadPadPenToolBuilder.m in Sources */,
 				550615BF1487EACF00F3EED8 /* DdFPadPadPenRepository.m in Sources */,
 				550615C2148CDD4300F3EED8 /* DdFPadPadPage+DrawingItems.m in Sources */,
+				55FC651C148E1DDF007CA3C8 /* LoggerClient.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

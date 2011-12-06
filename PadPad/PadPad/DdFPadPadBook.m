@@ -2,6 +2,7 @@
 #import "DdFPadPadBookInfo.h"
 #import "DdFPadPadPages.h"
 #import "NSMutableArray+DdFPadPadPageOrder.h"
+#import "Log.h"
 #define TYPE_NAME_BOOKROOT @"book"
 
 @interface DdFPadPadBook()
@@ -35,7 +36,7 @@
     DdFPadPadBookInfo *bookInfo = [DdFPadPadBookInfo bookInfoWithName:name];
     NSString *documentsDirectory = [NSHomeDirectory() stringByAppendingPathComponent:@"Documents"]; 
     NSString *filePath = [documentsDirectory stringByAppendingPathComponent:bookInfo.fileName];     
-    NSLog(@"filePath:%@",filePath);
+    TRACE(@"filePath:%@",filePath);
     NSURL *url = [NSURL fileURLWithPath:filePath];
     
     return [self initWithURL:url Delegate:delegate BookInfo:bookInfo];
@@ -48,7 +49,7 @@
 #pragma mark - UIDocument
 
 -(id) contentsForType:(NSString *)typeName error:(NSError *__autoreleasing *)outError {
-    NSLog(@"contentsForType:%@",typeName);
+    TRACE(@"contentsForType:%@",typeName);
     if (!self.fileWrapper) {
         self.fileWrapper  =[[NSFileWrapper alloc]initDirectoryWithFileWrappers:nil];
         [self.fileWrapper setPreferredFilename:self.bookInfo.fileName];        
@@ -63,14 +64,14 @@
 }
 
 -(BOOL)loadFromContents:(id)contents ofType:(NSString *)typeName error:(NSError *__autoreleasing *)outError {
-    NSLog(@"loadFromContents:ofType:%@",typeName);
+    TRACE(@"loadFromContents:ofType:%@",typeName);
     self.fileWrapper = (NSFileWrapper*)contents;
     NSMutableArray *loadedWrappers = [NSMutableArray array];
     for (NSFileWrapper *childWrapper in [self.fileWrapper.fileWrappers allValues]) {
         
         if ([DdFPadPadBookInfo recognises:childWrapper]) {
             self.bookInfo = [DdFPadPadBookInfo bookInfoWithNSFileWrapper:childWrapper];
-            NSLog(@"bookInfo:[bookId:%@ name:%@]",self.bookInfo.bookId,self.bookInfo.bookName);
+            TRACE(@"bookInfo:[bookId:%@ name:%@]",self.bookInfo.bookId,self.bookInfo.bookName);
             [loadedWrappers addObject:childWrapper];
         } 
     }
@@ -107,7 +108,7 @@
 +(DdFPadPadBook*)newBookWithName:(NSString*)name Delegate:(NSObject<DdFPadPadBookDelegate>*)delegate CompletionHandler:(void (^)(BOOL success))completionHandler {
     DdFPadPadBook *newBook = [[DdFPadPadBook alloc] initWithName:name Delegate:delegate];
     [newBook saveToURL:newBook.fileURL forSaveOperation:UIDocumentSaveForCreating completionHandler:^(BOOL success) {
-        NSLog(@"save completed:%@",success?@"Y":@"N");
+        TRACE(@"save completed:%@",success?@"Y":@"N");
         [newBook openWithCompletionHandler:completionHandler];
     }];
     
