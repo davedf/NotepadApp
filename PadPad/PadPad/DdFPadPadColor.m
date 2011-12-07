@@ -56,15 +56,19 @@
 }
 
 +(DdFPadPadColor*)blackInk {
-    return [[DdFPadPadColor alloc]initWithUIColor:[UIColor colorWithRed:0.278 green:0.278 blue:0.278 alpha:0.7]];    
+    return [[DdFPadPadColor alloc]initWithUIColor:[UIColor colorWithRed:0.278 green:0.278 blue:0.278 alpha:0.9]];    
 }
 
 +(DdFPadPadColor*)blueInk {
-    return [[DdFPadPadColor alloc]initWithUIColor:[UIColor colorWithRed:0.278 green:0.278 blue:0.578 alpha:0.7]];    
+    return [[DdFPadPadColor alloc]initWithUIColor:[UIColor colorWithRed:0.0 green:0.2 blue:0.6 alpha:0.9]];    
+}
+
++(DdFPadPadColor*)redInk {
+    return [[DdFPadPadColor alloc]initWithUIColor:[UIColor colorWithRed:1.0 green:0.0 blue:0.2 alpha:0.7]];    
 }
 
 +(DdFPadPadColor*)yellowHighlightInk {
-    return [[DdFPadPadColor alloc]initWithUIColor:[UIColor colorWithRed:0.9 green:0.9 blue:0.0 alpha:0.4]];    
+    return [[DdFPadPadColor alloc]initWithUIColor:[UIColor colorWithRed:1.0 green:1.0 blue:0.4 alpha:0.4]];    
 }
 
 +(DdFPadPadColor*)faintBlackInk {
