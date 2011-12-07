@@ -11,15 +11,4 @@
 @implementation DdFPadPadInkTableViewCell
 @synthesize inkView=_inkView;
 
-- (void)setSelected:(BOOL)selected animated:(BOOL)animated
-{
-    [super setSelected:selected animated:animated];
-    if (selected) {
-        [self setBackgroundColor:[UIColor blueColor]];        
-    }
-    else {
-        [self setBackgroundColor:[UIColor whiteColor]];
-    }
-}
-
 @end

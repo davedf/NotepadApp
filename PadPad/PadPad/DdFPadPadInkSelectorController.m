@@ -10,49 +10,51 @@
 #import "DdFPadPadPenRepository.h"
 #import "DdFPadPadInkTableViewCell.h"
 #import "Log.h"
+#import "DdFPadPadApplicationState.h"
 @implementation DdFPadPadInkSelectorController
 
 #pragma mark - Table view data source
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return [DdFPadPadPenRepository sharedDdFPadPadPenRepository].inkNames.count;
+    
+    return section == 0 ? 1 :  [DdFPadPadPenRepository sharedDdFPadPadPenRepository].inkNames.count;
 }
 
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 1;
+    return 2;
 }
 
 #pragma mark - Table view delegate
 -(UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     DdFPadPadPenRepository *repo = [DdFPadPadPenRepository sharedDdFPadPadPenRepository];
-    NSString *inkName = [repo.inkNames objectAtIndex:indexPath.row];
-    DdFPadPadInk *ink = [repo ink:inkName];
     DdFPadPadInkTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"InkTypeCell"];
-    DdFPadPadInkView *iv = cell.inkView;
-    iv.ink = ink;
+    if (indexPath.section == 0) {
+        cell.inkView.ink = repo.pen.ink;
+    }
+    else {
+        NSString *inkName = [repo.inkNames objectAtIndex:indexPath.row];
+        cell.inkView.ink = [repo ink:inkName];
+    }
     [cell setNeedsLayout];
     [cell.inkView setNeedsDisplay];
     return cell;
 }
 
--(void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
-    DdFPadPadInkTableViewCell *tcell = (DdFPadPadInkTableViewCell*)cell;
-    if (tcell.inkView.ink == [DdFPadPadPenRepository sharedDdFPadPadPenRepository].pen.ink) {
-        [cell setSelected:YES];
-        [tableView selectRowAtIndexPath:indexPath animated:NO scrollPosition:UITableViewScrollPositionTop];
-    }
-    else {
-        [cell setSelected:NO];
-    }
-
-}
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (indexPath.section == 0) {
+        return;
+    }
+    
+    
+    TRACE(@"parentViewController class:%@", [self.parentViewController class]);
+    TRACE(@"presentingViewController class:%@", [self.parentViewController.presentingViewController class]);
     DdFPadPadPenRepository *repo = [DdFPadPadPenRepository sharedDdFPadPadPenRepository];
     NSString *inkName = [repo.inkNames objectAtIndex:indexPath.row];
     if (inkName) {
         TRACE(@"selected ink:%@",inkName);
         repo.pen.ink = [repo ink:inkName];
     }
+    [[DdFPadPadApplicationState sharedDdFPadPadApplicationState] hidePopover];
 }
 
 @end

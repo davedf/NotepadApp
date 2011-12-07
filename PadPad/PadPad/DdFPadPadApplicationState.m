@@ -34,5 +34,9 @@
         return [self.rootController.pageViewController.viewControllers objectAtIndex:1];
     }
     return nil;
+
+}
+-(void)hidePopover  {
+    [self.rootController.popController dismissPopoverAnimated:YES];
 }
 @end

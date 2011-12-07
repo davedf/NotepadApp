@@ -80,5 +80,6 @@
         [state.rightPageController requiresRedraw];                
         
     }
+    [state hidePopover];
 }
 @end

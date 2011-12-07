@@ -82,7 +82,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="wFn-yL-Xb8" kind="popover" popoverAnchorView="69r-cl-sJc" id="6Ne-U5-OFC">
+                                    <segue destination="wFn-yL-Xb8" kind="popover" identifier="ChangeInk" popoverAnchorView="69r-cl-sJc" id="6Ne-U5-OFC">
                                         <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
                                     </segue>
                                 </connections>
@@ -145,27 +145,27 @@
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Fi2-pe-ffK" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <tableViewController id="Ego-o5-uTv" customClass="DdFPadPadInkSelectorController" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="80" sectionHeaderHeight="22" sectionFooterHeight="22" id="I7v-XR-1J9">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" dataMode="prototypes" style="grouped" separatorStyle="none" rowHeight="50" sectionHeaderHeight="10" sectionFooterHeight="10" id="I7v-XR-1J9">
                         <rect key="frame" x="0.0" y="44" width="350" height="500"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <color key="separatorColor" cocoaTouchSystemColor="tableCellGroupedBackgroundColor"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="InkTypeCell" rowHeight="80" id="AQB-zO-aDg" customClass="DdFPadPadInkTableViewCell">
-                                <rect key="frame" x="0.0" y="22" width="350" height="80"/>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="InkTypeCell" rowHeight="50" id="AQB-zO-aDg" customClass="DdFPadPadInkTableViewCell">
+                                <rect key="frame" x="0.0" y="34" width="350" height="51"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                    <rect key="frame" x="0.0" y="0.0" width="350" height="79"/>
+                                    <rect key="frame" x="10" y="1" width="330" height="49"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <view contentMode="scaleToFill" id="JEh-0j-9gO" customClass="DdFPadPadInkView">
-                                            <rect key="frame" x="5" y="0.0" width="340" height="80"/>
+                                            <rect key="frame" x="10" y="1" width="310" height="48"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
                                     </subviews>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </view>
-                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <connections>
                                     <outlet property="inkView" destination="JEh-0j-9gO" id="Xva-eL-W1P"/>
                                 </connections>
@@ -176,7 +176,7 @@
                             <outlet property="delegate" destination="Ego-o5-uTv" id="h51-VN-jS7"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="yVX-Hd-Ols"/>
+                    <navigationItem key="navigationItem" title="Choose pen" id="yVX-Hd-Ols"/>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                 </tableViewController>
             </objects>
@@ -186,7 +186,7 @@
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rwh-pF-nKA" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <tableViewController id="Wc7-3N-bf3" customClass="DdFPadPadPaperSelectorController" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="340" sectionHeaderHeight="22" sectionFooterHeight="22" id="sKD-qg-n9K">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="340" sectionHeaderHeight="22" sectionFooterHeight="22" id="sKD-qg-n9K">
                         <rect key="frame" x="0.0" y="44" width="350" height="500"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -231,12 +231,12 @@
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tCa-gF-3yS" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <tableViewController id="6D3-ba-d1a" customClass="DdFPadPadPaperToChangeController" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="150" sectionHeaderHeight="22" sectionFooterHeight="22" id="9V9-th-RJb">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="150" sectionHeaderHeight="22" sectionFooterHeight="22" id="9V9-th-RJb">
                         <rect key="frame" x="0.0" y="44" width="350" height="500"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="WholeBookCell" id="5qs-bL-W6W">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="WholeBookCell" id="5qs-bL-W6W">
                                 <rect key="frame" x="0.0" y="22" width="350" height="150"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -258,7 +258,7 @@
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </view>
                             </tableViewCell>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" indentationWidth="10" reuseIdentifier="BothPagesCell" id="z5I-xM-fGY">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="BothPagesCell" id="z5I-xM-fGY">
                                 <rect key="frame" x="0.0" y="172" width="350" height="150"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -280,7 +280,7 @@
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </view>
                             </tableViewCell>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" indentationWidth="10" reuseIdentifier="LeftPageCell" id="JdR-7N-NiJ">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="LeftPageCell" id="JdR-7N-NiJ">
                                 <rect key="frame" x="0.0" y="322" width="350" height="150"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -303,7 +303,7 @@
                                 </view>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             </tableViewCell>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" indentationWidth="10" reuseIdentifier="RightPageCell" id="YuG-jY-UjT">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="RightPageCell" id="YuG-jY-UjT">
                                 <rect key="frame" x="0.0" y="472" width="350" height="150"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -326,7 +326,7 @@
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </view>
                             </tableViewCell>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" indentationWidth="10" reuseIdentifier="CurrentPageCell" id="Oax-3k-fvv">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="CurrentPageCell" id="Oax-3k-fvv">
                                 <rect key="frame" x="0.0" y="622" width="350" height="150"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">

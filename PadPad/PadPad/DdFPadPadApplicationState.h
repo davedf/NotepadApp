@@ -17,5 +17,6 @@
 @property (readonly) DdfPadPadDataViewController *rightPageController;
 @property (readonly) DdFPadPadBook *book;
 @property (weak) DdfPadPadRootViewController *rootController;
+-(void)hidePopover;
 +(DdFPadPadApplicationState*)sharedDdFPadPadApplicationState;
 @end

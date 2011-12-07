@@ -22,7 +22,6 @@
 - (void)drawRect:(CGRect)rect
 {
     TRACE(@"DdFPadPadInkView draw");
-    [self setBackgroundColor:[UIColor whiteColor]];
     CGContextRef context = UIGraphicsGetCurrentContext();        
     DdFPadPadLine *line = self.line;
     TRACE(@"line:%@",[line DdFJSONRepresentation]);

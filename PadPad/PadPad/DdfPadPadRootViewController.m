@@ -6,12 +6,14 @@
 #import "Log.h"
 
 @implementation DdfPadPadRootViewController
-@synthesize pageViewController=_pageViewController,modelController=_modelController,book=_book;
+@synthesize pageViewController=_pageViewController,modelController=_modelController,book=_book,popController=_popController;
 
 #pragma mark - View lifecycle
 
 - (void)viewDidLoad
 {
+
+    
     [super viewDidLoad];
     _modelController = [[DdfPadPadModelController alloc] initWithBook:self.book];
     [DdFPadPadApplicationState sharedDdFPadPadApplicationState].rootController = self;
@@ -37,7 +39,6 @@
     for (UIGestureRecognizer *recogniser in self.pageViewController.gestureRecognizers) {
         if ([recogniser class] == [UIPanGestureRecognizer class]) {
             recogniser.enabled = NO;
-//            [recogniser removeTarget:self.pageViewController action:nil];
         }
     }
     [self.pageViewController didMoveToParentViewController:self];    
@@ -47,9 +48,9 @@
     return YES;
 }
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    if ([segue.identifier isEqualToString:@"ChangePaper"]) {
-        TRACE(@"segue to %@",[segue.destinationViewController class]);
-        
+    if ([segue class] == [UIStoryboardPopoverSegue class]) {
+        UIStoryboardPopoverSegue *popSegue = (UIStoryboardPopoverSegue*)segue;
+        _popController = popSegue.popoverController;
     }
 }
 #pragma mark - UIPageViewController delegate methods
