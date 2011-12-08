@@ -29,14 +29,16 @@
 }
 
 -(void)testToJSONRepresentation {
-    NSString *expected = @"{\"o\":{\"x\":1,\"y\":2},\"v\":{\"x\":3,\"y\":4}}";
-    NSDictionary *jsonDictionary = [underTest DdFJSONRepresentation];
-    NSString *json = [jsonDictionary JSONRepresentation];
+    NSString *expected = @"[1,2,3,4]";
+
+    NSArray *jsonArray = [underTest DdFJSONRepresentation];
+    NSString *json = [jsonArray JSONRepresentation];
     STAssertEqualObjects(expected, json, @"Fail");
 }
 
 -(void)testFromJSONRepresentation {
-    NSString *json = @"{\"v\":{\"x\":3,\"y\":4},\"o\":{\"x\":1,\"y\":2}}";
+    NSString *json = @"[1,2,3,4]";
+
     DdFPadPadLinePoint *linePoint = [[DdFPadPadLinePoint alloc] initWithJSONRepresentation:[json JSONValue]];
     STAssertEqualObjects(linePoint, underTest, @"Fail");
                                      

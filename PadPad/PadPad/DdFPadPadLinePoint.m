@@ -24,21 +24,24 @@
     return self;
 }
 
--(id)initWithJSONRepresentation:(NSDictionary*)jsonRepresentation {
+-(id)initWithJSONRepresentation:(NSArray*)jsonRepresentation {
     self = [super init];
     if (self) {
-        _origin = CGPointFromJSON([jsonRepresentation objectForKey:ORIGIN_KEY]);
-        _velocity = CGPointFromJSON([jsonRepresentation objectForKey:VELOCITY_KEY]);;
+        _origin = CGPointMake([[jsonRepresentation objectAtIndex:0] floatValue], [[jsonRepresentation objectAtIndex:1] floatValue]);
+        _velocity = CGPointMake([[jsonRepresentation objectAtIndex:2] floatValue], [[jsonRepresentation objectAtIndex:3] floatValue]);
+//        _velocity = CGPointFromJSON([jsonRepresentation objectForKey:VELOCITY_KEY]);;
         _speed = CGPointMagnitude(_velocity);
     }
     return self;
     
 }
 
--(NSDictionary*)DdFJSONRepresentation {
-    return [NSDictionary dictionaryWithObjectsAndKeys:
-            CGPointToJSON(_origin),ORIGIN_KEY, 
-            CGPointToJSON(_velocity),VELOCITY_KEY, 
+-(NSArray*)DdFJSONRepresentation {
+    return [NSArray arrayWithObjects:
+            [NSNumber numberWithFloat:_origin.x], 
+            [NSNumber numberWithFloat:_origin.y], 
+            [NSNumber numberWithFloat:_velocity.x], 
+            [NSNumber numberWithFloat:_velocity.y], 
             nil];
 }
 

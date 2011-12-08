@@ -9,5 +9,5 @@
 -(id)initWithOrigin:(CGPoint)origin velocity:(CGPoint)velocity;
 -(id)initWithJSONRepresentation:(NSDictionary*)jsonRepresentation;
 
--(NSDictionary*)DdFJSONRepresentation;
+-(NSArray*)DdFJSONRepresentation;
 @end

@@ -3,7 +3,7 @@
 #import "DdFPadPadInk.h"
 #import "DdFPadPadLinePoint.h"
 
-#define JSON_EXAMPLE @"{\"ink\":{\"color\":{\"r\":0,\"b\":0,\"g\":0,\"a\":1},\"type\":0,\"size\":10},\"points\":[{\"o\":{\"x\":1,\"y\":1},\"v\":{\"x\":0,\"y\":0}},{\"o\":{\"x\":2,\"y\":2},\"v\":{\"x\":0,\"y\":0}}]}"
+#define JSON_EXAMPLE @"{\"ink\":{\"color\":{\"r\":0,\"b\":0,\"g\":0,\"a\":1},\"type\":0,\"size\":10},\"points\":[[1,1,0,0],[2,2,0,0]]}"
 
 @interface DdFPadPadLineTests()
 -(void)addExtraPoints;
