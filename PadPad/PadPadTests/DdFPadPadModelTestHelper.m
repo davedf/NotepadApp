@@ -2,11 +2,11 @@
 #import "JSON.h"
 #import "DdFPadPadColor.h"
 #import <SenTestingKit/SenTestingKit.h>
-
+#import "DdFPadPadPenRepository.h"
 @implementation DdFPadPadModelTestHelper
 
 +(DdFPadPadInk*)ink  {
-    return [[DdFPadPadInk alloc]initWithColor:[DdFPadPadColor blackInk] Size:2 Type:kFeltTip];
+    return [DdFPadPadInk inkFromJson:INK_BLACK_1];
 }
 +(DdFPadPadLine*)line {
     return [[DdFPadPadLine alloc]initWithId:@"foo" Ink:[DdFPadPadModelTestHelper ink] Points:[NSArray array]];

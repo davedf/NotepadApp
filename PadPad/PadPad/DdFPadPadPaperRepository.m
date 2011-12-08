@@ -12,7 +12,7 @@
 #import "DdFPadPadPaper.h"
 #import "DdFPadPadColor.h"
 #import "DdFPadPadPageLineInformation.h"
-
+#import "DdFPadPadPenRepository.h"
 #define DEFAULT_PAPER CHECKED_IVORY_PAPER_BLACK_LINES
 @implementation DdFPadPadPaperRepository {
     NSDictionary *_papers;
@@ -22,8 +22,8 @@
 -(id)init {
     self = [super init];
     if (self) {
-        DdFPadPadInk *blackInk =[[DdFPadPadInk alloc]initWithColor:[DdFPadPadColor faintBlackInk] Size:0.5 Type:kFeltTip ];
-        DdFPadPadInk *heavyBlackInk =[[DdFPadPadInk alloc]initWithColor:[DdFPadPadColor blackInk] Size:2 Type:kFeltTip ];
+        DdFPadPadInk *blackInk =[[DdFPadPadPenRepository sharedDdFPadPadPenRepository]ink:INK_BLACK_FAINT_PAPER];
+        DdFPadPadInk *heavyBlackInk =[[DdFPadPadPenRepository sharedDdFPadPadPenRepository]ink:INK_BLACK_HEAVY_PAPER];
         
         DdFPadPadPageLineInformation *blackCloseRuled = [[DdFPadPadPageLineInformation alloc] initWithLineInk:blackInk LineGap:30];
         DdFPadPadPageLineInformation *blackMinorRuled = [[DdFPadPadPageLineInformation alloc] initWithLineInk:blackInk LineGap:10 MajorLineInk:heavyBlackInk MajorLineInterval:12];

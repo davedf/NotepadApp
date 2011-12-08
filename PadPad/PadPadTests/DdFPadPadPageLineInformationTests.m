@@ -4,7 +4,7 @@
 #import "JSON.h"
 #import "DdFPadPadModelTestHelper.h"
 #import "DdFPadPadColor.h"
-
+#import "DdFPadPadPenRepository.h"
 @implementation DdFPadPadPageLineInformationTests {
     DdFPadPadPageLineInformation *noMajorLines;
     DdFPadPadPageLineInformation *majorLines;
@@ -13,8 +13,8 @@
 }
 
 -(void)setUp {
-    minorInk = [[DdFPadPadInk alloc]initWithColor:[DdFPadPadColor totalBlackInk] Size:1 Type:kFeltTip];
-    majorInk = [[DdFPadPadInk alloc]initWithColor:[DdFPadPadColor totalBlackInk] Size:2 Type:kFeltTip];
+    minorInk = [DdFPadPadInk inkFromJson:INK_BLACK_FAINT_PAPER];
+    majorInk = [DdFPadPadInk inkFromJson:INK_BLACK_HEAVY_PAPER];
     noMajorLines = [[DdFPadPadPageLineInformation alloc]initWithLineInk:minorInk LineGap:10];
     majorLines = [[DdFPadPadPageLineInformation alloc]initWithLineInk:minorInk LineGap:3 MajorLineInk:majorInk MajorLineInterval:10];
 }

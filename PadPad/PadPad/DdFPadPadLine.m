@@ -3,6 +3,8 @@
 #import "DdFPadPadLinePoint.h"
 #import "JSON.h"
 #import "Log.h"
+#import "DdFPadPadPenRepository.h"
+
 #define INK_KEY @"ink"
 #define POINTS_KEY @"points"
 
@@ -104,7 +106,7 @@
 }
 -(NSString*)DdFJSONRepresentation {
     NSDictionary *json = [NSDictionary dictionaryWithObjectsAndKeys:
-                          [_ink InkJSONDictionary], INK_KEY, 
+                          [_ink InkJSONRepresentation], INK_KEY, 
                           [self PointsJSONArray],POINTS_KEY,
                           nil];
     return [json JSONRepresentation];
@@ -129,14 +131,14 @@
         DdFPadPadLinePoint  *newPoint = [[DdFPadPadLinePoint alloc]initWithOrigin:CGPointApplyAffineTransform(point.origin, transform) velocity:point.velocity];
         [newPoints addObject:newPoint];        
     }
-    DdFPadPadInk *scaledInk = [[DdFPadPadInk alloc]initWithColor:self.ink.color Size:self.ink.inkSize * inkScale Type:self.ink.inkType];
+    DdFPadPadInk *scaledInk = [[DdFPadPadInk alloc]initWithColor:self.ink.color Size:self.ink.inkSize * inkScale Type:self.ink.inkType Name:self.ink.name];
     return [[DdFPadPadLine alloc]initWithId:self.lineId Ink:scaledInk Points:newPoints];
 }
 
 +(DdFPadPadLine*)lineFromNSFileWrapper:(NSFileWrapper*)wrapper {
     NSString *json = [[NSString alloc]initWithBytes:[wrapper.regularFileContents bytes] length:[wrapper.regularFileContents length] encoding:NSUTF8StringEncoding];
     NSDictionary *jsonDictionary = [json JSONValue];
-    DdFPadPadInk *ink = [[DdFPadPadInk alloc]initWithJSONDictionary:[jsonDictionary objectForKey:INK_KEY]];
+    DdFPadPadInk *ink = [DdFPadPadInk inkFromJson:[jsonDictionary objectForKey:INK_KEY]];
     NSString *fileName = wrapper.filename ? wrapper.filename : wrapper.preferredFilename;
     return [[DdFPadPadLine alloc]initWithId:[fileName stringByReplacingOccurrencesOfString:@".line" withString:@""] Ink:ink Points:[DdFPadPadLine JSONArrayToPoints:[jsonDictionary objectForKey:POINTS_KEY]]];
 }

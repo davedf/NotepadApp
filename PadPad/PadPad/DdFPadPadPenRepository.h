@@ -9,7 +9,8 @@
 #import <Foundation/Foundation.h>
 #import "DdFPadPadInk.h"
 #import "DdFPadPadPen.h"
-
+#define INK_BLACK_FAINT_PAPER @"bkfp"
+#define INK_BLACK_HEAVY_PAPER @"bkhp"
 #define INK_BLACK_1 @"bk1"
 #define INK_BLACK_3 @"bk3"
 #define INK_BLACK_5 @"bk5"

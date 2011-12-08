@@ -3,7 +3,7 @@
 #import "UIColor+DdFJSON.h"
 #import "JSON.h"
 #import "DdFPadPadColor.h"
-
+#import "DdFPadPadPenRepository.h"
 @implementation DdFPadPadInkTests {
     DdFPadPadColor *color;
     DdFPadPadInkSize inkSize;
@@ -13,10 +13,12 @@
 
 -(void)setUp {
     [super setUp];
-    color = [DdFPadPadColor blackInk];
-    inkSize = 1.5;
-    inkType = kFeltTip;
-    underTest = [[DdFPadPadInk alloc]initWithColor:[DdFPadPadColor blackInk] Size:inkSize Type:inkType];
+    DdFPadPadInk *ink = [[DdFPadPadPenRepository sharedDdFPadPadPenRepository]ink:INK_BLACK_FAINT_PAPER];
+    color = ink.color;
+    inkSize = ink.inkSize;
+    inkType = ink.inkType;
+    
+    underTest = [[DdFPadPadInk alloc]initWithColor:color Size:inkSize Type:inkType Name:INK_BLACK_FAINT_PAPER];
 }
 
 -(void)testSetsColor {
@@ -32,14 +34,12 @@
 }
 
 -(void)testJSONRepresentation {
-    NSString *expected = [NSString stringWithFormat:@"{\"color\":%@,\"type\":0,\"size\":1.5}",[color.color DdFJSONRepresentation]];
-    STAssertEqualObjects(expected, [underTest InkJSONRepresentation], @"Fail");
+    STAssertEqualObjects(underTest.name, [underTest InkJSONRepresentation], @"Fail");
 }
 
 -(void)testJSONRepresentationRoundTrip {
     NSString *json = [underTest InkJSONRepresentation];
-    NSDictionary *jsonDictionary = [json JSONValue];
-    DdFPadPadInk *restored = [[DdFPadPadInk alloc]initWithJSONDictionary:jsonDictionary];
+    DdFPadPadInk *restored = [DdFPadPadInk inkFromJson:json];
     STAssertEqualObjects(restored.color, underTest.color, @"Fail");
     STAssertEquals(restored.inkSize, underTest.inkSize, @"Fail");
     STAssertEquals(restored.inkType, underTest.inkType, @"Fail");

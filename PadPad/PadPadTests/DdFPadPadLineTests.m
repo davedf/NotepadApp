@@ -2,8 +2,8 @@
 #import "DdFPadPadLine.h"
 #import "DdFPadPadInk.h"
 #import "DdFPadPadLinePoint.h"
-
-#define JSON_EXAMPLE @"{\"ink\":{\"color\":{\"r\":0,\"b\":0,\"g\":0,\"a\":1},\"type\":0,\"size\":10},\"points\":[[1,1,0,0],[2,2,0,0]]}"
+#import "DdFPadPadPenRepository.h"
+#define JSON_EXAMPLE @"{\"ink\":\"bk1\",\"points\":[[1,1,0,0],[2,2,0,0]]}"
 
 @interface DdFPadPadLineTests()
 -(void)addExtraPoints;
@@ -15,7 +15,7 @@
 }
 
 -(void)setUp {
-    ink = [[DdFPadPadInk alloc]initWithColor:[DdFPadPadColor totalBlackInk] Size:10 Type:kFeltTip];
+    ink = [DdFPadPadInk inkFromJson:INK_BLACK_1];
     underTest = [[DdFPadPadLine alloc]initWithId:@"foobar" Ink:ink Points:[NSArray array]];
 }
 

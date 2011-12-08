@@ -32,15 +32,15 @@
     
     if (self.hasMajorLines) {
         return [NSDictionary dictionaryWithObjectsAndKeys:
-                [_lineInk InkJSONDictionary],INK_KEY, 
+                [_lineInk InkJSONRepresentation],INK_KEY, 
                 [NSNumber numberWithFloat:_lineGap],GAP_KEY,
-                [_majorLineInk InkJSONDictionary],MAJOR_LINE_INK_KEY, 
+                [_majorLineInk InkJSONRepresentation],MAJOR_LINE_INK_KEY, 
                 [NSNumber numberWithInt:_majorLineInterval],MAJOR_LINE_INTERVAL_KEY,
                 nil];
     }
     else {
         return [NSDictionary dictionaryWithObjectsAndKeys:
-                [_lineInk InkJSONDictionary],INK_KEY, 
+                [_lineInk InkJSONRepresentation],INK_KEY, 
                 [NSNumber numberWithFloat:_lineGap],GAP_KEY,
                 nil];        
     }
@@ -77,11 +77,11 @@
     return YES;
 }
 +(DdFPadPadPageLineInformation*)pageLineInformationWithJSONRepresentation:(NSDictionary*)jsonRepresentation {
-    DdFPadPadInk *lineInk = [[DdFPadPadInk alloc]initWithJSONDictionary:[jsonRepresentation objectForKey:INK_KEY]];
+    DdFPadPadInk *lineInk = [DdFPadPadInk inkFromJson:[jsonRepresentation objectForKey:INK_KEY]];
     DdFPadPadInk *majorLineInk = nil;
-    NSDictionary *majorInkDictionary = [jsonRepresentation objectForKey:MAJOR_LINE_INK_KEY];
+    NSString *majorInkDictionary = [jsonRepresentation objectForKey:MAJOR_LINE_INK_KEY];
     if (majorInkDictionary ) {
-        majorLineInk = [[DdFPadPadInk alloc]initWithJSONDictionary:majorInkDictionary];
+        majorLineInk = [DdFPadPadInk inkFromJson:majorInkDictionary];
     }
     CGFloat lineGap = [[jsonRepresentation objectForKey:GAP_KEY] floatValue];
     NSUInteger majorLineInterval = [[jsonRepresentation objectForKey:MAJOR_LINE_INTERVAL_KEY] intValue];

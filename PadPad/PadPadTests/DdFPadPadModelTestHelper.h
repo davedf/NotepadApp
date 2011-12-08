@@ -14,8 +14,8 @@
 #import "DdFPadPadModelTestHelper.h"
 #import "DdFPadPadPageLineInformation.h"
 
-#define JSON_MAJOR_LINES @"{\"mInk\":{\"color\":{\"r\":0,\"b\":0,\"g\":0,\"a\":1},\"type\":0,\"size\":2},\"gap\":3,\"mInterval\":10,\"ink\":{\"color\":{\"r\":0,\"b\":0,\"g\":0,\"a\":1},\"type\":0,\"size\":1}}"
-#define JSON_NO_MAJOR_LINES @"{\"ink\":{\"color\":{\"r\":0,\"b\":0,\"g\":0,\"a\":1},\"type\":0,\"size\":1},\"gap\":10}"
+#define JSON_MAJOR_LINES @"{\"mInk\":\"bkhp\",\"gap\":3,\"mInterval\":10,\"ink\":\"bkfp\"}"
+#define JSON_NO_MAJOR_LINES @"{\"ink\":\"bkfp\",\"gap\":10}"
 
 @interface DdFPadPadModelTestHelper : NSObject
 +(DdFPadPadInk*)ink ;
