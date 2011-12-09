@@ -19,7 +19,7 @@
 -(void)UpdateNSFileWrapperRepresentation:(NSFileWrapper*)wrapper;
 
 -(void)changePaper:(DdFPadPadPaper*)newPaper;
--(void)addLine:(DdFPadPadLine*)line;
+-(void)addLine:(DdFPadPadLine*)line undoManager:(NSUndoManager*)undoManager;
 
 +(DdFPadPadPage*)pageWithPageNumber:(NSUInteger)pageNumber NSFileWrapper:(NSFileWrapper*)wrapper;
 +(NSString*)pageIdentifierFromNSFileWrapper:(NSFileWrapper*)wrapper;

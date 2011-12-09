@@ -6,8 +6,8 @@
 #define PAPER_KEY @"paper"
 #define PAGE_NUMBER_KEY @"number"
 #define LINES_KEY @"lines"
-
 @interface DdFPadPadPage()
+-(void)removeLine:(NSString*)lineId;
 @end
 
 @implementation DdFPadPadPage
@@ -48,9 +48,17 @@
     return YES;
 }
 
--(void)addLine:(DdFPadPadLine*)line {
+-(void)addLine:(DdFPadPadLine*)line undoManager:(NSUndoManager*)undoManager {
     _lines = [_lines arrayByAddingObject:line];
+    [undoManager registerUndoWithTarget:self selector:@selector(removeLine:) object:line.lineId];
     _requiresSave = YES;
+}
+
+-(void)removeLine:(NSString*)lineId {
+    _lines = [_lines filteredArrayUsingPredicate:[NSPredicate predicateWithBlock:^BOOL(id evaluatedObject, NSDictionary *bindings) {
+        DdFPadPadLine *line = (DdFPadPadLine*)line;
+        return ![line.lineId isEqualToString:lineId];
+    }]];
 }
 
 -(void)changePaper:(DdFPadPadPaper*)newPaper {

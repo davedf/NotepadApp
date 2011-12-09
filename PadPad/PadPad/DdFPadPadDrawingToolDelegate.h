@@ -18,6 +18,7 @@
 @property (readonly) DdFPadPadToolView *toolView;
 @property (readonly) DdFPadPadPageView *pageView;
 @property (readonly) DdFPadPadToolCoordinateAdaptor *coordinateAdaptor;
+@property (readonly) NSUndoManager *undoManager;
 -(void)pageRedrawRequired;
 
 @end

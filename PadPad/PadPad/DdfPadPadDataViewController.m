@@ -7,7 +7,8 @@
 #import "DdFPadPadDrawingTool.h"
 #import "DdFPadPadToolRepository.h"
 #import "Log.h"
-
+#import "DdFPadPadApplicationState.h"
+#import "DdFPadPadBook.h"
 @interface DdfPadPadDataViewController()
 //@property (readonly) DdFPadPadPageView *pageView;
 -(void)sizeInkView;
@@ -108,5 +109,9 @@
 
 -(void)pageRedrawRequired {
     [self.pageView requiresRedraw];
+}
+
+-(NSUndoManager*)undoManager {
+    return [DdFPadPadApplicationState sharedDdFPadPadApplicationState].book.undoManager;
 }
 @end

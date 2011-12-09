@@ -42,7 +42,7 @@
 
 -(void)newGesture {
     DdFPadPadLine *newLine = [[DdFPadPadLine alloc]initWithId:[DdFStringUtils newStringWithUUID] Ink:_pen.ink Points:_lineBuilder.linePoints];
-    [_delegate.page addLine:newLine];
+    [_delegate.page addLine:newLine undoManager:self.delegate.undoManager];
     [_lineBuilder newLine];
     [_delegate pageRedrawRequired];
     [self drawCurrentLine];
