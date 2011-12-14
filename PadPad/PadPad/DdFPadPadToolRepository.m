@@ -10,7 +10,7 @@
 #import "DdFPadPadPenToolBuilder.h"
 #import "DdFPadPadPenRepository.h"
 #import "DdFGCDSingleton.h"
-
+#import "Log.h"
 @implementation DdFPadPadToolRepository {
     DdFPadPadPenToolBuilder *_penToolBuilder;
     NSMutableDictionary *_tools;
@@ -38,6 +38,7 @@
 }
 
 -(void)disposeDrawingToolForDelegate:(NSObject<DdFPadPadDrawingToolDelegate>*)toolDelegate {
+    TRACE(@"disposeDrawingToolForDelegate:%@",toolDelegate.page.pageLabel);
     [_tools removeObjectForKey:toolDelegate.page.pageLabel];
 }
 
