@@ -7,4 +7,7 @@
 @property (readonly, strong, nonatomic) DdfPadPadModelController *modelController;
 @property (strong) DdFPadPadBook *book;
 @property (weak,readonly) UIPopoverController *popController;
+@property (strong, nonatomic) IBOutlet UIButton *undoButton;
+
+-(IBAction)undoButtonClicked:(id)sender;
 @end

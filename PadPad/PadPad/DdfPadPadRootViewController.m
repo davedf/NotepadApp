@@ -6,7 +6,7 @@
 #import "Log.h"
 
 @implementation DdfPadPadRootViewController
-@synthesize pageViewController=_pageViewController,modelController=_modelController,book=_book,popController=_popController;
+@synthesize pageViewController=_pageViewController,modelController=_modelController,book=_book,popController=_popController,undoButton=_undoButton;
 
 #pragma mark - View lifecycle
 
@@ -47,10 +47,20 @@
 -(BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation {
     return YES;
 }
+
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([segue class] == [UIStoryboardPopoverSegue class]) {
         UIStoryboardPopoverSegue *popSegue = (UIStoryboardPopoverSegue*)segue;
         _popController = popSegue.popoverController;
+    }
+}
+
+-(IBAction)undoButtonClicked:(id)sender {
+    if (self.book.undoManager.canUndo) {
+        [self.book.undoManager undo];
+        for (DdfPadPadDataViewController *dataViewController in self.pageViewController.viewControllers) {
+            [dataViewController pageRedrawRequired];
+        }
     }
 }
 #pragma mark - UIPageViewController delegate methods
