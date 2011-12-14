@@ -55,14 +55,14 @@
 }
 
 -(void)removeLine:(NSString*)lineId {
-    NSLog(@"removeLine:%@ _lines:%d",lineId,_lines.count);
+    TRACE(@"removeLine:%@ _lines:%d",lineId,_lines.count);
     _lines = [_lines filteredArrayUsingPredicate:[NSPredicate predicateWithBlock:^BOOL(id evaluatedObject, NSDictionary *bindings) {
         DdFPadPadLine *line = (DdFPadPadLine*)evaluatedObject;
         BOOL keep =  ![line.lineId isEqualToString:lineId];
-        NSLog(@"keep:%@ removing:%@ %@",line.lineId, lineId,keep? @"Y" : @"N");
+        TRACE(@"keep:%@ removing:%@ %@",line.lineId, lineId,keep? @"Y" : @"N");
         return keep;
     }]];
-    NSLog(@"after removeLine:%@ _lines:%d",lineId,_lines.count);
+    TRACE(@"after removeLine:%@ _lines:%d",lineId,_lines.count);
     
 }
 

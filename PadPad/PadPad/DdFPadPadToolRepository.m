@@ -13,6 +13,7 @@
 
 @implementation DdFPadPadToolRepository {
     DdFPadPadPenToolBuilder *_penToolBuilder;
+    NSMutableDictionary *_tools;
 }
 @synthesize selectedToolBuilder=_selectedToolBuilder;
 
@@ -22,13 +23,22 @@
         _penToolBuilder = [[DdFPadPadPenToolBuilder alloc]init];
         _penToolBuilder.pen = [[DdFPadPadPenRepository sharedDdFPadPadPenRepository] pen];
         _selectedToolBuilder = _penToolBuilder;
+        _tools = [[NSMutableDictionary alloc]init];
     }
     return self;
 }
 
 -(NSObject<DdFPadPadDrawingTool>*)newDrawingToolForDelegate:(NSObject<DdFPadPadDrawingToolDelegate>*)toolDelegate {
-    NSObject<DdFPadPadDrawingTool> *newTool = [self.selectedToolBuilder newDrawingToolWithDelegate:toolDelegate];
+    NSObject<DdFPadPadDrawingTool> *newTool = [_tools objectForKey:toolDelegate.page.pageLabel];
+    if (!newTool) {
+        newTool = [self.selectedToolBuilder newDrawingToolWithDelegate:toolDelegate];
+        [_tools setObject:newTool forKey:toolDelegate.page.pageLabel];
+    }    
     return newTool;
+}
+
+-(void)disposeDrawingToolForDelegate:(NSObject<DdFPadPadDrawingToolDelegate>*)toolDelegate {
+    [_tools removeObjectForKey:toolDelegate.page.pageLabel];
 }
 
 -(NSObject<DdFPadPadDrawingToolBuilder>*)penToolBuilder {

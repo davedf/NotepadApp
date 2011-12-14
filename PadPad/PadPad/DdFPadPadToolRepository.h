@@ -18,7 +18,7 @@
 @property (readonly) NSObject<DdFPadPadDrawingToolBuilder> *penToolBuilder;
 
 -(NSObject<DdFPadPadDrawingTool>*)newDrawingToolForDelegate:(NSObject<DdFPadPadDrawingToolDelegate>*)toolDelegate;
-
+-(void)disposeDrawingToolForDelegate:(NSObject<DdFPadPadDrawingToolDelegate>*)toolDelegate;
 
 +(DdFPadPadToolRepository*)sharedDdFPadPadToolRepository;
 @end
