@@ -16,6 +16,7 @@
 
 @property (strong) NSObject<DdFPadPadDrawingToolBuilder> *selectedToolBuilder;
 @property (readonly) NSObject<DdFPadPadDrawingToolBuilder> *penToolBuilder;
+@property (readonly) NSObject<DdFPadPadDrawingToolBuilder> *eraserToolBuilder;
 
 -(NSObject<DdFPadPadDrawingTool>*)newDrawingToolForDelegate:(NSObject<DdFPadPadDrawingToolDelegate>*)toolDelegate;
 -(void)disposeDrawingToolForDelegate:(NSObject<DdFPadPadDrawingToolDelegate>*)toolDelegate;

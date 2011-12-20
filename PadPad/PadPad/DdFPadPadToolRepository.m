@@ -8,11 +8,14 @@
 
 #import "DdFPadPadToolRepository.h"
 #import "DdFPadPadPenToolBuilder.h"
+#import "DdFPadPadEraserToolBuilder.h"
 #import "DdFPadPadPenRepository.h"
+#import "DdFPadPadEraserRepository.h"
 #import "DdFGCDSingleton.h"
 #import "Log.h"
 @implementation DdFPadPadToolRepository {
     DdFPadPadPenToolBuilder *_penToolBuilder;
+    DdFPadPadEraserToolBuilder *_eraserToolBuilder;
     NSMutableDictionary *_tools;
 }
 @synthesize selectedToolBuilder=_selectedToolBuilder;
@@ -22,6 +25,8 @@
     if (self) {
         _penToolBuilder = [[DdFPadPadPenToolBuilder alloc]init];
         _penToolBuilder.pen = [[DdFPadPadPenRepository sharedDdFPadPadPenRepository] pen];
+        _eraserToolBuilder = [[DdFPadPadEraserToolBuilder alloc]init];
+        _eraserToolBuilder.eraser = [DdFPadPadEraserRepository sharedDdFPadPadEraserRepository].eraser;
         _selectedToolBuilder = _penToolBuilder;
         _tools = [[NSMutableDictionary alloc]init];
     }
@@ -44,6 +49,10 @@
 
 -(NSObject<DdFPadPadDrawingToolBuilder>*)penToolBuilder {
     return _penToolBuilder;
+}
+
+-(NSObject<DdFPadPadDrawingToolBuilder>*)eraserToolBuilder {
+    return _eraserToolBuilder;
 }
 
 +(DdFPadPadToolRepository*)sharedDdFPadPadToolRepository {

@@ -36,6 +36,7 @@
 		551FBBBD149A12360004781F /* DdFPadPadEraserTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 551FBBBC149A12360004781F /* DdFPadPadEraserTool.m */; };
 		551FBBC414A0F9EA0004781F /* DdFPadPadEraserToolBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = 551FBBC314A0F9EA0004781F /* DdFPadPadEraserToolBuilder.m */; };
 		551FBBC814A0FA500004781F /* DdfPadPadEraser.m in Sources */ = {isa = PBXBuildFile; fileRef = 551FBBC714A0FA500004781F /* DdfPadPadEraser.m */; };
+		551FBBCB14A0FC430004781F /* DdFPadPadEraserRepository.m in Sources */ = {isa = PBXBuildFile; fileRef = 551FBBCA14A0FC430004781F /* DdFPadPadEraserRepository.m */; };
 		552AE9ED14681C8300BE8A07 /* DdFPadPadPageBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = 552AE9EC14681C8300BE8A07 /* DdFPadPadPageBuilder.m */; };
 		552AE9F21468231A00BE8A07 /* DdFPadPadPageBuilderTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 552AE9F11468231A00BE8A07 /* DdFPadPadPageBuilderTests.m */; };
 		552AE9F5146826DE00BE8A07 /* DdFPadPadPaperRepository.m in Sources */ = {isa = PBXBuildFile; fileRef = 552AE9F4146826DE00BE8A07 /* DdFPadPadPaperRepository.m */; };
@@ -182,6 +183,8 @@
 		551FBBC314A0F9EA0004781F /* DdFPadPadEraserToolBuilder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DdFPadPadEraserToolBuilder.m; sourceTree = "<group>"; };
 		551FBBC614A0FA500004781F /* DdfPadPadEraser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DdfPadPadEraser.h; sourceTree = "<group>"; };
 		551FBBC714A0FA500004781F /* DdfPadPadEraser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DdfPadPadEraser.m; sourceTree = "<group>"; };
+		551FBBC914A0FC430004781F /* DdFPadPadEraserRepository.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DdFPadPadEraserRepository.h; sourceTree = "<group>"; };
+		551FBBCA14A0FC430004781F /* DdFPadPadEraserRepository.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DdFPadPadEraserRepository.m; sourceTree = "<group>"; };
 		552AE9EB14681C8300BE8A07 /* DdFPadPadPageBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DdFPadPadPageBuilder.h; sourceTree = "<group>"; };
 		552AE9EC14681C8300BE8A07 /* DdFPadPadPageBuilder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DdFPadPadPageBuilder.m; sourceTree = "<group>"; };
 		552AE9EF14681DD800BE8A07 /* DdFGCDSingleton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DdFGCDSingleton.h; sourceTree = "<group>"; };
@@ -512,6 +515,8 @@
 				551FBBC314A0F9EA0004781F /* DdFPadPadEraserToolBuilder.m */,
 				551FBBC614A0FA500004781F /* DdfPadPadEraser.h */,
 				551FBBC714A0FA500004781F /* DdfPadPadEraser.m */,
+				551FBBC914A0FC430004781F /* DdFPadPadEraserRepository.h */,
+				551FBBCA14A0FC430004781F /* DdFPadPadEraserRepository.m */,
 			);
 			name = Eraser;
 			sourceTree = "<group>";
@@ -926,6 +931,7 @@
 				55AFF27E149FE2B200798E93 /* DdFPadPadEraserDrawingItem.m in Sources */,
 				551FBBC414A0F9EA0004781F /* DdFPadPadEraserToolBuilder.m in Sources */,
 				551FBBC814A0FA500004781F /* DdfPadPadEraser.m in Sources */,
+				551FBBCB14A0FC430004781F /* DdFPadPadEraserRepository.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
