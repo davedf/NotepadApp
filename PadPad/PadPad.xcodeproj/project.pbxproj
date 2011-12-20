@@ -34,6 +34,8 @@
 		551872701436015E009125A6 /* DdFPadPadPaper.m in Sources */ = {isa = PBXBuildFile; fileRef = 5518726F1436015E009125A6 /* DdFPadPadPaper.m */; };
 		5518727714360436009125A6 /* DdFPadPadInk.m in Sources */ = {isa = PBXBuildFile; fileRef = 5518727614360435009125A6 /* DdFPadPadInk.m */; };
 		551FBBBD149A12360004781F /* DdFPadPadEraserTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 551FBBBC149A12360004781F /* DdFPadPadEraserTool.m */; };
+		551FBBC414A0F9EA0004781F /* DdFPadPadEraserToolBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = 551FBBC314A0F9EA0004781F /* DdFPadPadEraserToolBuilder.m */; };
+		551FBBC814A0FA500004781F /* DdfPadPadEraser.m in Sources */ = {isa = PBXBuildFile; fileRef = 551FBBC714A0FA500004781F /* DdfPadPadEraser.m */; };
 		552AE9ED14681C8300BE8A07 /* DdFPadPadPageBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = 552AE9EC14681C8300BE8A07 /* DdFPadPadPageBuilder.m */; };
 		552AE9F21468231A00BE8A07 /* DdFPadPadPageBuilderTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 552AE9F11468231A00BE8A07 /* DdFPadPadPageBuilderTests.m */; };
 		552AE9F5146826DE00BE8A07 /* DdFPadPadPaperRepository.m in Sources */ = {isa = PBXBuildFile; fileRef = 552AE9F4146826DE00BE8A07 /* DdFPadPadPaperRepository.m */; };
@@ -176,6 +178,10 @@
 		5518727614360435009125A6 /* DdFPadPadInk.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DdFPadPadInk.m; sourceTree = "<group>"; };
 		551FBBBB149A12360004781F /* DdFPadPadEraserTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DdFPadPadEraserTool.h; sourceTree = "<group>"; };
 		551FBBBC149A12360004781F /* DdFPadPadEraserTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DdFPadPadEraserTool.m; sourceTree = "<group>"; };
+		551FBBC214A0F9EA0004781F /* DdFPadPadEraserToolBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DdFPadPadEraserToolBuilder.h; sourceTree = "<group>"; };
+		551FBBC314A0F9EA0004781F /* DdFPadPadEraserToolBuilder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DdFPadPadEraserToolBuilder.m; sourceTree = "<group>"; };
+		551FBBC614A0FA500004781F /* DdfPadPadEraser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DdfPadPadEraser.h; sourceTree = "<group>"; };
+		551FBBC714A0FA500004781F /* DdfPadPadEraser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DdfPadPadEraser.m; sourceTree = "<group>"; };
 		552AE9EB14681C8300BE8A07 /* DdFPadPadPageBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DdFPadPadPageBuilder.h; sourceTree = "<group>"; };
 		552AE9EC14681C8300BE8A07 /* DdFPadPadPageBuilder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DdFPadPadPageBuilder.m; sourceTree = "<group>"; };
 		552AE9EF14681DD800BE8A07 /* DdFGCDSingleton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DdFGCDSingleton.h; sourceTree = "<group>"; };
@@ -502,6 +508,10 @@
 			children = (
 				551FBBBB149A12360004781F /* DdFPadPadEraserTool.h */,
 				551FBBBC149A12360004781F /* DdFPadPadEraserTool.m */,
+				551FBBC214A0F9EA0004781F /* DdFPadPadEraserToolBuilder.h */,
+				551FBBC314A0F9EA0004781F /* DdFPadPadEraserToolBuilder.m */,
+				551FBBC614A0FA500004781F /* DdfPadPadEraser.h */,
+				551FBBC714A0FA500004781F /* DdfPadPadEraser.m */,
 			);
 			name = Eraser;
 			sourceTree = "<group>";
@@ -914,6 +924,8 @@
 				55FC6531148E58A1007CA3C8 /* DdFPadPadInkView.m in Sources */,
 				551FBBBD149A12360004781F /* DdFPadPadEraserTool.m in Sources */,
 				55AFF27E149FE2B200798E93 /* DdFPadPadEraserDrawingItem.m in Sources */,
+				551FBBC414A0F9EA0004781F /* DdFPadPadEraserToolBuilder.m in Sources */,
+				551FBBC814A0FA500004781F /* DdfPadPadEraser.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

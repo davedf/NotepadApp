@@ -8,17 +8,24 @@
 
 #import "DdFPadPadEraserTool.h"
 #import "DdFPadPadToolCoordinateAdaptor.h"
+#import "DdFPadPadEraserDrawingItem.h"
+
+@interface DdFPadPadEraserTool()
+-(void)drawCurrentEraserState;
+@end
 
 @implementation DdFPadPadEraserTool {
     DdFPadPadToolCoordinateAdaptor *_coordinateAdaptor;
-
+    CGPoint _lastIdealEraserPoint;
+    DdfPadPadEraser *_eraser;
 }
 @synthesize delegate=_delegate;
--(id)initWithDelegate:(NSObject<DdFPadPadDrawingToolDelegate>*)delegate {
+-(id)initWithDelegate:(NSObject<DdFPadPadDrawingToolDelegate>*)delegate Eraser:(DdfPadPadEraser*)eraser {
     self = [super init];
     if (self) {
         _delegate = delegate;
         _coordinateAdaptor = [[DdFPadPadToolCoordinateAdaptor alloc]initWithPageView:delegate.pageView ToolView:delegate.toolView];
+        _eraser = eraser;
     }
     return self;
 }
@@ -28,7 +35,11 @@
     
 }
 -(void)touchAtPoint:(CGPoint)point WithVelocity:(CGPoint) velocity {
-    
+    _lastIdealEraserPoint = [_coordinateAdaptor convertToolViewPointToIdealPoint:point];
 }
 
+-(void)drawCurrentEraserState {
+    DdFPadPadEraserDrawingItem *drawingItem = [[DdFPadPadEraserDrawingItem alloc]initWithPoint:_lastIdealEraserPoint size:_eraser.size PointTransformer:_coordinateAdaptor.idealToToolViewTransform LineWidthScale:_coordinateAdaptor.idealToToolLineWidthScale];
+    [_delegate.toolView draw:drawingItem];
+}
 @end

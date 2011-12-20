@@ -8,8 +8,8 @@
 
 #import <Foundation/Foundation.h>
 #import "DdFPadPadDrawingTool.h"
-
+#import "DdfPadPadEraser.h"
 @interface DdFPadPadEraserTool : NSObject<DdFPadPadDrawingTool>
 
--(id)initWithDelegate:(NSObject<DdFPadPadDrawingToolDelegate>*)delegate;
+-(id)initWithDelegate:(NSObject<DdFPadPadDrawingToolDelegate>*)delegate Eraser:(DdfPadPadEraser*)eraser;
 @end

@@ -11,5 +11,5 @@
 
 @interface DdFPadPadEraserDrawingItem : NSObject<DdFPadPadToolViewDrawingItem>
 
--(id)initWithPoint:(CGPoint)point size:(CGFloat)size;
+-(id)initWithPoint:(CGPoint)point size:(CGFloat)size PointTransformer:(CGAffineTransform)pointTransform LineWidthScale:(CGFloat)lineWidthScale;
 @end
