@@ -4,6 +4,7 @@
 #import "DdFPadPadBook.h"
 #import "DdFPadPadBookRepository.h"
 #import "Log.h"
+#import "DdFPadPadToolRepository.h"
 
 @implementation DdfPadPadRootViewController
 @synthesize pageViewController=_pageViewController,modelController=_modelController,book=_book,popController=_popController,undoButton=_undoButton;
@@ -96,6 +97,16 @@
 
 
     return UIPageViewControllerSpineLocationMid;
+}
+
+-(IBAction)inkToolClicked:(id)sender {
+    DdFPadPadToolRepository *repo = [DdFPadPadToolRepository sharedDdFPadPadToolRepository];
+    [repo changeSelectedToolBuilder:repo.penToolBuilder];
+}
+-(IBAction)eraserToolClicked:(id)sender {
+    DdFPadPadToolRepository *repo = [DdFPadPadToolRepository sharedDdFPadPadToolRepository];
+    [repo changeSelectedToolBuilder:repo.eraserToolBuilder];
+    
 }
 
 @end

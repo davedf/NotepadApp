@@ -10,4 +10,6 @@
 @property (strong, nonatomic) IBOutlet UIButton *undoButton;
 
 -(IBAction)undoButtonClicked:(id)sender;
+-(IBAction)inkToolClicked:(id)sender;
+-(IBAction)eraserToolClicked:(id)sender;
 @end

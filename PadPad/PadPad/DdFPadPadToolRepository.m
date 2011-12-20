@@ -42,6 +42,10 @@
     return newTool;
 }
 
+-(void)changeSelectedToolBuilder:(NSObject<DdFPadPadDrawingToolBuilder>*)newSelectedToolBuilder {
+    [_tools removeAllObjects];
+    _selectedToolBuilder = newSelectedToolBuilder;
+}
 -(void)disposeDrawingToolForDelegate:(NSObject<DdFPadPadDrawingToolDelegate>*)toolDelegate {
     TRACE(@"disposeDrawingToolForDelegate:%@",toolDelegate.page.pageLabel);
     [_tools removeObjectForKey:toolDelegate.page.pageLabel];
