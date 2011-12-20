@@ -79,6 +79,7 @@
 		559C105C1439BC4000FBD055 /* DdFPadPadLinePoint.m in Sources */ = {isa = PBXBuildFile; fileRef = 559C105B1439BC4000FBD055 /* DdFPadPadLinePoint.m */; };
 		559C10601439BFF800FBD055 /* DdFPadPadLinePointTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 559C105F1439BFF800FBD055 /* DdFPadPadLinePointTests.m */; };
 		559C10671439C50800FBD055 /* DdFPadPadLineTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 559C10661439C50800FBD055 /* DdFPadPadLineTests.m */; };
+		55AFF27E149FE2B200798E93 /* DdFPadPadEraserDrawingItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 55AFF27D149FE2B200798E93 /* DdFPadPadEraserDrawingItem.m */; };
 		55B9B0341486332200AC92FB /* DdFPadPadToolRepository.m in Sources */ = {isa = PBXBuildFile; fileRef = 55B9B0331486332200AC92FB /* DdFPadPadToolRepository.m */; };
 		55D69445143F109400DFE8EF /* DdFPadPadBookRepository.m in Sources */ = {isa = PBXBuildFile; fileRef = 55D69444143F109400DFE8EF /* DdFPadPadBookRepository.m */; };
 		55D69449143F5F2D00DFE8EF /* NSMutableArray+DdFPadPadPageOrder.m in Sources */ = {isa = PBXBuildFile; fileRef = 55D69448143F5F2D00DFE8EF /* NSMutableArray+DdFPadPadPageOrder.m */; };
@@ -247,6 +248,8 @@
 		559C105F1439BFF800FBD055 /* DdFPadPadLinePointTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DdFPadPadLinePointTests.m; sourceTree = "<group>"; };
 		559C10651439C50800FBD055 /* DdFPadPadLineTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DdFPadPadLineTests.h; sourceTree = "<group>"; };
 		559C10661439C50800FBD055 /* DdFPadPadLineTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DdFPadPadLineTests.m; sourceTree = "<group>"; };
+		55AFF27C149FE2B200798E93 /* DdFPadPadEraserDrawingItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DdFPadPadEraserDrawingItem.h; sourceTree = "<group>"; };
+		55AFF27D149FE2B200798E93 /* DdFPadPadEraserDrawingItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DdFPadPadEraserDrawingItem.m; sourceTree = "<group>"; };
 		55B9B0311486301500AC92FB /* DdFPadPadDrawingTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DdFPadPadDrawingTool.h; sourceTree = "<group>"; };
 		55B9B0321486332200AC92FB /* DdFPadPadToolRepository.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DdFPadPadToolRepository.h; sourceTree = "<group>"; };
 		55B9B0331486332200AC92FB /* DdFPadPadToolRepository.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DdFPadPadToolRepository.m; sourceTree = "<group>"; };
@@ -416,6 +419,18 @@
 		551872581434A300009125A6 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				550615B11487D89200F3EED8 /* DdFPadPadInkDrawingItem.h */,
+				550615B21487D89200F3EED8 /* DdFPadPadInkDrawingItem.m */,
+				55FC652C148E580B007CA3C8 /* DdFPadPadInkTableViewCell.h */,
+				55FC652D148E580B007CA3C8 /* DdFPadPadInkTableViewCell.m */,
+				55FC652F148E58A1007CA3C8 /* DdFPadPadInkView.h */,
+				55FC6530148E58A1007CA3C8 /* DdFPadPadInkView.m */,
+				550615B41487DD0900F3EED8 /* DdFPadPadLine+CGContextRef.h */,
+				550615B51487DD0900F3EED8 /* DdFPadPadLine+CGContextRef.m */,
+				550615B71487DDBD00F3EED8 /* DdFPadPadLine+Interpolation.h */,
+				550615B81487DDBD00F3EED8 /* DdFPadPadLine+Interpolation.m */,
+				550615C0148CDD4100F3EED8 /* DdFPadPadPage+DrawingItems.h */,
+				550615C1148CDD4200F3EED8 /* DdFPadPadPage+DrawingItems.m */,
 				551872691435D29A009125A6 /* DdFPadPadPageView.h */,
 				5518726A1435D29A009125A6 /* DdFPadPadPageView.m */,
 				5533B898146BE1890096FF9F /* DdFPadPadPaperTableViewCell.h */,
@@ -424,26 +439,16 @@
 				5533B89D146BEAC90096FF9F /* DdFPadPadPaperView.m */,
 				5589D332146AE9D400146640 /* DdFPadPadShadeView.h */,
 				5589D333146AE9D400146640 /* DdFPadPadShadeView.m */,
-				5589D32714698C5C00146640 /* DdFPadPadViewContants.h */,
-				5589D32414698B9900146640 /* UIView+DdFPadPadPaper.h */,
-				5589D32514698B9900146640 /* UIView+DdFPadPadPaper.m */,
 				550615A01486822300F3EED8 /* DdFPadPadToolCoordinateAdaptor.h */,
 				550615A11486822300F3EED8 /* DdFPadPadToolCoordinateAdaptor.m */,
 				550615AD1487D51000F3EED8 /* DdFPadPadToolView.h */,
 				550615AE1487D51000F3EED8 /* DdFPadPadToolView.m */,
 				550615B01487D57C00F3EED8 /* DdFPadPadToolViewDrawingItem.h */,
-				550615B11487D89200F3EED8 /* DdFPadPadInkDrawingItem.h */,
-				550615B21487D89200F3EED8 /* DdFPadPadInkDrawingItem.m */,
-				550615B41487DD0900F3EED8 /* DdFPadPadLine+CGContextRef.h */,
-				550615B51487DD0900F3EED8 /* DdFPadPadLine+CGContextRef.m */,
-				550615B71487DDBD00F3EED8 /* DdFPadPadLine+Interpolation.h */,
-				550615B81487DDBD00F3EED8 /* DdFPadPadLine+Interpolation.m */,
-				550615C0148CDD4100F3EED8 /* DdFPadPadPage+DrawingItems.h */,
-				550615C1148CDD4200F3EED8 /* DdFPadPadPage+DrawingItems.m */,
-				55FC652C148E580B007CA3C8 /* DdFPadPadInkTableViewCell.h */,
-				55FC652D148E580B007CA3C8 /* DdFPadPadInkTableViewCell.m */,
-				55FC652F148E58A1007CA3C8 /* DdFPadPadInkView.h */,
-				55FC6530148E58A1007CA3C8 /* DdFPadPadInkView.m */,
+				5589D32714698C5C00146640 /* DdFPadPadViewContants.h */,
+				5589D32414698B9900146640 /* UIView+DdFPadPadPaper.h */,
+				5589D32514698B9900146640 /* UIView+DdFPadPadPaper.m */,
+				55AFF27C149FE2B200798E93 /* DdFPadPadEraserDrawingItem.h */,
+				55AFF27D149FE2B200798E93 /* DdFPadPadEraserDrawingItem.m */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -908,6 +913,7 @@
 				55FC652E148E580B007CA3C8 /* DdFPadPadInkTableViewCell.m in Sources */,
 				55FC6531148E58A1007CA3C8 /* DdFPadPadInkView.m in Sources */,
 				551FBBBD149A12360004781F /* DdFPadPadEraserTool.m in Sources */,
+				55AFF27E149FE2B200798E93 /* DdFPadPadEraserDrawingItem.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
