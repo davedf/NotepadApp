@@ -15,7 +15,7 @@
     self = [super init];
     if (self) {
         _eraser = [[DdfPadPadEraser alloc]init];
-        _eraser.size = 10;
+        _eraser.size = 50;
     }
     return self;
 }

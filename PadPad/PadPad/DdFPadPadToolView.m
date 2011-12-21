@@ -19,7 +19,13 @@
 - (void)drawRect:(CGRect)rect
 {
     CGContextRef context = UIGraphicsGetCurrentContext();    
-    [_drawingItem drawInContext:context];
+    if (_drawingItem) {
+        [_drawingItem drawInContext:context];
+        
+    }
+    else {
+        CGContextStrokePath(context);
+    }
 }
 
 

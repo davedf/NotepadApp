@@ -32,10 +32,12 @@
 
 #pragma mark - DdFPadPadDrawingTool()
 -(void)newGesture {
+    [_delegate.toolView draw:nil];
     
 }
 -(void)touchAtPoint:(CGPoint)point WithVelocity:(CGPoint) velocity {
     _lastIdealEraserPoint = [_coordinateAdaptor convertToolViewPointToIdealPoint:point];
+    [self drawCurrentEraserState];
 }
 
 -(void)drawCurrentEraserState {
