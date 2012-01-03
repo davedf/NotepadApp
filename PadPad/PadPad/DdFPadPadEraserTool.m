@@ -42,17 +42,12 @@
 
 #pragma mark - DdFPadPadDrawingTool()
 -(void)newGesture {
-<<<<<<< HEAD
     [self.delegate.page replaceLines:_removedLines WithNewLines:_eraseredLines undoManager:self.delegate.undoManager];
     [_eraseredLines removeAllObjects];
     [_removedLines removeAllObjects];
-    [self drawCurrentEraserState];
     [_delegate pageRedrawRequired];
-
-=======
     [_delegate.toolView draw:nil];
     
->>>>>>> 07c54cb767e7c0a14e58db500a775303e70b4bc5
 }
 
 -(void)touchAtPoint:(CGPoint)point WithVelocity:(CGPoint) velocity {
