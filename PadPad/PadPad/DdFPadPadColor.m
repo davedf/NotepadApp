@@ -68,7 +68,7 @@
 }
 
 +(DdFPadPadColor*)yellowHighlightInk {
-    return [[DdFPadPadColor alloc]initWithUIColor:[UIColor colorWithRed:1.0 green:1.0 blue:0.4 alpha:0.4]];    
+    return [[DdFPadPadColor alloc]initWithUIColor:[UIColor colorWithRed:1.0 green:1.0 blue:0.4 alpha:0.25]];    
 }
 
 +(DdFPadPadColor*)faintBlackInk {
