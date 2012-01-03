@@ -2,12 +2,14 @@
 #import "DdFPadPadPaper.h"
 #import "DdFPadPadLine.h"
 #import "Log.h"
+#import "DdFPadPadLineReplacementInformation.h"
 
 #define PAPER_KEY @"paper"
 #define PAGE_NUMBER_KEY @"number"
 #define LINES_KEY @"lines"
+
 @interface DdFPadPadPage()
--(void)removeLine:(NSString*)lineId;
+-(void)replaceLines:(DdFPadPadLineReplacementInformation*)replacementInformation;
 @end
 
 @implementation DdFPadPadPage
@@ -48,10 +50,24 @@
     return YES;
 }
 
+-(void)replaceLines:(NSArray*)lines WithNewLines:(NSArray*)newLines undoManager:(NSUndoManager*)undoManager {
+    __block DdFPadPadLineReplacementInformation *undoInformation = [[DdFPadPadLineReplacementInformation alloc]initWithLinestoRemove:newLines linesToAdd:lines];
+    [undoManager registerUndoWithTarget:self selector:@selector(replaceLines:) object:undoInformation];
+    DdFPadPadLineReplacementInformation *doInformation = [[DdFPadPadLineReplacementInformation alloc]initWithLinestoRemove:lines linesToAdd:newLines];
+    [self replaceLines:doInformation];
+}
+
 -(void)addLine:(DdFPadPadLine*)line undoManager:(NSUndoManager*)undoManager {
     _lines = [_lines arrayByAddingObject:line];
     [undoManager registerUndoWithTarget:self selector:@selector(removeLine:) object:line.lineId];
     _requiresSave = YES;
+}
+
+-(void)replaceLines:(DdFPadPadLineReplacementInformation*)replacementInformation {
+    for (DdFPadPadLine *line in replacementInformation.toRemove) {
+        [self removeLine:line.lineId];
+    }
+    _lines = [_lines arrayByAddingObjectsFromArray:replacementInformation.toAdd];
 }
 
 -(void)removeLine:(NSString*)lineId {

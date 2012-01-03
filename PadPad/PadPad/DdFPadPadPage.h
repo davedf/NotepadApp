@@ -20,6 +20,8 @@
 
 -(void)changePaper:(DdFPadPadPaper*)newPaper;
 -(void)addLine:(DdFPadPadLine*)line undoManager:(NSUndoManager*)undoManager;
+-(void)replaceLines:(NSArray*)lines WithNewLines:(NSArray*)newLines undoManager:(NSUndoManager*)undoManager;
+-(void)removeLine:(NSString*)lineId;
 
 +(DdFPadPadPage*)pageWithPageNumber:(NSUInteger)pageNumber NSFileWrapper:(NSFileWrapper*)wrapper;
 +(NSString*)pageIdentifierFromNSFileWrapper:(NSFileWrapper*)wrapper;
